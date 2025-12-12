@@ -4,48 +4,50 @@ Chloros ponuja popolno podporo vmesnika v **38 jezikih po vsem svetu**, kar ga n
 
 Chloros podpira naslednje jezike:
 
-1. 🇺🇸 **angleščina**
-2. 🇪🇸 **Español** (španščina)
-3. 🇵🇹 **Português** (portugalščina)
-4. 🇫🇷 **Français** (francoščina)
-5. 🇩🇪 **Deutsch** (nemščina)
-6. 🇮🇹 **Italiano** (italijanščina)
-7. 🇯🇵 **日本語** (japonščina)
-8. 🇰🇷 **한국어** (korejščina)
-9. 🇨🇳 **简体中文** (poenostavljena kitajščina)
-10. 🇹🇼 **繁體中文** (tradicionalna kitajščina)
-11. 🇷🇺 **Русский** (ruščina)
-12. 🇳🇱 **Nederlands** (nizozemščina)
-13. 🇸🇦 **العربية** (arabščina)
-14. 🇵🇱 **Polski** (poljščina)
-15. 🇹🇷 **Türkçe** (turščina)
-16. 🇮🇳 **हिंदी** (hindijščina)
-17. 🇮🇩 **Bahasa Indonesia** (indonezijščina)
-18. 🇻🇳 **Tiếng Việt** (vietnamščina)
-19. 🇹🇭 **ไทย** (tajščina)
-20. 🇸🇪 **Svenska** (švedščina)
-21. 🇩🇰 **Dansk** (dansk)
-22. 🇳🇴 **Norsk** (norveški)
-23. 🇫🇮 **Suomi** (finski)
-24. 🇬🇷 **Ελληνικά** (grški)
-25. 🇨🇿 **Čeština** (češčina)
-26. 🇭🇺 **Magyar** (madžarščina)
-27. 🇷🇴 **Română** (romunščina)
-28. 🇺🇦 **Українська** (ukrajinščina)
-29. 🇧🇷 **Português Brasileiro** (brazilska portugalščina)
-30. 🇭🇰 **粵語** (kantonščina)
-31. 🇲🇾 **Bahasa Melayu** (malajščina)
-32. 🇸🇰 **Slovenčina** (slovaški)
-33. 🇧🇬 **Български** (bolgarski)
-34. 🇭🇷 **Hrvatski** (hrvaški)
-35. 🇱🇹 **Lietuvių** (litovski)
-36. 🇱🇻 **Latviešu** (latvijščina)
-37. 🇪🇪 **Eesti** (estonski)
-38. 🇸🇮 **Slovenščina** (slovenščina)
+| # | Jezik | Izvirno ime | CLI Koda |
+|---|----------|-------------|----------|
+| 1 | 🇺🇸 Angleščina | Angleščina | `en` |
+| 2 | 🇪🇸 Španščina | Español | `es` |
+| 3 | 🇵🇹 Portugalščina | Português | `pt` |
+| 4 | 🇫🇷 Francoščina | Français | `fr` |
+| 5 | 🇩🇪 Nemščina | Deutsch | `de` |
+| 6 | 🇮🇹 Italijanščina | Italiano | `it` |
+| 7 | 🇯🇵 Japonščina | 日本語 | `ja` |
+| 8 | 🇰🇷 Korejščina | 한국어 | `ko` |
+| 9 | 🇨🇳 Kitajščina (poenostavljena) | 简体中文 | `zh` |
+| 10 | 🇹🇼 Kitajščina (tradicionalna) | 繁體中文 | `zh-TW` |
+| 11 | 🇷🇺 Ruščina | Русский | `ru` |
+| 12 | 🇳🇱 Nizozemščina | Nederlands | `nl` |
+| 13 | 🇸🇦 Arabščina | العربية | `ar` |
+| 14 | 🇵🇱 Poljščina | Polski | `pl` |
+| 15 | 🇹🇷 Turščina | Türkçe | `tr` |
+| 16 | 🇮🇳 Hindijščina | हिंदी | `hi` |
+| 17 | 🇮🇩 Indonezijščina | Bahasa Indonesia | `id` |
+| 18 | 🇻🇳 Vietnamščina | Tiếng Việt | `vi` |
+| 19 | 🇹🇭 Tajski | ไทย | `th` |
+| 20 | 🇸🇪 Švedski | Svenska | `sv` |
+| 21 | 🇩🇰 Danski | Dansk | `da` |
+| 22 | 🇳🇴 Norveški | Norsk | `no` |
+| 23 | 🇫🇮 Finski | Suomi | `fi` |
+| 24 | 🇬🇷 Grški | Ελληνικά | `el` |
+| 25 | 🇨🇿 Češki | Čeština | `cs` |
+| 26 | 🇭🇺 Madžarski | Magyar | `hu` |
+| 27 | 🇷🇴 Romunski | Română | `ro` |
+| 28 | 🇺🇦 Ukrajinski | Українська | `uk` |
+| 29 | 🇧🇷 brazilska portugalščina | Português Brasileiro | `pt-BR` |
+| 30 | 🇭🇰 kantonščina | 粵語 | `zh-HK` |
+| 31 | 🇲🇾 Malajščina | Bahasa Melayu | `ms` |
+| 32 | 🇸🇰 Slovaščina | Slovenčina | `sk` |
+| 33 | 🇧🇬 Bolgarščina | Български | `bg` |
+| 34 | 🇭🇷 Hrvaščina | Hrvatski | `hr` |
+| 35 | 🇱🇹 Litovščina | Lietuvių | `lt` |
+| 36 | 🇱🇻 Latvijščina | Latviešu | `lv` |
+| 37 | 🇪🇪 Estonščina | Eesti | `et` |
+| 38 | 🇸🇮 Slovenščina | Slovenščina | `sl` |
 
 ## Kako spremeniti jezik
 
-### V Chloros namizni računalnik/brskalnik
+### V Chloros namizju/brskalniku
 
 1. Odprite nastavitve aplikacije.
 2. Prejdite v meni za izbiro jezika.
@@ -54,7 +56,26 @@ Chloros podpira naslednje jezike:
 
 ### V Chloros CLI
 
-Za nastavitev jezika vmesnika uporabite jezikovni parameter s svojimi ukazi.
+Uporabite ukaz `language`, da si ogledate ali spremenite jezik vmesnika CLI:
+
+```bash
+# View current language
+chloros-cli language
+
+# Change to Spanish
+chloros-cli language es
+
+# Change to Chinese (Simplified)
+chloros-cli language zh
+
+# Change to Brazilian Portuguese
+chloros-cli language pt-BR
+
+# List all available languages
+chloros-cli language --list
+```
+
+Za več podrobnosti glejte [dokumentacijo CLI](CLI.md).
 
 ### V Chloros Python SDK
 
