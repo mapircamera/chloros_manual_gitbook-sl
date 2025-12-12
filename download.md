@@ -4,169 +4,165 @@ metaLinks:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/download
 ---
 
-# Download
+# Prenos
 
-Download the latest version of Chloros for Windows to get started with multispectral image processing.
+Prenesite najnovejšo različico Chloros za Windows, da se lahko začnete ukvarjati z obdelavo multispektralnih slik.
 
-### System Requirements
+### Sistemski zahtevi
 
-| Requirement          | Minimum                         | Recommended                     |
+| Zahteva          | Minimalna                         | Priporočena                     |
 | -------------------- | ------------------------------- | ------------------------------- |
-| **Operating System** | Windows 10 (64-bit)             | Windows 11 (64-bit)             |
-| **Processor**        | Intel Core i5 or equivalent     | Intel Core i7 or better         |
-| **Memory (RAM)**     | 8GB                             | 16GB or more                    |
-| **Graphics Card**    | DirectX 11 compatible           | NVIDIA GPU with 4GB+ VRAM       |
-| **Storage**          | 2GB free space                  | SSD with 10GB+ free space       |
-| **Display**          | 1920x1080                       | 2560x1440 or higher             |
-| **Internet**         | Required for license activation | Required for license activation |
+| **Operacijski sistem** | Windows 10 (64-bitni)             | Windows 11 (64-bitni)             |
+| **Procesor**        | Intel Core i5 ali enakovreden     | Intel Core i7 ali boljši         |
+| **Pomnilnik (RAM)**     | 8 GB                             | 16 GB ali več                    |
+| **Grafična kartica**    | Združljiva z DirectX 11           | NVIDIA GPU z 4 GB+ VRAM       |
+| **Shranjevanje**          | 2 GB prostega prostora                  | SSD z 10 GB+ prostega prostora       |
+| **Zaslon**          | 1920x1080                       | 2560x1440 ali več             |
+| **Internet**         | Potreben za aktiviranje licence | Potreben za aktiviranje licence |
 
-{% hint style="info" %}
-**GPU Acceleration**: Chloros+ users with NVIDIA GPUs (4GB+ VRAM) can use CUDA acceleration for significantly faster processing.
+{% hint style=&quot;info&quot; %}
+**Pospeševanje GPU**: Uporabniki Chloros+ z grafičnimi karticami NVIDIA (4 GB+ VRAM) lahko uporabijo pospeševanje CUDA za bistveno hitrejše obdelovanje.
 {% endhint %}
 
 ***
 
-## Download Chloros
+## Prenesite Chloros
 
-### <a href="https://drive.google.com/file/d/1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4/view?usp=drive_link" class="button primary">Download Chloros Here</a>
+### <a href="https://drive.google.com/file/d/1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4/view?usp=drive_link" class="button primary">Prenesite Chloros tukaj</a>
 
-### Latest Stable Release
+### Najnovejša stabilna različica
 
-**Chloros Installer for Windows**
+**Chloros Namestitveni program za Windows**
 
-* **Version**: 1.0.3
-* **Release Date**: December ?, 2025
-* **File Size**: 1.6GB
-* **File Type**: .exe (Windows Installer)
+* **Različica**: 1.0.3
+* **Datum izdaje**: december ?, 2025
+* **Velikost datoteke**: 1,6 GB
+* **Vrsta datoteke**: .exe (namestitveni program Windows)
 
-#### **Installation Steps:**
+#### **Koraki namestitve:**
 
-1. Download the `CHLOROS INSTALLER - CURRENT VERSION.exe` file
-2. Double-click the installer to begin installation
-3. Follow the installation wizard prompts
-4. Choose installation directory (default: `C:\Program Files\Chloros\`)
-5. Complete installation and launch Chloros
-6. Sign in with your MAPIR Cloud Chloros+ account (or continue with free version)
+1. Prenesite datoteko `CHLOROS INSTALLER - CURRENT VERSION.exe`.
+2. Dvakrat kliknite namestitveni program, da začnete namestitev.
+3. Sledite navodilom namestitvenega čarovnika.
+4. Izberite namestitveni imenik (privzeto: `C:\Program Files\Chloros\`).
+5. Zaključite namestitev in zaženite Chloros.
+6. Prijavite se s svojim računom MAPIR Cloud Chloros+ (ali nadaljujte z brezplačno različico).
 
-{% hint style="success" %}
-The installer automatically adds `chloros-cli` to your system PATH for command-line access.
+{% hint style=&quot;success&quot; %}
+Namestitveni program samodejno doda `chloros-cli` v sistemsko pot PATH za dostop prek ukazne vrstice.
 {% endhint %}
 
 ***
 
-## Additional Resources
+## Dodatni viri
 
 ### Python SDK
 
-For developers and automation workflows, install the Chloros Python SDK:
+Za razvijalce in avtomatizirane delovne tokove namestite Chloros Python SDK:
 
 ```bash
 pip install chloros-sdk
 ```
 
-**Documentation**: [API: Python SDK](api-python-sdk.md)
+**Dokumentacija**: [API: Python SDK](api-python-sdk.md)
 
-**Requirements**: Chloros Desktop must be installed, Chloros+ license required
-
-***
-
-## What's Included
-
-The Chloros installation includes:
-
-* ✅ **Chloros Desktop GUI** - Full-featured graphical interface
-* ✅ **Chloros (Browser)** - Web-based interface for lower-spec systems
-* ✅ **Chloros CLI** - Command-line interface (requires Chloros+ license)
-* ✅ **Backend Engine** - Image processing pipeline
-* ✅ **Camera Profiles** - Pre-configured MAPIR camera templates
+**Zahteve**: Chloros Desktop mora biti nameščen, potrebna je licenca Chloros+.
 
 ***
 
-## Upgrade to Chloros+
+## Kaj je vključeno
 
-Unlock advanced features with a Chloros+ subscription:
+Namestitev Chloros vključuje:
 
-* 🚀 **Multi-threaded Processing** - Process images in parallel
-* ⚡ **GPU (CUDA) Acceleration** - Leverage NVIDIA GPU power
-* 💻 **CLI Access** - Automate with command-line tools
-* 🐍 **Python SDK** - Programmatic API access
-* 📱 **Multiple Devices** - Use on 2-10+ devices (plan dependent)
-* 🧮 **Custom Formulas** - Create custom multispectral indices
-
-<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">View Chloros+ Plans &#x26; Pricing</a></p>
+* ✅ **Chloros Desktop GUI** – grafični vmesnik s polno funkcionalnostjo
+* ✅ **Chloros (brskalnik)** – spletni vmesnik za sisteme z nižjimi specifikacijami
+* ✅ **Chloros CLI** – vmesnik ukazne vrstice (zahteva licenco Chloros+)
+* ✅ **Backend Engine** – potek obdelave slik
+* ✅ **Profil kamere** - Vnaprej nastavljene predloge kamer MAPIR
 
 ***
 
-## Installation Help
+## Nadgradnja na Chloros+
 
-### Troubleshooting
+Odkleni napredne funkcije z naročnino Chloros+:
 
-**Installation fails with error message:**
+* 🚀 **Večnitna obdelava** – vzporedna obdelava slik
+* ⚡ **Pospeševanje GPU (CUDA)** – izkoristite moč grafičnega procesorja NVIDIA
+* 💻 **Dostop CLI** – avtomatizirajte z orodji za ukazno vrstico
+* 🐍 **Python SDK** - Programski dostop API
+* 📱 **Več naprav** - Uporaba na 2–10+ napravah (odvisno od načrta)
+* 🧮 **Prilagojene formule** - Ustvarjanje prilagojenih multispektralnih indeksov
 
-* Ensure you have administrator rights
-* Temporarily disable antivirus software
-* Check that you meet minimum system requirements
+<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Oglejte si načrte in cene Chloros+</a></p>***
 
-**Application won't start:**
+## Pomoč pri namestitvi
 
-* Try Chloros (Browser) version
-* Verify Windows 10/11 (64-bit) is installed
-* Update graphics drivers
-* Check Windows Event Viewer for error details
-* Contact support with error logs
+### Odpravljanje težav
 
-**License activation issues:**
+**Namestitev ni uspela in se je pojavila napaka:**
 
-* Ensure internet connection is active
-* Verify credentials at [https://cloud.mapir.camera](https://cloud.mapir.camera)
-* Check firewall isn't blocking Chloros
-* See [Chloros+ Login](chloros+-login.md) for detailed instructions
+* Preverite, ali imate administratorske pravice.
+* Začasno onemogočite protivirusno programsko opremo.
+* Preverite, ali izpolnjujete minimalne sistemske zahteve.
 
-### Getting Support
+**Aplikacija se ne zažene:**
 
-Need help with installation or setup?
+* Poskusite z različico Chloros (brskalnik)
+* Preverite, ali je nameščen Windows 10/11 (64-bit)
+* Posodobite grafične gonilnike
+* Preverite podrobnosti napake v pregledovalniku dogodkov Windows
+* Obrnite se na podporo uporabnikom s protokoli napak.
 
-* 📧 **Email**: info@mapir.camera
-* 🌐 **Website**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* 📚 **Documentation**: [Getting Started](./)
-* ❓ **FAQ**: [Frequently Asked Questions](faq.md)
+**Težave z aktiviranjem licence:**
+
+* Preverite, ali je internetna povezava aktivna.
+* Preverite poverilnice na [https://cloud.mapir.camera](https://cloud.mapir.camera).
+* Preverite, ali požarni zid ne blokira Chloros.
+* Podrobna navodila najdete na [Chloros+ Prijava](chloros+-login.md)
+
+### Pomoč
+
+Potrebujete pomoč pri namestitvi ali nastavitvi?
+
+* 📧 **E-pošta**: info@mapir.camera
+* 🌐 **Spletna stran**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
+* 📚 **Dokumentacija**: [Začetek dela](./)
+* ❓ **Pogosta vprašanja**: [Pogosta vprašanja](faq.md)
 
 ***
 
-## Change Log
+## Seznam sprememb
 
 <details>
 
-<summary>Version 1.0.3</summary>
+<summary>Različica 1.0.3</summary>
 
-### **Release Date**: December ?, 2025
+### **Datum izdaje**: december ?, 2025
 
-#### New Features
+#### Nove funkcije
 
-* Initial Launch
+* Prvi zagon
 
-#### Improvements
+#### Izboljšave
 
-* Initial Launch
+* Prvi zagon
 
-#### Bug Fixes
+#### Popravki napak
 
-* Initial Launch
+* Prvi zagon
 
-#### Known Issues
+#### Znane težave
 
-* Initial Launch
+* Prvi zagon
 
-</details>
+</details>***
 
-***
+## Licenčna pogodba
 
-## License Agreement
+**Lastniška programska oprema** – Avtorske pravice (c) 2025 MAPIR Inc.
 
-**Proprietary Software** - Copyright (c) 2025 MAPIR Inc.
+Neodobrena uporaba, distribucija ali sprememba je prepovedana.
 
-Unauthorized use, distribution, or modification is prohibited.
+**Brezplačna različica**: Na voljo za osebno in komercialno uporabo z omejenimi funkcijami.
 
-**Free Version**: Available for personal and commercial use with feature limitations
-
-**Chloros+**: Subscription-based license for advanced features and commercial deployments
+**Chloros+**: Licenca na podlagi naročnine za napredne funkcije in komercialno uporabo.

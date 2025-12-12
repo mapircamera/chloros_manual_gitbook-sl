@@ -1,43 +1,39 @@
-# Chloros+ Login
+# Chloros+ Prijava
 
-## Chloros and Chloros (Browser) Login
+## Chloros in Chloros (brskalnik) Prijava
 
-The user <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> sidebar menu allows you to log into your Chloros+ account and unlock additional features.
+Uporabniški <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> stranski meni vam omogoča prijavo v vaš račun Chloros+ in odklepanje dodatnih funkcij.
 
-When logged in your account details will be shown:
+Ko se prijavite, se prikažejo podrobnosti vašega računa:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Prijava
 
-## CLI Login
+Prijavite se s svojimi podatki za Chloros+, da omogočite obdelavo CLI.
 
-Login with your Chloros+ credentials to enable CLI processing.
-
-**Syntax:**
+**Sintaksa:**
 
 ```bash
 chloros-cli login <email> <password>
 ```
 
-**Example:**
+**Primer:**
 
 ```powershell
 chloros-cli login user@example.com 'MyP@ssw0rd123'
 ```
 
-{% hint style="warning" %}
-**Special Characters**: Use single quotes around passwords containing characters like `$`, `!`, or spaces.
+{% hint style=&quot;warning&quot; %}
+**Posebni znaki**: Uporabite enojne narekovaje okoli gesel, ki vsebujejo znake, kot so `$`, `!` ali presledke.
 {% endhint %}
 
-**Output:**
+**Izhod:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Potek veljavnosti načrta
 
-### Plan Expiration
+Potek veljavnosti načrta v grafičnem uporabniškem vmesniku prikazuje, kdaj bo vaša licenca postala neveljavna. Pri ponavljajočih se mesečnih naročninah veljavnost poteče ob koncu meseca. Pri letnih naročninah veljavnost poteče eno leto po začetku naročnine. Preverjanje licence zahteva mesečno internetno povezavo za preverjanje, z 30-dnevnim odlogom.
 
-The plan expiration in the GUI shows when your license will become invalid. For recurring monthly subscriptions the expiration is at the end of the month. For yearly subscriptions it is a year after you started the subscription. The license check requires a monthly internet connection to verify, with a 30 day grace period.
+### Omejitev naprav
 
-### Device Limit
+Vsak načrt Chloros+ ponuja različno število registriranih naprav. Vsaka naprava, v katero se prijavite z računom Chloros+, se šteje v število registriranih naprav. Napravo lahko preimenujete in odstranite na strani računa MAPIR Cloud.
 
-Each Chloros+ plan offers a different number of registered devices. Each device you log into with a Chloros+ account will count towards your number of registered devices. You can rename and remove a device on your MAPIR Cloud account page.
-
-<table><thead><tr><th width="168.5999755859375" align="right">Chloros+ Plan</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">GOLD</th></tr></thead><tbody><tr><td align="right">Devices Supported</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>
+<table><thead><tr><th width="168.5999755859375" align="right">Chloros+ načrt</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SREBRO</th><th align="center">ZLATO</th></tr></thead><tbody><tr><td align="right">Podprte naprave</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>

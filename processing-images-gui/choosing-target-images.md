@@ -1,221 +1,221 @@
-# Choosing Target Images
+# Izbiranje ciljnih slik
 
-Marking which images contain calibration targets is a crucial step that significantly speeds up the Chloros processing pipeline. By pre-selecting target images, you eliminate the need for Chloros to scan every image in your dataset for calibration targets.
+Označevanje slik, ki vsebujejo kalibracijske cilje, je ključni korak, ki znatno pospeši obdelavo Chloros. Z vnaprejšnjo izbiro ciljnih slik odpravite potrebo, da Chloros skenira vsako sliko v vašem nizu podatkov za kalibracijske cilje.
 
-## Why Mark Target Images?
+## Zakaj označiti ciljne slike?
 
-### Processing Speed
+### Hitrost obdelave
 
-Without marking target images, Chloros must:
+Brez označevanja ciljnih slik mora Chloros:
 
-* Scan every single image in your project
-* Run target detection algorithms on each image
-* Check hundreds or thousands of images unnecessarily
+* Pregledati vsako posamezno sliko v vašem projektu.
+* Izvesti algoritme za zaznavanje ciljev na vsaki sliki.
+* Nepotrebno preveriti na stotine ali tisoče slik.
 
-**Result**: Processing can take significantly longer, especially for large datasets.
+**Rezultat**: Obdelava lahko traja bistveno dlje, zlasti pri velikih podatkovnih nizih.
 
-### With Marked Target Images
+### Z označenimi ciljnimi slikami
 
-When you check the Target column for specific images:
+Ko v stolpcu Cilj označite določene slike:
 
-* Chloros only scans the checked images for targets
-* Target detection completes much faster
-* Overall processing time is greatly reduced
+* Chloros pregleda samo označene slike za cilje
+* Odkrivanje ciljev je veliko hitrejše
+* Skupni čas obdelave je znatno krajši
 
-{% hint style="success" %}
-**Speed Improvement**: Marking 2-3 target images in a 500-image dataset can reduce target detection time from 30+ minutes to under 1 minute.
+{% namig style=&quot;success&quot; %}
+**Izboljšanje hitrosti**: Označitev 2–3 ciljnih slik v nizu podatkov s 500 slikami lahko skrajša čas zaznavanja ciljev s 30+ minut na manj kot 1 minuto.
 {% endhint %}
 
 ***
 
-## How to Mark Target Images
+## Kako označiti ciljne slike
 
-### Step 1: Identify Your Target Images
+### Korak 1: Prepoznajte ciljne slike
 
-Look through your imported images in the File Browser and identify which images contain calibration targets.
+Preglejte uvožene slike v brskalniku datotek in prepoznajte, katere slike vsebujejo kalibracijske cilje.
 
-**Common scenarios:**
+**Pogosti scenariji:**
 
-* **Pre-capture target**: Captured before starting the session
-* **Post-capture target**: Captured after completing the session
-* **In-field targets**: Targets placed within the capture area
-* **Multiple targets**: 2-3 target images per session (recommended)
+* **Cilj pred zajemom**: zajet pred začetkom seje
+* **Cilj po zajemom**: zajet po zaključku seje
+* **Cilji na terenu**: cilji, nameščeni znotraj območja zajema
+* **Več ciljev**: 2–3 ciljne slike na sejo (priporočeno)
 
-### Step 2: Check the Target Column
+### Korak 2: Preverite stolpec Cilj
 
-For each image containing a calibration target:
+Za vsako sliko, ki vsebuje kalibracijski cilj:
 
-1. Locate the image in the File Browser table
-2. Find the **Target** column (rightmost column)
-3. Click the checkbox in the Target column for that image
-4. Repeat for all images containing targets
+1. Poiščite sliko v tabeli brskalnika datotek.
+2. Poiščite stolpec **Cilj** (skrajni desni stolpec).
+3. Kliknite potrditveno polje v stolpcu Cilj za to sliko.
+4. Ponovite za vse slike, ki vsebujejo cilje.
 
-### Step 3: Verify Your Selection
+### Korak 3: Preverite svojo izbiro
 
-Before processing, double-check:
+Pred obdelavo še enkrat preverite:
 
-* [ ] All images with calibration targets are checked
-* [ ] No non-target images are accidentally checked
-* [ ] Targets are clearly visible in checked images
-
-***
-
-## Best Practices for Target Images
-
-### Target Capture Guidelines
-
-**Timing:**
-
-* Capture target images immediately before and throughout your capture session
-* Within the same lighting conditions as your DAQ light sensor
-* Ideally capture target images as often as possible for the best results. Otherwise, the light sensor data will be used to adjust the calibration over time.
-
-**Camera Position:**
-
-* Hold camera above target such that is is centered and fills around 40-60% of the image center.
-* Keep camera parallel/nadir to target surface
-
-**Lighting:**
-
-* Same ambient lighting as your DAQ light sensor
-* Avoid shadows on the target surfaces
-* Don't block your light source with your body, vehicle or vegetation
-* Overcast conditions provide most consistent results
-
-**Target Condition:**
-
-* Keep target panels clean and dry
-* All 4 panels should be clearly visible and unobstructed
-* Targets perpendicular/nadir to the light source if possible
-
-### How Many Target Images?
-
-**Minimum:** 1 target image per session. **Recommended:** 3-5 target images per session.
-
-**Best practice schedule:**
-
-* 3-5 images captured shortly after the light sensor is recording
-* Rotate the camera between captures for the best results
-* Optional: periodically mid-session if lighting conditions change constantly
+* [ ] Vse slike s cilji kalibracije so označene.
+* [ ] Nobena slika, ki ni ciljna, ni bila naključno označena.
+* [ ] Cilji so jasno vidni na označenih slikah.
 
 ***
 
-## Working with Multiple Cameras
+## Najboljše prakse za ciljne slike
 
-### Dual-Camera Setups
+### Smernice za zajemanje ciljev
 
-If using two MAPIR cameras simultaneously (e.g., Survey3W RGN + Survey3N OCN):
+**Čas:**
 
-1. Capture target images with **both cameras** at the same time
-2. Use the **same physical target** for both cameras
-3. Mark target images for **both camera types** in the File Browser
-4. Chloros will use appropriate targets for each camera's calibration
+* Ciljne slike zajemajte takoj pred in med sejo zajemanja.
+* V enakih svetlobnih pogojih kot svetlobni senzor DAQ.
+* Za najboljše rezultate ciljne slike zajemajte čim pogosteje. V nasprotnem primeru se bodo za prilagajanje kalibracije sčasoma uporabili podatki svetlobnega senzorja.
 
-### Camera Model Column
+**Položaj kamere:**
 
-The **Camera Model** column helps identify which images came from which camera:
+* Kamero držite nad ciljem tako, da je centrirana in zapolnjuje približno 40–60 % sredine slike.
+* Kamero držite vzporedno/nadirno s ciljno površino
+
+**Osvetlitev:**
+
+* Enaka osvetlitev okolice kot pri senzorju svetlobe DAQ.
+* Izogibajte se sencam na ciljnih površinah.
+* Ne prekrivajte vira svetlobe s svojim telesom, vozilom ali vegetacijo.
+* Oblačni pogoji zagotavljajo najbolj dosledne rezultate.
+
+**Pogoji cilja:**
+
+* Ciljne plošče morajo biti čiste in suhe.
+* Vse 4 plošče morajo biti jasno vidne in neprekrite.
+* Cilji morajo biti po možnosti pravokotni/nadirni glede na vir svetlobe.
+
+### Koliko ciljnih slik?
+
+**Minimalno:** 1 slika cilja na sejo. **Priporočeno:** 3–5 slik cilja na sejo.
+
+**Najboljši urnik:**
+
+* 3–5 slik, posnetih kmalu po začetku snemanja svetlobnega senzorja
+* Za najboljše rezultate med posnetki vrtite kamero
+* Izbirno: redno med sejo, če se svetlobne razmere nenehno spreminjajo
+
+***
+
+## Delo z več kamerami
+
+### Nastavitve z dvema kamerama
+
+Če hkrati uporabljate dve kameri MAPIR (npr. Survey3W RGN + Survey3N OCN):
+
+1. Hkrati zajemite ciljne slike z **obe kamerami**.
+2. Za obe kameri uporabite **isti fizični cilj**.
+3. V brskalniku datotek označite ciljne slike za **oba tipa kamer**.
+4. Chloros bo za kalibracijo vsake kamere uporabil ustrezne cilje.
+
+### Stolpec Model kamere
+
+Stolpec **Model kamere** pomaga identificirati, katere slike so bile posnete s katero kamero:
 
 * Survey3W\_RGN
 * Survey3N\_OCN
 * Survey3W\_RGB
-* etc.
+* itd.
 
-Use this column to verify you've marked targets for each camera type in your project.
-
-***
-
-## Target Detection Settings
-
-### Adjusting Detection Sensitivity
-
-If Chloros isn't detecting your targets correctly, adjust these settings in [Project Settings](adjusting-project-settings.md):
-
-**Minimum calibration sample area:**
-
-* **Default**: 25 pixels
-* **Increase** if getting false detections on small artifacts
-* **Decrease** if targets aren't being detected
-
-**Minimum target clustering:**
-
-* **Default**: 60
-* **Increase** if targets are being split into multiple detections
-* **Decrease** if targets with color variation aren't fully detected
+Ta stolpec uporabite za preverjanje, ali ste v svojem projektu označili cilje za vsak tip kamere.
 
 ***
 
-## Common Target Image Issues
+## Nastavitve zaznavanja ciljev
 
-### Problem: No Targets Detected
+### Prilagajanje občutljivosti zaznavanja
 
-**Possible causes:**
+Če Chloros ne zazna vaših ciljev pravilno, prilagodite te nastavitve v [Nastavitvah projekta](adjusting-project-settings.md):
 
-* Target images not marked in File Browser
-* Target too small in frame (< 30% of image)
-* Poor lighting (shadows, glare)
-* Target detection settings too strict
+**Minimalno kalibrirano vzorčno območje:**
 
-**Solutions:**
+* **Privzeto**: 25 pikslov
+* **Povečajte**, če pride do napačnih zaznavanj majhnih artefaktov.
+* **Zmanjšajte**, če cilji niso zaznavani.
 
-1. Verify Target column is checked for correct images
-2. Review target image quality in preview
-3. Recapture targets if quality is poor
-4. Adjust target detection settings if needed
+**Minimalno združevanje ciljev:**
 
-### Problem: False Target Detections
-
-**Possible causes:**
-
-* White buildings, vehicles, or ground cover mistaken for targets
-* Bright patches in vegetation
-* Detection sensitivity too low
-
-**Solutions:**
-
-1. Mark only actual target images to limit detection scope
-2. Increase minimum calibration sample area
-3. Increase minimum target clustering value
-4. Ensure target images show only the target (minimal background clutter)
+* **Privzeto**: 60
+* **Povečajte**, če se cilji razdelijo na več zaznav
+* **Zmanjšajte**, če cilji z barvnimi odstopanji niso v celoti zaznavni
 
 ***
 
-## Verification Checklist
+## Pogoste težave s slikami ciljev
 
-Before starting processing, verify your target image selection:
+### Težava: Cilji niso zaznavni
 
-* [ ] At least 1 target image marked per session
-* [ ] Target column checkboxes are checked for all target images
-* [ ] Target images captured within same timeframe as survey
-* [ ] Targets clearly visible in preview when clicked
-* [ ] All 4 calibration panels visible in each target image
-* [ ] No shadows or obstructions on targets
-* [ ] For dual-camera: Targets marked for both camera types
+**Možni vzroki:**
+
+* Slike ciljev niso označene v brskalniku datotek
+* Cilj je v okviru premajhen (&lt; 30 % slike)
+* Slaba osvetlitev (sence, bleščanje)
+* Preveč stroge nastavitve zaznavanja ciljev
+
+**Rešitve:**
+
+1. Preverite, ali je stolpec Cilj označen za pravilne slike.
+2. Preverite kakovost slike cilja v predogledu.
+3. Ponovno zajemite cilje, če je kakovost slaba.
+4. Po potrebi prilagodite nastavitve zaznavanja ciljev.
+
+### Težava: napačno zaznavanje ciljev
+
+**Možni vzroki:**
+
+* Bele stavbe, vozila ali talna pokrivnost, ki se zamenjajo za cilje
+* Svetle lise v vegetaciji
+* Premajhna občutljivost zaznavanja
+
+**Rešitve:**
+
+1. Označite samo dejanske ciljne slike, da omejite obseg zaznavanja
+2. Povečajte minimalno kalibrirano vzorčno območje
+3. Povečajte minimalno vrednost združevanja ciljev
+4. Preverite, da ciljne slike prikazujejo samo cilj (minimalno ozadje)
 
 ***
 
-## Target-Free Processing
+## Seznam za preverjanje
 
-### Processing Without Calibration Targets
+Pred začetkom obdelave preverite izbiro slik ciljev:
 
-While not recommended for scientific work, you can process without targets:
+* [ ] Vsaj 1 označena slika cilja na sejo
+* [ ] Potrditvena polja stolpca ciljev so potrjena za vse slike ciljev
+* [ ] Slike ciljev so zajete v istem časovnem obdobju kot raziskava
+* [ ] Cilji so jasno vidni v predogledu, ko kliknete nanje
+* [ ] Vse 4 kalibracijske plošče so vidne na vsaki sliki cilja
+* [ ] Na ciljih ni senc ali ovir
+* [ ] Za dvojno kamero: cilji so označeni za oba tipa kamer
 
-1. Leave all Target column checkboxes unchecked
-2. **Disable** "Reflectance calibration" in Project Settings
-3. Vignette correction will still be applied
-4. Output will not be calibrated for absolute reflectance
+***
 
-{% hint style="warning" %}
-**Not Recommended**: Without reflectance calibration, pixel values represent relative brightness only, not scientific reflectance measurements. Use calibration targets for accurate, repeatable results.
+## Obdelava brez ciljev
+
+### Obdelava brez kalibracijskih ciljev
+
+Čeprav to ni priporočljivo za znanstveno delo, lahko obdelujete brez ciljev:
+
+1. Vse potrditvene polja v stolpcu Cilj pustite neizpolnjena.
+2. **Onemogočite** »Kalibracijo odbojnosti« v nastavitvah projekta.
+3. Popravek vinjete bo še vedno uporabljen.
+4. Izhod ne bo kalibriran za absolutno odbojnost.
+
+{% hint style=&quot;warning&quot; %}
+**Ni priporočljivo**: Brez kalibracije odbojnosti vrednosti pikslov predstavljajo le relativno svetlost, ne pa znanstvene meritve odbojnosti. Za natančne in ponovljive rezultate uporabite kalibracijske cilje.
 {% endhint %}
 
 ***
 
-## Next Steps
+## Naslednji koraki
 
-Once you've marked your target images:
+Ko označite ciljne slike:
 
-1. **Review your settings** - See [Adjusting Project Settings](adjusting-project-settings.md)
-2. **Start processing** - See [Starting the Processing](starting-the-processing.md)
-3. **Monitor progress** - See [Monitoring the Processing](monitoring-the-processing.md)
+1. **Preglejte nastavitve** – glejte [Prilagajanje nastavitev projekta](adjusting-project-settings.md)
+2. **Začnite obdelavo** – glejte [Začetek obdelave](starting-the-processing.md)
+3. **Spremljajte napredek** – glejte [Spremljanje obdelave](monitoring-the-processing.md)
 
-For more information about calibration targets themselves, see [Calibration Targets](../calibration-targets.md).
+Za več informacij o kalibracijskih ciljih glejte [Kalibracijski cilji](../calibration-targets.md).

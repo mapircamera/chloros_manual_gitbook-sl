@@ -1,352 +1,352 @@
-# Image Layers
+# Sloji slike
 
-The Image Layers dropdown in the Chloros Image Viewer allows you to quickly switch between different versions of the same image - from the original captures to processed reflectance outputs and calculated index images.
+Spustni meni Sloji slike v pregledovalniku slik Chloros vam omogoča hitro preklapljanje med različnimi različicami iste slike – od originalnih posnetkov do obdelanih izhodnih odbojnih slik in izračunanih indeksnih slik.
 
-## What are Image Layers?
+## Kaj so sloji slike?
 
-In Chloros, **layers** refer to the different image outputs available for a single source image. When you process images, Chloros creates multiple versions:
+V Chloros se **plasti** nanašajo na različne izhodne slike, ki so na voljo za eno izvorno sliko. Ko obdelujete slike, Chloros ustvari več različic:
 
-* **Original images** (JPG and RAW files from your camera)
-* **Reflectance calibrated** outputs (if reflectance calibration was enabled)
-* **Target images** (if the image contains calibration targets)
-* **Index images** (NDVI, NDRE, GNDVI, etc. if indices were configured)
+* **Izvorne slike** (datoteke JPG in RAW iz vaše kamere)
+* **Kalibrirani izhodi odbojnosti** (če je bila omogočena kalibracija odbojnosti)
+* **Ciljne slike** (če slika vsebuje kalibracijske cilje)
+* **Indeksne slike** (NDVI, NDRE, GNDVI itd., če so bili konfigurirani indeksi)
 
-The **Layer Selector dropdown** in the top-right of the Image Viewer lets you instantly switch between these versions without leaving the viewer.
+**Spustni meni za izbiro plasti** v zgornjem desnem kotu pregledovalnika slik vam omogoča takojšnje preklapljanje med temi različicami, ne da bi zapustili pregledovalnik.
 
 ***
 
-## Available Layer Types
+## Razpoložljivi tipi plasti
 
 ### JPG
 
-* The original JPG preview image from your camera
-* Always available for all images
-* Unprocessed, as captured by the camera
-* Fastest to load and display
+* Izvirna predogledna slika JPG iz vaše kamere
+* Vedno na voljo za vse slike
+* Nepredelana, kot jo je zajela kamera
+* Najhitrejša za nalaganje in prikazovanje
 
-**When to view:**
+**Kdaj si jo ogledati:**
 
-* Quick preview of original capture
-* Checking image composition and framing
-* Verifying capture quality before processing
+* Hitri predogled originalnega posnetka
+* Preverjanje kompozicije in kadriranja slike
+* Preverjanje kakovosti posnetka pred obdelavo
 
-### RAW (Original)
+### RAW (original)
 
-* The original RAW sensor data from your camera
-* Debayered with no post processing applied
-* Higher bit depth than JPG (typically 12-bit or 14-bit sensor data)
+* Originalni podatki senzorja RAW iz vaše kamere
+* Brez post-obdelave
+* Višja bitna globina kot JPG (običajno 12-bitni ali 14-bitni podatki senzorja)
 
-**When to view:**
+**Kdaj si ogledati:**
 
-* Inspecting original sensor data quality
-* Checking for sensor issues or artifacts
-* Comparing before/after processing results
+* Preverjanje kakovosti originalnih podatkov senzorja
+* Preverjanje težav s senzorjem ali artefaktov
+* Primerjava rezultatov pred in po obdelavi
 
-### RAW (Target)
+### RAW (cilj)
 
-* Only appears for images identified as containing calibration targets
-* Shows the original RAW image with target detected
-* Used to verify target detection was successful
+* Prikaže se samo za slike, ki vsebujejo kalibracijske cilje
+* Prikaže originalno RAW sliko z zaznanim ciljem
+* Uporablja se za preverjanje uspešnosti zaznavanja cilja
 
-**When to view:**
+**Kdaj si ogledati:**
 
-* Confirming calibration targets were detected correctly
-* Checking target image quality
-* Troubleshooting calibration issues
+* Potrditev, da so bili kalibracijski cilji pravilno zaznan
+* Preverjanje kakovosti ciljne slike
+* Odpravljanje težav s kalibracijo
 
-{% hint style="info" %}
-**Target Layer**: This layer only appears in the dropdown for images that contain calibration targets. Regular capture images will not have this option.
+{% hint style=&quot;info&quot; %}
+**Ciljna plast**: Ta plast se prikaže le v spustnem meniju za slike, ki vsebujejo kalibracijske cilje. Običajne zajete slike te možnosti nimajo.
 {% endhint %}
 
-### RAW (Reflectance)
+### RAW (odbojnost)
 
-* The calibrated reflectance output image
-* Vignette corrected (if enabled in processing)
-* Reflectance calibrated using target data (if enabled)
-* Multi-band TIFF with all camera channels
-* Pixel values represent percent reflectance (when using percent mode)
-* Ready to manipulate with the [Index/LUT Sandbox](index-lut-sandbox.md)
+* Kalibrirana slika odbojnosti
+* Popravljena vinjeta (če je omogočena v obdelavi)
+* Odbojnost kalibrirana z uporabo ciljnih podatkov (če je omogočeno)
+* Večpasovni TIFF z vsemi kanali kamere
+* Vrednosti pikslov predstavljajo odstotek odbojnosti (pri uporabi odstotkovnega načina)
+* Pripravljen za manipulacijo z [Index/LUT Sandbox](index-lut-sandbox.md)
 
-**When to view:**
+**Kdaj si ogledati:**
 
-* Inspecting calibrated results
-* Verifying calibration quality
-* Checking pixel values for scientific accuracy
-* Comparing with original to see calibration effects
+* Pregled kalibriranih rezultatov
+* Preverjanje kakovosti kalibracije
+* Preverjanje vrednosti pikslov za znanstveno natančnost
+* Primerjava z originalom za pregled učinkov kalibracije
 
-{% hint style="success" %}
-**Recommended**: Use RAW (Reflectance) layer when checking pixel values for scientific measurements and analysis.
+{% hint style=&quot;success&quot; %}
+**Priporočeno**: Pri preverjanju vrednosti pikslov za znanstvene meritve in analize uporabite sloj RAW (odbojnost).
 {% endhint %}
 
-### RAW (NDVI Index)... and similar
+### RAW (NDVI indeks)... in podobno
 
-* Calculated vegetation index image (NDVI in this example)
-* The index name changes based on which index was configured during processing
-* Examples: RAW (NDVI Index), RAW (NDRE Index), RAW (GNDVI Index), etc.
-* Single-band grayscale image showing index calculation results
-* One layer appears for each index configured in Project Settings
+* Izračunana slika vegetacijskega indeksa (v tem primeru NDVI)
+* Ime indeksa se spremeni glede na to, kateri indeks je bil konfiguriran med obdelavo
+* Primeri: RAW (NDVI indeks), RAW (NDRE indeks), RAW (GNDVI indeks) itd.
+* Enopasovna siva slika, ki prikazuje rezultate izračuna indeksa
+* Za vsak indeks, konfiguriran v nastavitvah projekta, se prikaže en sloj
 
-**Possible index names:**
+**Možna imena indeksov:**
 
-* RAW (NDVI Index)
-* RAW (NDRE Index)
-* RAW (GNDVI Index)
-* RAW (OSAVI Index)
-* RAW (EVI Index)
-* RAW (SAVI Index)
-* And many more... (see [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md))
+* RAW (NDVI indeks)
+* RAW (NDRE indeks)
+* RAW (GNDVI indeks)
+* RAW (OSAVI indeks)
+* RAW (EVI indeks)
+* RAW (SAVI indeks)
+* In še mnogi drugi... (glej [Formule za multispektralne indekse](../project-settings/multispectral-index-formulas.md))
 
-**When to view:**
+**Kdaj si jih ogledati:**
 
-* Examining index calculation results
-* Checking index value ranges
-* Identifying areas of interest
-* Verifying index images before using in GIS or analysis
-
-***
-
-## Using the Layer Selector
-
-### Opening the Dropdown
-
-1. Open an image in fullscreen mode (click any thumbnail in the Image Viewer)
-2. Locate the **layer dropdown** in the top-right corner of the viewer
-3. The dropdown shows the currently selected layer (e.g., "JPG")
-4. Click the dropdown to see all available layers
-
-### Switching Layers
-
-1. Click the layer dropdown to open the list
-2. All available layers for the current image are shown
-3. Click any layer name to switch to that version
-4. The image updates immediately to show the selected layer
-
-**Quick switching:**
-
-* The dropdown remembers your last selection
-* When navigating to the next image, Chloros attempts to show the same layer type
-* If that layer doesn't exist on the next image, it defaults to JPG
-
-### Layer Availability
-
-Not all layers are available for every image:
-
-**Always available:**
-
-* ✅ JPG (every image has a JPG preview)
-
-**Conditionally available:**
-
-* ⚠️ RAW (Original) - Only if image was captured in RAW or RAW+JPG mode
-* ⚠️ RAW (Target) - Only if image contains detected calibration targets
-* ⚠️ RAW (Reflectance) - Only after processing with reflectance calibration enabled
-* ⚠️ RAW (\[Index] Index) - Only after processing with indices configured
+* Preverjanje rezultatov izračuna indeksa
+* Preverjanje razponov vrednosti indeksa
+* Identificiranje območij, ki vas zanimajo
+* Preverjanje slik indeksa pred uporabo v GIS ali analizi
 
 ***
 
-## Layer Persistence
+## Uporaba izbirnika plasti
 
-### Navigating Between Images
+### Odpiranje spustnega menija
 
-When you navigate to a different image (using arrow keys or clicking thumbnails):
+1. Odprite sliko v načinu polnega zaslona (kliknite katero koli sličico v pregledovalniku slik).
+2. Poiščite **spustni meni plasti** v zgornjem desnem kotu pregledovalnika.
+3. Spustni meni prikazuje trenutno izbrano plast (npr. „JPG”)
+4. Kliknite spustni meni, da si ogledate vse razpoložljive plasti
 
-**Layer preference is preserved:**
+### Preklapljanje med plastmi
 
-* If viewing "RAW (Reflectance)", next image shows "RAW (Reflectance)" (if available)
-* If viewing "RAW (NDVI Index)", next image shows "RAW (NDVI Index)" (if available)
-* If the same layer doesn't exist, defaults to JPG
+1. Kliknite spustni meni plasti, da odprete seznam
+2. Prikazane so vse razpoložljive plasti za trenutno sliko
+3. Kliknite katero koli ime plasti, da preklopite na to različico
+4. Slika se takoj posodobi in prikaže izbrano plast
 
-**Example workflow:**
+**Hitro preklapljanje:**
 
-1. Open Image 1, switch to RAW (NDVI Index)
-2. Press → to view Image 2
-3. Image 2 automatically displays RAW (NDVI Index) layer
-4. Continue navigating - all images show NDVI layer
-5. Very efficient for reviewing index results across many images
+* Spustni meni si zapomni vašo zadnjo izbiro.
+* Pri prehodu na naslednjo sliko Chloros poskuša prikazati isti tip plasti.
+* Če ta plast na naslednji sliki ne obstaja, se privzeto prikaže JPG.
 
-***
+### Razpoložljivost plasti
 
-## Common Workflows
+Vse plasti niso na voljo za vsako sliko:
 
-### Workflow 1: Before/After Comparison
+**Vedno na voljo:**
 
-**Goal**: Compare original vs. calibrated image
+* ✅ JPG (vsaka slika ima predogled JPG)
 
-1. Open processed image in Image Viewer
-2. Select **RAW (Original)** from dropdown
-3. Note the vignetting and uncalibrated values
-4. Switch to **RAW (Reflectance)** from dropdown
-5. Compare - vignetting removed, values calibrated
+**Pogojno na voljo:**
 
-### Workflow 2: Index Review
-
-**Goal**: Quickly review NDVI results across dataset
-
-1. Open first processed image
-2. Select **RAW (NDVI Index)** from dropdown
-3. Use → arrow key to navigate to next image
-4. NDVI layer persists automatically
-5. Continue through all images, checking NDVI patterns
-6. Switch to **RAW (NDRE Index)** to compare
-
-### Workflow 3: Target Verification
-
-**Goal**: Verify all target images were detected correctly
-
-1. Navigate to a target image
-2. Select **RAW (Target)** from dropdown
-3. Verify calibration targets are clearly visible and detected
-4. Navigate to next target image
-5. Repeat verification for all targets
-
-### Workflow 4: Pixel Value Inspection
-
-**Goal**: Check reflectance values for scientific accuracy
-
-1. Open processed image
-2. Select **RAW (Reflectance)** layer
-3. Enable **Pixel Percent** mode (button in top-right toolbar)
-4. Move cursor over vegetation areas
-5. Verify pixel values are in expected ranges (30-70% for NIR, 5-15% for Red)
-6. Check soil and water areas for appropriate values
+* ⚠️ RAW (izvirnik) – samo če je bila slika zajeta v načinu RAW ali RAW+JPG
+* ⚠️ RAW (cilj) – samo če slika vsebuje zaznavne kalibracijske cilje
+* ⚠️ RAW (odbojnost) – samo po obdelavi z omogočeno kalibracijo odbojnosti
+* ⚠️ RAW (\[Index] Index) – samo po obdelavi s konfiguriranimi indeksi
 
 ***
 
-## Understanding Pixel Values by Layer
+## Obstojnost plasti
 
-Different layers show different pixel value ranges:
+### Navigacija med slikami
 
-### JPG Layer
+Ko preidete na drugo sliko (z uporabo puščičnih tipk ali klikom na miniaturne slike):
 
-* **Range**: 0-255 (8-bit)
-* **Meaning**: Display values, gamma-corrected
-* **Use**: Visual inspection only, not for scientific measurement
+**Nastavitev plasti se ohrani:**
 
-### RAW (Original)
+* Če si ogledujete »RAW (odbojnost)«, naslednja slika prikazuje »RAW (odbojnost)« (če je na voljo)
+* Če si ogledujete »RAW (NDVI Indeks)«, naslednja slika prikaže »RAW (NDVI Indeks)« (če je na voljo)
+* Če isti sloj ne obstaja, se privzeto prikaže JPG
 
-* **Range**: 0-65535 (16-bit)
-* **Meaning**: Raw sensor digital numbers
-* **Use**: Checking sensor performance, not calibrated
+**Primer poteka dela:**
 
-### RAW (Reflectance)
-
-* **Range**: 0-65,535 (16-bit TIFF) or 0.0-1.0 (32-bit Percent)
-* **Meaning**: Calibrated percent reflectance
-* **Use**: Scientific measurements and analysis
-
-**For 16-bit TIFF:** Divide by 65,535 to get percent reflectance **For 32-bit Percent:** Values directly represent percent (0.5 = 50% reflectance)
-
-### RAW (Index Images)
-
-* **Range**: Varies by index (typically -1.0 to +1.0 for normalized indices)
-* **Meaning**: Index calculation result
-* **Examples**:
-  * NDVI: -1 to +1 (vegetation typically 0.4 to 0.9)
-  * NDRE: -1 to +1 (stress detection)
-  * EVI: 0 to 1 (enhanced vegetation)
+1. Odprite sliko 1, preklopite na RAW (NDVI Index)
+2. Pritisnite →, da si ogledate sliko 2.
+3. Slika 2 samodejno prikaže sloj RAW (NDVI Index).
+4. Nadaljujte z navigacijo – vse slike prikazujejo sloj NDVI.
+5. Zelo učinkovito za pregledovanje rezultatov indeksa na več slikah.
 
 ***
 
-## Tips and Best Practices
+## Pogosti delovni tokovi
 
-### Efficient Layer Switching
+### Delovni tok 1: Primerjava pred/po
 
-* **Keyboard shortcut awareness**: While there's no keyboard shortcut for layers, navigation arrows (←/→) work across all layers
-* **Consistent workflows**: Pick one layer (e.g., NDVI) and review entire dataset before switching to another
-* **Quick comparisons**: Toggle between Original and Reflectance to verify processing quality
+**Cilj**: Primerjava originalne in kalibrirane slike
 
-### Performance Considerations
+1. Odprite obdelano sliko v pregledovalniku slik.
+2. Iz spustnega menija izberite **RAW (Original)**.
+3. Upoštevajte vinjetiranje in nekalibrirane vrednosti.
+4. Iz spustnega menija preklopite na **RAW (Reflectance)**.
+5. Primerjava – vinjetiranje odstranjeno, vrednosti kalibrirane.
 
-* **JPG loads fastest**: Use for quick navigation through many images
-* **RAW layers load slower**: Higher resolution and bit depth
-* **Index layers**: Similar speed to Reflectance layers
-* **First load is slowest**: Subsequent views of same layer are cached and faster
+### Delovni tok 2: Pregled indeksa
 
-### Quality Verification
+**Cilj**: Hitri pregled rezultatov NDVI v podatkovni zbirki.
 
-* **Always check RAW (Original)**: Verify source data quality before trusting processed outputs
-* **Compare layers**: Use layer switching to validate processing worked correctly
-* **Check index ranges**: Use Pixel Percent mode with index layers to verify values are reasonable
+1. Odprite prvo obdelano sliko.
+2. Iz spustnega menija izberite **RAW (NDVI Index)**.
+3. Uporabite puščično tipko → za prehod na naslednjo sliko
+4. Plast NDVI ostane samodejno
+5. Nadaljujte z vsemi slikami in preverite vzorce NDVI
+6. Preklopite na **RAW (NDRE Index)** za primerjavo
 
-***
+### Delovni tok 3: Preverjanje cilja
 
-## Troubleshooting
+**Cilj**: Preverite, ali so bile vse ciljne slike pravilno zaznale.
 
-### Layer Not Available
+1. Preidite na ciljno sliko.
+2. Iz spustnega menija izberite **RAW (cilj)**.
+3. Preverite, ali so kalibracijske ciljne točke jasno vidne in zaznale.
+4. Preidite na naslednjo ciljno sliko.
+5. Ponovite preverjanje za vse ciljne točke.
 
-**Problem**: Expected layer doesn't appear in dropdown
+### Delovni tok 4: Pregled vrednosti pikslov
 
-**Possible causes:**
+**Cilj**: Preverite vrednosti odbojnosti za znanstveno natančnost.
 
-* Image wasn't processed (only JPG and RAW (Original) available)
-* Reflectance calibration was disabled during processing
-* Specific index wasn't configured in Project Settings
-* Image is a target-only image (no indices generated for targets)
-
-**Solutions:**
-
-1. Verify image was processed (check output folder for processed files)
-2. Check Project Settings to confirm indices were configured
-3. Reprocess with desired indices enabled
-
-### Wrong Layer Shown
-
-**Problem**: Image opens in unexpected layer
-
-**Cause**: Layer preference from previous image carried forward, but that layer doesn't exist on current image
-
-**Solution**: Chloros automatically falls back to JPG when preferred layer unavailable - this is normal behavior
-
-### Can't See Calibration Targets
-
-**Problem**: RAW (Target) layer doesn't show target detection
-
-**Possible causes:**
-
-* Targets weren't detected during processing
-* Image doesn't actually contain targets
-* Target detection settings too strict
-
-**Solutions:**
-
-1. Check Debug Log for "Target found" messages
-2. Verify image actually contains visible calibration targets
-3. Adjust target detection settings in Project Settings
-4. See [Choosing Target Images](../processing-images-gui/choosing-target-images.md)
+1. Odprite obdelano sliko.
+2. Izberite sloj **RAW (odbojnost)**.
+3. Vklopite način **Pixel Percent** (gumb v zgornjem desnem orodnem pasu).
+4. Premaknite kurzor nad območja vegetacije.
+5. Preverite, ali so vrednosti pik v pričakovanih razponih (30–70 % za NIR, 5–15 % za Red).
+6. Preverite, ali so vrednosti za območja tal in vode ustrezne.
 
 ***
 
-## Related Features
+## Razumevanje vrednosti pik po slojih
 
-### Image Viewer Tools
+Različni sloji prikazujejo različne razpone vrednosti pik:
 
-When viewing any layer, you can use:
+### Sloj JPG
 
-* **Zoom controls**: Magnify to inspect details
-* **Pan**: Click and drag to move around zoomed image
-* **Pixel value inspection**: See values at cursor location
-* **Navigation arrows**: Move between images while maintaining layer
-* **Pixel Percent mode**: Toggle between DN and percent display
+* **Območje**: 0–255 (8-bitno)
+* **Pomen**: prikaz vrednosti, popravljeno z gama korekcijo
+* **Uporaba**: samo vizualni pregled, ne za znanstvene meritve
 
-See [Opening an Image Full Screen](page-3.md) for complete Image Viewer documentation.
+### RAW (izvirno)
 
-### Index/LUT Sandbox
+* **Območje**: 0–65535 (16-bitno)
+* **Pomen**: surove digitalne številke senzorja
+* **Uporaba**: preverjanje delovanja senzorja, ni kalibrirano
 
-For interactive index testing and visualization:
+### RAW (odbojnost)
 
-* **Real-time index calculation**: Test different index formulas
-* **LUT color mapping**: Apply color gradients to grayscale indices
-* **Export visualizations**: Save colored index images
+* **Območje**: 0–65.535 (16-bitni TIFF) ali 0,0–1,0 (32-bitni odstotek)
+* **Pomen**: Kalibrirani odstotek odbojnosti
+* **Uporaba**: Znanstvene meritve in analize
 
-See [Index/LUT Sandbox](index-lut-sandbox.md) for details.
+**Za 16-bitni TIFF:** Delite z 65.535, da dobite odstotek odbojnosti **Za 32-bitni odstotek:** Vrednosti neposredno predstavljajo odstotek (0,5 = 50 % odbojnosti)
+
+### RAW (indeksne slike)
+
+* **Območje**: razlikuje se glede na indeks (običajno od -1,0 do +1,0 za normalizirane indekse)
+* **Pomen**: rezultat izračuna indeksa
+* **Primeri**:
+  * NDVI: od -1 do +1 (vegetacija običajno od 0,4 do 0,9)
+  * NDRE: od -1 do +1 (zaznavanje stresa)
+  * EVI: od 0 do 1 (izboljšana vegetacija)
 
 ***
 
-## Next Steps
+## Nasveti in najboljše prakse
 
-Now that you understand image layers:
+### Učinkovito preklapljanje med sloji
 
-* [**Opening an Image Full Screen**](page-3.md) - Complete Image Viewer guide
-* [**Index/LUT Sandbox**](index-lut-sandbox.md) - Interactive index visualization
-* [**Multispectral Index Formulas**](../project-settings/multispectral-index-formulas.md) - Available indices reference
-* [**Finishing the Processing**](../processing-images-gui/finishing-the-processing.md) - Understanding processed outputs
+* **Poznavanje bližnjic na tipkovnici**: Čeprav za plasti ni bližnjic na tipkovnici, puščice za navigacijo (←/→) delujejo na vseh plasteh
+* **Dosledni delovni tokovi**: Izberite eno plast (npr. NDVI) in preglejte celoten niz podatkov, preden preklopite na drugo
+* **Hitra primerjava**: Preklopite med Original in Reflectance, da preverite kakovost obdelave
+
+### Upoštevanje zmogljivosti
+
+* **JPG se nalaga najhitreje**: uporabite ga za hitro navigacijo med številnimi slikami.
+* **RAW sloji se nalagajo počasneje**: višja ločljivost in bitna globina.
+* **Indeksni sloji**: podobna hitrost kot sloji odbojnosti.
+* **Prvo nalaganje je najpočasnejše**: nadaljnji ogledi istega sloja se shranijo v predpomnilnik in so hitrejši.
+
+### Preverjanje kakovosti
+
+* **Vedno preverite RAW (original)**: Preverite kakovost izvornih podatkov, preden zaupate obdelanim izhodnim podatkom.
+* **Primerjajte plasti**: uporabite preklapljanje plasti, da preverite, ali je obdelava potekala pravilno.
+* **Preverite indeksna območja**: uporabite način Pixel Percent z indeksnimi plastmi, da preverite, ali so vrednosti razumne.
+
+***
+
+## Odpravljanje težav
+
+### Plast ni na voljo
+
+**Težava**: pričakovana plast se ne prikaže v spustnem meniju.
+
+**Možni vzroki:**
+
+* Slika ni bila obdelana (na voljo sta samo JPG in RAW (Original)).
+* Kalibracija odbojnosti je bila med obdelavo onemogočena.
+* Posebni indeks ni bil konfiguriran v nastavitvah projekta.
+* Slika je slika, namenjena samo ciljem (za cilje niso bili ustvarjeni indeksi).
+
+**Rešitve:**
+
+1. Preverite, ali je bila slika obdelana (preverite mapo z izhodnimi datotekami za obdelane datoteke).
+2. Preverite nastavitve projekta, da se prepričate, da so bili indeksi konfigurirani.
+3. Ponovno obdelajte sliko z omogočenimi želenimi indeksi.
+
+### Prikazana napačna plast
+
+**Problem**: Slika se odpre v nepričakovani plasti.
+
+**Vzrok**: Nastavitve plasti iz prejšnje slike so bile prenesene, vendar ta plast ne obstaja na trenutni sliki.
+
+**Rešitev**: Chloros samodejno preide na JPG, ko želeno plast ni na voljo – to je normalno delovanje.
+
+### Kalibracijski cilji niso vidni
+
+**Problem**: Sloj RAW (cilj) ne prikaže zaznavanja ciljev.
+
+**Možni vzroki:**
+
+* Cilji niso bili zaznani med obdelavo.
+* Slika dejansko ne vsebuje ciljev.
+* Nastavitve zaznavanja ciljev so preveč stroge.
+
+**Rešitve:**
+
+1. V dnevniku odpravljanja napak preverite, ali so prisotna sporočila »Cilj najden«.
+2. Preverite, ali slika dejansko vsebuje vidne kalibracijske cilje.
+3. Prilagodite nastavitve zaznavanja ciljev v nastavitvah projekta.
+4. Glejte [Izbira ciljnih slik](../processing-images-gui/choosing-target-images.md).
+
+***
+
+## Sorodne funkcije
+
+### Orodja za pregledovanje slik
+
+Pri pregledovanju katere koli plasti lahko uporabite:
+
+* **Nadzorne funkcije povečave**: povečajte sliko, da pregledate podrobnosti.
+* **Premikanje**: kliknite in povlecite, da se premikate po povečani sliki.
+* **Pregled vrednosti pikslov**: oglejte si vrednosti na mestu kazalca.
+* **Navigacijske puščice**: premikajte se med slikami, pri čemer ohranite plast.
+* **Način odstotka pikslov**: preklopite med prikazom DN in odstotkom.
+
+Glejte [Odpiranje slike v polnem zaslonu](opening-an-image-full-screen.md) za popolno dokumentacijo pregledovalnika slik.
+
+### Indeks/LUT Sandbox
+
+Za interaktivno testiranje indeksa in vizualizacijo:
+
+* **Izračun indeksa v realnem času**: testirajte različne formule indeksa
+* **Barvno preslikavanje LUT**: uporabite barvne prehode za indekse v sivih odtenkih
+* **Izvoz vizualizacij**: shranite barvne slike indeksa
+
+Za podrobnosti glejte [Indeks/LUT Sandbox](index-lut-sandbox.md).
+
+***
+
+## Naslednji koraki
+
+Sedaj, ko razumete plasti slik:
+
+* [**Odpiranje slike v polnem zaslonu**](opening-an-image-full-screen.md) – Celoten vodnik za pregledovalnik slik
+* [**Indeks/LUT Sandbox**](index-lut-sandbox.md) – Interaktivna vizualizacija indeksa
+* [**Formule za multispektralni indeks**](../project-settings/multispectral-index-formulas.md) – Referenca razpoložljivih indeksov
+* [**Zaključek obdelave**](../processing-images-gui/finishing-the-processing.md) – Razumevanje obdelanih izhodov

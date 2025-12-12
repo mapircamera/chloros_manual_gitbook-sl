@@ -4,21 +4,21 @@ metaLinks:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/output-image-formats
 ---
 
-# Output Image Formats
+# Izhodni slikovni formati
 
-### TIFF (16-bit)
+### TIFF (16-bitni)
 
-16-bit (pixel digital number 0 - 65535) TIFF (.tif) format output.
+16-bitni (digitalna vrednost pikslov 0–65535) izhodni format TIFF (.tif).
 
-### TIFF (32-bit, Percent %)
+### TIFF (32-bitni, odstotek %)
 
-32-bit (pixel float 0.0 - 1.0) TIFF (.tif) format output. Pixel values represent reflectance percentages where 0.0 = 0% and 1.0 = 100%.
+32-bitni (pikselni float 0,0–1,0) TIFF (.tif) izhodni format. Vrednosti pikslov predstavljajo odstotke odbojnosti, pri čemer 0,0 = 0 % in 1,0 = 100 %.
 
-### **JPG (8-bit)**
+### **JPG (8-bitni)**
 
-8-bit (pixel digital number 0 -255) JPG (.jpg) format output.
+8-bitni (pikselna digitalna številka 0–255) izhod v formatu JPG (.jpg).
 
 ### **PNG (8-bit)**
 
-8-bit (pixel digital number 0 - 255) PNG (.png) format output. Lossless compression suitable for web viewing and visualization.
+8-bitni (pikselna digitalna številka 0–255) izhodni format PNG (.png). Brezizgubna kompresija, primerna za spletno pregledovanje in vizualizacijo.
 

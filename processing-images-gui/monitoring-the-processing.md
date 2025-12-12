@@ -1,165 +1,165 @@
-# Monitoring the Processing
+# Spremljanje obdelave
 
-Once processing has started, Chloros provides several ways to monitor progress, check for issues, and understand what's happening with your dataset. This page explains how to track your processing and interpret the information Chloros provides.
+Ko se obdelava začne, Chloros ponuja več načinov za spremljanje napredka, preverjanje težav in razumevanje, kaj se dogaja z vašim nizom podatkov. Ta stran pojasnjuje, kako spremljati obdelavo in razlagati informacije, ki jih ponuja Chloros.
 
-## Progress Bar Overview
+## Pregled napredovalne vrstice
 
-The progress bar in the top header shows real-time processing status and completion percentage.
+Napredek v zgornjem naslovu prikazuje stanje obdelave v realnem času in odstotek dokončanja.
 
-### Free Mode Progress Bar
+### Napredek v prostem načinu
 
-For users without Chloros+ license:
+Za uporabnike brez licence Chloros+:
 
-**2-Stage Progress Display:**
+**Prikaz napredka v dveh stopnjah:**
 
-1. **Target Detect** - Finding calibration targets in images
-2. **Processing** - Applying corrections and exporting
+1. **Zaznavanje cilja** – iskanje kalibracijskih ciljev v slikah
+2. **Obdelava** – uporaba popravkov in izvoz
 
-**Progress bar shows:**
+**Napredek prikazuje:**
 
-* Overall completion percentage (0-100%)
-* Current stage name
-* Simple horizontal bar visualization
+* Skupni odstotek dokončanja (0–100 %)
+* Ime trenutne stopnje
+* Preprosta vizualizacija vodoravne vrstice
 
-### Chloros+ Progress Bar
+### Napredek Chloros
 
-For users with Chloros+ license:
+Za uporabnike z licenco Chloros+:
 
-**4-Stage Progress Display:**
+**4-stopenjski prikaz napredka:**
 
-1. **Detecting** - Finding calibration targets
-2. **Analyzing** - Examining images and preparing pipeline
-3. **Calibrating** - Applying vignette and reflectance corrections
-4. **Exporting** - Saving processed files
+1. **Zaznavanje** – iskanje kalibracijskih ciljev
+2. **Analiziranje** – pregledovanje slik in priprava poteka
+3. **Kalibriranje** – uporaba popravkov vinjete in odbojnosti
+4. **Izvoz** – shranjevanje obdelanih datotek
 
-**Interactive Features:**
+**Interaktivne funkcije:**
 
-* **Hover over** progress bar to see expanded 4-stage panel
-* **Click** progress bar to freeze/pin the expanded panel
-* **Click again** to unfreeze and auto-hide on mouse leave
-* Each stage shows individual progress (0-100%)
-
-***
-
-## Understanding Each Processing Stage
-
-### Stage 1: Detecting (Target Detection)
-
-**What's happening:**
-
-* Chloros scans images marked with Target checkbox
-* Computer vision algorithms identify the 4 calibration panels
-* Reflectance values extracted from each panel
-* Target timestamps recorded for proper calibration scheduling
-
-**Duration:**
-
-* With marked targets: 10-60 seconds
-* Without marked targets: 5-30+ minutes (scans all images)
-
-**Progress indicator:**
-
-* Detecting: 0% → 100%
-* Number of images scanned
-* Targets found count
-
-**What to watch for:**
-
-* Should complete quickly if targets properly marked
-* If taking too long, targets may not be marked
-* Check Debug Log for "Target found" messages
-
-### Stage 2: Analyzing
-
-**What's happening:**
-
-* Reading image EXIF metadata (timestamps, exposure settings)
-* Determining calibration strategy based on target timestamps
-* Organizing image processing queue
-* Preparing parallel processing workers (Chloros+ only)
-
-**Duration:** 5-30 seconds
-
-**Progress indicator:**
-
-* Analyzing: 0% → 100%
-* Fast stage, usually completes quickly
-
-**What to watch for:**
-
-* Should progress steadily without pauses
-* Warnings about missing metadata will appear in Debug Log
-
-### Stage 3: Calibrating
-
-**What's happening:**
-
-* **Debayering**: Converting RAW Bayer pattern to 3 channels
-* **Vignette correction**: Removing lens edge darkening
-* **Reflectance calibration**: Normalizing with target values
-* **Index calculation**: Computing multispectral indices
-* Processing each image through the full pipeline
-
-**Duration:** Majority of total processing time (60-80%)
-
-**Progress indicator:**
-
-* Calibrating: 0% → 100%
-* Current image being processed
-* Images completed / Total images
-
-**Processing behavior:**
-
-* **Free mode**: Processes one image at a time sequentially
-* **Chloros+ mode**: Processes up to 16 images simultaneously
-* **GPU acceleration**: Significantly speeds up this stage
-
-**What to watch for:**
-
-* Steady progress through image count
-* Check Debug Log for per-image completion messages
-* Warnings about image quality or calibration issues
-
-### Stage 4: Exporting
-
-**What's happening:**
-
-* Writing calibrated images to disk in selected format
-* Exporting multispectral index images with LUT colors
-* Creating camera model subfolders
-* Preserving original filenames with appropriate suffixes
-
-**Duration:** 10-20% of total processing time
-
-**Progress indicator:**
-
-* Exporting: 0% → 100%
-* Files being written
-* Export format and destination
-
-**What to watch for:**
-
-* Disk space warnings
-* File write errors
-* Completion of all configured outputs
+* **Premaknite miško** nad kazalnik napredka, da se prikaže razširjen 4-stopenjski panel
+* **Kliknite** na vrstico napredka, da zamrznete/pritrdite razširjeni panel
+* **Kliknite še enkrat**, da odmrznete in samodejno skrijete, ko umaknete miško
+* Vsaka stopnja prikazuje posamezni napredek (0–100 %)
 
 ***
 
-## Debug Log Tab
+## Razumevanje vsake stopnje obdelave
 
-The Debug Log provides detailed information about processing progress and any issues encountered.
+### Stopnja 1: Odkrivanje (odkrivanje ciljev)
 
-### Accessing the Debug Log
+**Kaj se dogaja:**
 
-1. Click the **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> icon in the left sidebar
-2. Log panel opens showing real-time processing messages
-3. Auto-scrolls to show latest messages
+* Chloros skenira slike, označene s potrditvenim poljem Cilj
+* Algoritmi računalniškega vida identificirajo 4 kalibracijske plošče
+* Vrednosti odbojnosti, izvlečene iz vsake plošče
+* Časovni žigi ciljev, zabeleženi za pravilno načrtovanje kalibracije
 
-### Understanding Log Messages
+**Trajanje:**
 
-#### Information Messages (White/Gray)
+* Z označenimi cilji: 10–60 sekund
+* Brez označenih ciljev: 5–30+ minut (skenira vse slike)
 
-Normal processing updates:
+**Kazalnik napredka:**
+
+* Odkrivanje: 0 % → 100 %
+* Število skeniranih slik
+* Število najdenih ciljev
+
+**Na kaj je treba paziti:**
+
+* Če so cilji pravilno označeni, naj bi se postopek hitro zaključil.
+* Če traja predolgo, cilji morda niso označeni.
+* V dnevniku odpravljanja napak preverite, ali so prisotna sporočila »Target found« (Cilj najden).
+
+### Faza 2: Analiza
+
+**Kaj se dogaja:**
+
+* Branje metapodatkov EXIF slike (časovni žigi, nastavitve osvetlitve)
+* Določanje strategije kalibracije na podlagi časovnih žigov ciljev
+* Urejanje čakalne vrste za obdelavo slik
+* Priprava delavcev za vzporedno obdelavo (samo Chloros+)
+
+**Trajanje:** 5–30 sekund
+
+**Kazalnik napredka:**
+
+* Analiza: 0 % → 100 %
+* Hitra faza, običajno se hitro zaključi
+
+**Na kaj je treba paziti:**
+
+* Napredek mora potekati enakomerno brez premorov
+* Opozorila o manjkajočih metapodatkih se prikažejo v dnevniku odpravljanja napak
+
+### Faza 3: Kalibriranje
+
+**Kaj se dogaja:**
+
+* **Debayering**: pretvorba RAW Bayerjevega vzorca v 3 kanale
+* **Popravek vinjete**: odstranjevanje potemnjenja robov objektiva
+* **Kalibracija odbojnosti**: normalizacija s ciljnimi vrednostmi
+* **Izračun indeksa**: izračun multispektralnih indeksov
+* Obdelava vsake slike skozi celoten postopek
+
+**Trajanje:** večina celotnega časa obdelave (60–80 %)
+
+**Kazalnik napredka:**
+
+* Kalibriranje: 0 % → 100 %
+* Trenutna slika se obdeluje
+* Slike dokončane / Skupno število slik
+
+**Obnašanje obdelave:**
+
+* **Prosti način**: Obdeluje eno sliko naenkrat zaporedno
+* **Način Chloros+**: Obdeluje do 16 slik hkrati
+* **Pospeševanje GPU**: znatno pospeši to fazo
+
+**Na kaj je treba paziti:**
+
+* Stalen napredek skozi število slik
+* Preverite dnevnik odpravljanja napak za sporočila o dokončanju posamezne slike
+* Opozorila o kakovosti slike ali težavah s kalibracijo
+
+### Faza 4: Izvoz
+
+**Kaj se dogaja:**
+
+* Zapis kalibriranih slik na disk v izbranem formatu
+* Izvoz multispektralnih indeksnih slik z barvami LUT
+* Ustvarjanje podmap za modele kamer
+* Ohranjanje izvirnih imen datotek z ustreznimi končnicami
+
+**Trajanje:** 10–20 % skupnega časa obdelave
+
+**Kazalnik napredka:**
+
+* Izvoz: 0 % → 100 %
+* Zapisovanje datotek
+* Format izvoza in ciljna lokacija
+
+**Na kaj je treba paziti:**
+
+* Opozorila o prostem prostoru na disku
+* Napake pri zapisovanju datotek
+* Zaključek vseh konfiguriranih izhodov
+
+***
+
+## Zavihek Debug Log (Dnevnik odpravljanja napak)
+
+Dnevnik odpravljanja napak vsebuje podrobne informacije o napredku obdelave in morebitnih težavah.
+
+### Dostop do dnevnika odpravljanja napak
+
+1. Kliknite ikono **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> v levem stranskem meniju.
+2. Odpre se okno dnevnika, ki prikazuje sporočila o obdelavi v realnem času.
+3. Samodejno se pomika navzdol, da prikaže najnovejša sporočila.
+
+### Razumevanje sporočil dnevnika
+
+#### Informacijska sporočila (bela/siva)
+
+Običajne posodobitve obdelave:
 
 ```
 [INFO] Processing started
@@ -169,9 +169,9 @@ Normal processing updates:
 [INFO] Processing complete
 ```
 
-#### Warning Messages (Yellow)
+#### Opozorilna sporočila (rumena)
 
-Non-critical issues that don't stop processing:
+Nekritične težave, ki ne ustavijo obdelave:
 
 ```
 [WARN] No GPS data found in IMG_0145.RAW
@@ -179,11 +179,11 @@ Non-critical issues that don't stop processing:
 [WARN] Low contrast in calibration panel - results may vary
 ```
 
-**Action:** Review warnings after processing, but don't interrupt
+**Ukrep:** Po obdelavi preglejte opozorila, vendar ne prekinjajte obdelave.
 
-#### Error Messages (Red)
+#### Napake (Red)
 
-Critical issues that may cause processing to fail:
+Kritične težave, ki lahko povzročijo napako pri obdelavi:
 
 ```
 [ERROR] Cannot write file - disk full
@@ -191,202 +191,202 @@ Critical issues that may cause processing to fail:
 [ERROR] No targets detected - enable reflectance calibration or mark target images
 ```
 
-**Action:** Stop processing, resolve error, restart
+**Ukrep:** Prekinite obdelavo, odpravite napako in ponovno zaženite.
 
-### Common Log Messages
+### Pogosta sporočila dnevnika
 
-| Message                          | Meaning                                | Action Needed                                         |
+| Sporočilo                          | Pomen                                | Potrebni ukrep                                         |
 | -------------------------------- | -------------------------------------- | ----------------------------------------------------- |
-| "Target detected in \[filename]" | Calibration target found successfully  | None - normal                                         |
-| "Processing image X of Y"        | Current progress update                | None - normal                                         |
-| "No targets found"               | No calibration targets detected        | Mark target images or disable reflectance calibration |
-| "Insufficient disk space"        | Not enough storage for output          | Free up disk space                                    |
-| "Skipping corrupted file"        | Image file is damaged                  | Re-copy file from SD card                             |
-| "PPK data applied"               | GPS corrections from .daq file applied | None - normal                                         |
+| „Cilj zaznan v \[ime datoteke]” | Kalibracijski cilj uspešno najden  | Nič – normalno                                         |
+| „Obdelava slike X od Y”        | Trenutna posodobitev napredka                | Nič – normalno                                         |
+| „Cilji niso bili najdeni”               | Kalibracijski cilji niso bili zaznanih        | Označite ciljne slike ali onemogočite kalibracijo odbojnosti |
+| „Premalo prostora na disku“        | Premalo prostora za shranjevanje izhodnih podatkov          | Osvobodite prostor na disku                                    |
+| „Preskočitev poškodovane datoteke“        | Slikovna datoteka je poškodovana                  | Ponovno kopirajte datoteko s kartice SD                             |
+| „Uporabljeni podatki PPK“               | Uporabljene popravke GPS iz datoteke .daq | Nič – normalno                                         |
 
-### Copying Log Data
+### Kopiranje podatkov dnevnika
 
-To copy log for troubleshooting or support:
+Kopiranje dnevnika za odpravljanje težav ali podporo:
 
-1. Open Debug Log panel
-2. Click **"Copy Log"** button (or right-click → Select All)
-3. Paste into text file or email
-4. Send to MAPIR support if needed
+1. Odprite okno Debug Log (Dnevnik odpravljanja napak)
+2. Kliknite gumb **„Copy Log“** (Kopiraj dnevnik) (ali desni klik → Izberi vse)
+3. Prilepite v besedilno datoteko ali e-pošto
+4. Po potrebi pošljite podpori MAPIR
 
 ***
 
-## System Resource Monitoring
+## Nadzor sistemskih virov
 
-### CPU Usage
+### Poraba CPU
 
-**Free Mode:**
+**Prosti način:**
 
-* 1 CPU core at \~100%
-* Other cores idle or available
-* System remains responsive
+* 1 jedro CPU pri ~100 %
+* Druga jedra so v mirovanju ali na voljo
+* Sistem ostane odziven
 
-**Chloros+ Parallel Mode:**
+**Chloros+ vzporedni način:**
 
-* Multiple cores at 80-100% (up to 16 cores)
-* High overall CPU utilization
-* System may feel less responsive
+* Več jeder pri 80–100 % (do 16 jeder)
+* Visoka splošna poraba CPU
+* Sistem je lahko manj odziven
 
-**To monitor:**
+**Za spremljanje:**
 
 * Windows Task Manager (Ctrl+Shift+Esc)
-* Performance tab → CPU section
-* Look for "Chloros" or "chloros-backend" processes
+* Zavihek Performance → razdelek CPU
+* Poiščite procese »Chloros« ali »chloros-backend«
 
-### Memory (RAM) Usage
+### Poraba pomnilnika (RAM)
 
-**Typical usage:**
+**Tipična uporaba:**
 
-* Small projects (< 100 images): 2-4 GB
-* Medium projects (100-500 images): 4-8 GB
-* Large projects (500+ images): 8-16 GB
-* Chloros+ parallel mode uses more RAM
+* Majhni projekti (&lt; 100 slik): 2–4 GB
+* Srednji projekti (100–500 slik): 4–8 GB
+* Veliki projekti (500+ slik): 8–16 GB
+* Chloros+ vzporedni način uporablja več RAM-a
 
-**If memory is low:**
+**Če je pomnilnik poln:**
 
-* Process smaller batches
-* Close other applications
-* Upgrade RAM if regularly processing large datasets
+* Obdelujte manjše serije
+* Zaprite druge aplikacije
+* Nadgradite RAM, če redno obdelujete velike podatkovne nize
 
-### GPU Usage (Chloros+ with CUDA)
+### Poraba GPU (Chloros+ s CUDA)
 
-When GPU acceleration is enabled:
+Ko je omogočena pospešitev GPU:
 
-* NVIDIA GPU shows high utilization (60-90%)
-* VRAM usage increases (requires 4GB+ VRAM)
-* Calibrating stage is significantly faster
+* NVIDIA GPU kaže visoko izkoriščenost (60–90 %)
+* Poraba VRAM se poveča (zahteva 4 GB+ VRAM)
+* Faza kalibriranja je znatno hitrejša
 
-**To monitor:**
+**Za spremljanje:**
 
-* NVIDIA System Tray icon
-* Task Manager → Performance → GPU
-* GPU-Z or similar monitoring tool
+* Ikona NVIDIA v sistemski vrstici
+* Upravitelj opravil → Zmogljivost → GPU
+* GPU-Z ali podobno orodje za spremljanje
 
 ### Disk I/O
 
-**What to expect:**
+**Kaj lahko pričakujete:**
 
-* High disk read during Analyzing stage
-* High disk write during Exporting stage
-* SSD significantly faster than HDD
+* Visoka hitrost branja diska med fazo analiziranja
+* Visoka hitrost pisanja diska med fazo izvoza
+* SSD je bistveno hitrejši od HDD
 
-**Performance tip:**
+**Nasvet za zmogljivost:**
 
-* Use SSD for project folder when possible
-* Avoid network drives for large datasets
-* Ensure disk isn't near capacity (affects write speed)
-
-***
-
-## Detecting Problems During Processing
-
-### Warning Signs
-
-**Progress stalls (no change for 5+ minutes):**
-
-* Check Debug Log for errors
-* Verify disk space available
-* Check Task Manager to ensure Chloros is running
-
-**Error messages appear frequently:**
-
-* Stop processing and review errors
-* Common causes: disk space, corrupted files, memory issues
-* See Troubleshooting section below
-
-**System becomes unresponsive:**
-
-* Chloros+ parallel mode using too many resources
-* Consider reducing concurrent tasks or upgrading hardware
-* Free mode is less resource-intensive
-
-### When to Stop Processing
-
-Stop processing if you see:
-
-* ❌ "Disk full" or "Cannot write file" errors
-* ❌ Repeated image file corruption errors
-* ❌ System completely frozen (not responding)
-* ❌ Realized wrong settings were configured
-* ❌ Wrong images imported
-
-**How to stop:**
-
-1. Click **Stop/Cancel button** (replaces Start button)
-2. Processing halts, progress is lost
-3. Fix issues and restart from beginning
+* Po možnosti uporabite SSD za mapo projekta
+* Izogibajte se omrežnim pogonom za velike podatkovne nize
+* Preverite, da disk ni skoraj poln (vpliva na hitrost pisanja)
 
 ***
 
-## Troubleshooting During Processing
+## Odkrivanje težav med obdelavo
 
-### Processing is Very Slow
+### Opozorilni znaki
 
-**Possible causes:**
+**Napredek se ustavi (brez sprememb več kot 5 minut):**
 
-* Unmarked target images (scanning all images)
-* HDD instead of SSD storage
-* Insufficient system resources
-* Many indices configured
-* Network drive access
+* Preverite dnevnik odpravljanja napak za napake
+* Preverite razpoložljivi prostor na disku
+* Preverite upravitelja opravil, da se prepričate, da Chloros deluje
 
-**Solutions:**
+**Pogosto se pojavljajo sporočila o napakah:**
 
-1. If just started and in Detecting stage: Cancel, mark targets, restart
-2. For future: Use SSD, reduce indices, upgrade hardware
-3. Consider CLI for batch processing large datasets
+* Ustavi obdelavo in preglej napake
+* Pogosti vzroki: prostor na disku, poškodovane datoteke, težave s pomnilnikom
+* Glejte poglavje Odpravljanje težav spodaj
 
-### "Disk Space" Warnings
+**Sistem ne odgovarja:**
 
-**Solutions:**
+* Chloros+ vzporedni način porablja preveč virov
+* Razmislite o zmanjšanju sočasnih opravil ali nadgradnji strojne opreme
+* Prosti način porablja manj virov
 
-1. Free up disk space immediately
-2. Move project to drive with more space
-3. Reduce number of indices to export
-4. Use JPG format instead of TIFF (smaller files)
+### Kdaj ustaviti obdelavo
 
-### Frequent "Corrupted File" Messages
+Ustavite obdelavo, če opazite:
 
-**Solutions:**
+* ❌ Napake »Disk poln« ali »Datoteke ni mogoče zapisati«
+* ❌ Ponavljajoče se napake poškodovanih slikovnih datotek
+* ❌ Sistem je popolnoma zamrznil (ne odziva se)
+* ❌ Ugotovljeno je bilo, da so bile nastavljene napačne nastavitve
+* ❌ Uvožene so bile napačne slike
 
-1. Re-copy images from SD card to ensure integrity
-2. Test SD card for errors
-3. Remove corrupted files from project
-4. Continue processing remaining images
+**Kako ustaviti:**
 
-### System Overheating / Throttling
-
-**Solutions:**
-
-1. Ensure adequate ventilation
-2. Clean dust from computer vents
-3. Reduce processing load (use Free mode instead of Chloros+)
-4. Process during cooler times of day
+1. Kliknite **gumb Stop/Cancel** (nadomesti gumb Start)
+2. Obdelava se ustavi, napredek se izgubi
+3. Odpravite težave in začnite znova od začetka
 
 ***
 
-## Processing Complete Notification
+## Odpravljanje težav med obdelavo
 
-When processing finishes:
+### Obdelava je zelo počasna
 
-* Progress bar reaches 100%
-* **"Processing Complete"** message appears in Debug Log
-* Start button becomes enabled again
-* All output files are in camera model subfolder
+**Možni vzroki:**
+
+* Neoznačene ciljne slike (skeniranje vseh slik)
+* HDD namesto SSD pomnilnika
+* Nezadostni sistemski viri
+* Konfiguriranih je veliko indeksov
+* Dostop do omrežnega diska
+
+**Rešitve:**
+
+1. Če ste ravno začeli in ste v fazi zaznavanja: Prekličite, označite cilje, ponovno zaženite
+2. Za prihodnost: Uporabite SSD, zmanjšajte indekse, nadgradite strojno opremo
+3. Razmislite o uporabi CLI za obdelavo velikih podatkovnih nizov v serijah
+
+### Opozorila o »prostoru na disku«
+
+**Rešitve:**
+
+1. Takoj sprostite prostor na disku
+2. Premestite projekt na pogon z več prostora
+3. Zmanjšajte število indeksov za izvoz.
+4. Uporabite format JPG namesto TIFF (manjše datoteke).
+
+### Pogosta sporočila »Pogrešena datoteka«
+
+**Rešitve:**
+
+1. Ponovno kopirajte slike s kartice SD, da zagotovite njihovo celovitost.
+2. Preverite kartico SD za napake.
+3. Odstranite poškodovane datoteke iz projekta.
+4. Nadaljujte z obdelavo preostalih slik.
+
+### Pregrevanje/zmanjšanje zmogljivosti sistema
+
+**Rešitve:**
+
+1. Zagotovite ustrezno prezračevanje.
+2. Očistite prah iz prezračevalnih odprtin računalnika.
+3. Zmanjšajte obremenitev obdelave (uporabite prosti način namesto Chloros+).
+4. Obdelujte v hladnejših delih dneva.
 
 ***
 
-## Next Steps
+## Obvestilo o končani obdelavi
 
-Once processing completes:
+Ko se obdelava konča:
 
-1. **Review results** - See [Finishing the Processing](finishing-the-processing.md)
-2. **Check output folder** - Verify all files exported correctly
-3. **Review Debug Log** - Check for any warnings or errors
-4. **Preview processed images** - Use Image Viewer or external software
+* Napredek doseže 100 %
+* V dnevniku odpravljanja napak se prikaže sporočilo **»Obdelava končana«**
+* Gumb za zagon se ponovno vklopi
+* Vse izhodne datoteke so v podmapah modelov kamer
 
-For information about reviewing and using your processed results, see [Finishing the Processing](finishing-the-processing.md).
+***
+
+## Naslednji koraki
+
+Ko je obdelava končana:
+
+1. **Preglejte rezultate** – glejte [Zaključek obdelave](finishing-the-processing.md)
+2. **Preverite izhodno mapo** – preverite, ali so vse datoteke pravilno izvožene
+3. **Preglejte dnevnik odpravljanja napak** – preverite, ali so prisotna kakšna opozorila ali napake
+4. **Preglejte obdelane slike** – uporabite pregledovalnik slik ali zunanjo programsko opremo
+
+Za informacije o pregledovanju in uporabi obdelanih rezultatov glejte [Zaključek obdelave](finishing-the-processing.md).
