@@ -1,13 +1,12 @@
 ---
-description: Lab-measured panels used to calibrate captured data in post processing
+description: Lab-measured panels used to calibrate captured data in post-processing
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/calibration-targets
 ---
-
 # Kalibracijske tarče
 
-MAPIR ponuja različne kalibracijske tarče za različne namene uporabe. Kompaktni T4-R50, ki je prikazan spodaj, vsebuje 4 plošče, ki so bile izmerjene za svetlobno odbojnost od 250 do 2500 nm.
+MAPIR ponuja različne kalibracijske tarče za različne namene uporabe. Kompaktni T4-R50, prikazan spodaj, vsebuje 4 plošče, ki so bile izmerjene za svetlobno odbojnost od 250 do 2500 nm.
 
 <figure><img src=".gitbook/assets/t4-r50_2.jpg" alt=""><figcaption><p>MAPIR T4-R50</p></figcaption></figure>
 
