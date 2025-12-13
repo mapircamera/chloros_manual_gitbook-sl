@@ -1,6 +1,6 @@
 # Spremljanje obdelave
 
-Ko se obdelava začne, Chloros ponuja več načinov za spremljanje napredka, preverjanje težav in razumevanje, kaj se dogaja z vašim nizom podatkov. Ta stran pojasnjuje, kako spremljati obdelavo in razlagati informacije, ki jih ponuja Chloros.
+Ko se obdelava začne, Chloros ponuja več načinov za spremljanje napredka, preverjanje težav in razumevanje, kaj se dogaja z vašim nizom podatkov. Na tej strani je pojasnjeno, kako spremljati obdelavo in razlagati informacije, ki jih ponuja Chloros.
 
 ## Pregled napredovalne vrstice
 
@@ -10,7 +10,7 @@ Napredek v zgornjem naslovu prikazuje stanje obdelave v realnem času in odstote
 
 Za uporabnike brez licence Chloros+:
 
-**Prikaz napredka v dveh stopnjah:**
+**Prikaz napredka v dveh fazah:**
 
 1. **Zaznavanje cilja** – iskanje kalibracijskih ciljev v slikah
 2. **Obdelava** – uporaba popravkov in izvoz
@@ -36,14 +36,14 @@ Za uporabnike z licenco Chloros+:
 
 * **Premaknite miško** nad kazalnik napredka, da se prikaže razširjen 4-stopenjski panel
 * **Kliknite** na vrstico napredka, da zamrznete/pritrdite razširjeni panel
-* **Kliknite še enkrat**, da odmrznete in samodejno skrijete, ko umaknete miško
+* **Kliknite ponovno**, da odmrznete in samodejno skrijete, ko umaknete miško
 * Vsaka stopnja prikazuje posamezni napredek (0–100 %)
 
 ***
 
 ## Razumevanje vsake stopnje obdelave
 
-### Stopnja 1: Odkrivanje (odkrivanje ciljev)
+### Stopnja 1: Zaznavanje (zaznavanje ciljev)
 
 **Kaj se dogaja:**
 
@@ -98,7 +98,7 @@ Za uporabnike z licenco Chloros+:
 * **Popravek vinjete**: odstranjevanje potemnjenja robov objektiva
 * **Kalibracija odbojnosti**: normalizacija s ciljnimi vrednostmi
 * **Izračun indeksa**: izračun multispektralnih indeksov
-* Obdelava vsake slike skozi celoten postopek
+* Obdelava vsake slike skozi celoten proces
 
 **Trajanje:** večina celotnega časa obdelave (60–80 %)
 
@@ -141,7 +141,7 @@ Za uporabnike z licenco Chloros+:
 
 * Opozorila o prostem prostoru na disku
 * Napake pri zapisovanju datotek
-* Zaključek vseh konfiguriranih izhodov
+* Zaključek vseh nastavljenih izhodov
 
 ***
 
@@ -201,17 +201,17 @@ Kritične težave, ki lahko povzročijo napako pri obdelavi:
 | „Obdelava slike X od Y”        | Trenutna posodobitev napredka                | Nič – normalno                                         |
 | „Cilji niso bili najdeni”               | Kalibracijski cilji niso bili zaznanih        | Označite ciljne slike ali onemogočite kalibracijo odbojnosti |
 | „Premalo prostora na disku“        | Premalo prostora za shranjevanje izhodnih podatkov          | Osvobodite prostor na disku                                    |
-| „Preskočitev poškodovane datoteke“        | Slikovna datoteka je poškodovana                  | Ponovno kopirajte datoteko s kartice SD                             |
+| „Preskočitev poškodovane datoteke“        | Datoteka slike je poškodovana                  | Ponovno kopirajte datoteko s kartice SD                             |
 | „Uporabljeni podatki PPK“               | Uporabljene popravke GPS iz datoteke .daq | Nič – normalno                                         |
 
 ### Kopiranje podatkov dnevnika
 
 Kopiranje dnevnika za odpravljanje težav ali podporo:
 
-1. Odprite okno Debug Log (Dnevnik odpravljanja napak)
-2. Kliknite gumb **„Copy Log“** (Kopiraj dnevnik) (ali desni klik → Izberi vse)
-3. Prilepite v besedilno datoteko ali e-pošto
-4. Po potrebi pošljite podpori MAPIR
+1. Odprite okno Debug Log (Dnevnik odpravljanja napak).
+2. Kliknite gumb **„Copy Log“** (Kopiraj dnevnik) (ali desni klik → Izberi vse).
+3. Prilepite v besedilno datoteko ali e-pošto.
+4. Po potrebi pošljite podpori MAPIR.
 
 ***
 
@@ -272,11 +272,11 @@ Ko je omogočena pospešitev GPU:
 
 * Visoka hitrost branja diska med fazo analiziranja
 * Visoka hitrost pisanja diska med fazo izvoza
-* SSD je bistveno hitrejši od HDD
+* SSD je znatno hitrejši od HDD
 
 **Nasvet za zmogljivost:**
 
-* Po možnosti uporabite SSD za mapo projekta
+* Po možnosti uporabite SSD za projektno mapo
 * Izogibajte se omrežnim pogonom za velike podatkovne nize
 * Preverite, da disk ni skoraj poln (vpliva na hitrost pisanja)
 
@@ -318,7 +318,7 @@ Ustavite obdelavo, če opazite:
 
 1. Kliknite **gumb Stop/Cancel** (nadomesti gumb Start)
 2. Obdelava se ustavi, napredek se izgubi
-3. Odpravite težave in začnite znova od začetka
+3. Popravite težave in začnite znova od začetka
 
 ***
 
@@ -340,7 +340,7 @@ Ustavite obdelavo, če opazite:
 2. Za prihodnost: Uporabite SSD, zmanjšajte indekse, nadgradite strojno opremo
 3. Razmislite o uporabi CLI za obdelavo velikih podatkovnih nizov v serijah
 
-### Opozorila o »prostoru na disku«
+### Opozorila o prostem prostoru na disku
 
 **Rešitve:**
 
@@ -349,16 +349,16 @@ Ustavite obdelavo, če opazite:
 3. Zmanjšajte število indeksov za izvoz.
 4. Uporabite format JPG namesto TIFF (manjše datoteke).
 
-### Pogosta sporočila »Pogrešena datoteka«
+### Pogosta sporočila »Površinska datoteka«
 
 **Rešitve:**
 
 1. Ponovno kopirajte slike s kartice SD, da zagotovite njihovo celovitost.
 2. Preverite kartico SD za napake.
-3. Odstranite poškodovane datoteke iz projekta.
+3. Odstranite površinske datoteke iz projekta.
 4. Nadaljujte z obdelavo preostalih slik.
 
-### Pregrevanje/zmanjšanje zmogljivosti sistema
+### Pregrevanje/upočasnjevanje sistema
 
 **Rešitve:**
 
@@ -374,7 +374,7 @@ Ustavite obdelavo, če opazite:
 Ko se obdelava konča:
 
 * Napredek doseže 100 %
-* V dnevniku odpravljanja napak se prikaže sporočilo **»Obdelava končana«**
+* V dnevniku odpravljanja napak se prikaže sporočilo **»Obdelava zaključena«**
 * Gumb za zagon se ponovno vklopi
 * Vse izhodne datoteke so v podmapah modelov kamer
 
@@ -382,11 +382,11 @@ Ko se obdelava konča:
 
 ## Naslednji koraki
 
-Ko je obdelava končana:
+Ko je obdelava zaključena:
 
 1. **Preglejte rezultate** – glejte [Zaključek obdelave](finishing-the-processing.md)
 2. **Preverite izhodno mapo** – preverite, ali so vse datoteke pravilno izvožene
-3. **Preglejte dnevnik odpravljanja napak** – preverite, ali so prisotna kakšna opozorila ali napake
+3. **Preglejte dnevnik odpravljanja napak** – preverite, ali so prisotna opozorila ali napake
 4. **Preglejte obdelane slike** – uporabite pregledovalnik slik ali zunanjo programsko opremo
 
 Za informacije o pregledovanju in uporabi obdelanih rezultatov glejte [Zaključek obdelave](finishing-the-processing.md).

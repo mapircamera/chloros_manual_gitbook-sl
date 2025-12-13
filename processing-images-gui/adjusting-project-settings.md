@@ -50,7 +50,7 @@ Nadzira, kako Chloros identificira kalibracijske cilje v vaših slikah.
 
 ### Obdelava
 
-Glavne možnosti obdelave slik in kalibracije.
+Glavne možnosti za obdelavo slik in kalibracijo.
 
 **Ključne nastavitve:**
 
@@ -63,7 +63,7 @@ Glavne možnosti obdelave slik in kalibracije.
 
 * **Časovni zamik svetlobnega senzorja**: za sinhronizacijo časa PPK (privzeto: 0)
 * **Uporabi popravke PPK**: uporabi podatke GPS/izpostavljenosti iz datotek .daq
-* **Izpostavljenostni pin 1/2**: dodeli kamere izpostavljenostnim pinom za nastavitve z dvojno kamero
+* **Izpostavljenostni pin 1/2**: dodeli kamere izpostavljenostnim pinom za nastavitve z dvema kamerama
 
 ### Indeks (multispektralni indeksi)
 
@@ -98,7 +98,7 @@ Nadzoruje format in kakovost izhodne datoteke.
 
 **Razpoložljivi formati:**
 
-* **TIFF (16-bit)**: Priporočljivo za GIS in znanstvene analize (razpon 0–65.535)
+* **TIFF (16-bit)**: Priporočljiv za GIS in znanstvene analize (razpon 0–65.535)
 * **TIFF (32-bit, odstotek)**: Vrednosti odbojnosti s plavajočo vejico (razpon 0,0–1,0)
 * **PNG (8-bit)**: Brezizgubna kompresija za vizualizacijo (območje 0–255)
 * **JPG (8-bit)**: Najmanjše datoteke, izgubna kompresija (območje 0–255)
@@ -138,7 +138,7 @@ Nastavitev **»Shrani mapo projekta«** določa, kje se privzeto ustvarjajo novi
 * **Privzeta lokacija**: `C:\Users\[Username]\Chloros Projects`
 * **Spremeni lokacijo**: kliknite ikono za urejanje in izberite novo mapo
 * **Kdaj spremeniti**:
-  * Omrežni disk za sodelovanje v ekipi
+  * Mrežni disk za sodelovanje v ekipi
   * Drugi disk z več prostora za shranjevanje
   * Urejena struktura map po letu/stranki
 
@@ -156,7 +156,7 @@ Nastavitev **»Shrani mapo projekta«** določa, kje se privzeto ustvarjajo novi
 
 ### Koraki konfiguracije
 
-1. Dnevniško datoteko .daq shranite v mapo projekta.
+1. Datoteko dnevnika .daq shranite v mapo projekta.
 2. V nastavitvah projekta omogočite potrditveno polje **„Uporabi PPK popravke“**.
 3. Po potrebi nastavite **„Časovni zamik svetlobnega senzorja“** (privzeto: 0 za UTC).
 4. Kamere dodelite izpostavljenim pikam:
@@ -165,13 +165,13 @@ Nastavitev **»Shrani mapo projekta«** določa, kje se privzeto ustvarjajo novi
 
 **Dodelitev priključkov za osvetlitev:**
 
-* **Priključek za osvetlitev 1**: Izberite model kamere iz spustnega menija.
+* **Priključek za osvetlitev 1**: Iz spustnega menija izberite model kamere.
 * **Priključek za osvetlitev 2**: Izberite drugo kamero ali »Ne uporabljaj«.
 * Enake kamere ni mogoče dodeliti obema priključkoma.
 
-{% hint style=&quot;warning&quot; %}
+{% namig style=&quot;warning&quot; %}
 **Pomembno**: Izpostavljenostni pini morajo biti pravilno dodeljeni ustreznim kameram. Nepravilna dodelitev bo povzročila napačne podatke o geografski lokaciji.
-{% endhint %}
+{% konec namiga %}
 
 ***
 
@@ -183,12 +183,12 @@ Pri obdelavi slik iz več kamer MAPIR v enem projektu:
 
 1. Chloros samodejno zazna vsak model kamere
 2. Vsaka kamera dobi ustrezen profil obdelave
-3. PPK: ročno dodelite vsaki kameri pravilni izpostavljenostni pin
-4. Vse kamere uporabljajo isti izvozni format in indekse
+3. PPK: ročno dodelite vsaki kameri pravilni izpostavljenostni pin.
+4. Vse kamere uporabljajo enak izvozni format in indekse.
 
-**Primer**: Survey3W RGN + Survey3N OCN dvojna kamera
+**Primer**: Survey3W RGN + Survey3N OCN oprema z dvema kamerama
 
-### Časovni preskok ali večdatumske raziskave
+### Časovni presek ali večdatumske raziskave
 
 Za ponavljajoče se raziskave istega območja v daljšem časovnem obdobju:
 
@@ -204,7 +204,7 @@ Za projekte z veliko slikami (500+):
 
 * Razmislite o razdelitvi na manjše projekte po datumu ali območju.
 * Uporabite vzporedno obdelavo Chloros+ za hitrejše rezultate.
-* Razmislite o uporabi CLI ali API za avtomatizacijo serij.
+* Razmislite o uporabi CLI ali API za avtomatizacijo serijske obdelave.
 * Prilagodite minimalni interval ponovne kalibracije, da skrajšate čas zaznavanja cilja.
 
 ***
@@ -227,7 +227,7 @@ Preden začnete z obdelavo, preglejte te ključne nastavitve:
 
 Ko so nastavitve konfigurirane:
 
-1. **Označite ciljne slike za kalibracijo** – glejte [Izbira ciljnih slik](choosing-target-images.md)
+1. **Označite kalibracijske ciljne slike** – glejte [Izbira ciljnih slik](choosing-target-images.md)
 2. **Začnite obdelavo** – glejte [Začetek obdelave](starting-the-processing.md)
 3. **Spremljajte napredek** – glejte [Spremljanje obdelave](monitoring-the-processing.md)
 

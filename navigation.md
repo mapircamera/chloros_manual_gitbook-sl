@@ -14,7 +14,9 @@ V glavnem meniju lahko začnete nov projekt, odprete obstoječ projekt ali odpre
 
 Ko je omogočen, gumb za začetek obdelave zažene potek obdelave slike.
 
-### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> Napredek <img src=".gitbook/assets/image (5).png" alt="" data-size="line">V brezplačnem načinu Chloros, ki obdeluje vse datoteke zaporedno, trak napredka prikazuje 2 stopnji: zaznavanje cilja in obdelava.
+### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> Napredek <img src=".gitbook/assets/image (5).png" alt="" data-size="line">
+
+V brezplačnem načinu Chloros, ki obdeluje vse datoteke zaporedno, trak napredka prikazuje 2 stopnji: zaznavanje cilja in obdelava.
 
 V plačljivem načinu Chloros+ z licenco, ki obdeluje vse datoteke hkrati, trak napredka prikazuje 4 stopnje: zaznavanje, analiza, kalibracija, izvoz. Če z miško premaknete kurzor nad indikator napredka Chloros+, se odpre razširjen panel s 4 indikatorji napredka, ki vam omogoča spremljanje napredka. S klikom na zgornji indikator napredka se razširjeni panel zamrzne, s ponovnim klikom pa se sprosti.
 

@@ -8,9 +8,9 @@ Označevanje slik, ki vsebujejo kalibracijske cilje, je ključni korak, ki znatn
 
 Brez označevanja ciljnih slik mora Chloros:
 
-* Pregledati vsako posamezno sliko v vašem projektu.
-* Izvesti algoritme za zaznavanje ciljev na vsaki sliki.
-* Nepotrebno preveriti na stotine ali tisoče slik.
+* pregledati vsako posamezno sliko v projektu
+* izvesti algoritme za zaznavanje ciljev na vsaki sliki
+* nepotrebno preveriti na stotine ali tisoče slik
 
 **Rezultat**: Obdelava lahko traja bistveno dlje, zlasti pri velikih podatkovnih nizih.
 
@@ -22,7 +22,7 @@ Ko v stolpcu Cilj označite določene slike:
 * Odkrivanje ciljev je veliko hitrejše
 * Skupni čas obdelave je znatno krajši
 
-{% namig style=&quot;success&quot; %}
+{% hint style=&quot;success&quot; %}
 **Izboljšanje hitrosti**: Označitev 2–3 ciljnih slik v nizu podatkov s 500 slikami lahko skrajša čas zaznavanja ciljev s 30+ minut na manj kot 1 minuto.
 {% endhint %}
 
@@ -37,7 +37,7 @@ Preglejte uvožene slike v brskalniku datotek in prepoznajte, katere slike vsebu
 **Pogosti scenariji:**
 
 * **Cilj pred zajemom**: zajet pred začetkom seje
-* **Cilj po zajemom**: zajet po zaključku seje
+* **Cilj po zajemu**: zajet po zaključku seje
 * **Cilji na terenu**: cilji, nameščeni znotraj območja zajema
 * **Več ciljev**: 2–3 ciljne slike na sejo (priporočeno)
 
@@ -55,18 +55,18 @@ Za vsako sliko, ki vsebuje kalibracijski cilj:
 Pred obdelavo še enkrat preverite:
 
 * [ ] Vse slike s cilji kalibracije so označene.
-* [ ] Nobena slika, ki ni ciljna, ni bila naključno označena.
+* [ ] Nobena slika, ki ni ciljna, ni bila pomotoma označena.
 * [ ] Cilji so jasno vidni na označenih slikah.
 
 ***
 
 ## Najboljše prakse za ciljne slike
 
-### Smernice za zajemanje ciljev
+### Smernice za zajem ciljev
 
 **Čas:**
 
-* Ciljne slike zajemajte takoj pred in med sejo zajemanja.
+* Ciljne slike zajemajte takoj pred in med sejo zajema.
 * V enakih svetlobnih pogojih kot svetlobni senzor DAQ.
 * Za najboljše rezultate ciljne slike zajemajte čim pogosteje. V nasprotnem primeru se bodo za prilagajanje kalibracije sčasoma uporabili podatki svetlobnega senzorja.
 
@@ -79,18 +79,18 @@ Pred obdelavo še enkrat preverite:
 
 * Enaka osvetlitev okolice kot pri senzorju svetlobe DAQ.
 * Izogibajte se sencam na ciljnih površinah.
-* Ne prekrivajte vira svetlobe s svojim telesom, vozilom ali vegetacijo.
+* Ne prekrivajte vira svetlobe s svojim telesom, vozilom ali rastlinjem.
 * Oblačni pogoji zagotavljajo najbolj dosledne rezultate.
 
 **Pogoji cilja:**
 
 * Ciljne plošče morajo biti čiste in suhe.
-* Vse 4 plošče morajo biti jasno vidne in neprekrite.
+* Vse 4 plošče morajo biti jasno vidne in neovirane.
 * Cilji morajo biti po možnosti pravokotni/nadirni glede na vir svetlobe.
 
 ### Koliko ciljnih slik?
 
-**Minimalno:** 1 slika cilja na sejo. **Priporočeno:** 3–5 slik cilja na sejo.
+**Najmanj:** 1 slika cilja na sejo. **Priporočeno:** 3–5 slik cilja na sejo.
 
 **Najboljši urnik:**
 
@@ -106,9 +106,9 @@ Pred obdelavo še enkrat preverite:
 
 Če hkrati uporabljate dve kameri MAPIR (npr. Survey3W RGN + Survey3N OCN):
 
-1. Hkrati zajemite ciljne slike z **obe kamerami**.
+1. Hkrati zajemajte ciljne slike z **obe kamerami**.
 2. Za obe kameri uporabite **isti fizični cilj**.
-3. V brskalniku datotek označite ciljne slike za **oba tipa kamer**.
+3. V brskalniku datotek označite ciljne slike za **obe vrsti kamer**.
 4. Chloros bo za kalibracijo vsake kamere uporabil ustrezne cilje.
 
 ### Stolpec Model kamere
@@ -126,7 +126,7 @@ Ta stolpec uporabite za preverjanje, ali ste v svojem projektu označili cilje z
 
 ## Nastavitve zaznavanja ciljev
 
-### Prilagajanje občutljivosti zaznavanja
+### Nastavitev občutljivosti zaznavanja
 
 Če Chloros ne zazna vaših ciljev pravilno, prilagodite te nastavitve v [Nastavitvah projekta](adjusting-project-settings.md):
 
@@ -140,7 +140,7 @@ Ta stolpec uporabite za preverjanje, ali ste v svojem projektu označili cilje z
 
 * **Privzeto**: 60
 * **Povečajte**, če se cilji razdelijo na več zaznav
-* **Zmanjšajte**, če cilji z barvnimi odstopanji niso v celoti zaznavni
+* **Zmanjšajte**, če cilji z barvnimi razlikami niso v celoti zaznavni
 
 ***
 
@@ -151,7 +151,7 @@ Ta stolpec uporabite za preverjanje, ali ste v svojem projektu označili cilje z
 **Možni vzroki:**
 
 * Slike ciljev niso označene v brskalniku datotek
-* Cilj je v okviru premajhen (&lt; 30 % slike)
+* Cilj je premajhen v okviru (&lt; 30 % slike)
 * Slaba osvetlitev (sence, bleščanje)
 * Preveč stroge nastavitve zaznavanja ciljev
 
@@ -166,7 +166,7 @@ Ta stolpec uporabite za preverjanje, ali ste v svojem projektu označili cilje z
 
 **Možni vzroki:**
 
-* Bele stavbe, vozila ali talna pokrivnost, ki se zamenjajo za cilje
+* Bele stavbe, vozila ali talna pokrivnost, ki se zamenjujejo za cilje
 * Svetle lise v vegetaciji
 * Premajhna občutljivost zaznavanja
 
@@ -184,10 +184,10 @@ Ta stolpec uporabite za preverjanje, ali ste v svojem projektu označili cilje z
 Pred začetkom obdelave preverite izbiro slik ciljev:
 
 * [ ] Vsaj 1 označena slika cilja na sejo
-* [ ] Potrditvena polja stolpca ciljev so potrjena za vse slike ciljev
-* [ ] Slike ciljev so zajete v istem časovnem obdobju kot raziskava
+* [ ] Potrditvena polja v stolpcu ciljev so potrjena za vse slike ciljev
+* [ ] Slike ciljev so posnete v istem časovnem obdobju kot raziskava
 * [ ] Cilji so jasno vidni v predogledu, ko kliknete nanje
-* [ ] Vse 4 kalibracijske plošče so vidne na vsaki sliki cilja
+* [ ] Vsi 4 kalibracijski paneli so vidni na vsaki sliki cilja
 * [ ] Na ciljih ni senc ali ovir
 * [ ] Za dvojno kamero: cilji so označeni za oba tipa kamer
 

@@ -9,8 +9,8 @@ Preden kliknete gumb Začni, preverite, ali je vse pripravljeno:
 * [ ] **Uvožene datoteke** – vse slike se prikažejo v brskalniku datotek
 * [ ] **Označene ciljne slike** – stolpec Cilj je preverjen za kalibracijske slike
 * [ ] **Zaznani modeli kamer** – stolpec Model kamere prikazuje prave kamere
-* [ ] **Nastavitve konfigurirane** – nastavitve projekta pregledane in prilagojene
-* [ ] **Indeksi izbrani** – dodani želeni multispektralni indeksi (če je potrebno)
+* [ ] **Konfigurirane nastavitve** – pregledane in prilagojene nastavitve projekta
+* [ ] **Izbrani indeksi** – dodani želeni multispektralni indeksi (če je potrebno)
 * [ ] **Izbran izvozni format** – izvozni format, primeren za vaš delovni tok
 
 {% hint style=&quot;info&quot; %}
@@ -21,12 +21,12 @@ Preden kliknete gumb Začni, preverite, ali je vse pripravljeno:
 
 ## Začetek obdelave
 
-### Poiščite gumb Začetek
+### Poiščite gumb Začni
 
-Gumb Začetek/Predvajanje se nahaja v zgornji vrstici glave Chloros:
+Gumb Začni/Predvajaj se nahaja v zgornji vrstici glave Chloros:
 
 * Položaj: zgornji srednji del okna
-* Ikona: **Gumb Predvajanje/Začetek** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">
+* Ikona: **Gumb Predvajaj/Začni** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">
 * Stanje: Gumb je omogočen (svetel), ko je pripravljen za obdelavo
 
 ### Kliknite za začetek
@@ -52,14 +52,14 @@ Chloros deluje v dveh različnih načinih obdelave, odvisno od vaše licence:
 
 **Kako deluje:**
 
-* Obdeluje slike eno po eno, zaporedno.
+* Obdeluje slike po eno naenkrat, zaporedno.
 * Enonitno delovanje.
 * Manjša poraba pomnilnika.
 
 **Napredek prikazuje 2 stopnji:**
 
 1. **Zaznavanje cilja** – iskanje kalibracijskih ciljev.
-2. **Obdelava** – uporaba kalibracije in izvoz slik.
+2. **Obdelava** – uporaba kalibracije in izvoz slik
 
 **Čas obdelave:**
 
@@ -80,15 +80,15 @@ Chloros deluje v dveh različnih načinih obdelave, odvisno od vaše licence:
 **Napredek prikazuje 4 stopnje:**
 
 1. **Zaznavanje** – iskanje kalibracijskih ciljev
-2. **Analiziranje** – pregledovanje metapodatkov slike in priprava poteka
-3. **Kalibriranje** – uporaba popravkov in kalibracij
+2. **Analiza** – pregledovanje metapodatkov slike in priprava poteka
+3. **Kalibracija** – uporaba popravkov in kalibracij
 4. **Izvoz** – shranjevanje obdelanih slik in indeksov
 
 **Interakcija z vrstico napredka:**
 
 * **Premaknite miško** nad vrstico, da se prikaže podrobni spustni meni s 4 stopnjami
-* **Kliknite** vrstico napredka, da se spustni meni zamrzne na mestu
-* **Ponovno kliknite**, da sprostite in skrijete panel
+* **Kliknite** na vrstico napredka, da se spustni meni zamrzne na mestu
+* **Kliknite še enkrat**, da se spustni meni odmrzne in skrije
 
 **Čas obdelave:**
 
@@ -96,7 +96,7 @@ Chloros deluje v dveh različnih načinih obdelave, odvisno od vaše licence:
 * Prilagaja se številu jedr CPU
 * Pospešek GPU dodatno izboljša hitrost
 
-{% hint style=&quot;info&quot; %}
+{% namig style=&quot;info&quot; %}
 **Chloros+ Hitrost**: Vzporedna obdelava je lahko 5-10-krat hitrejša od zaporednega načina za velike podatkovne nize. Projekt s 500 slikami, ki v brezplačnem načinu traja 2 uri, se z Chloros+ lahko zaključi v 15-20 minutah.
 {% endhint %}
 
@@ -104,14 +104,14 @@ Chloros deluje v dveh različnih načinih obdelave, odvisno od vaše licence:
 
 ## Kaj se dogaja med obdelavo
 
-### Faza 1: Zaznavanje ciljev
+### Faza 1: Zaznavanje cilja
 
 **Kaj počne Chloros:**
 
-* Skenira označene ciljne slike (ali vse slike, če nobena ni označena)
+* Pregleda označene ciljne slike (ali vse slike, če nobena ni označena)
 * Identificira 4 kalibracijske plošče v vsakem cilju
 * Izvleče vrednosti odbojnosti iz ciljnih plošč
-* Zabeleži časovne oznake ciljev za načrtovanje kalibracije
+* Zapiše časovne oznake ciljev za načrtovanje kalibracije
 
 **Trajanje:** 1–30 sekund (z označenimi cilji), 5–30+ minut (neoznačeni)
 
@@ -152,8 +152,8 @@ Chloros deluje v dveh različnih načinih obdelave, odvisno od vaše licence:
 
 * Shrani kalibrirane slike v izbranem formatu
 * Izvozi indeksne slike s konfiguriranimi barvami LUT
-* Zapisuje datoteke v podmapo modela kamere
-* Ohranja originalna imena datotek s končnicami
+* Zapiše datoteke v podmapo modela kamere
+* Ohrani originalna imena datotek s končnicami
 
 **Trajanje:** Odvisno od formata izvoza in velikosti datoteke
 
@@ -179,7 +179,7 @@ Ko se proces začne, poteka avtomatsko:
 
 **Chloros+ vzporedni način:**
 
-* Visoka poraba CPU (večnitni, do 16 jeder)
+* Visoka poraba CPU (večnitno, do 16 jeder)
 * Z GPU pospešitvijo: Visoka poraba GPU
 * Računalnik je med obdelavo lahko manj odziven
 * Izogibajte se zagonu drugih nalog, ki intenzivno obremenjujejo CPU
@@ -205,10 +205,10 @@ Ko se proces začne, poteka avtomatsko:
 
 Med obdelavo lahko:
 
-* **Spremljate napredek** – ogledate si skupni odstotek dokončanja.
-* **Ogledate si trenutno fazo** – zaznavanje, analiza, kalibracija ali izvoz.
-* **Preverite zavihek dnevnika** – ogledate si podrobna obvestila in opozorila o obdelavi.
-* **Ogledate si predogled dokončanih slik** – med obdelavo se lahko prikažejo nekatere izvozne datoteke.
+* **Spremljate napredek** – ogledate si skupni odstotek dokončanja
+* **Ogledate si trenutno fazo** – zaznavanje, analiza, kalibracija ali izvoz
+* **Preverite zavihek dnevnika** – ogledate si podrobna sporočila in opozorila o obdelavi
+* **Ogledate si predogled dokončanih slik** – med obdelavo se lahko prikažejo nekatere izvozne datoteke
 
 Podrobne informacije o spremljanju najdete v [Spremljanje obdelave](monitoring-the-processing.md).
 
@@ -222,23 +222,23 @@ Podrobne informacije o spremljanju najdete v [Spremljanje obdelave](monitoring-t
 
 1. Poiščite **gumb Stop/Cancel** (med obdelavo nadomesti gumb Start)
 2. Kliknite gumb Stop
-3. Obdelava se takoj ustavi
-4. Delni rezultati se zavržejo
+3. Obdelava se takoj ustavi.
+4. Delni rezultati se zavržejo.
 
 ### Kdaj prekiniti
 
-**Utemeljene razloge za prekinitev:**
+**Veljavni razlogi za prekinitev:**
 
-* Ugotovljeno je bilo, da so bile uporabljene napačne nastavitve
-* Pozabili ste označiti ciljne slike
-* Uvožene so bile napačne slike
-* Sistem deluje prepočasi ali se ne odziva
+* Ugotovljeno je bilo, da so bile uporabljene napačne nastavitve.
+* Pozabili ste označiti ciljne slike.
+* Uvožene so bile napačne slike.
+* Sistem deluje prepočasi ali se ne odziva.
 
 **Po prekinitvi:**
 
-* Preglejte in odpravite morebitne težave
-* Po potrebi prilagodite nastavitve
-* Ponovno zaženite obdelavo od začetka
+* Preglejte in odpravite morebitne težave.
+* Po potrebi prilagodite nastavitve.
+* Ponovno zaženite obdelavo od začetka.
 * Za najboljšo izkušnjo popolnoma zaprite Chloros in ponovno zaženite.
 
 {% hint style=&quot;warning&quot; %}
@@ -255,12 +255,12 @@ Dejanski čas obdelave se močno razlikuje glede na:
 * Ločljivost slike
 * Vhodni format RAW ali JPG
 * Način obdelave (Free ali Chloros+)
-* hitrosti CPU in števila jeder
-* razpoložljivosti GPU (samo Chloros+)
-* števila indeksov za izračun
+* hitrosti procesorja in števila jeder
+* razpoložljivosti grafične kartice (samo Chloros+)
+* števila indeksov, ki jih je treba izračunati
 * kompleksnosti izvoznega formata
 
-### Grobe ocene (Chloros+, slike 12 MP, sodoben CPU)
+### Grobe ocene (Chloros+, slike 12 MP, sodoben procesor)
 
 | Število slik | Brezplačni način | Chloros+ (CPU) | Chloros+ (GPU) |
 | ----------- | --------- | -------------- | -------------- |
@@ -284,15 +284,15 @@ Dejanski čas obdelave se močno razlikuje glede na:
 
 * Ni uvoženih slik
 * Backend ni v celoti zagnan
-* Prejšnja obdelava še vedno poteka
+* Prejšnja obdelava še vedno teče
 * Projekt ni v celoti naložen
 
 **Rešitve:**
 
-1. Počakajte, da se backend v celoti inicializira (preverite ikono glavnega menija).
-2. Preverite, ali so slike uvožene v brskalniku datotek.
-3. Ponovno zaženite Chloros, če gumb ostane onemogočen.
-4. Preverite dnevnik za odpravljanje napak za sporočila o napakah.
+1. Počakajte, da se backend v celoti inicializira (preverite ikono glavnega menija)
+2. Preverite, ali so slike uvožene v brskalniku datotek
+3. Ponovno zaženite Chloros, če gumb ostane onemogočen
+4. Preverite dnevnik za odpravljanje napak za sporočila o napakah
 
 ### Obdelava se začne, nato pa takoj ne uspe
 

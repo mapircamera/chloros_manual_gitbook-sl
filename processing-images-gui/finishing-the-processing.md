@@ -4,7 +4,7 @@ Ko Chloros zaključi obdelavo, je čas, da pregledate rezultate, preverite kakov
 
 ## Kazalnik zaključene obdelave
 
-Ko je obdelava uspešno zaključena, se prikažejo naslednji kazalniki:
+Ko je obdelava uspešno zaključena, se prikažejo več kazalnikov:
 
 * ✅ **Kazalnik napredka**: doseže 100 % zaključka
 * ✅ **Dnevnik odpravljanja napak**: prikaže sporočilo »Obdelava zaključena«
@@ -30,7 +30,7 @@ Ko je obdelava uspešno zaključena, se prikažejo naslednji kazalniki:
 
 **Vgrajeni predogled Windows:**
 
-1. Prejdite v podmapo modela kamere.
+1. Preidite v podmapo modela kamere.
 2. Izberite datoteko slike.
 3. Predogled se prikaže v oknu predogleda raziskovalca Windows.
 4. S puščičnimi tipkami brskajte po slikah.
@@ -39,7 +39,7 @@ Ko je obdelava uspešno zaključena, se prikažejo naslednji kazalniki:
 
 **Priporočeni pregledovalniki:**
 
-* **QGIS** – brezplačna programska oprema GIS (najboljša za georeferencirano multispektralno analizo)
+* **QGIS** – brezplačna programska oprema GIS (najboljša za georeferenčno multispektralno analizo)
 * **IrfanView** – hiter, lahek pregledovalnik slik (podpira TIFF)
 * **Adobe Photoshop** – profesionalno urejanje (podpora TIFF)
 * **GIMP** – brezplačna alternativa programu Photoshop
@@ -49,9 +49,9 @@ Ko je obdelava uspešno zaključena, se prikažejo naslednji kazalniki:
 
 Za napredno vizualizacijo uporabite vgrajeni Image Viewer v Chloros:
 
-1. Kliknite na sličico slike v brskalniku datotek.
+1. Kliknite na miniaturno sliko v brskalniku datotek.
 2. Slika se odpre v glavnem predoglednem področju.
-3. Kliknite na **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> v levem stranskem meniju.
+3. Kliknite na zavihek **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> v levem stranskem meniju.
 4. Uporabite [Index/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md) za interaktivno analizo.
 
 Podrobna navodila najdete v [Image Viewer](../image-viewer-gui/opening-an-image-full-screen.md).
@@ -79,7 +79,7 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 
 ***
 
-## Pogoste težave z izhodnimi datotekami in rešitve
+## Pogoste težave z izhodom in rešitve
 
 ### Težava: Manjkajoče izhodne datoteke
 
@@ -97,12 +97,12 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 3. Preštejte datoteke: mora se ujemati (izvirno število – ciljno število) × (indeksi + 1)
 4. Ponovno uvozite in ponovno obdelajte vse manjkajoče datoteke.
 
-### Težava: Temni ali svetli robovi (vignetting še vedno viden)
+### Težava: Temni ali svetli robovi (vignetting je še vedno viden)
 
 **Možni vzroki:**
 
-* Popravek vignettinga onemogočen.
-* Kamera/objektiv ni v bazi podatkov profilov Chloros.
+* Popravek vignettinga je onemogočen.
+* Kamera/objektiv ni v podatkovni bazi profilov Chloros.
 * Ekstremni vignetting, ki presega zmogljivosti popravka.
 
 **Rešitve:**
@@ -127,7 +127,7 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 3. Preverite kakovost ciljnih slik.
 4. Ponovno obdelajte z označenimi ustreznimi cilji.
 
-### Težava: Vrednosti NDVI se zdijo napačne.
+### Težava: Vrednosti NDVI se zdijo napačne
 
 **Pričakovani razponi NDVI:**
 
@@ -136,7 +136,7 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 * **Zmerna vegetacija**: od 0,4 do 0,6
 * **Zdrava, gosta vegetacija**: od 0,6 do 0,9
 
-**Če vrednosti presegajo ta območja:**
+**Če vrednosti presegajo te razpone:**
 
 1. Preverite, ali je bila uporabljena kalibracija odbojnosti.
 2. Preverite, ali je bil vključen dnevnik svetlobnega senzorja.
@@ -159,7 +159,7 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
    * WebODM
 2. **Ohranite metapodatke EXIF**: Preverite, ali so podatki GPS ohranjeni za geografsko označevanje.
 3. **Kalibrirani delovni postopki**: Uporabite slike odbojnosti za znanstveno natančnost.
-4. **Obdelajte indeksne mozaike**: Ustvarite ortomosaike NDVI iz posameznih indeksnih slik
+4. **Obdelajte indeksne mozaike**: Iz posameznih indeksnih slik ustvarite ortomosaike NDVI
 5. **Izvozite georeferencirane GeoTIFF**: za uporabo v aplikacijah GIS
 
 ### Za analizo GIS
@@ -170,16 +170,16 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 2. **Uporabite 16-bitne slike odbojnosti TIFF** za večpasovno analizo
 3. **Uporabite indeksne slike** (NDVI, NDRE) kot pripravljene plasti vegetacije
 4. **Rasterski kalkulator**: združite pasove za prilagojeno analizo
-5. **Izvoz**: ustvarite klasifikacijske zemljevide, zaznavanje sprememb, zemljevide zdravja vegetacije
+5. **Izvoz**: ustvarite klasifikacijske zemljevide, zaznavanje sprememb, zemljevide zdravja vegetacije.
 
 ### Za neposredno analizo/poročanje
 
 **Priporočeni potek dela:**
 
-1. **Uporabite indeksne slike z barvami LUT** za vizualna poročila
-2. **Izpis statistike**: povprečje NDVI na polje/parcelo
+1. **Uporabite indeksne slike z barvami LUT** za vizualna poročila.
+2. **Izpis statistike**: povprečje NDVI na polje/parcelo.
 3. **Časovne vrste**: primerjajte indekse v več sejah
-4. **Ustvarjanje poročil**: vključite zemljevide, statistike in vizualizacije
+4. **Ustvarjanje poročil**: vključite karte, statistike in vizualizacije
 
 ***
 
@@ -191,9 +191,9 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 
 * ✅ **Originalne slike RAW/JPG** – arhivirate na ločenem disku/v oblaku
 * ✅ **Obdelani izhodi** – shranite kalibrirane slike in indekse
-* ✅ **Projektna datoteka** – vsebuje vse nastavitve za ponovno obdelavo, če je potrebno
+* ✅ **Projektna datoteka** – vsebuje vse nastavitve za ponovno obdelavo, če je to potrebno
 * ✅ **Dnevnik odpravljanja napak** – dokumentira podrobnosti obdelave
-* ✅ **Kalibrirane ciljne slike** – za preverjanje in ponovno obdelavo
+* ✅ **Slike za kalibracijo** – za preverjanje in ponovno obdelavo
 
 **Priporočila za shranjevanje:**
 
@@ -214,20 +214,20 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 3. **Uvozite nove slike**
 4. **Obdelajte** z identičnimi nastavitvami za doslednost
 
-### Skupinska obdelava več sej
+### Obdelava več sej v paketu
 
 Za več sej/podatkovnih nizov:
 
 **Možnost 1: GUI – več projektov**
 
-* Ustvarite ločen projekt za vsako sejo
-* Uporabite dosledne nastavitve predloge
-* Obdelujte po enega naenkrat
+* Ustvarite ločen projekt za vsako sejo.
+* Uporabite dosledne nastavitve predloge.
+* Obdelujte po eno naenkrat.
 
 **Možnost 2: Chloros CLI (samo Chloros+)**
 
-* Avtomatizirajte obdelavo več sej
-* Obdelujte več map s skripti
+* Avtomatizirajte obdelavo več datotek.
+* Obdelujte več map s skripti.
 * Glej [CLI Dokumentacija](../CLI.md)
 
 **Možnost 3: Python SDK (samo Chloros+)**
@@ -244,7 +244,7 @@ Za več sej/podatkovnih nizov:
 
 Če rezultati niso zadovoljivi:
 
-1. Ohranite izvirne slike (nikoli ne izbrišite)
+1. Ohranite izvirne slike (nikoli jih ne izbrišite)
 2. Odprite isti projekt v Chloros
 3. Prilagodite nastavitve v oknu Nastavitve projekta
 4. Ponovno obdelajte – izhodi bodo nadomestili prejšnje rezultate
@@ -274,12 +274,12 @@ Za več sej/podatkovnih nizov:
 Sedaj ste zaključili celoten delovni tok obdelave Chloros:
 
 1. ✅ **Ustvarjen projekt** – glejte [Projekti](../projects.md)
-2. ✅ **Dodane datoteke** – glejte [Dodajanje datotek](adding-files-to-a-project.md)
+2. ✅ **Dodane datoteke** – glej [Dodajanje datotek](adding-files-to-a-project.md)
 3. ✅ **Prilagojene nastavitve** – glej [Prilagajanje nastavitev projekta](adjusting-project-settings.md)
 4. ✅ **Označeni cilji** – glej [Izbira ciljnih slik](choosing-target-images.md)
-5. ✅ **Začeli obdelavo** – glej [Začetek obdelave](starting-the-processing.md)
-6. ✅ **Spremljali napredek** – glej [Spremljanje obdelave](monitoring-the-processing.md)
-7. ✅ **Pregledani rezultati** – Ta stran
+5. ✅ **Začetek obdelave** – glej [Začetek obdelave](starting-the-processing.md)
+6. ✅ **Spremljanje napredka** – glej [Spremljanje obdelave](monitoring-the-processing.md)
+7. ✅ **Pregled rezultatov** – ta stran
 
 **Vaše kalibrirane, reflektance popravljene multispektralne slike so pripravljene za analizo!**
 
@@ -301,6 +301,6 @@ Sedaj ste zaključili celoten delovni tok obdelave Chloros:
 
 ### Podpora in učenje
 
-* [**Pogosta vprašanja**](../faq.md) – odgovori na pogosta vprašanja
-* [**Kalibracijske tarče**](../calibration-targets.md) – razumevanje kalibracije odbojnosti
+* [**Pogosta vprašanja**](../faq.md) – Odgovori na pogosta vprašanja
+* [**Kalibracijske tarče**](../calibration-targets.md) – Razumevanje kalibracije odbojnosti
 * [**Podprte kamere**](../supported-cameras.md) – Združljiva strojna oprema
