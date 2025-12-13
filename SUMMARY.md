@@ -8,7 +8,7 @@
 * [Podprte kamere](supported-cameras.md)
 * [Izhodni formati slik](output-image-formats.md)
 * [Chloros+ Prijava](chloros+-login.md)
-* [Kalibracijski cilji](calibration-targets.md)
+* [Kalibracijske tarče](calibration-targets.md)
 * [Podprti jeziki](supported-languages.md)
 * [Prenos](download.md)
 * [Pogosta vprašanja](faq.md)

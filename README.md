@@ -4,9 +4,7 @@ metaLinks: {}
 
 # Začetek
 
-<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>
-
-Chloros je programska aplikacija iz [MAPIR](https://www.mapir.camera) za obdelavo slik in drugih podatkov senzorjev.
+<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>Chloros je programska aplikacija iz [MAPIR](https://www.mapir.camera) za obdelavo slik in drugih podatkov senzorjev.
 
 ***
 
@@ -36,7 +34,7 @@ Programski vmesnik Python za avtomatizacijo in prilagojene delovne tokove. Ideal
 
 * **Večnitno obdelovanje**: znatno pospešite obdelavo slik za večje projekte s hkratno obdelavo slik skozi cevovod.
 * **Pospeševanje GPU (CUDA)**: izkoristite današnje možnosti večjega pomnilnika GPU za dodatno pospešitev obdelave slik. Za najboljše rezultate priporočamo 4 GB ali več VRAM.
-* **Chloros+** [**CLI**](CLI.md) **Dostop**: zaženite Chloros+ iz ukazne vrstice, da avtomatizirate in integrirate v svojo lastno programsko opremo.
+* **Chloros+** [**CLI**](CLI.md) **Dostop**: zaženite Chloros+ iz ukazne vrstice, da ga avtomatizirate in integrirate v svojo programsko opremo.
 * **Chloros+** [**API**](api-python-sdk.md) **Dostop:** zaženite Chloros+ iz Python za programsko nadzorovanje, kar omogoča nemoteno integracijo z vašimi raziskovalnimi procesi, delovnimi tokovi za analizo podatkov in prilagojenimi aplikacijami.
 * **Uporaba več naprav**: vsaka licenca Chloros+ omogoča registracijo 2 ali več naprav. Uporabite svoj račun MAPIR Cloud za upravljanje registriranih naprav. Dodajte podporo za več naprav z nadgradnjo licence Chloros+.
 * **Prilagojene formule multispektralnih indeksov:** vnesite prilagojene multispektralne indekse v rasterske kalkulatorje Chloros, tako za obdelavo kot za pregledovanje slik v peskovniku.

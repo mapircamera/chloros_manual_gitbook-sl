@@ -1,6 +1,6 @@
 # Odpiranje slike v polnem zaslonu
 
-Chloros Image Viewer ponuja namenski vmesnik v polnem zaslonu za pregledovanje, analiziranje in obdelavo vaših multispektralnih slik. Ne glede na to, ali pregledujete izvirne slike ali obdelane izhodne podatke, Image Viewer ponuja zmogljiva orodja za pregledovanje in analizo.
+Chloros Image Viewer ponuja namenski vmesnik v polnem zaslonu za pregledovanje, analiziranje in obdelavo vaših multispektralnih slik. Ne glede na to, ali pregledujete originalne slike ali obdelane izhodne podatke, Image Viewer ponuja zmogljiva orodja za pregledovanje in analizo.
 
 ## Dostop do pregledovalnika slik
 
@@ -30,7 +30,7 @@ Ko je slika naložena v predoglednem področju:
 Največji del zaslona prikazuje vašo sliko:
 
 * **Polna ločljivost**: slike so prikazane v izvirni ločljivosti.
-* **Povečljivost**: za povečavo uporabite gumbe ali kolesce miške
+* **Povečljivost**: za povečavo uporabite gumbe ali miškin kolesce
 * **Premikanje**: kliknite in povlecite, da se premikate po povečani sliki
 * **Ohranjeno razmerje stranic**: slike se sorazmerno prilagajajo
 
@@ -92,7 +92,7 @@ Ko premaknete miškin kazalec nad sliko, se vrednosti pikslov prikažejo v realn
 **Mesto prikaza vrednosti:**
 
 * **Plavajoče število in rdeča črta v legendi gradienta indeksa LUT na desni strani**
-* **Pri nadaljnjem povečanju plavajoča vrednost blizu kazalca in označenega piksla**
+* **Pri nadaljnjem povečanju plavajoča vrednost v bližini kazalca in označenega piksla**
 * Prikaže vrednosti za piksel **pod kazalcem ali označenim**
 * Posodablja se, ko premikate miško
 
@@ -130,12 +130,12 @@ Ko premaknete miškin kazalec nad sliko, se vrednosti pikslov prikažejo v realn
 
 ## Uporaba indeksa in LUT-ja
 
-Uporabite večspektralne indekse in barvne preglednice:
+Uporabite multispektralne indekse in barvne preglednice:
 
 1. Poiščite **Index/LUT Sandbox** v **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> stranski vrstici
 2. Izberite indeks vegetacije (NDVI, NDRE itd.)
 3. Izberite multispektralno formulo ali ustvarite svojo lastno (samo Chloros+)
-4. Uporabite barvni LUT-gradient za vizualizacijo
+4. Uporabite barvni LUT gradient za vizualizacijo
 5. Prilagodite vrednostna območja in pragove
 
 Podrobna navodila najdete v [Index/LUT Sandbox](index-lut-sandbox.md).
@@ -162,12 +162,12 @@ Podrobna navodila najdete v [Index/LUT Sandbox](index-lut-sandbox.md).
 
 * **P**: Preklop v način odstotka pikslov
 * **L**: Preklop v plastični panel
-* **Esc**: Zapri celozaslonski prikaz ali vrni se v brskalnik datotek
+* **Esc**: Zapri polni zaslon ali vrni se v brskalnik datotek
 
 ### Drugo
 
 * **Ctrl+S**: Shrani trenutno sliko
-* **F**: Celozaslonski način (če je na voljo)
+* **F**: Način polnega zaslona (če je na voljo)
 
 ***
 
@@ -221,9 +221,9 @@ Preverite, ali so indeksi izračunani pravilno:
 
 **Možni vzroki:**
 
-* Prikaz napačne slike (izvirnik proti obdelani sliki)
+* Prikaz napačne slike (izvirnik proti obdelani)
 * Kalibracija ni bila pravilno uporabljena.
-* Podatki svetlobnega senzorja niso bili vključeni v vnos.
+* Podatki svetlobnega senzorja niso bili vključeni v vhod.
 * Način odstotkov je bil nepravilno preklopljen.
 
 **Rešitve:**
@@ -238,10 +238,10 @@ Preverite, ali so indeksi izračunani pravilno:
 
 Zdaj, ko lahko slike pregledujete v polnem zaslonu:
 
-* [**Sloji slik**](image-layers.md) – spoznajte vizualizacijo več pasov
-* [**Indeks/LUT Sandbox**](index-lut-sandbox.md) – uporabite prilagojene indekse in barvno mapiranje
-* [**Formule večspektralnega indeksa**](../project-settings/multispectral-index-formulas.md) – razumevanje razpoložljivih indeksov
+* [**Sloj slike**](image-layers.md) – Več o vizualizaciji več pasov
+* [**Indeks/LUT Sandbox**](index-lut-sandbox.md) – Uporabite prilagojene indekse in barvno mapiranje
+* [**Formule večspektralnega indeksa**](../project-settings/multispectral-index-formulas.md) – Razumevanje razpoložljivih indeksov
 
 Za potek obdelave glejte:
 
-* [**Obdelava slik (GUI)**](../processing-images-gui/adding-files-to-a-project.md) – popoln vodnik za obdelavo
+* [**Obdelava slik (GUI)**](../processing-images-gui/adding-files-to-a-project.md) – Celoten vodnik za obdelavo

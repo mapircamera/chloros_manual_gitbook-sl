@@ -4,7 +4,7 @@ Chloros ponuja popolno podporo vmesnika v **38 jezikih po vsem svetu**, kar ga n
 
 Chloros podpira naslednje jezike:
 
-| # | Jezik | Izvirno ime | CLI Koda |
+| # | Jezik | Izvorno ime | CLI Koda |
 |---|----------|-------------|----------|
 | 1 | 🇺🇸 Angleščina | Angleščina | `en` |
 | 2 | 🇪🇸 Španščina | Español | `es` |
@@ -50,7 +50,7 @@ Chloros podpira naslednje jezike:
 ### V Chloros namizju/brskalniku
 
 1. Odprite nastavitve aplikacije.
-2. Prejdite v meni za izbiro jezika.
+2. Prejdite na meni za izbiro jezika.
 3. Iz seznama izberite želeni jezik.
 4. Vmesnik se bo takoj posodobil.
 
@@ -88,6 +88,6 @@ Vseh 38 jezikov je v celoti podprtih v:
 * **Chloros Desktop** - popoln prevod grafičnega uporabniškega vmesnika
 * **Chloros Browser** - spletni vmesnik v vseh jezikih
 * **Chloros CLI** - vmesnik ukazne vrstice in izhodna sporočila
-* **Chloros Python SDK** – API sporočila in dokumentacija
+* **Chloros Python SDK** - API sporočila in dokumentacija
 
 Jezikovna podpora zagotavlja, da lahko uporabniki po vsem svetu brez ovir učinkovito delajo v svojem maternem jeziku.
