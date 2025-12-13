@@ -4,12 +4,12 @@
 
 ### Ključne značilnosti
 
-* 🐍 **Nativni Python** - Čisti, Pythonic API za obdelavo slik
+* 🐍 **Native Python** - Čisti, Pythonic API za obdelavo slik
 * 🔧 **Popoln dostop do API** - Popoln nadzor nad obdelavo Chloros
 * 🚀 **Avtomatizacija** - Ustvarjanje prilagojenih delovnih tokov za obdelavo v serijah
 * 🔗 **Integracija** – vgradite Chloros v obstoječe aplikacije Python
 * 📊 **Pripravljen za raziskave** – idealen za znanstvene analitične poti
-* ⚡ **Vzporedna obdelava** – prilagaja se vašim CPU jedrom (Chloros+)
+* ⚡ **Vzporedna obdelava** – prilagaja se vašim jedrom CPU (Chloros+)
 
 ### Zahteve
 
@@ -37,7 +37,7 @@ pip install chloros-sdk
 ```
 
 {% hint style=&quot;info&quot; %}
-**Prva namestitev**: Pred uporabo SDK aktivirajte svojo licenco Chloros+ tako, da odprete Chloros, Chloros (brskalnik) ali Chloros CLI in se prijavite s svojimi poverilnicami. To je treba storiti le enkrat.
+**Prva namestitev**: Pred uporabo SDK aktivirajte svojo licenco Chloros+ tako, da odprete Chloros, Chloros (brskalnik) ali Chloros CLI in se prijavite s svojimi poverilnicami. To je treba narediti le enkrat.
 {% endhint %}
 
 ### Osnovna uporaba
@@ -127,7 +127,7 @@ print(f"Chloros SDK version: {chloros_sdk.__version__}")
 
 SDK uporablja isto licenco kot Chloros, Chloros (brskalnik) in Chloros CLI. Aktivirajte enkrat prek GUI ali CLI:
 
-1. Odprite **Chloros ali Chloros (brskalnik)** in se prijavite na kartici Uporabnik <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> . Ali odprite **CLI**.
+1. Odprite **Chloros ali Chloros (brskalnik)** in se prijavite na kartici Uporabnik <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> . Ali pa odprite **CLI**.
 2. Vnesite svoje poverilnice Chloros+ in se prijavite
 3. Licenca se shrani v lokalni predpomnilnik (ohrani se tudi po ponovnem zagonu)
 
@@ -154,7 +154,7 @@ print(f"Backend running: {status['running']}")
 
 ## API Referenca
 
-### ChlorosLocal Razred
+### Razred ChlorosLocal
 
 Glavni razred za lokalno obdelavo slik Chloros.
 
@@ -211,7 +211,7 @@ Ustvari nov projekt Chloros.
 | `project_name` | str  | Da      | Ime projekta                                     |
 | `camera`       | str  | Ne       | Predloga kamere (npr. »Survey3N\_RGN«, »Survey3W\_OCN«) |
 
-**Vrne:** `dict` – odgovor na ustvarjanje projekta
+**Vrne:** `dict` - Odgovor na ustvarjanje projekta
 
 **Primer:**
 
@@ -227,7 +227,7 @@ chloros.create_project("DroneField_A", camera="Survey3N_RGN")
 
 #### `import_images(folder_path, recursive=False)`
 
-Uvoz slike iz mape.
+Uvozi slike iz mape.
 
 **Parametri:**
 
@@ -309,11 +309,11 @@ Obdelajte slike projekta.
 | Parameter           | Tip     | Privzeto      | Opis                               |
 | ------------------- | -------- | ------------ | ----------------------------------------- |
 | `mode`              | str      | `"parallel"` | Način obdelave: »vzporedno« ali »zaporedno«   |
-| `wait`              | bool     | `True`       | Čakaj na dokončanje                       |
-| `progress_callback` | callable | `None`       | Funkcija za povratno klicanje napredka (napredek, sporočilo) |
-| `poll_interval`     | float    | `2.0`        | Interval poizvedovanja za napredek (sekunde)   |
+| `wait`              | bool     | `True`       | Počakaj na zaključek                       |
+| `progress_callback` | callable | `None`       | Funkcija za povratni klic napredka (napredek, msg) |
+| `poll_interval`     | float    | `2.0`        | Interval za preverjanje napredka (sekunde)   |
 
-**Vrne:** `dict` - Rezultati obdelave
+**Vrne:** `dict` – Rezultati obdelave
 
 {% hint style=&quot;warning&quot; %}
 **Vzporedni način**: Zahteva licenco Chloros+. Samodejno se prilagaja vašim jedrom CPU (do 16 delavcev).
@@ -374,7 +374,7 @@ print(f"URL: {status['url']}")
 
 #### `shutdown_backend()`
 
-Zapre backend (če ga je zagnal SDK).
+Zaustavi backend (če ga je zagnal SDK).
 
 **Primer:**
 
@@ -470,7 +470,7 @@ print(f"Processing complete: {results}")
 
 ***
 
-### Primer 2: Prilagojen delovni tok
+### Primer 2: Prilagojeni delovni tok
 
 Popoln nadzor nad obdelovalnim procesom:
 
@@ -863,7 +863,7 @@ print("Processing complete!")
 
 ### Upravljanje pomnilnika
 
-Za velike podatkovne nize obdelujte v serijah:
+Za velike podatkovne nize obdelujte v paketih:
 
 ```python
 from pathlib import Path
@@ -955,7 +955,7 @@ python -c "import sys; print(sys.path)"
 
 ***
 
-### Časovni limit obdelave
+### Časovna omejitev obdelave
 
 **Težava:** Časovni limit obdelave
 
@@ -975,7 +975,7 @@ chloros = ChlorosLocal(timeout=120)  # 2 minutes
 
 ### Vrata so že v uporabi
 
-**Problem:** Vrata 5000 v ozadju so zasedena
+**Težava:** Vrata 5000 v ozadju so zasedena
 
 **Rešitve:**
 
@@ -1016,11 +1016,11 @@ chloros.configure(export_format="PNG (8-bit)")  # Faster than TIFF
 chloros.configure(indices=["NDVI"])  # Not all indices
 ```
 
-4. **Obdelujte na SSD** (ne na HDD)
+4. **Obdelava na SSD** (ne HDD)
 
 ***
 
-### Optimiziranje pomnilnika
+### Optimizacija pomnilnika
 
 Za velike podatkovne nize:
 
@@ -1123,7 +1123,7 @@ chloros.process(progress_callback=notebook_progress)
 
 ### V: Ali SDK zahteva internetno povezavo?
 
-**O:** Samo za začetno aktiviranje licence. Po prijavi prek Chloros, Chloros (brskalnik) ali Chloros CLI se licenca shrani v lokalni predpomnilnik in deluje brez povezave 30 dni.
+**O:** Samo za začetno aktiviranje licence. Po prijavi prek Chloros, Chloros (brskalnik) ali Chloros CLI, se licenca shrani v lokalni predpomnilnik in deluje brez povezave 30 dni.
 
 ***
 
@@ -1149,15 +1149,15 @@ chloros.process(progress_callback=notebook_progress)
 
 ***
 
-### V: Ali lahko distribuiram aplikacije, ki so bile ustvarjene z SDK?
+### V: Ali lahko distribuiram aplikacije, ustvarjene z SDK?
 
 **O:** Kodo SDK lahko integrirate v svoje aplikacije, vendar:
 
-* Končni uporabniki morajo imeti nameščen Chloros
-* Končni uporabniki morajo imeti aktivne licence Chloros+
+* Končni uporabniki morajo imeti nameščen Chloros.
+* Končni uporabniki morajo imeti aktivne licence Chloros+.
 * Komercialna distribucija zahteva licenco OEM.
 
-Za vprašanja v zvezi z OEM se obrnite na info@mapir.camera.
+Za vprašanja v zvezi z licenco OEM se obrnite na info@mapir.camera.
 
 ***
 
@@ -1193,7 +1193,7 @@ from chloros_sdk import process_folder
 results = process_folder("C:\\Flights\\Today")
 ```
 
-Načrtujte izvajanje prek Task Schedulerja, da se izvaja dnevno.
+Načrtujte z Task Schedulerjem, da se izvaja dnevno.
 
 ***
 
@@ -1229,12 +1229,12 @@ thread.start()
 
 ### Vzorec kode
 
-Vsi tukaj navedeni primeri so preizkušeni in pripravljeni za uporabo. Kopirajte jih in prilagodite za svojo uporabo.
+Vsi tukaj navedeni primeri so preizkušeni in pripravljeni za uporabo. Kopirajte jih in prilagodite za svoj primer uporabe.
 
 ***
 
 ## Licenca
 
-**Lastniška programska oprema** – Avtorske pravice (c) 2025 MAPIR Inc.
+**Lastniška programska oprema** – Copyright (c) 2025 MAPIR Inc.
 
 SDK zahteva aktivno naročnino Chloros+. Neodobrena uporaba, distribucija ali sprememba je prepovedana.
