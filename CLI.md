@@ -1,6 +1,6 @@
 # CLI: ukazna vrstica
 
-<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** omogoča zmogljiv dostop prek ukazne vrstice do procesorja za obdelavo slik Chloros, kar omogoča avtomatizacijo, pisanje skriptov in brezglavo delovanje za vaše delovne tokove obdelave slik.
+<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** omogoča zmogljiv dostop prek ukazne vrstice do procesorja za obdelavo slik Chloros, kar omogoča avtomatizacijo, skriptiranje in brezglavo delovanje za vaše delovne tokove obdelave slik.
 
 ### Ključne značilnosti
 
@@ -17,11 +17,11 @@
 | **Operacijski sistem** | Windows 10/11 (64-bit)                                              |
 | **Licenca**          | Chloros+ ([potreben plačljiv načrt](https://cloud.mapir.camera/pricing)) |
 | **Pomnilnik**           | Najmanj 8 GB RAM (priporočeno 16 GB)                                  |
-| **Internet**         | Potreben za aktiviranje licence                                     |
+| **Internet**         | Potreben za aktivacijo licence                                     |
 | **Prostor na disku**       | Odvisno od velikosti projekta                                              |
 
 {% hint style=&quot;warning&quot; %}
-**Zahteve za licenco**: CLI zahteva plačljivo naročnino Chloros+. Standardni (brezplačni) načrti nimajo dostopa do CLI. Obiščite [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing), da nadgradite.
+**Zahteve za licenco**: CLI zahteva plačljivo naročnino Chloros+. Standardni (brezplačni) načrti nimajo dostopa do CLI. Za nadgradnjo obiščite [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing).
 {% endhint %}
 
 ## Hitri začetek
@@ -30,8 +30,8 @@
 
 CLI je samodejno vključen v namestitveni program Chloros:
 
-1. Prenesite in zaženite **Chloros Installer.exe**
-2. Izvedite namestitvenega čarovnika
+1. Prenesite in zaženite **Chloros Installer.exe**.
+2. Izvedite namestitvenega čarovnika.
 3. CLI je nameščen v: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
 
 {% hint style=&quot;success&quot; %}
@@ -103,9 +103,9 @@ chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
 | `--reflectance`       | Oznaka    | Omogočeno        | Omogoči kalibracijo odbojnosti                                                         |
 | `--no-reflectance`    | Oznaka    | -              | Onemogoči kalibracijo odbojnosti                                                        |
 | `--ppk`               | Oznaka    | Onemogočeno       | Uporabi popravke PPK iz podatkov svetlobnega senzorja .daq                                      |
-| `--format`            | Izbira  | TIFF (16-bit)  | Izhodni format: `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)` |
-| `--min-target-size`   | Celotno število | Samodejno           | Minimalna ciljna velikost v slikovnih pikah za zaznavanje kalibracijskega panela                          |
-| `--target-clustering` | Celotno število | Samodejno           | Prag združevanja ciljev (0–100)                                                    |
+| `--format`            | Izbirno  | TIFF (16-bit)  | Izhodni format: `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)` |
+| `--min-target-size`   | Celo število | Samodejno           | Minimalna ciljna velikost v slikovnih točkah za zaznavanje kalibracijskega panela                          |
+| `--target-clustering` | Celo število | Samodejno           | Prag združevanja ciljev (0–100)                                                    |
 | `--exposure-pin-1`    | Niz  | Nič           | Zaklepanje osvetlitve za model kamere (Pin 1)                                                 |
 | `--exposure-pin-2`    | Niz  | Nič           | Zaklepanje osvetlitve za model kamere (Pin 2)                                                 |
 | `--recal-interval`    | Celo število | Samodejno           | Interval ponovne kalibracije v sekundah                                                      |
@@ -195,7 +195,7 @@ chloros-cli status
 
 ### `export-status` – Preveri napredek izvoza
 
-Spremljaj napredek izvoza niti 4 med ali po obdelavi.
+Spremlja napredek izvoza niti 4 med ali po obdelavi.
 
 **Sintaksa:**
 
@@ -268,10 +268,10 @@ chloros-cli language ja
 | `hi`    | Hindijščina                 | हिंदी            |
 | `id`    | Indonezijščina            | Bahasa Indonesia |
 | `vi`    | Vietnamščina            | Tiếng Việt       |
-| `th`    | tajski                  | ไทย              |
-| `sv`    | švedski               | Svenska          |
-| `da`    | danski                | Dansk            |
-| `no`    | norveški             | Norsk            |
+| `th`    | Tajski                  | ไทย              |
+| `sv`    | Švedski               | Svenska          |
+| `da`    | Danski                | Dansk            |
+| `no`    | Norveški             | Norsk            |
 | `fi`    | Finski               | Suomi            |
 | `el`    | Grški                 | Ελληνικά         |
 | `cs`    | Češki                 | Čeština          |
@@ -279,9 +279,9 @@ chloros-cli language ja
 | `ro`    | Romunski              | Română           |
 | `uk`    | Ukrajinski             | Українська       |
 | `pt-BR` | Brazilski portugalski  | Português Brasileiro |
-| `zh-HK` | kantonski             | 粵語             |
-| `ms`    | malajski                 | Bahasa Melayu    |
-| `sk`    | slovaški                | Slovenčina       |
+| `zh-HK` | kantonščina             | 粵語             |
+| `ms`    | malajščina                 | Bahasa Melayu    |
+| `sk`    | slovaščina                | Slovenčina       |
 | `bg`    | Bolgarščina             | Български        |
 | `hr`    | Hrvaščina              | Hrvatski         |
 | `lt`    | Litovščina            | Lietuvių         |
@@ -358,8 +358,8 @@ Te možnosti veljajo za vse ukaze:
 | `--backend-exe` | Pot    | Samodejno zaznan | Pot do izvedljive datoteke backenda                       |
 | `--port`        | Celo število | 5000          | Številka vrat backenda API                          |
 | `--restart`     | Oznaka    | -             | Prisilni ponovni zagon backenda (ukine obstoječe procese) |
-| `--version`     | Oznaka    | -             | Prikaži informacije o različici in izhod                |
-| `--help`        | Oznaka    | -             | Prikaži informacije o pomoči in izhod                   |
+| `--version`     | Oznaka    | -             | Prikaži informacije o različici in zapri                |
+| `--help`        | Oznaka    | -             | Prikaži informacije o pomoči in zapri                   |
 
 **Primer z globalnimi možnostmi:**
 
@@ -393,9 +393,9 @@ Chloros+ CLI **samodejno prilagaja** vzporedno obdelavo zmogljivostim vašega ra
 **Avtomatska optimizacija**: CLI samodejno zazna specifikacije vašega sistema in konfigurira optimalno vzporedno obdelavo. Ročna konfiguracija ni potrebna!
 {% endhint %}
 
-### Metode debayer
+### Metode debayerja
 
-CLI uporablja **visoko kakovost (hitrejši)** kot privzeti in priporočeni debayer algoritem:
+CLI uporablja **visoko kakovost (hitrejši)** kot privzeti in priporočeni algoritem debayerja:
 
 | Metoda                      | Kakovost | Hitrost | Opis                                 |
 | --------------------------- | ------- | ----- | ------------------------------------------- |
@@ -493,7 +493,7 @@ pause
 
 ### Python skript za avtomatizacijo
 
-Napredna avtomatizacija z obdelavo napak:
+Napredna avtomatizacija z obravnavanjem napak:
 
 ```python
 import subprocess
@@ -578,7 +578,7 @@ if __name__ == '__main__':
 
 1. **Vnos**: Mapa, ki vsebuje pare slik RAW/JPG
 2. **Odkrivanje**: CLI samodejno skenira podprte slikovne datoteke
-3. **Obdelava**: Vzporedni način se prilagaja vašim jedrom CPU (Chloros+)
+3. **Obdelava**: Paralelni način se prilagaja vašim jedrom CPU (Chloros+)
 4. **Izhod**: Ustvari podmapo za model kamere z obdelanimi slikami
 
 ### Primer strukture izhoda
@@ -704,8 +704,8 @@ No images found in the specified folder
 
 **Rešitve:**
 
-1. Preverite, ali mapa vsebuje podprte oblike (.RAW, .TIF, .JPG).
-2. Preverite, ali je pot do mape pravilna (za poti z razmaki uporabite narekovaje).
+1. Preverite, ali mapa vsebuje podprte formate (.RAW, .TIF, .JPG).
+2. Preverite, ali je pot do mape pravilna (za poti z presledki uporabite narekovaje).
 3. Preverite, ali imate pravice za branje mape.
 4. Preverite, ali so končnice datotek pravilne.
 
@@ -715,7 +715,7 @@ No images found in the specified folder
 
 **Rešitve:**
 
-1. Preverite razpoložljivi prostor na disku (preverite, ali je dovolj prostora za izhodne datoteke).
+1. Preverite prosti prostor na disku (preverite, ali je dovolj prostora za izhodne datoteke).
 2. Zaprite druge aplikacije, da sprostite pomnilnik.
 3. Zmanjšajte število slik (obdelujte v serijah).
 
@@ -741,7 +741,7 @@ chloros-cli --port 5001 process "C:\Datasets\Field_A"
 
 ## Pogosta vprašanja
 
-### V: Ali potrebujem licenco za CLI?
+### V: Potrebujem licenco za CLI?
 
 **O:** Da! CLI zahteva plačljivo **Chloros+ licenco**.
 
@@ -765,7 +765,7 @@ Naročite se na: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera
 
 ### V: Kje se shranijo obdelane slike?
 
-**O:** Privzeto se obdelane slike shranijo v **isti mapi kot vhodne** v podmapah modela kamere (npr. `Survey3N_RGN/`).
+**O:** Privzeto se obdelane slike shranijo v **isti mapi kot vhodne** v podmapah modelov kamer (npr. `Survey3N_RGN/`).
 
 Uporabite možnost `-o`, da določite drugo izhodno mapo:
 
@@ -777,11 +777,11 @@ chloros-cli process "C:\Input" -o "D:\Output"
 
 ### V: Ali lahko obdelam več map hkrati?
 
-**O:** Ne neposredno z enim ukazom, vendar lahko uporabite skripte za zaporedno obdelavo map. Glejte poglavje [Avtomatizacija in skripti](CLI.md#automation--scripting).
+**O:** Ne neposredno z enim ukazom, vendar lahko uporabite skripte za zaporedno obdelavo map. Glejte poglavje [Avtomatizacija in skripte](CLI.md#automation--scripting).
 
 ***
 
-### V: Kako shranim izhod CLI v datoteko dnevnika?
+### V: Kako shranim izhod CLI v dnevniško datoteko?
 
 **PowerShell:**
 
@@ -802,8 +802,8 @@ chloros-cli process "C:\Datasets\Field_A" > processing.log 2>&1
 **O:** CLI bo:
 
 1. Prenehalo z obdelavo
-2. Izklopil backend
-3. Izstopil s kodo 130
+2. Ustavil backend
+3. Zaprl se s kodo 130
 
 Delno obdelane slike lahko ostanejo v izhodni mapi.
 

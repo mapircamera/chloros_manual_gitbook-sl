@@ -19,7 +19,7 @@ Ne, Chloros podpira samo obdelavo slik iz kamer MAPIR. Za več informacij si ogl
 
 <summary>Ali lahko kalibriram slike za odbojnost brez kalibracijskega cilja?</summary>
 
-Ne. Brez slike kalibracijskega cilja, posnete ob zajemanju slik, ki niso ciljne, ne boste mogli povezati vrednosti pikslov slike z znanim odstotkom odbojnosti. Če ne vključite tudi dnevnika svetlobnega senzorja MAPIR, se spektrum okoljske svetlobe ne bo meril in rezultati odbojnosti ne bodo natančni.
+Ne. Brez slike kalibracijskega cilja, posnete ob zajemu slik, ki niso ciljne, ne boste mogli povezati vrednosti pikslov slike z znanim odstotkom odbojnosti. Če ne vključite tudi dnevnika svetlobnega senzorja MAPIR, se spektrum okoljske svetlobe ne bo meril in rezultati odbojnosti ne bodo natančni.
 
 </details>
 
@@ -33,7 +33,7 @@ Ne. Chloros predpostavlja, da vhodni podatki niso bili spremenjeni. Ne spreminja
 
 <details>
 
-<summary>Ali lahko nastavim kamere MAPIR Survey3 na samodejno osvetlitev in slike obdelam v Chloros?</summary>
+<summary>Ali lahko nastavim svoje kamere MAPIR Survey3 na samodejno osvetlitev in obdelam slike v Chloros?</summary>
 
 Ne. Nizi podatkov slik Survey3 morajo imeti fiksno/zaklenjeno osvetlitev, torej brez samodejne hitrosti zaklopa ali samodejnega ISO. Vse slike istega modela kamere morajo imeti enako hitrost zaklopa in ISO (osvetlitev).
 
@@ -67,6 +67,6 @@ V tabeli brskalnika datotek predhodna izbira ciljnih slik v desnem stolpcu bo Ch
 
 <summary>Ali bo MAPIR kdaj podpiral funkcijo X? Resnično si želim, da bi MAPIR ponujal X.</summary>
 
-Vedno nas zanimajo povratne informacije o naših izdelkih. Če ugotovite težavo z našimi izdelki ali imate predlog, kako lahko izboljšamo naše izdelke, nam [PIŠITE](https://www.mapir.camera/community/contact) in nam posredujte svoje mnenje. Večina našega raziskovalno-razvojnega dela temelji na poslušanju največjih potreb naših strank.
+Vedno nas zanima vaše mnenje o naših izdelkih. Če opazite kakšno težavo z našimi izdelki ali imate predlog, kako bi jih lahko izboljšali, nam [PIŠITE](https://www.mapir.camera/community/contact) in nam zaupajte svoje mnenje. Večina našega raziskovalno-razvojnega dela temelji na poslušanju največjih potreb naših strank.
 
 </details>

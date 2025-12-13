@@ -4,11 +4,11 @@ metaLinks:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/output-image-formats
 ---
 
-# Izhodni slikovni formati
+# Izhodni formati slik
 
 ### TIFF (16-bitni)
 
-16-bitni (digitalna vrednost pikslov 0–65535) izhodni format TIFF (.tif).
+16-bitni (digitalna številka pikslov 0–65535) izhodni format TIFF (.tif).
 
 ### TIFF (32-bitni, odstotek %)
 

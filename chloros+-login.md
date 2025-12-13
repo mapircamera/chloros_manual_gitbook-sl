@@ -6,9 +6,7 @@ Uporabniški <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> s
 
 Ko se prijavite, se prikažejo podrobnosti vašega računa:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
-
-## CLI Prijava
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Prijava
 
 Prijavite se s svojimi podatki za Chloros+, da omogočite obdelavo CLI.
 
@@ -30,11 +28,9 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 
 **Izhod:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Potek veljavnosti načrta
 
-### Potek veljavnosti načrta
-
-Potek veljavnosti načrta v grafičnem uporabniškem vmesniku prikazuje, kdaj bo vaša licenca postala neveljavna. Pri ponavljajočih se mesečnih naročninah veljavnost poteče ob koncu meseca. Pri letnih naročninah veljavnost poteče eno leto po začetku naročnine. Preverjanje licence zahteva mesečno internetno povezavo za preverjanje, z 30-dnevnim odlogom.
+Potek veljavnosti načrta v grafičnem uporabniškem vmesniku prikazuje, kdaj bo vaša licenca postala neveljavna. Pri ponavljajočih se mesečnih naročninah potek veljavnosti nastopi ob koncu meseca. Pri letnih naročninah potek veljavnosti nastopi eno leto po začetku naročnine. Preverjanje licence zahteva mesečno internetno povezavo za preverjanje, z 30-dnevnim odlogom.
 
 ### Omejitev naprav
 

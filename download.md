@@ -6,7 +6,7 @@ metaLinks:
 
 # Prenos
 
-Prenesite najnovejšo različico Chloros za Windows, da se lahko začnete ukvarjati z obdelavo multispektralnih slik.
+Prenesite najnovejšo različico Chloros za Windows, da začnete z obdelavo multispektralnih slik.
 
 ### Sistemski zahtevi
 
@@ -18,10 +18,10 @@ Prenesite najnovejšo različico Chloros za Windows, da se lahko začnete ukvarj
 | **Grafična kartica**    | Združljiva z DirectX 11           | NVIDIA GPU z 4 GB+ VRAM       |
 | **Shranjevanje**          | 2 GB prostega prostora                  | SSD z 10 GB+ prostega prostora       |
 | **Zaslon**          | 1920x1080                       | 2560x1440 ali več             |
-| **Internet**         | Potreben za aktiviranje licence | Potreben za aktiviranje licence |
+| **Internet**         | Potreben za aktivacijo licence | Potreben za aktivacijo licence |
 
 {% hint style=&quot;info&quot; %}
-**Pospeševanje GPU**: Uporabniki Chloros+ z grafičnimi karticami NVIDIA (4 GB+ VRAM) lahko uporabijo pospeševanje CUDA za bistveno hitrejše obdelovanje.
+**GPU pospešitev**: Uporabniki Chloros+ z NVIDIA GPU-ji (4 GB+ VRAM) lahko uporabijo CUDA pospešitev za bistveno hitrejše obdelovanje.
 {% endhint %}
 
 ***
@@ -37,7 +37,7 @@ Prenesite najnovejšo različico Chloros za Windows, da se lahko začnete ukvarj
 * **Različica**: 1.0.3
 * **Datum izdaje**: december ?, 2025
 * **Velikost datoteke**: 1,6 GB
-* **Vrsta datoteke**: .exe (namestitveni program Windows)
+* **Vrsta datoteke**: .exe (Windows Installer)
 
 #### **Koraki namestitve:**
 
@@ -78,7 +78,7 @@ Namestitev Chloros vključuje:
 * ✅ **Chloros (brskalnik)** – spletni vmesnik za sisteme z nižjimi specifikacijami
 * ✅ **Chloros CLI** – vmesnik ukazne vrstice (zahteva licenco Chloros+)
 * ✅ **Backend Engine** – potek obdelave slik
-* ✅ **Profil kamere** - Vnaprej nastavljene predloge kamer MAPIR
+* ✅ **Profil kamere** - Vnaprej konfigurirane predloge kamer MAPIR
 
 ***
 
@@ -90,8 +90,8 @@ Odkleni napredne funkcije z naročnino Chloros+:
 * ⚡ **Pospeševanje GPU (CUDA)** – izkoristite moč grafičnega procesorja NVIDIA
 * 💻 **Dostop CLI** – avtomatizirajte z orodji za ukazno vrstico
 * 🐍 **Python SDK** - Programski dostop API
-* 📱 **Več naprav** - Uporaba na 2–10+ napravah (odvisno od načrta)
-* 🧮 **Prilagojene formule** - Ustvarjanje prilagojenih multispektralnih indeksov
+* 📱 **Več naprav** – uporaba na 2–10+ napravah (odvisno od načrta)
+* 🧮 **Prilagojene formule** – ustvarjanje prilagojenih multispektralnih indeksov
 
 <p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Oglejte si načrte in cene Chloros+</a></p>***
 
@@ -99,7 +99,7 @@ Odkleni napredne funkcije z naročnino Chloros+:
 
 ### Odpravljanje težav
 
-**Namestitev ni uspela in se je pojavila napaka:**
+**Namestitev ni uspela in se je pojavila naslednja napaka:**
 
 * Preverite, ali imate administratorske pravice.
 * Začasno onemogočite protivirusno programsko opremo.
@@ -111,7 +111,7 @@ Odkleni napredne funkcije z naročnino Chloros+:
 * Preverite, ali je nameščen Windows 10/11 (64-bit)
 * Posodobite grafične gonilnike
 * Preverite podrobnosti napake v pregledovalniku dogodkov Windows
-* Obrnite se na podporo uporabnikom s protokoli napak.
+* Obrnite se na podporo uporabnikom z dnevniki napak.
 
 **Težave z aktiviranjem licence:**
 

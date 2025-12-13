@@ -14,11 +14,9 @@ V glavnem meniju lahko začnete nov projekt, odprete obstoječ projekt ali odpre
 
 Ko je omogočen, gumb za začetek obdelave zažene potek obdelave slike.
 
-### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> Napredek <img src=".gitbook/assets/image (5).png" alt="" data-size="line">
+### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> Napredek <img src=".gitbook/assets/image (5).png" alt="" data-size="line">V brezplačnem načinu Chloros, ki obdeluje vse datoteke zaporedno, trak napredka prikazuje 2 stopnji: zaznavanje cilja in obdelava.
 
-V brezplačnem načinu Chloros, ki obdeluje vse datoteke zaporedno, trak napredka prikazuje 2 stopnji: zaznavanje cilja in obdelava.
-
-V plačljivem licenčnem načinu Chloros+, ki obdeluje vse datoteke hkrati, trak napredka prikazuje 4 stopnje: zaznavanje, analiza, kalibracija, izvoz. Če z miško premaknete kurzor nad Chloros+ kazalnik napredka, se bo odprl razširjen 4-stopenjski kazalnik napredka, ki vam omogoča spremljanje napredka. S klikom na zgornji kazalnik napredka se razširjeni kazalnik zamrzne, s ponovnim klikom pa se sprosti.
+V plačljivem načinu Chloros+ z licenco, ki obdeluje vse datoteke hkrati, trak napredka prikazuje 4 stopnje: zaznavanje, analiza, kalibracija, izvoz. Če z miško premaknete kurzor nad indikator napredka Chloros+, se odpre razširjen panel s 4 indikatorji napredka, ki vam omogoča spremljanje napredka. S klikom na zgornji indikator napredka se razširjeni panel zamrzne, s ponovnim klikom pa se sprosti.
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 
@@ -28,11 +26,11 @@ Levi stranski meni vsebuje različne ikone za interakcijo:
 
 #### <img src=".gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> [Nastavitve projekta](project-settings/project-settings.md)
 
-Zavihek Nastavitve projekta vam omogoča prilagajanje globalnih nastavitev projekta in nastavitev obdelave projekta. Te nastavitve prilagodite pred začetkom obdelave datotek.
+Zavihek Nastavitve projekta vam omogoča prilagajanje globalnih nastavitev projekta in nastavitev obdelave projekta. Te nastavitve prilagodite, preden začnete obdelovati datoteke.
 
 #### <img src=".gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> Brskalnik datotek
 
-Dodajte datoteke/mape in odstranite datoteke iz projekta. Podvojene datoteke se ignorirajo. V koloni cilj označite ciljno sliko, obdelava pa bo upoštevala samo označene slike, kar bo znatno pospešilo čas obdelave.
+Dodajte datoteke/mape in odstranite datoteke iz projekta. Podvojene datoteke se ignorirajo. V koloni cilj označite ciljne slike, obdelava pa bo upoštevala samo označene slike, kar bo znatno pospešilo čas obdelave.
 
 #### <img src=".gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> [Pregledovalnik slik](image-viewer-gui/opening-an-image-full-screen.md)
 

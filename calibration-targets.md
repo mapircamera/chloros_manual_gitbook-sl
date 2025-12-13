@@ -5,22 +5,18 @@ metaLinks:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/calibration-targets
 ---
 
-# Calibration Targets
+# Kalibracijske tarče
 
-MAPIR offers various calibration targets to cover a range of applications. The compact T4-R50 seen below contains 4 panels that have been measured for light reflectance from 250 - 2,500 nm.
+MAPIR ponuja različne kalibracijske tarče za različne namene uporabe. Kompaktni T4-R50, ki je prikazan spodaj, vsebuje 4 plošče, ki so bile izmerjene za svetlobno odbojnost od 250 do 2500 nm.
 
-<figure><img src=".gitbook/assets/t4-r50_2.jpg" alt=""><figcaption><p>MAPIR T4-R50</p></figcaption></figure>
+<figure><img src=".gitbook/assets/t4-r50_2.jpg" alt=""><figcaption><p>MAPIR T4-R50</p></figcaption></figure>Difuzni referenčni cilji T4 imajo naslednje krivulje odbojnosti, [podatki za prenos tukaj](https://cdn.shopify.com/s/files/1/0972/5566/files/MAPIR_Diffuse_Reflectance_Standard_Calibration_Target_Data_T4.xlsx?v=1741759157):
 
-The T4 diffuse reference targets have the following reflectance curves, [data download here](https://cdn.shopify.com/s/files/1/0972/5566/files/MAPIR_Diffuse_Reflectance_Standard_Calibration_Target_Data_T4.xlsx?v=1741759157):
+<figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4 (250-2500nm).png" alt=""><figcaption><p>MAPIR T4 Odbojnost :: 250–2500 nm</p></figcaption></figure>
 
-<figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4 (250-2500nm).png" alt=""><figcaption><p>MAPIR T4 Reflectance :: 250-2500nm</p></figcaption></figure>
+<figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4 (400-1000nm).png" alt=""><figcaption><p>MAPIR T4 Odbojnost :: 400–1000 nm</p></figcaption></figure>Na grafu odbojnosti lahko vidite, da so vrednosti valovna dolžina (os x) v primerjavi z odstotkom odbojnosti (os y). Ko zajamemo sliko kalibracijskega cilja, ustvarimo razmerje med vrednostjo pikslov in odstotkom odbojnosti v spektru, na katerega so občutljivi vsi senzorji kamere.
 
-<figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4 (400-1000nm).png" alt=""><figcaption><p>MAPIR T4 Reflectance :: 400-1000nm</p></figcaption></figure>
+To pomeni, da lahko za vsako sliko, ki jo posnamete z našimi kamerami, uporabite fotografijo naših ciljev odbojnosti, kot sta [T4-R50](https://www.mapir.camera/collections/calibration-targets/products/diffuse-reflectance-standard-calibration-target-package-t3-r50) ali [T4-R125](https://www.mapir.camera/collections/multispectral-reflectance-reference-calibration-targets/products/diffuse-reflectance-standard-calibration-target-package-t4-r125), da kalibrirate slike za odbojnost. Po kalibraciji je vsak piksel v sliki enak odstotku odbojnosti.
 
-Looking at the reflectance graph you can see that the values are wavelength (x-axis) versus reflectance percent (y-axis). When we capture an image of the calibration target we then create a relationship between pixel value and reflectance percent, within the spectrum that each of the camera's sensor bands are sensitive to.
-
-This means that with every image you capture with our cameras, you can use a photo of our reflectance targets, such as the [T4-R50](https://www.mapir.camera/collections/calibration-targets/products/diffuse-reflectance-standard-calibration-target-package-t3-r50) or [T4-R125](https://www.mapir.camera/collections/multispectral-reflectance-reference-calibration-targets/products/diffuse-reflectance-standard-calibration-target-package-t4-r125) to calibrate the images for reflectance. Once calibrated each pixel in the image is equal to percent reflectance.
-
-If you output the calibrated images in Chloros as the typical JPG or TIFF then the reflectance percent is calculated by dividing the pixel value by the bit depth of the image format. So for JPG divide by 255, and for TIFF divide by 65,535. You can also choose the PERCENT format output in Chloros, and then each pixel will range from a percent value of 0.0 to 1.0 (0% to 100% reflectance). Just keep in mind that some image applications cannot accept the percent (floating point) images, and they are large in size storage wise.
+Če kalibrirane slike izvozite v Chloros kot tipični JPG ali TIFF, se odstotek odbojnosti izračuna tako, da se vrednost piksla deli z bitno globino formata slike. Za JPG se deli z 255, za TIFF pa z 65.535. Lahko izberete tudi izhodni format PERCENT v Chloros, pri čemer bo vsak piksel v razponu od 0,0 do 1,0 (0 % do 100 % odbojnosti). Upoštevajte, da nekatere aplikacije za slike ne sprejemajo slik v odstotkih (plavajoča vejica) in da so te slike velike po velikosti shranjevanja.
 
 <div><figure><img src=".gitbook/assets/t3-125.jpg" alt=""><figcaption><p>T4-R125</p></figcaption></figure> <figure><img src=".gitbook/assets/t3-125_2.jpg" alt=""><figcaption><p>T4-R125</p></figcaption></figure> <figure><img src=".gitbook/assets/t3-125_closed.jpg" alt=""><figcaption><p>T4-R125</p></figcaption></figure></div>
