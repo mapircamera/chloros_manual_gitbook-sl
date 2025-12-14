@@ -30,5 +30,5 @@
 ## PREGLEDOVALNIK SLIK (GUI)
 
 * [Odpiranje slike v polnem zaslonu](image-viewer-gui/opening-an-image-full-screen.md)
-* [Sloji slike](image-viewer-gui/image-layers.md)
+* [Sloj slike](image-viewer-gui/image-layers.md)
 * [Indeks/LUT peskovnik](image-viewer-gui/index-lut-sandbox.md)

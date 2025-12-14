@@ -1,7 +1,6 @@
 ---
 metaLinks: {}
 ---
-
 # Začetek
 
 <div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>
@@ -12,11 +11,11 @@ Chloros je programska aplikacija iz [MAPIR](https://www.mapir.camera) za obdelav
 
 Chloros je na voljo v 4 načinih uporabe:
 
-## Chloros: Namizna aplikacija GUI
+## Chloros: namizna aplikacija GUI
 
 \[Priporočeno] Samostojno ločeno okno z vsemi funkcijami.
 
-## Chloros (brskalnik): Spletni vmesnik GUI
+## Chloros (brskalnik): spletni vmesnik GUI
 
 Deluje v vašem spletnem brskalniku (Chrome/Edge). Najbolj primeren za počasnejše računalnike z &lt;4 GB VRAM.
 

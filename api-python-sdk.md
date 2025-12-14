@@ -4,10 +4,10 @@
 
 ### Ključne značilnosti
 
-* 🐍 **Native Python** - Čisti, Pythonic API za obdelavo slik
+* 🐍 **Nativni Python** - Čisti, Pythonic API za obdelavo slik
 * 🔧 **Popoln dostop do API** - Popoln nadzor nad obdelavo Chloros
 * 🚀 **Avtomatizacija** - Ustvarjanje prilagojenih delovnih tokov za obdelavo v serijah
-* 🔗 **Integracija** – vgradite Chloros v obstoječe aplikacije Python
+* 🔗 **Integracija** – vključite Chloros v obstoječe aplikacije Python
 * 📊 **Pripravljen za raziskave** – idealen za znanstvene analitične poti
 * ⚡ **Vzporedna obdelava** – prilagaja se vašim jedrom CPU (Chloros+)
 
@@ -37,7 +37,7 @@ pip install chloros-sdk
 ```
 
 {% hint style=&quot;info&quot; %}
-**Prva namestitev**: Pred uporabo SDK aktivirajte svojo licenco Chloros+ tako, da odprete Chloros, Chloros (brskalnik) ali Chloros CLI in se prijavite s svojimi poverilnicami. To je treba narediti le enkrat.
+**Prva namestitev**: Pred uporabo SDK aktivirajte svojo licenco Chloros+ tako, da odprete Chloros, Chloros (brskalnik) ali Chloros CLI in se prijavite s svojimi poverilnicami. To je treba storiti le enkrat.
 {% endhint %}
 
 ### Osnovna uporaba
@@ -211,7 +211,7 @@ Ustvari nov projekt Chloros.
 | `project_name` | str  | Da      | Ime projekta                                     |
 | `camera`       | str  | Ne       | Predloga kamere (npr. »Survey3N\_RGN«, »Survey3W\_OCN«) |
 
-**Vrne:** `dict` - Odgovor na ustvarjanje projekta
+**Vrne:** `dict` – odgovor na ustvarjanje projekta
 
 **Primer:**
 
@@ -261,8 +261,8 @@ Konfigurirajte nastavitve obdelave.
 | `debayer`                 | str  | »Visoka kakovost (hitrejša)« | Metoda Debayer                  |
 | `vignette_correction`     | bool | `True`                  | Omogoči popravek vinjete      |
 | `reflectance_calibration` | bool | `True`                  | Omogoči kalibracijo odbojnosti  |
-| `indices`                 | list | `None`                  | Indeksi vegetacije za izračun |
-| `export_format`           | str  | &quot;TIFF (16-bit)&quot;         | Izhodni format                   |
+| `indices`                 | seznam | `None`                  | Indeksi vegetacije za izračun |
+| `export_format`           | str  | „TIFF (16-bitni)“         | Izhodni format                   |
 | `ppk`                     | bool | `False`                 | Omogoči PPK popravke          |
 | `custom_settings`         | dict | `None`                  | Napredne prilagojene nastavitve        |
 
@@ -374,7 +374,7 @@ print(f"URL: {status['url']}")
 
 #### `shutdown_backend()`
 
-Zaustavi backend (če ga je zagnal SDK).
+Zapre backend (če ga je zagnal SDK).
 
 **Primer:**
 
@@ -435,7 +435,7 @@ results = process_folder(
 
 ***
 
-## Podpora za upravitelja konteksta
+## Podpora upravitelja konteksta
 
 SDK podpira upravitelje konteksta za samodejno čiščenje:
 
@@ -863,7 +863,7 @@ print("Processing complete!")
 
 ### Upravljanje pomnilnika
 
-Za velike podatkovne nize obdelujte v paketih:
+Za velike podatkovne nize obdelujte v serijah:
 
 ```python
 from pathlib import Path
@@ -913,9 +913,9 @@ chloros = ChlorosLocal(backend_exe="C:\\Path\\To\\chloros-backend.exe")
 
 ***
 
-### Licenca ni zaznana
+### Licenca ni zaznjena
 
-**Težava:** SDK opozarja na manjkajočo licenco
+**Problem:** SDK opozarja na manjkajočo licenco
 
 **Rešitve:**
 
@@ -937,7 +937,7 @@ print(f"Cache exists: {cache_path.exists()}")
 
 ### Napake pri uvozu
 
-**Problem:** `ModuleNotFoundError: No module named 'chloros_sdk'`
+**Težava:** `ModuleNotFoundError: No module named 'chloros_sdk'`
 
 **Rešitve:**
 
@@ -955,7 +955,7 @@ python -c "import sys; print(sys.path)"
 
 ***
 
-### Časovna omejitev obdelave
+### Časovni limit obdelave
 
 **Težava:** Časovni limit obdelave
 
@@ -967,7 +967,7 @@ python -c "import sys; print(sys.path)"
 chloros = ChlorosLocal(timeout=120)  # 2 minutes
 ```
 
-2. Obdelujte manjše serije
+2. Obdelajte manjše serije
 3. Preverite razpoložljivi prostor na disku
 4. Nadzorujte sistemske vire
 
@@ -1003,7 +1003,7 @@ Get-NetTCPConnection -LocalPort 5000
 chloros.process(mode="parallel")  # Up to 16 workers
 ```
 
-2. **Zmanjšajte ločljivost izhoda** (če je to sprejemljivo)
+2. **Zmanjšajte ločljivost izhoda** (če je sprejemljivo)
 
 ```python
 chloros.configure(export_format="PNG (8-bit)")  # Faster than TIFF
@@ -1016,11 +1016,11 @@ chloros.configure(export_format="PNG (8-bit)")  # Faster than TIFF
 chloros.configure(indices=["NDVI"])  # Not all indices
 ```
 
-4. **Obdelava na SSD** (ne HDD)
+4. **Obdelujte na SSD** (ne na HDD)
 
 ***
 
-### Optimizacija pomnilnika
+### Optimiziranje pomnilnika
 
 Za velike podatkovne nize:
 
@@ -1123,7 +1123,7 @@ chloros.process(progress_callback=notebook_progress)
 
 ### V: Ali SDK zahteva internetno povezavo?
 
-**O:** Samo za začetno aktiviranje licence. Po prijavi prek Chloros, Chloros (brskalnik) ali Chloros CLI, se licenca shrani v lokalni predpomnilnik in deluje brez povezave 30 dni.
+**O:** Samo za začetno aktiviranje licence. Po prijavi prek Chloros, Chloros (brskalnik) ali Chloros CLI se licenca shrani v lokalni predpomnilnik in deluje brez povezave 30 dni.
 
 ***
 
@@ -1154,7 +1154,7 @@ chloros.process(progress_callback=notebook_progress)
 **O:** Kodo SDK lahko integrirate v svoje aplikacije, vendar:
 
 * Končni uporabniki morajo imeti nameščen Chloros.
-* Končni uporabniki morajo imeti aktivne licence Chloros+.
+* Končni uporabniki potrebujejo aktivne licence Chloros+.
 * Komercialna distribucija zahteva licenco OEM.
 
 Za vprašanja v zvezi z licenco OEM se obrnite na info@mapir.camera.
@@ -1219,7 +1219,7 @@ thread.start()
 
 ### Dokumentacija
 
-* **API Referenca**: Ta stran
+* **API Reference**: Ta stran
 
 ### Kanali podpore
 
@@ -1229,7 +1229,7 @@ thread.start()
 
 ### Vzorec kode
 
-Vsi tukaj navedeni primeri so preizkušeni in pripravljeni za uporabo. Kopirajte jih in prilagodite za svoj primer uporabe.
+Vsi tukaj navedeni primeri so preizkušeni in pripravljeni za uporabo. Kopirajte jih in prilagodite za svojo uporabo.
 
 ***
 

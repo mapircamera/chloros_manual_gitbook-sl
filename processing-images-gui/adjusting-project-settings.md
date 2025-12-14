@@ -9,7 +9,7 @@ Pred obdelavo slik je pomembno, da konfigurirate projektne nastavitve, da ustrez
 3. Plošča Nastavitve projekta prikaže vse možnosti konfiguracije
 
 {% hint style=&quot;info&quot; %}
-**Nastavitve se samodejno shranijo** skupaj s projektom. Ko ponovno odprete projekt, se vse nastavitve obnovijo.
+**Nastavitve se samodejno shranijo** skupaj z vašim projektom. Ko ponovno odprete projekt, se vse nastavitve obnovijo.
 {% endhint %}
 
 ***
@@ -22,7 +22,7 @@ Za tipične delovne tokove kamere MAPIR Survey3 so privzete nastavitve primerne:
 
 * ✅ **Popravek vinjete**: omogočeno
 * ✅ **Kalibracija odbojnosti**: omogočeno (zahteva slike ciljev MAPIR)
-* ✅ **Metoda Debayer**: Visoka kakovost (hitrejša)
+* ✅ **Debayerjeva metoda**: Visoka kakovost (hitrejša)
 * ✅ **Izvozni format**: TIFF (16-bitni)
 
 Preprosto uvozite slike in začnite obdelavo s temi privzetimi nastavitvami.
@@ -50,7 +50,7 @@ Nadzira, kako Chloros identificira kalibracijske cilje v vaših slikah.
 
 ### Obdelava
 
-Glavne možnosti za obdelavo slik in kalibracijo.
+Glavne možnosti obdelave slik in kalibracije.
 
 **Ključne nastavitve:**
 
@@ -63,7 +63,7 @@ Glavne možnosti za obdelavo slik in kalibracijo.
 
 * **Časovni zamik svetlobnega senzorja**: za sinhronizacijo časa PPK (privzeto: 0)
 * **Uporabi popravke PPK**: uporabi podatke GPS/izpostavljenosti iz datotek .daq
-* **Izpostavljenostni pin 1/2**: dodeli kamere izpostavljenostnim pinom za nastavitve z dvema kamerama
+* **Izpostavljenostni pin 1/2**: dodeli kamere izpostavljenostnim pinom za nastavitve z dvojno kamero
 
 ### Indeks (multispektralni indeksi)
 
@@ -87,10 +87,10 @@ Konfigurirajte, katere vegetacijske indekse želite izračunati in izvoziti.
 **Prilagojene formule (samo Chloros+):**
 
 * Ustvarjanje prilagojenih formul za multispektralni indeks
-* Uporaba matematičnih operacij s pasovi za vse kanale slike
+* Uporaba matematičnih funkcij za vse kanale slike
 * Shranjevanje prilagojenih formul za ponovno uporabo
 
-Za vse razpoložljive indekse in formule glejte [Formule za multispektralni indeks](../project-settings/multispectral-index-formulas.md).
+Vse razpoložljive indekse in formule najdete v [Formule za multispektralni indeks](../project-settings/multispectral-index-formulas.md).
 
 ### Izvoz
 
@@ -98,10 +98,10 @@ Nadzoruje format in kakovost izhodne datoteke.
 
 **Razpoložljivi formati:**
 
-* **TIFF (16-bit)**: Priporočljiv za GIS in znanstvene analize (razpon 0–65.535)
+* **TIFF (16-bit)**: Priporočljivo za GIS in znanstvene analize (razpon 0–65.535)
 * **TIFF (32-bit, odstotek)**: Vrednosti odbojnosti s plavajočo vejico (razpon 0,0–1,0)
-* **PNG (8-bit)**: Brezizgubna kompresija za vizualizacijo (območje 0–255)
-* **JPG (8-bit)**: Najmanjše datoteke, izgubna kompresija (območje 0–255)
+* **PNG (8-bit)**: Brezizgubna kompresija za vizualizacijo (razpon 0–255)
+* **JPG (8-bit)**: Najmanjše datoteke, izgubna kompresija (razpon 0–255)
 
 ***
 
@@ -118,9 +118,9 @@ Ustvarite ponovno uporabne predloge za dosledne delovne tokove:
 
 **Prednosti:**
 
-* Uporabite enake nastavitve v več projektih.
+* Uporabite enake nastavitve za več projektov.
 * Delite konfiguracije s člani ekipe.
-* Ohranite doslednost pri ponavljajočih se raziskavah.
+* Ohranite doslednost za ponavljajoče se raziskave.
 
 ### Naložite predlogo v nov projekt
 
@@ -165,7 +165,7 @@ Nastavitev **»Shrani mapo projekta«** določa, kje se privzeto ustvarjajo novi
 
 **Dodelitev priključkov za osvetlitev:**
 
-* **Priključek za osvetlitev 1**: Iz spustnega menija izberite model kamere.
+* **Priključek za osvetlitev 1**: Izberite model kamere iz spustnega menija.
 * **Priključek za osvetlitev 2**: Izberite drugo kamero ali »Ne uporabljaj«.
 * Enake kamere ni mogoče dodeliti obema priključkoma.
 
@@ -184,11 +184,11 @@ Pri obdelavi slik iz več kamer MAPIR v enem projektu:
 1. Chloros samodejno zazna vsak model kamere
 2. Vsaka kamera dobi ustrezen profil obdelave
 3. PPK: ročno dodelite vsaki kameri pravilni izpostavljenostni pin.
-4. Vse kamere uporabljajo enak izvozni format in indekse.
+4. Vse kamere uporabljajo isti izvozni format in indekse.
 
-**Primer**: Survey3W RGN + Survey3N OCN oprema z dvema kamerama
+**Primer**: Survey3W RGN + Survey3N OCN dvojna kamera
 
-### Časovni presek ali večdatumske raziskave
+### Časovni preskok ali večdatumske raziskave
 
 Za ponavljajoče se raziskave istega območja v daljšem časovnem obdobju:
 

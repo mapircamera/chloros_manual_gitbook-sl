@@ -30,10 +30,10 @@ Ko je obdelava uspešno zaključena, se prikažejo več kazalnikov:
 
 **Vgrajeni predogled Windows:**
 
-1. Preidite v podmapo modela kamere.
-2. Izberite datoteko slike.
-3. Predogled se prikaže v oknu predogleda raziskovalca Windows.
-4. S puščičnimi tipkami brskajte po slikah.
+1. Prejdite v podmapo modela kamere
+2. Izberite datoteko slike
+3. Predogled se prikaže v oknu predogleda raziskovalca Windows
+4. S puščičnimi tipkami brskajte po slikah
 
 ### Predogled v zunanjih pregledovalnikih slik
 
@@ -51,7 +51,7 @@ Za napredno vizualizacijo uporabite vgrajeni Image Viewer v Chloros:
 
 1. Kliknite na miniaturno sliko v brskalniku datotek.
 2. Slika se odpre v glavnem predoglednem področju.
-3. Kliknite na zavihek **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> v levem stranskem meniju.
+3. Kliknite na **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> v levem stranskem meniju.
 4. Uporabite [Index/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md) za interaktivno analizo.
 
 Podrobna navodila najdete v [Image Viewer](../image-viewer-gui/opening-an-image-full-screen.md).
@@ -97,11 +97,11 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 3. Preštejte datoteke: mora se ujemati (izvirno število – ciljno število) × (indeksi + 1)
 4. Ponovno uvozite in ponovno obdelajte vse manjkajoče datoteke.
 
-### Težava: Temni ali svetli robovi (vignetting je še vedno viden)
+### Težava: Temni ali svetli robovi (vignetting še vedno viden)
 
 **Možni vzroki:**
 
-* Popravek vignettinga je onemogočen.
+* Popravek vignettinga onemogočen.
 * Kamera/objektiv ni v podatkovni bazi profilov Chloros.
 * Ekstremni vignetting, ki presega zmogljivosti popravka.
 
@@ -142,7 +142,7 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 2. Preverite, ali je bil vključen dnevnik svetlobnega senzorja.
 3. Preverite, ali so bili zaznani kalibracijski cilji.
 4. Preverite, ali je bil zaznan pravi model kamere.
-5. Preverite čas in pogoje zajemanja ciljne slike.
+5. Preverite čas in pogoje zajemanja ciljnih slik.
 
 ***
 
@@ -159,7 +159,7 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
    * WebODM
 2. **Ohranite metapodatke EXIF**: Preverite, ali so podatki GPS ohranjeni za geografsko označevanje.
 3. **Kalibrirani delovni postopki**: Uporabite slike odbojnosti za znanstveno natančnost.
-4. **Obdelajte indeksne mozaike**: Iz posameznih indeksnih slik ustvarite ortomosaike NDVI
+4. **Obdelajte indeksne mozaike**: Ustvarite ortomosaike NDVI iz posameznih indeksnih slik
 5. **Izvozite georeferencirane GeoTIFF**: za uporabo v aplikacijah GIS
 
 ### Za analizo GIS
@@ -199,7 +199,7 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 
 * **Takojšnja varnostna kopija**: zunanji trdi disk
 * **Dolgoročno arhiviranje**: shranjevanje v oblaku (Google Drive, Dropbox itd.)
-* **Kritični podatki**: shranite 2–3 kopije na različnih lokacijah
+* **Kritični podatki**: shranite 2–3 kopije na različnih mestih
 
 ***
 
@@ -247,7 +247,7 @@ Za več sej/podatkovnih nizov:
 1. Ohranite izvirne slike (nikoli jih ne izbrišite)
 2. Odprite isti projekt v Chloros
 3. Prilagodite nastavitve v oknu Nastavitve projekta
-4. Ponovno obdelajte – izhodi bodo nadomestili prejšnje rezultate
+4. Ponovno obdelajte – izhodni podatki bodo nadomestili prejšnje rezultate
 
 ### Obdelava podskupine slik
 

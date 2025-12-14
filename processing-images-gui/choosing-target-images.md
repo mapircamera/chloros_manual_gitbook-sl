@@ -12,13 +12,13 @@ Brez označevanja ciljnih slik mora Chloros:
 * izvesti algoritme za zaznavanje ciljev na vsaki sliki
 * nepotrebno preveriti na stotine ali tisoče slik
 
-**Rezultat**: Obdelava lahko traja bistveno dlje, zlasti pri velikih podatkovnih nizih.
+**Rezultat**: obdelava lahko traja bistveno dlje, zlasti pri velikih podatkovnih nizih.
 
 ### Z označenimi ciljnimi slikami
 
 Ko v stolpcu Cilj označite določene slike:
 
-* Chloros pregleda samo označene slike za cilje
+* Chloros pregleda le označene slike za cilje
 * Odkrivanje ciljev je veliko hitrejše
 * Skupni čas obdelave je znatno krajši
 
@@ -55,7 +55,7 @@ Za vsako sliko, ki vsebuje kalibracijski cilj:
 Pred obdelavo še enkrat preverite:
 
 * [ ] Vse slike s cilji kalibracije so označene.
-* [ ] Nobena slika, ki ni ciljna, ni bila pomotoma označena.
+* [ ] Nobena slika, ki ni ciljna, ni bila naključno označena.
 * [ ] Cilji so jasno vidni na označenih slikah.
 
 ***
@@ -79,7 +79,7 @@ Pred obdelavo še enkrat preverite:
 
 * Enaka osvetlitev okolice kot pri senzorju svetlobe DAQ.
 * Izogibajte se sencam na ciljnih površinah.
-* Ne prekrivajte vira svetlobe s svojim telesom, vozilom ali rastlinjem.
+* Ne prekrivajte vira svetlobe s svojim telesom, vozilom ali vegetacijo.
 * Oblačni pogoji zagotavljajo najbolj dosledne rezultate.
 
 **Pogoji cilja:**
@@ -90,7 +90,7 @@ Pred obdelavo še enkrat preverite:
 
 ### Koliko ciljnih slik?
 
-**Najmanj:** 1 slika cilja na sejo. **Priporočeno:** 3–5 slik cilja na sejo.
+**Minimalno:** 1 slika cilja na sejo. **Priporočeno:** 3–5 slik cilja na sejo.
 
 **Najboljši urnik:**
 
@@ -100,7 +100,7 @@ Pred obdelavo še enkrat preverite:
 
 ***
 
-## Delo z več kamerami
+## Delovanje z več kamerami
 
 ### Nastavitve z dvema kamerama
 
@@ -128,18 +128,18 @@ Ta stolpec uporabite za preverjanje, ali ste v svojem projektu označili cilje z
 
 ### Nastavitev občutljivosti zaznavanja
 
-Če Chloros ne zazna vaših ciljev pravilno, prilagodite te nastavitve v [Nastavitvah projekta](adjusting-project-settings.md):
+Če Chloros ne zazna vaših ciljev pravilno, prilagodite te nastavitve v [Nastavitve projekta](adjusting-project-settings.md):
 
 **Minimalno kalibrirano vzorčno območje:**
 
 * **Privzeto**: 25 pikslov
-* **Povečajte**, če pride do napačnih zaznavanj majhnih artefaktov.
+* **Povečajte**, če pride do napačnih zaznav na majhnih artefaktih.
 * **Zmanjšajte**, če cilji niso zaznavani.
 
 **Minimalno združevanje ciljev:**
 
 * **Privzeto**: 60
-* **Povečajte**, če se cilji razdelijo na več zaznav
+* **Povečajte**, če so cilji razdeljeni na več zaznav
 * **Zmanjšajte**, če cilji z barvnimi razlikami niso v celoti zaznavni
 
 ***
@@ -184,9 +184,9 @@ Ta stolpec uporabite za preverjanje, ali ste v svojem projektu označili cilje z
 Pred začetkom obdelave preverite izbiro slik ciljev:
 
 * [ ] Vsaj 1 označena slika cilja na sejo
-* [ ] Potrditvena polja v stolpcu ciljev so potrjena za vse slike ciljev
-* [ ] Slike ciljev so posnete v istem časovnem obdobju kot raziskava
-* [ ] Cilji so jasno vidni v predogledu, ko kliknete nanje
+* [ ] Potrditvena polja v stolpcu Cilji so potrjena za vse slike ciljev
+* [ ] Slike ciljev so posnete v istem časovnem okviru kot raziskava
+* [ ] Cilji so jasno vidni v predogledu, ko nanje kliknete
 * [ ] Vsi 4 kalibracijski paneli so vidni na vsaki sliki cilja
 * [ ] Na ciljih ni senc ali ovir
 * [ ] Za dvojno kamero: cilji so označeni za oba tipa kamer

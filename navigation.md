@@ -8,7 +8,7 @@ Zgornji naslovnik vsebuje od leve proti desni:
 
 ### <img src=".gitbook/assets/image (1) (1).png" alt="" data-size="line"> Glavni meni
 
-V glavnem meniju lahko začnete nov projekt, odprete obstoječ projekt ali odprete mapo projekta.
+V glavnem meniju lahko začnete nov projekt, odprete obstoječi projekt ali odprete mapo projekta.
 
 ### <img src=".gitbook/assets/image (2).png" alt="" data-size="line"> Gumb za predvajanje/začetek
 
@@ -18,7 +18,7 @@ Ko je omogočen, gumb za začetek obdelave zažene potek obdelave slike.
 
 V brezplačnem načinu Chloros, ki obdeluje vse datoteke zaporedno, trak napredka prikazuje 2 stopnji: zaznavanje cilja in obdelava.
 
-V plačljivem načinu Chloros+ z licenco, ki obdeluje vse datoteke hkrati, trak napredka prikazuje 4 stopnje: zaznavanje, analiza, kalibracija, izvoz. Če z miško premaknete kurzor nad indikator napredka Chloros+, se odpre razširjen panel s 4 indikatorji napredka, ki vam omogoča spremljanje napredka. S klikom na zgornji indikator napredka se razširjeni panel zamrzne, s ponovnim klikom pa se sprosti.
+V plačljivem licenčnem načinu Chloros+, ki obdeluje vse datoteke hkrati, trak napredka prikazuje 4 stopnje: zaznavanje, analiza, kalibracija, izvoz. Če z miško premaknete kurzor nad Chloros+ kazalnik napredka, se bo odprl razširjeni 4-stopenjski kazalnik napredka, ki vam omogoča spremljanje napredka. S klikom na zgornji kazalnik napredka se razširjeni kazalnik zamrzne, s ponovnim klikom pa se sprosti.
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 
@@ -32,7 +32,7 @@ Zavihek Nastavitve projekta vam omogoča prilagajanje globalnih nastavitev proje
 
 #### <img src=".gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> Brskalnik datotek
 
-Dodajte datoteke/mape in odstranite datoteke iz projekta. Podvojene datoteke se ignorirajo. V koloni cilj označite ciljne slike, obdelava pa bo upoštevala samo označene slike, kar bo znatno pospešilo čas obdelave.
+Dodajte datoteke/mape in odstranite datoteke iz projekta. Podvojene datoteke se ignorirajo. V koloni cilj označite ciljno sliko, obdelava pa bo upoštevala samo označene slike, kar bo znatno pospešilo čas obdelave.
 
 #### <img src=".gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> [Pregledovalnik slik](image-viewer-gui/opening-an-image-full-screen.md)
 
@@ -40,7 +40,7 @@ Ko kliknete sliko v glavnem pregledovalniku slik, se ta odpre v celozaslonskem n
 
 #### <img src=".gitbook/assets/icon_log.JPG" alt="" data-size="line"> Dnevnik odpravljanja napak
 
-Preglejte dnevnik za izpise odpravljanja napak, ko se pojavijo težave. Kopirajte/prenesite dnevnik in ga pošljite na [MAPIR Podpora](https://www.mapir.camera/community/contact) za pomoč.
+Preglejte dnevnik za odpravljanje napak, ko se pojavijo težave. Kopirajte/prenesite dnevnik in ga pošljite na [MAPIR Podpora](https://www.mapir.camera/community/contact) za pomoč.
 
 #### <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> [Prijava uporabnika](chloros+-login.md)
 

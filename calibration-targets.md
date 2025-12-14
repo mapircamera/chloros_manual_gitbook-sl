@@ -1,5 +1,5 @@
 ---
-description: V laboratoriju izmerjeni paneli, ki se uporabljajo za kalibracijo zajetih podatkov v naknadni obdelavi
+description: Lab-measured panels used to calibrate captured data in post-processing
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/calibration-targets
@@ -18,7 +18,7 @@ Difuzni referenčni cilji T4 imajo naslednje krivulje odbojnosti, [podatki za pr
 
 Na grafu odbojnosti lahko vidite, da so vrednosti valovna dolžina (os x) v primerjavi z odstotkom odbojnosti (os y). Ko zajamemo sliko kalibracijskega cilja, ustvarimo razmerje med vrednostjo pikslov in odstotkom odbojnosti v spektru, na katerega so občutljivi vsi senzorji kamere.
 
-To pomeni, da lahko za vsako sliko, ki jo posnamete z našimi kamerami, uporabite fotografijo naših ciljev odbojnosti, kot sta [T4-R50](https://www.mapir.camera/collections/calibration-targets/products/diffuse-reflectance-standard-calibration-target-package-t3-r50) ali [T4-R125](https://www.mapir.camera/collections/multispectral-reflectance-reference-calibration-targets/products/diffuse-reflectance-standard-calibration-target-package-t4-r125), da kalibrirate slike za odbojnost. Po kalibraciji je vsak piksel v sliki enak odstotku odbojnosti.
+To pomeni, da lahko za vsako sliko, ki jo zajamete z našimi kamerami, uporabite fotografijo naših ciljev odbojnosti, kot sta [T4-R50](https://www.mapir.camera/collections/calibration-targets/products/diffuse-reflectance-standard-calibration-target-package-t3-r50) ali [T4-R125](https://www.mapir.camera/collections/multispectral-reflectance-reference-calibration-targets/products/diffuse-reflectance-standard-calibration-target-package-t4-r125), da kalibrirate slike za odbojnost. Po kalibraciji je vsak piksel v sliki enak odstotku odbojnosti.
 
 Če kalibrirane slike izvozite v Chloros kot tipični JPG ali TIFF, se odstotek odbojnosti izračuna tako, da se vrednost piksla deli z bitno globino formata slike. Za JPG se deli z 255, za TIFF pa z 65.535. Lahko izberete tudi izhodni format PERCENT v Chloros, pri čemer bo vsak piksel v razponu od 0,0 do 1,0 (0 % do 100 % odbojnosti). Upoštevajte, da nekatere aplikacije za slike ne sprejemajo slik v odstotkih (plavajoča vejica) in da so te slike velike po velikosti shranjevanja.
 

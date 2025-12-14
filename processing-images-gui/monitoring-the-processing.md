@@ -1,6 +1,6 @@
 # Spremljanje obdelave
 
-Ko se obdelava začne, Chloros ponuja več načinov za spremljanje napredka, preverjanje težav in razumevanje, kaj se dogaja z vašim nizom podatkov. Na tej strani je pojasnjeno, kako spremljati obdelavo in razlagati informacije, ki jih ponuja Chloros.
+Ko se obdelava začne, Chloros ponuja več načinov za spremljanje napredka, preverjanje težav in razumevanje, kaj se dogaja z vašim nizom podatkov. Ta stran pojasnjuje, kako spremljati obdelavo in razlagati informacije, ki jih ponuja Chloros.
 
 ## Pregled napredovalne vrstice
 
@@ -43,14 +43,14 @@ Za uporabnike z licenco Chloros+:
 
 ## Razumevanje vsake stopnje obdelave
 
-### Stopnja 1: Zaznavanje (zaznavanje ciljev)
+### Stopnja 1: Odkrivanje (odkrivanje ciljev)
 
 **Kaj se dogaja:**
 
 * Chloros skenira slike, označene s potrditvenim poljem Cilj
 * Algoritmi računalniškega vida identificirajo 4 kalibracijske plošče
 * Vrednosti odbojnosti, izvlečene iz vsake plošče
-* Časovni žigi ciljev, zabeleženi za pravilno načrtovanje kalibracije
+* Časovni žigi ciljev, zabeleženi za ustrezno načrtovanje kalibracije
 
 **Trajanje:**
 
@@ -100,7 +100,7 @@ Za uporabnike z licenco Chloros+:
 * **Izračun indeksa**: izračun multispektralnih indeksov
 * Obdelava vsake slike skozi celoten proces
 
-**Trajanje:** večina celotnega časa obdelave (60–80 %)
+**Trajanje:** večina skupnega časa obdelave (60–80 %)
 
 **Kazalnik napredka:**
 
@@ -201,17 +201,17 @@ Kritične težave, ki lahko povzročijo napako pri obdelavi:
 | „Obdelava slike X od Y”        | Trenutna posodobitev napredka                | Nič – normalno                                         |
 | „Cilji niso bili najdeni”               | Kalibracijski cilji niso bili zaznanih        | Označite ciljne slike ali onemogočite kalibracijo odbojnosti |
 | „Premalo prostora na disku“        | Premalo prostora za shranjevanje izhodnih podatkov          | Osvobodite prostor na disku                                    |
-| „Preskočitev poškodovane datoteke“        | Datoteka slike je poškodovana                  | Ponovno kopirajte datoteko s kartice SD                             |
+| „Preskočitev poškodovane datoteke“        | Slikovna datoteka je poškodovana                  | Ponovno kopirajte datoteko s kartice SD                             |
 | „Uporabljeni podatki PPK“               | Uporabljene popravke GPS iz datoteke .daq | Nič – normalno                                         |
 
 ### Kopiranje podatkov dnevnika
 
 Kopiranje dnevnika za odpravljanje težav ali podporo:
 
-1. Odprite okno Debug Log (Dnevnik odpravljanja napak).
-2. Kliknite gumb **„Copy Log“** (Kopiraj dnevnik) (ali desni klik → Izberi vse).
-3. Prilepite v besedilno datoteko ali e-pošto.
-4. Po potrebi pošljite podpori MAPIR.
+1. Odprite okno Debug Log (Dnevnik odpravljanja napak)
+2. Kliknite gumb **„Copy Log“** (Kopiraj dnevnik) (ali desni klik → Izberi vse)
+3. Prilepite v besedilno datoteko ali e-pošto
+4. Po potrebi pošljite podpori MAPIR
 
 ***
 
@@ -223,7 +223,7 @@ Kopiranje dnevnika za odpravljanje težav ali podporo:
 
 * 1 jedro CPU pri ~100 %
 * Druga jedra so v mirovanju ali na voljo
-* Sistem ostane odziven
+* Sistem ostaja odziven
 
 **Chloros+ vzporedni način:**
 
@@ -272,7 +272,7 @@ Ko je omogočena pospešitev GPU:
 
 * Visoka hitrost branja diska med fazo analiziranja
 * Visoka hitrost pisanja diska med fazo izvoza
-* SSD je znatno hitrejši od HDD
+* SSD je bistveno hitrejši od HDD
 
 **Nasvet za zmogljivost:**
 
@@ -302,7 +302,7 @@ Ko je omogočena pospešitev GPU:
 
 * Chloros+ vzporedni način porablja preveč virov
 * Razmislite o zmanjšanju sočasnih opravil ali nadgradnji strojne opreme
-* Prosti način porablja manj virov
+* Prosti način porabi manj virov
 
 ### Kdaj ustaviti obdelavo
 
@@ -318,7 +318,7 @@ Ustavite obdelavo, če opazite:
 
 1. Kliknite **gumb Stop/Cancel** (nadomesti gumb Start)
 2. Obdelava se ustavi, napredek se izgubi
-3. Popravite težave in začnite znova od začetka
+3. Odpravite težave in začnite znova od začetka
 
 ***
 
@@ -340,7 +340,7 @@ Ustavite obdelavo, če opazite:
 2. Za prihodnost: Uporabite SSD, zmanjšajte indekse, nadgradite strojno opremo
 3. Razmislite o uporabi CLI za obdelavo velikih podatkovnih nizov v serijah
 
-### Opozorila o prostem prostoru na disku
+### Opozorila o »prostoru na disku«
 
 **Rešitve:**
 
@@ -355,7 +355,7 @@ Ustavite obdelavo, če opazite:
 
 1. Ponovno kopirajte slike s kartice SD, da zagotovite njihovo celovitost.
 2. Preverite kartico SD za napake.
-3. Odstranite površinske datoteke iz projekta.
+3. Odstranite poškodovane datoteke iz projekta.
 4. Nadaljujte z obdelavo preostalih slik.
 
 ### Pregrevanje/upočasnjevanje sistema
@@ -374,7 +374,7 @@ Ustavite obdelavo, če opazite:
 Ko se obdelava konča:
 
 * Napredek doseže 100 %
-* V dnevniku odpravljanja napak se prikaže sporočilo **»Obdelava zaključena«**
+* V dnevniku odpravljanja napak se prikaže sporočilo **»Obdelava končana«**
 * Gumb za zagon se ponovno vklopi
 * Vse izhodne datoteke so v podmapah modelov kamer
 
@@ -382,10 +382,10 @@ Ko se obdelava konča:
 
 ## Naslednji koraki
 
-Ko je obdelava zaključena:
+Ko je obdelava končana:
 
 1. **Preglejte rezultate** – glejte [Zaključek obdelave](finishing-the-processing.md)
-2. **Preverite izhodno mapo** – preverite, ali so vse datoteke pravilno izvožene
+2. **Preverite izhodno mapo** – preverite, ali so bile vse datoteke pravilno izvožene
 3. **Preglejte dnevnik odpravljanja napak** – preverite, ali so prisotna opozorila ali napake
 4. **Preglejte obdelane slike** – uporabite pregledovalnik slik ali zunanjo programsko opremo
 

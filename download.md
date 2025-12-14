@@ -3,10 +3,9 @@ metaLinks:
   alternates:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/download
 ---
-
 # Prenos
 
-Prenesite najnovejšo različico Chloros za Windows, da začnete z obdelavo multispektralnih slik.
+Prenesite najnovejšo različico Chloros za Windows, da se lahko začnete ukvarjati z obdelavo multispektralnih slik.
 
 ### Sistemski zahtevi
 
@@ -16,7 +15,7 @@ Prenesite najnovejšo različico Chloros za Windows, da začnete z obdelavo mult
 | **Procesor**        | Intel Core i5 ali enakovreden     | Intel Core i7 ali boljši         |
 | **Pomnilnik (RAM)**     | 8 GB                             | 16 GB ali več                    |
 | **Grafična kartica**    | Združljiva z DirectX 11           | NVIDIA GPU z 4 GB+ VRAM       |
-| **Shranjevanje**          | 2 GB prostega prostora                  | SSD z 10 GB+ prostega prostora       |
+| **Shranjevanje**          | 2 GB prostora                  | SSD z 10 GB+ prostora       |
 | **Zaslon**          | 1920x1080                       | 2560x1440 ali več             |
 | **Internet**         | Potreben za aktivacijo licence | Potreben za aktivacijo licence |
 
@@ -37,7 +36,7 @@ Prenesite najnovejšo različico Chloros za Windows, da začnete z obdelavo mult
 * **Različica**: 1.0.3
 * **Datum izdaje**: december ?, 2025
 * **Velikost datoteke**: 1,6 GB
-* **Vrsta datoteke**: .exe (Windows Installer)
+* **Vrsta datoteke**: .exe (namestitveni program Windows)
 
 #### **Koraki namestitve:**
 
@@ -78,7 +77,7 @@ Namestitev Chloros vključuje:
 * ✅ **Chloros (brskalnik)** – spletni vmesnik za sisteme z nižjimi specifikacijami
 * ✅ **Chloros CLI** – vmesnik ukazne vrstice (zahteva licenco Chloros+)
 * ✅ **Backend Engine** – potek obdelave slik
-* ✅ **Profil kamere** - Vnaprej konfigurirane predloge kamer MAPIR
+* ✅ **Profil kamere** - Vnaprej nastavljene predloge kamer MAPIR
 
 ***
 
@@ -90,8 +89,8 @@ Odkleni napredne funkcije z naročnino Chloros+:
 * ⚡ **Pospeševanje GPU (CUDA)** – izkoristite moč grafičnega procesorja NVIDIA
 * 💻 **Dostop CLI** – avtomatizirajte z orodji za ukazno vrstico
 * 🐍 **Python SDK** - Programski dostop API
-* 📱 **Več naprav** – uporaba na 2–10+ napravah (odvisno od načrta)
-* 🧮 **Prilagojene formule** – ustvarjanje prilagojenih multispektralnih indeksov
+* 📱 **Več naprav** - Uporaba na 2–10+ napravah (odvisno od načrta)
+* 🧮 **Prilagojene formule** - Ustvarjanje prilagojenih multispektralnih indeksov
 
 <p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Oglejte si načrte in cene Chloros+</a></p>***
 
@@ -166,3 +165,5 @@ Neodobrena uporaba, distribucija ali sprememba je prepovedana.
 **Brezplačna različica**: Na voljo za osebno in komercialno uporabo z omejenimi funkcijami.
 
 **Chloros+**: Licenca na podlagi naročnine za napredne funkcije in komercialno uporabo.
+
+<figure><img src=".gitbook/assets/t3-125_2.jpg" alt=""><figcaption></figcaption></figure>
