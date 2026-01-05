@@ -22,40 +22,33 @@ Slike v projekt lahko dodate na dva načina:
 
 To možnost uporabite za uvoz posameznih slikovnih datotek ali majhnega izbora datotek.
 
-1. Kliknite gumb **„Dodaj datoteke”** na vrhu okna brskalnika datotek.
-2. Poiščite mapo, ki vsebuje vaše slike.
-3. Izberite eno ali več slikovnih datotek (za izbiro več datotek držite tipko **Ctrl**).
-4. Kliknite **„Odpri”**, da uvozite izbrane datoteke.
+1. Kliknite gumb **„Dodaj datoteke“** <img src="../.gitbook/assets/image.png" alt="" data-size="line"> gumb na vrhu okna brskalnika datotek
+2. Poiščite mapo, ki vsebuje vaše slike
+3. Izberite eno ali več slikovnih datotek (za izbiro več datotek držite tipko **Ctrl**)
+4. Kliknite **»Odpri«**, da uvozite izbrane datoteke
 
-### Metoda 2: Dodajanje mape
+### Način 2: Dodajanje mape
 
 To možnost uporabite za uvoz vseh slik iz mape naenkrat.
 
-1. Kliknite gumb **„Dodaj mapo“** na vrhu okna brskalnika datotek.
-2. Poiščite in izberite mapo, ki vsebuje slike iz vaše seje zajemanja.
-3. Kliknite **„Izberi mapo“**, da uvozite vse podprte slike iz te mape.
-
-***
+1. Kliknite gumb **„Dodaj mapo“** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> na vrhu okna brskalnika datotek.
+2. Poiščite in izberite mapo, ki vsebuje slike iz vaše snemalne seje.
+3. Kliknite **»Izberi mapo«**, da uvozite vse podprte slike iz te mape.***
 
 ## Razumevanje tabele brskalnika datotek
 
 Ko so slike uvožene, se prikažejo v tabeli z naslednjimi stolpci:
 
-### Miniatura
-
-* Majhen predogled vsake slike.
-* Kliknite miniaturno sliko, da si ogledate celotno sliko v glavnem predoglednem področju.
-
 ### Ime datoteke
 
-* Izvirno ime datoteke iz kamere.
-* Ohranja konvencijo poimenovanja kamere (npr. IMG\_0001.RAW).
+* Izvirno ime datoteke iz kamere
+* Ohranja konvencijo poimenovanja kamere (npr. IMG\_0001.RAW)
 
 ### Časovni žig
 
-* Datum in čas zajema slike.
-* Izvlečeno iz metapodatkov EXIF slike.
-* Uporablja se za sinhronizacijo PPK in zaznavanje kalibracijskih ciljev
+* Datum in čas zajema slike
+* Izvlečeno iz metapodatkov EXIF slike
+* Uporablja se za sinhronizacijo PPK in zaznavanje kalibracijskega cilja
 
 ### Model kamere
 
@@ -65,7 +58,7 @@ Ko so slike uvožene, se prikažejo v tabeli z naslednjimi stolpci:
 
 ### Stolpec cilja (potrditveno polje)
 
-* Potrdite to polje za slike, ki vsebujejo kalibracijske cilje
+* To polje potrdite za slike, ki vsebujejo kalibracijske cilje
 * Močno pospeši zaznavanje ciljev med obdelavo
 * Za podrobnosti glejte [Izbira ciljnih slik](choosing-target-images.md)
 
@@ -77,17 +70,15 @@ Ko so slike uvožene, se prikažejo v tabeli z naslednjimi stolpci:
 
 Če želite iz projekta odstraniti neželene slike:
 
-1. Izberite eno ali več slik v tabeli brskalnika datotek.
-2. Kliknite gumb **„Odstrani izbrano“**.
+1. Izberite eno ali več slik v tabeli brskalnika datotek
+2. Kliknite gumb **»Odstrani izbrano«** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line"> .
 3. Potrdite odstranitev (datoteke se ne izbrišejo z diska, ampak se samo odstranijo iz projekta).
 
 ### Razvrščanje in filtriranje
 
 * **Razvrsti po stolpcu**: kliknite kateri koli naslov stolpca, da razvrstite slike.
-* **Razvrščanje po časovnem žigu**: uporabno za organiziranje kronoloških zaporedij zajemanja
-* **Filter modela kamere**: združite slike po tipu kamere, če uporabljate več kamer
-
-***
+* **Razvrsti po časovnem žigu**: koristno za organiziranje kronoloških zaporedij zajemanja.
+* **Filter modela kamere**: združite slike po tipu kamere, če uporabljate več kamer.***
 
 ## Predogled slike
 
@@ -97,16 +88,14 @@ Kliknite katero koli sličico slike v brskalniku datotek, da jo prikažete v gla
 
 1. Slika se prikaže v osrednjem predoglednem oknu.
 2. Uporabite gumbe za povečavo, da pregledate podrobnosti slike.
-3. Med slikami se premikajte s puščičnimi tipkami
+3. Med slikami se premikajte s puščičnimi tipkami.
 
-### Hitro premikanje
+### Hitro navajanje
 
-* **Prejšnja slika**: Kliknite levo puščično tipko ali pritisnite tipko ←
-* **Naslednja slika**: Kliknite desno puščično tipko ali pritisnite tipko →
-* **Povečanje/pomanjšanje**: Uporabite kolesce miške ali gumbe za povečavo
-* **Premikanje**: Kliknite in povlecite sliko, ko je povečana
-
-***
+* **Prejšnja slika**: kliknite levo puščico ali pritisnite tipko ←
+* **Naslednja slika**: kliknite desno puščico ali pritisnite tipko →
+* **Povečanje/pomanjšanje**: uporabite kolesce miške ali gumbe za povečavo
+* **Premikanje**: kliknite in povlecite sliko, ko je povečana***
 
 ## Obravnavanje podvojenih datotek
 
@@ -131,22 +120,20 @@ Chloros samodejno zazna in prezre podvojene datoteke:
 3. Brskalnik datotek prikaže model kamere v stolpcu Model kamere.
 4. Obdelava uporabi pravilne nastavitve za vsak tip kamere.
 
-**Primer scenarija**: Survey3W RGN + Survey3N OCN nastavitev z dvojno kamero.
-
-***
+**Primer scenarija**: Survey3W RGN + Survey3N OCN nastavitev z dvema kamerama.***
 
 ## Najboljše prakse
 
 ### Uredite pred uvozom
 
-* Shranite kalibracijske ciljne slike v isti mapi kot slike raziskave.
+* Slike kalibracijskih ciljev shranite v isti mapi kot slike raziskave.
 * Ohranite originalno strukturo map iz kamere/SD kartice.
 * Ne mešajte podatkovnih nizov iz različnih sej v enem projektu.
 
 ### Poimenovanje datotek
 
 * Ohranite originalna imena datotek kamere (IMG\_0001.RAW itd.).
-* Pred uvozom datotek ne preimenujte.
+* Datotek ne preimenujte pred uvozom.
 * Originalna imena vsebujejo pomembne metapodatke.
 
 ### Slike za kalibracijo
@@ -154,7 +141,7 @@ Chloros samodejno zazna in prezre podvojene datoteke:
 * Vedno vključite 1–2 slike za kalibracijo na sejo.
 * Posnemite cilje pred in po seji snemanja.
 * Cilje postavite v enake svetlobne pogoje kot območje snemanja.
-* Označite ciljne slike z izbiro polja Target (Cilj), da pospešite obdelavo.
+* Označite ciljne slike z izbirnim poljem Target, da pospešite obdelavo.
 
 ***
 
@@ -187,16 +174,14 @@ Chloros samodejno zazna in prezre podvojene datoteke:
 * Nepravilno nastavljena ura kamere
 * Podatki EXIF odstranjeni z zunanjo programsko opremo
 
-**Rešitev**: Preverite, ali so bile nastavitve časa kamere med zajemom pravilne.
-
-***
+**Rešitev**: Preverite, ali so bile nastavitve časa kamere med zajemom pravilne.***
 
 ## Naslednji koraki
 
 Ko so datoteke uvožene:
 
 1. **Preglejte seznam datotek** – Preverite, ali so bile vse slike pravilno naložene.
-2. **Preverite modele kamer** – Preverite, ali je bila kamera pravilno zaznana.
+2. **Preverite modele kamer** – Preverite, ali je kamera pravilno zaznana.
 3. **Označite ciljne slike** – glejte [Izbira ciljnih slik](choosing-target-images.md)
 4. **Prilagodite nastavitve** – konfigurirajte možnosti obdelave v [Nastavitvah projekta](adjusting-project-settings.md)
 5. **Začnite obdelavo** – glejte [Začetek obdelave](starting-the-processing.md).

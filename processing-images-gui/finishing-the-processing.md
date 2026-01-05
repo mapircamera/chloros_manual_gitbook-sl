@@ -9,16 +9,15 @@ Ko je obdelava uspešno zaključena, se prikažejo več kazalnikov:
 * ✅ **Kazalnik napredka**: doseže 100 % zaključka
 * ✅ **Dnevnik odpravljanja napak**: prikaže sporočilo »Obdelava zaključena«
 * ✅ **Gumb za zagon**: ponovno postane aktiven (pripravljen za naslednjo obdelavo)
-* ✅ **Izhodne datoteke**: vse obdelane slike so shranjene v podmapo modela kamere
-
-***
+* ✅ **Izhodne datoteke**: vse obdelane slike so shranjene v podmapo modela kamere***
 
 ## Iskanje obdelanih slik
 
 ### Odpiranje izhodne mape
 
-1. Kliknite ikono **Glavni meni** <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> (zgoraj levo)
+1. Kliknite ikono **Glavni meni** <img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="" data-size="line"> (zgoraj levo)
 2. Izberite **»Odpri mapo projekta«**
+
 3. Vaš brskalnik datotek se odpre v imeniku projekta
 4. Poiščite svoj projekt po imenu
 
@@ -30,16 +29,14 @@ Ko je obdelava uspešno zaključena, se prikažejo več kazalnikov:
 
 **Vgrajeni predogled Windows:**
 
-1. Prejdite v podmapo modela kamere
-2. Izberite datoteko slike
-3. Predogled se prikaže v oknu predogleda raziskovalca Windows
-4. S puščičnimi tipkami brskajte po slikah
+1. Prejdite v podmapo modela kamere.
+2. Izberite datoteko slike.
+3. Predogled se prikaže v oknu predogleda raziskovalca Windows.
+4. S puščičnimi tipkami brskajte po slikah.
 
 ### Predogled v zunanjih pregledovalnikih slik
 
-**Priporočeni pregledovalniki:**
-
-* **QGIS** – brezplačna programska oprema GIS (najboljša za georeferenčno multispektralno analizo)
+**Priporočeni pregledovalniki:*** **QGIS** – brezplačna programska oprema GIS (najboljša za georeferencirano multispektralno analizo)
 * **IrfanView** – hiter, lahek pregledovalnik slik (podpira TIFF)
 * **Adobe Photoshop** – profesionalno urejanje (podpora TIFF)
 * **GIMP** – brezplačna alternativa programu Photoshop
@@ -63,7 +60,7 @@ Podrobna navodila najdete v [Image Viewer](../image-viewer-gui/opening-an-image-
 ### Preverjanje opozoril ali napak
 
 1. Odprite **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> .
-2. Prebrskajte sporočila.
+2. Preglejte sporočila.
 3. Poiščite rumena opozorila ali rdeče napake.
 4. Preglejte vse zabeležene težave.
 5. Za pomoč se obrnite na podporo MAPIR.
@@ -72,14 +69,14 @@ Podrobna navodila najdete v [Image Viewer](../image-viewer-gui/opening-an-image-
 
 Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 
-1. Kliknite gumb **„Kopiraj”** ali **„Prenesi”**.
+1. Kliknite gumb **„Kopiraj”**ali**„Prenesi”**.
 2. Shranite kot besedilno datoteko v mapo projekta.
 3. Priložite dokumentaciji projekta.
 4. Pošljite podpori MAPIR, če se pojavijo težave.
 
 ***
 
-## Pogoste težave z izhodom in rešitve
+## Pogoste težave z izhodnimi datotekami in rešitve
 
 ### Težava: Manjkajoče izhodne datoteke
 
@@ -129,20 +126,16 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 
 ### Težava: Vrednosti NDVI se zdijo napačne
 
-**Pričakovani razponi NDVI:**
-
-* **Voda, kamnine, tla**: od -0,1 do 0,2
+**Pričakovani razponi NDVI:*** **Voda, kamnine, tla**: od -0,1 do 0,2
 * **Redka/nezdrava vegetacija**: od 0,2 do 0,4
 * **Zmerna vegetacija**: od 0,4 do 0,6
-* **Zdrava, gosta vegetacija**: od 0,6 do 0,9
-
-**Če vrednosti presegajo te razpone:**
+* **Zdrava, gosta vegetacija**: od 0,6 do 0,9**Če vrednosti presegajo ta razpon:**
 
 1. Preverite, ali je bila uporabljena kalibracija odbojnosti.
 2. Preverite, ali je bil vključen dnevnik svetlobnega senzorja.
 3. Preverite, ali so bili zaznani kalibracijski cilji.
 4. Preverite, ali je bil zaznan pravi model kamere.
-5. Preverite čas in pogoje zajemanja ciljnih slik.
+5. Preverite čas in pogoje zajema ciljne slike.
 
 ***
 
@@ -152,7 +145,7 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 
 **Priporočeni potek dela:**
 
-1. **Uvozite kalibrirane slike odbojnosti** v programsko opremo za fotogrametrijo:
+1.**Uvozite kalibrirane slike odbojnosti** v programsko opremo za fotogrametrijo:
    * Pix4Dmapper
    * Agisoft Metashape
    * DroneDeploy
@@ -166,42 +159,33 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 
 **Priporočeni potek dela:**
 
-1. **Naložite v QGIS, ArcGIS ali podobno**
-2. **Uporabite 16-bitne slike odbojnosti TIFF** za večpasovno analizo
+1.**Naložite v QGIS, ArcGIS ali podobno**
+
+2.**Uporabite 16-bitne slike odbojnosti TIFF** za večpasovno analizo
 3. **Uporabite indeksne slike** (NDVI, NDRE) kot pripravljene plasti vegetacije
 4. **Rasterski kalkulator**: združite pasove za prilagojeno analizo
-5. **Izvoz**: ustvarite klasifikacijske zemljevide, zaznavanje sprememb, zemljevide zdravja vegetacije.
+5. **Izvoz**: ustvarite klasifikacijske zemljevide, zaznavanje sprememb, zemljevide zdravja vegetacije
 
 ### Za neposredno analizo/poročanje
 
 **Priporočeni potek dela:**
 
-1. **Uporabite indeksne slike z barvami LUT** za vizualna poročila.
-2. **Izpis statistike**: povprečje NDVI na polje/parcelo.
+1.**Uporabite indeksne slike z barvami LUT** za vizualna poročila
+2. **Izpis statistike**: povprečje NDVI na polje/parcelo
 3. **Časovne vrste**: primerjajte indekse v več sejah
-4. **Ustvarjanje poročil**: vključite karte, statistike in vizualizacije
-
-***
+4. **Ustvarjanje poročil**: vključite zemljevide, statistike in vizualizacije***
 
 ## Arhiviranje in varnostno kopiranje
 
 ### Priporočena strategija varnostnega kopiranja
 
-**Kaj shraniti:**
-
-* ✅ **Originalne slike RAW/JPG** – arhivirate na ločenem disku/v oblaku
+**Kaj shraniti:*** ✅ **Originalne slike RAW/JPG** – arhivirate na ločenem disku/v oblaku
 * ✅ **Obdelani izhodi** – shranite kalibrirane slike in indekse
-* ✅ **Projektna datoteka** – vsebuje vse nastavitve za ponovno obdelavo, če je to potrebno
+* ✅ **Projektna datoteka** – vsebuje vse nastavitve za ponovno obdelavo, če je potrebno
 * ✅ **Dnevnik odpravljanja napak** – dokumentira podrobnosti obdelave
-* ✅ **Slike za kalibracijo** – za preverjanje in ponovno obdelavo
-
-**Priporočila za shranjevanje:**
-
-* **Takojšnja varnostna kopija**: zunanji trdi disk
+* ✅ **Kalibrirane ciljne slike** – za preverjanje in ponovno obdelavo**Priporočila za shranjevanje:*** **Takojšnja varnostna kopija**: zunanji trdi disk
 * **Dolgoročno arhiviranje**: shranjevanje v oblaku (Google Drive, Dropbox itd.)
-* **Kritični podatki**: shranite 2–3 kopije na različnih mestih
-
-***
+* **Kritični podatki**: shranite 2–3 kopije na različnih lokacijah***
 
 ## Naslednje obdelave
 
@@ -212,13 +196,12 @@ Za shranjevanje zapisa obdelave ali pošiljanje podpori MAPIR:
 1. **Shranite predlogo projekta** (če tega še niste storili)
 2. **Ustvarite nov projekt** z uporabo shranjene predloge
 3. **Uvozite nove slike**
-4. **Obdelajte** z identičnimi nastavitvami za doslednost
 
-### Obdelava več sej v paketu
+4.**Obdelajte**z identičnimi nastavitvami za doslednost
 
-Za več sej/podatkovnih nizov:
+### Skupinska obdelava več sej
 
-**Možnost 1: GUI – več projektov**
+Za več sej/podatkovnih nizov:**Možnost 1: GUI – več projektov**
 
 * Ustvarite ločen projekt za vsako sejo.
 * Uporabite dosledne nastavitve predloge.
@@ -247,7 +230,7 @@ Za več sej/podatkovnih nizov:
 1. Ohranite izvirne slike (nikoli jih ne izbrišite)
 2. Odprite isti projekt v Chloros
 3. Prilagodite nastavitve v oknu Nastavitve projekta
-4. Ponovno obdelajte – izhodni podatki bodo nadomestili prejšnje rezultate
+4. Ponovno obdelajte – izhodi bodo nadomestili prejšnje rezultate
 
 ### Obdelava podskupine slik
 
@@ -265,13 +248,11 @@ Za več sej/podatkovnih nizov:
 * 📧 **E-pošta**: info@mapir.camera (vključite dnevnik odpravljanja napak)
 * 🌐 **Podpora**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **Pogosta vprašanja**: [Pogosta vprašanja](../faq.md)
-* 📖 **Dokumentacija**: [Chloros Priročnik](../)
+* 📖 **Dokumentacija**: [Chloros Priročnik](../)***
 
-***
+## Povzetek: Celoten potek dela
 
-## Povzetek: Celoten delovni tok
-
-Sedaj ste zaključili celoten delovni tok obdelave Chloros:
+Sedaj ste zaključili celoten potek dela za obdelavo Chloros:
 
 1. ✅ **Ustvarjen projekt** – glejte [Projekti](../projects.md)
 2. ✅ **Dodane datoteke** – glej [Dodajanje datotek](adding-files-to-a-project.md)
@@ -279,9 +260,7 @@ Sedaj ste zaključili celoten delovni tok obdelave Chloros:
 4. ✅ **Označeni cilji** – glej [Izbira ciljnih slik](choosing-target-images.md)
 5. ✅ **Začetek obdelave** – glej [Začetek obdelave](starting-the-processing.md)
 6. ✅ **Spremljanje napredka** – glej [Spremljanje obdelave](monitoring-the-processing.md)
-7. ✅ **Pregled rezultatov** – ta stran
-
-**Vaše kalibrirane, reflektance popravljene multispektralne slike so pripravljene za analizo!**
+7. ✅ **Pregled rezultatov** – ta stran**Vaše kalibrirane, reflektance popravljene multispektralne slike so pripravljene za analizo!**
 
 ***
 
@@ -301,6 +280,6 @@ Sedaj ste zaključili celoten delovni tok obdelave Chloros:
 
 ### Podpora in učenje
 
-* [**Pogosta vprašanja**](../faq.md) – Odgovori na pogosta vprašanja
-* [**Kalibracijske tarče**](../calibration-targets.md) – Razumevanje kalibracije odbojnosti
+* [**Pogosta vprašanja**](../faq.md) – odgovori na pogosta vprašanja
+* [**Kalibracijske tarče**](../calibration-targets.md) – razumevanje kalibracije odbojnosti
 * [**Podprte kamere**](../supported-cameras.md) – Združljiva strojna oprema

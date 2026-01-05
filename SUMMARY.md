@@ -29,6 +29,8 @@
 
 ## PREGLEDOVALNIK SLIK (GUI)
 
+* [Mreža slik](image-viewer-gui/image-grid.md)
 * [Odpiranje slike v polnem zaslonu](image-viewer-gui/opening-an-image-full-screen.md)
 * [Sloj slike](image-viewer-gui/image-layers.md)
 * [Indeks/LUT peskovnik](image-viewer-gui/index-lut-sandbox.md)
+* [Oznake na zemljevidu](image-viewer-gui/map-markers.md)
