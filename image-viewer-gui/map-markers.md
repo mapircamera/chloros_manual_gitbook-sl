@@ -88,7 +88,7 @@ Zavihek Zemljevid podpira dva ponudnika kart za slike ozadja zemljevida:
 
 Izberete lahko vrsto kartografske plasti (od leve proti desni):
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### Terén
+ <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### Terén
 
 Prikaže višinske profile in kartografske ploščice s podrobnostmi (ceste itd.)
 

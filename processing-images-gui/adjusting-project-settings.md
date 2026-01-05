@@ -171,7 +171,7 @@ Nastavitev **»Shrani mapo projekta«** določa, kje se privzeto ustvarjajo novi
 
 {% namig style=&quot;warning&quot; %}
 **Pomembno**: Izpostavljenostni pini morajo biti pravilno dodeljeni ustreznim kameram. Nepravilna dodelitev bo povzročila napačne podatke o geografski lokaciji.
-{% konec namiga %}
+{% endhint %}
 
 ***
 

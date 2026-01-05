@@ -49,7 +49,7 @@ Prenesite najnovejšo različico Chloros, da začnete z obdelavo multispektralni
 
 {% namig style=&quot;success&quot; %}
 Namestitveni program samodejno doda `chloros-cli` v sistemsko pot PATH za dostop prek ukazne vrstice.
-{% konec namiga %}
+{% endhint %}
 
 ***
 
