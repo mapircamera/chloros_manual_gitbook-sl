@@ -1,6 +1,6 @@
 # Oznake na zemljevidu
 
-Zavihek Zemljevid prikaže vaše slike na interaktivnem 2D zemljevidu na podlagi njihovih GPS koordinat. To vam omogoča geografski pregled vaše zajemne seje in vam pomaga vizualizirati prostorsko pokritost. To je koristno tudi pri prvem uvozu slik, da lahko hitro odstranite slike, ki jih ne potrebujete za obdelavo.
+Zavihek Zemljevid prikaže vaše slike na interaktivnem 2D zemljevidu na podlagi njihovih GPS koordinat. To vam omogoča geografski pregled vaše zajete seje in vam pomaga vizualizirati prostorsko pokritost. Prav tako je koristno, ko prvič uvažate slike, da lahko hitro odstranite vse slike, ki jih ne potrebujete za obdelavo.
 
 <figure><img src="../.gitbook/assets/chloros_map_markers.gif" alt=""><figcaption></figcaption></figure>
 
@@ -19,7 +19,7 @@ Zavihek Zemljevid prikaže vaše slike na interaktivnem 2D zemljevidu na podlagi
 
 ## Prilagajanje slik iz zavihka Zemljevid
 
-Zavihek **Zemljevid** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> ima enake možnosti dodajanja  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  in odstranjevalna  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  kot [**Brskalnik datotek**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> . Prikaže tudi enak seznam projektnih datotek, vendar z drugačnimi naslovi stolpcev:
+Zavihek **Zemljevid**<img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> ima enake možnosti dodajanja  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  in odstranjevalna  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  kot [**Brskalnik datotek**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> . Prikaže tudi enak seznam projektnih datotek, vendar z drugačnimi naslovi stolpcev:
 
 ### Ime datoteke
 
@@ -51,18 +51,18 @@ Vsaka slika z GPS-podatki je na zemljevidu označena z oznako:
 ### Prikaz oznak
 
 * Oznake označujejo natančne GPS-koordinate, kjer je bila posneta vsaka slika.
-* Oznake se lahko združijo v skupine, ko se slika pomanjša.
+* Oznake se lahko združijo, ko se slika pomanjša.
 * Povečajte sliko, da vidite posamezne lokacije slik.
 
 {% hint style="success" %}
-SUPER-ZOOM: Ko dosežete največjo stopnjo povečave, ki jo omogoča ponudnik zemljevidnih ploščic, se ploščica pri nadaljnjem povečanju poveča, kar vam omogoča, da vidite oznake, ki so blizu skupaj.
+SUPER-ZOOM: Ko dosežete največjo stopnjo povečave od ponudnika zemljevidnih ploščic, se ploščica pri nadaljnjem povečanju poveča, kar vam omogoča, da vidite oznake, ki so blizu skupaj.
 {% endhint %}
 
 ### Predogled ob preletu
 
 * **Preletite z miško** nad katerim koli označevalcem, da si ogledate predogled slike v obliki miniaturne slike.
 * To omogoča hitro vizualno prepoznavanje, ne da bi zapustili pogled zemljevida.
-* Koristno za iskanje določenih slik v obsežni seriji posnetkov.
+* Koristno za iskanje določenih slik v okviru obsežne seje zajemanja.
 
 ***
 
@@ -90,7 +90,7 @@ Zavihek Zemljevid podpira dva ponudnika kartografskih ploščic za slike zemljev
 
 Izberete lahko vrsto kartografske plasti (od leve proti desni):
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### Teren
+ <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### Terén
 
 Prikaže višinske profile in kartografske ploščice s podrobnostmi (ceste itd.)
 
@@ -117,9 +117,7 @@ Prikaže satelitske kartografske ploščice z dodatnimi podrobnostmi (ceste itd.
 
 ### Nadzorni elementi za premikanje
 
-* **Premikanje**: kliknite in povlecite, da se premikate po zemljevidu
-
-***
+* **Premikanje**: kliknite in povlecite, da se premikate po zemljevidu***
 
 ## Primeri uporabe
 
@@ -160,6 +158,6 @@ Prikaže satelitske kartografske ploščice z dodatnimi podrobnostmi (ceste itd.
 **Možni vzroki:**
 
 * GPS kamere je imel slabo satelitsko povezavo.
-* GPS se je med zajemom premaknil.
+* GPS se je med zajemanjem premaknil.
 
-**Rešitev**: To je običajno težava v času zajema; za natančne aplikacije razmislite o uporabi PPK/RTK GPS.
+**Rešitev**: To je običajno težava, povezana s časom zajemanja; za natančne aplikacije razmislite o uporabi PPK/RTK GPS.

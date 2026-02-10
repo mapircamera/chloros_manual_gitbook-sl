@@ -1,6 +1,6 @@
 # Dodajanje datotek v projekt
 
-Ko ustvarite ali odprete projekt v Chloros, je naslednji korak dodajanje multispektralnih slik, da lahko začnete z obdelavo. Z zavihkom Brskalnik po datotekah<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> omogoča enostavno uvažanje slik in upravljanje podatkovne zbirke.
+Ko ustvarite ali odprete projekt v Chloros, je naslednji korak dodajanje multispektralnih slik, da lahko začnete z obdelavo. Z zavihkom File Browser<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> omogoča enostavno uvažanje slik in upravljanje podatkovne zbirke.
 
 ## Dostop do brskalnika datotek
 
@@ -20,7 +20,7 @@ Slike v projekt lahko dodate na dva načina:
 
 ### Način 1: Dodajanje datotek
 
-To možnost uporabite za uvoz posameznih slikovnih datotek ali majhnega izbora datotek.
+To možnost uporabite za uvoz posameznih slikovnih datotek ali manjšega izbora datotek.
 
 1. Kliknite gumb **»Dodaj datoteke«** <img src="../.gitbook/assets/image.png" alt="" data-size="line"> gumb na vrhu okna brskalnika datotek.
 2. Poiščite mapo, ki vsebuje vaše slike.
@@ -33,9 +33,7 @@ To možnost uporabite za uvoz vseh slik iz mape naenkrat.
 
 1. Kliknite gumb **„Dodaj mapo“** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> na vrhu okna brskalnika datotek.
 2. Poiščite in izberite mapo, ki vsebuje slike iz vaše snemalne seje.
-3. Kliknite **»Izberi mapo«**, da uvozite vse podprte slike iz te mape.
-
-***
+3. Kliknite **»Izberi mapo«**, da uvozite vse podprte slike iz te mape.***
 
 ## Razumevanje tabele brskalnika datotek
 
@@ -58,15 +56,15 @@ Ko so slike uvožene, se prikažejo v tabeli z naslednjimi stolpci:
 * Primeri: Survey3W\_RGN, Survey3N\_OCN, Survey3W\_RGB
 * Uporablja se za uporabo pravilnih profilov obdelave
 
-### Stolpec cilja (potrditveno polje)
+### Stolpec cilj (potrditveno polje)
 
 * To polje označite za slike, ki vsebujejo kalibracijske cilje
 * Znatno pospeši zaznavanje ciljev med obdelavo
 * Za podrobnosti glejte [Izbira ciljnih slik](choosing-target-images.md)
 
-### Pregledovanje metapodatkov slike
+### Ogled metapodatkov slike
 
-S klikom na gumb za preklop v zgornjem desnem kotu nad tabelo se v mrežnem področju slike prikažejo metapodatki izbrane slike.
+S klikom na gumb v zgornjem desnem kotu nad tabelo se v mrežnem področju slike prikažejo metapodatki izbrane slike.
 
 <figure><img src="../.gitbook/assets/chloros_grid_meta.gif" alt=""><figcaption></figcaption></figure>
 
@@ -85,10 +83,8 @@ S klikom na gumb za preklop v zgornjem desnem kotu nad tabelo se v mrežnem podr
 ### Razvrščanje in filtriranje
 
 * **Razvrsti po stolpcu**: kliknite kateri koli naslov stolpca, da razvrstite slike.
-* **Razvrsti po časovnem žigu**: koristno za organiziranje kronoloških zaporedij zajemanja.
-* **Filter modela kamere**: slike razvrstite po tipu kamere, če uporabljate več kamer.
-
-***
+* **Razvrsti po časovnem žigu**: koristno za organiziranje kronoloških zaporedij zajetih posnetkov.
+* **Filter modela kamere**: slike razvrstite po tipu kamere, če uporabljate več kamer.***
 
 ## Predogled slike
 
@@ -105,16 +101,14 @@ Kliknite katero koli sličico slike v brskalniku datotek, da jo prikažete v gla
 * **Prejšnja slika**: kliknite levo puščično tipko ali pritisnite tipko ←.
 * **Naslednja slika**: kliknite desno puščico ali pritisnite tipko →.
 * **Povečanje/pomanjšanje**: uporabite kolesce miške ali gumbe za povečavo.
-* **Premikanje**: kliknite in povlecite sliko, ko je povečana.
-
-***
+* **Premikanje**: kliknite in povlecite sliko, ko je povečana.***
 
 ## Obravnavanje podvojenih datotek
 
 Chloros samodejno zazna in prezre podvojene datoteke:
 
 * Datoteke z enakimi imeni se preskočijo.
-* Preprečuje naključno dvojno obdelavo.
+* Prepreči naključno dvojno obdelavo.
 * Ob zaznavanju podvojenih datotek se prikaže opozorilno sporočilo.
 
 {% hint style="warning" %}
@@ -132,9 +126,7 @@ Chloros samodejno zazna in prezre podvojene datoteke:
 3. Brskalnik datotek prikaže model kamere v stolpcu Model kamere.
 4. Obdelava uporabi pravilne nastavitve za vsak tip kamere.
 
-**Primer scenarija**: Survey3W RGN + Survey3N OCN nastavitev z dvojno kamero.
-
-***
+**Primer scenarija**: Survey3W RGN + Survey3N OCN nastavitev z dvojno kamero.***
 
 ## Najboljše prakse
 
@@ -154,7 +146,7 @@ Chloros samodejno zazna in prezre podvojene datoteke:
 
 * Vedno vključite 1–2 slike za kalibracijo na sejo.
 * Posnemite cilje pred in po seji snemanja.
-* Cilje postavite v enake svetlobne pogoje kot območje snemanja.
+* Cilje postavite v enake svetlobne razmere kot območje snemanja.
 * Označite ciljne slike z izbirnim poljem Target, da pospešite obdelavo.
 
 ***
@@ -169,7 +161,7 @@ Chloros samodejno zazna in prezre podvojene datoteke:
 * Slike so iz kamer, ki niso MAPIR (glej [Podprte kamere](../supported-cameras.md))
 * Poškodovana datoteka ali nepopoln prenos s kartice SD
 
-**Rešitev**: Preverite združljivost datotečnega formata in modela kamere.
+**Rešitev**: Preverite združljivost datotečnega formata in modela kamere
 
 ### Model kamere ni zaznan
 
@@ -179,24 +171,22 @@ Chloros samodejno zazna in prezre podvojene datoteke:
 * Slike, urejene v zunanji programski opremi
 * Nepopoln prenos datotek
 
-**Rešitev**: Ponovno uvozite originalne, nespremenjene datoteke iz kamere/kartice SD.
+**Rešitev**: Ponovno uvozite originalne, nespremenjene datoteke iz kamere/kartice SD
 
 ### Manjkajoči časovni žigi
 
 **Možni vzroki:**
 
-* Nepravilno nastavljena ura kamere
+* Ne pravilno nastavljena ura kamere
 * Podatki EXIF odstranjeni z zunanjo programsko opremo
 
-**Rešitev**: Preverite, ali so bile nastavitve časa kamere med zajemom pravilne.
-
-***
+**Rešitev**: Preverite, ali so bile nastavitve časa kamere med zajemom pravilne.***
 
 ## Naslednji koraki
 
 Ko so datoteke uvožene:
 
-1. **Preglejte seznam datotek** – preverite, ali so bile vse slike pravilno naložene.
+1. **Preglejte seznam datotek** – Preverite, ali so bile vse slike pravilno naložene.
 2. **Preverite modele fotoaparatov** – preverite, ali je fotoaparat pravilno zaznan
 3. **Označite ciljne slike** – glejte [Izbira ciljnih slik](choosing-target-images.md)
 4. **Prilagodite nastavitve** – konfigurirajte možnosti obdelave v [Nastavitvah projekta](adjusting-project-settings.md)

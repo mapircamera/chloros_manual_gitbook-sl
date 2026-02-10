@@ -8,8 +8,8 @@ Pred obdelavo slik je pomembno, da konfigurirate projektne nastavitve, da ustrez
 2. Kliknite ikono **Nastavitve projekta** <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> v levem stranskem meniju
 3. Plošča Nastavitve projekta prikaže vse možnosti konfiguracije
 
-{% hint style=&quot;info&quot; %}
-**Nastavitve se samodejno shranijo** skupaj z vašim projektom. Ko ponovno odprete projekt, se vse nastavitve obnovijo.
+{% hint style="info" %}
+**Nastavitve se samodejno shranijo** z vašim projektom. Ko ponovno odprete projekt, se vse nastavitve obnovijo.
 {% endhint %}
 
 ***
@@ -22,7 +22,7 @@ Za tipične delovne tokove kamere MAPIR Survey3 so privzete nastavitve primerne:
 
 * ✅ **Popravek vinjete**: omogočeno
 * ✅ **Kalibracija odbojnosti**: omogočeno (zahteva slike ciljev MAPIR)
-* ✅ **Debayerjeva metoda**: Visoka kakovost (hitrejša)
+* ✅ **Metoda Debayer**: Standardna (hitra, srednja kakovost)
 * ✅ **Izvozni format**: TIFF (16-bitni)
 
 Preprosto uvozite slike in začnite obdelavo s temi privzetimi nastavitvami.
@@ -31,63 +31,62 @@ Preprosto uvozite slike in začnite obdelavo s temi privzetimi nastavitvami.
 
 ## Pregled nastavitev projekta
 
-Plošča Nastavitve projekta je razdeljena na več kategorij. Spodaj je povzetek posameznih razdelkov. Celotno dokumentacijo najdete v [Nastavitvah projekta](../project-settings/project-settings.md).
+Plošča Nastavitve projekta je razdeljena na več kategorij. Spodaj je povzetek posameznih razdelkov. Celotno dokumentacijo najdete v [Nastavitve projekta](../project-settings/project-settings.md).
 
 ### Zaznavanje ciljev
 
 Nadzira, kako Chloros identificira kalibracijske cilje v vaših slikah.
 
-**Ključne nastavitve:**
+**Ključne nastavitve:*** **Minimalna površina vzorca za kalibracijo**: prag velikosti za zaznavanje ciljev (privzeto: 25 pikslov)
+* **Minimalno združevanje ciljev**: prag podobnosti za združevanje ciljnih območij (privzeto: 60)**Kdaj prilagoditi:**
 
-* **Minimalna površina vzorca za kalibracijo**: prag velikosti za zaznavanje ciljev (privzeto: 25 pikslov)
-* **Minimalno združevanje ciljev**: prag podobnosti za združevanje ciljnih območij (privzeto: 60)
-
-**Kdaj prilagoditi:**
-
-* Povečajte površino vzorca, če pride do napačnih zaznavanj.
-* Zmanjšajte, če cilji niso zaznani.
-* Prilagodite združevanje, če so cilji razdeljeni na več zaznavanj.
+* Povečajte površino vzorca, če pride do napačnih zaznav
+* Zmanjšajte, če cilji niso zaznani
+* Prilagodite združevanje, če so cilji razdeljeni na več zaznav
 
 ### Obdelava
 
 Glavne možnosti obdelave slik in kalibracije.
 
-**Ključne nastavitve:**
-
-* **Popravek vinjete**: Kompenzira zatemnitev objektiva na robovih ✅ Priporočeno
+**Ključne nastavitve:*** **Popravek vinjete**: Kompenzira zatemnitev objektiva na robovih ✅ Priporočeno
 * **Kalibracija odbojnosti**: Normalizira vrednosti z uporabo kalibracijskih ciljev ✅ Priporočeno
 * **Debayerjeva metoda**: Algoritem za pretvorbo RAW v 3-kanalni multispektralni
-* **Minimalni interval ponovne kalibracije**: čas med uporabo kalibracijskih ciljev (0 = uporabi vse)
+* **Minimalni interval ponovne kalibracije**: Čas med uporabo kalibracijskih ciljev (0 = uporabi vse)**Napredne nastavitve:*** **Časovni zamik svetlobnega senzorja**: Za sinhronizacijo časa PPK (privzeto: 0)
+* **Uporabi PPK popravke**: Uporabi podatke GPS/izpostavljenosti iz datotek .daq
+* **Izpostavljenost 1/2**: Dodeli kamere izpostavljenosti za nastavitve z dvojno kamero
 
-**Napredne nastavitve:**
+### Debayerjeva metoda
 
-* **Časovni zamik svetlobnega senzorja**: za sinhronizacijo časa PPK (privzeto: 0)
-* **Uporabi popravke PPK**: uporabi podatke GPS/izpostavljenosti iz datotek .daq
-* **Izpostavljenostni pin 1/2**: dodeli kamere izpostavljenostnim pinom za nastavitve z dvojno kamero
+Trenutno ponujamo 2 debayerjeve metode v Chloros:
+
+#### Standardna (hitra, srednja kakovost)
+
+Standardni debayer deluje hitro, vendar prikazuje barvni šum debayeringa, kar povzroča manj natančne in bolj šumne slike.
+
+#### Texture Aware (počasen, najvišja kakovost) \[Chloros+ Only]
+
+Texture Aware uporablja visokokakovosten debayer, ki upošteva robove, v kombinaciji z modelom AI/ML za odstranjevanje šuma, ki odstrani skoraj ves šum debayeringa. Model Texture Aware za delovanje potrebuje pomnilnik GPU (VRAM). Priporočamo, da ga uporabljate, če imate na voljo več kot 4 GB VRAM za hitrejše obdelovanje.
 
 ### Indeks (multispektralni indeksi)
 
-Konfigurirajte, katere vegetacijske indekse želite izračunati in izvoziti.
+Nastavite, katere vegetacijske indekse želite izračunati in izvoziti.
 
 **Kako dodati indekse:**
 
-1. Kliknite gumb **„Dodaj indeks“**
+1. Kliknite gumb**„Dodaj indeks“**
+
 2. Izberite indeks iz spustnega menija (NDVI, NDRE, GNDVI itd.)
 3. Konfigurirajte nastavitve vizualizacije (barve LUT, razponi vrednosti)
 4. Po potrebi dodajte več indeksov
 
-**Priljubljeni indeksi:**
-
-* **NDVI**: Splošno zdravje vegetacije (najpogostejši)
+**Priljubljeni indeksi:*** **NDVI**: Splošno zdravje vegetacije (najpogostejši)
 * **NDRE**: Zgodnje odkrivanje stresa z RedEdge
 * **GNDVI**: Občutljiv na koncentracijo klorofila
 * **OSAVI**: deluje dobro z vidno tlemi
-* **EVI**: regije z visokim indeksom listne površine (LAI)
-
-**Prilagojene formule (samo Chloros+):**
+* **EVI**: regije z visokim indeksom listne površine (LAI)**Prilagojene formule (samo Chloros+):**
 
 * Ustvarjanje prilagojenih formul za multispektralni indeks
-* Uporaba matematičnih funkcij za vse kanale slike
+* Uporaba matematičnih operacij s pasovi za vse kanale slike
 * Shranjevanje prilagojenih formul za ponovno uporabo
 
 Vse razpoložljive indekse in formule najdete v [Formule za multispektralni indeks](../project-settings/multispectral-index-formulas.md).
@@ -96,14 +95,10 @@ Vse razpoložljive indekse in formule najdete v [Formule za multispektralni inde
 
 Nadzoruje format in kakovost izhodne datoteke.
 
-**Razpoložljivi formati:**
-
-* **TIFF (16-bit)**: Priporočljivo za GIS in znanstvene analize (razpon 0–65.535)
+**Razpoložljivi formati:*** **TIFF (16-bit)**: Priporočljivo za GIS in znanstvene analize (razpon 0–65.535)
 * **TIFF (32-bit, odstotek)**: Vrednosti odbojnosti s plavajočo vejico (razpon 0,0–1,0)
 * **PNG (8-bit)**: Brezizgubna kompresija za vizualizacijo (razpon 0–255)
-* **JPG (8-bit)**: Najmanjše datoteke, izgubna kompresija (razpon 0–255)
-
-***
+* **JPG (8-bit)**: Najmanjše datoteke, izgubna kompresija (razpon 0–255)***
 
 ## Shranjevanje in nalaganje nastavitev
 
@@ -118,9 +113,9 @@ Ustvarite ponovno uporabne predloge za dosledne delovne tokove:
 
 **Prednosti:**
 
-* Uporabite enake nastavitve za več projektov.
+* Uporabite enake nastavitve v več projektih.
 * Delite konfiguracije s člani ekipe.
-* Ohranite doslednost za ponavljajoče se raziskave.
+* Ohranite doslednost pri ponavljajočih se raziskavah.
 
 ### Naložite predlogo v nov projekt
 
@@ -133,7 +128,7 @@ Pri ustvarjanju novega projekta:
 
 ### Delovni imenik
 
-Nastavitev **»Shrani mapo projekta«** določa, kje se privzeto ustvarjajo novi projekti:
+Nastavitev **„Shrani mapo projekta“** določa, kje se privzeto ustvarjajo novi projekti:
 
 * **Privzeta lokacija**: `C:\Users\[Username]\Chloros Projects`
 * **Spremeni lokacijo**: kliknite ikono za urejanje in izberite novo mapo
@@ -151,25 +146,22 @@ Nastavitev **»Shrani mapo projekta«** določa, kje se privzeto ustvarjajo novi
 ### Predpogoji
 
 * MAPIR DAQ z modulom GPS (GNSS)
-* Datoteka dnevnika .daq z vnosi izpostavljenih pinov
-* Kamera, priključena na DAQ izpostavljene pike med zajemom
+* .daq dnevniška datoteka z vnosi izpostavljenosti
+* Kamera, priključena na izpostavljenostne pine DAQ med zajemom
 
 ### Koraki konfiguracije
 
-1. Datoteko dnevnika .daq shranite v mapo projekta.
-2. V nastavitvah projekta omogočite potrditveno polje **„Uporabi PPK popravke“**.
-3. Po potrebi nastavite **„Časovni zamik svetlobnega senzorja“** (privzeto: 0 za UTC).
-4. Kamere dodelite izpostavljenim pikam:
-   * **Ena kamera**: Samodejno dodeljena priključku 1.
-   * **Dvojne kamere**: Ročno dodelite vsako kamero pravilnemu priključku.
+1. Dnevniško datoteko .daq shranite v mapo projekta
+2. V nastavitvah projekta omogočite **&quot;Uporabi PPK popravke&quot;**
 
-**Dodelitev priključkov za osvetlitev:**
+3. Po potrebi nastavite**»Časovni zamik svetlobnega senzorja«** (privzeto: 0 za UTC)
+4. Kamere dodelite izpostavljenim pinom:
+   * **Ena kamera**: samodejno dodeljena pinu 1
+   * **Dve kameri**: vsako kamero ročno dodelite pravemu pinu**Dodelitev izpostavljenih pinov:*** **Izpostavljenostni pin 1**: Izberite model kamere iz spustnega menija
+* **Izpostavljenostni pin 2**: Izberite drugo kamero ali »Ne uporabljaj«
+* Ista kamera ne more biti dodeljena obema pinoma
 
-* **Priključek za osvetlitev 1**: Izberite model kamere iz spustnega menija.
-* **Priključek za osvetlitev 2**: Izberite drugo kamero ali »Ne uporabljaj«.
-* Enake kamere ni mogoče dodeliti obema priključkoma.
-
-{% namig style=&quot;warning&quot; %}
+{% hint style="warning" %}
 **Pomembno**: Izpostavljenostni pini morajo biti pravilno dodeljeni ustreznim kameram. Nepravilna dodelitev bo povzročila napačne podatke o geografski lokaciji.
 {% endhint %}
 
@@ -183,8 +175,8 @@ Pri obdelavi slik iz več kamer MAPIR v enem projektu:
 
 1. Chloros samodejno zazna vsak model kamere
 2. Vsaka kamera dobi ustrezen profil obdelave
-3. PPK: ročno dodelite vsaki kameri pravilni izpostavljenostni pin.
-4. Vse kamere uporabljajo isti izvozni format in indekse.
+3. PPK: ročno dodelite vsaki kameri pravilni izpostavljenostni pin
+4. Vse kamere uporabljajo isti izvozni format in indekse
 
 **Primer**: Survey3W RGN + Survey3N OCN dvojna kamera
 
@@ -213,7 +205,7 @@ Za projekte z veliko slikami (500+):
 
 Preden začnete z obdelavo, preglejte te ključne nastavitve:
 
-* [ ] Model kamere je pravilno zaznan v brskalniku datotek.
+* [ ] Model kamere je bil pravilno zaznan v brskalniku datotek.
 * [ ] Popravek vinjete je omogočen.
 * [ ] Kalibracija odbojnosti je omogočena.
 * [ ] Uvožena je vsaj ena slika cilja kalibracije.

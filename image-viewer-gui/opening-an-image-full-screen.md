@@ -18,7 +18,7 @@ Najpogostejši način za odpiranje slike v pregledovalniku slik:
 Ko je slika naložena v predoglednem področju:
 
 1. Kliknite ikono **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> v levem stranskem meniju.
-2. Odpre se zavihek pregledovalnika slik, ki prikaže izbrano sliko v celozaslonskem načinu.
+2. Odpre se zavihek pregledovalnika slik, ki prikaže izbrano sliko v polnem zaslonu.
 3. V levem stranskem meniju so na voljo napredna orodja za pregledovanje in analizo.
 
 ***
@@ -27,42 +27,35 @@ Ko je slika naložena v predoglednem področju:
 
 ### Glavno območje zaslona
 
-Največji del zaslona prikazuje sliko:
+Največji del zaslona prikazuje vašo sliko:
 
 * **Polna ločljivost**: slike so prikazane v izvirni ločljivosti.
 * **Povečljivost**: za povečavo uporabite gumbe ali kolesce miške
-* **Premikanje**: kliknite in povlecite, da se premikate po povečani sliki
-* **Ohranjeno razmerje stranic**: slike se sorazmerno prilagajajo
-
-***
+* **Premikanje**: kliknite in povlecite, da se premikate po sliki, ko je povečana
+* **Ohranjeno razmerje stranic**: slike se sorazmerno prilagajajo***
 
 ## Možnosti pregledovanja
 
-### Osnovno navajanje po slikah
+### Osnovno navajanje po sliki
 
 #### Brskanje po slikah
 
-Po naboru slik se premikajte s pomočjo bližnjic na tipkovnici ali gumbov:
+Po nizu slik se premikajte s pomočjo bližnjic na tipkovnici ali gumbov:
 
-* **Naslednja slika**: kliknite gumb → ali pritisnite tipko **→** (desna puščica)
-* **Prejšnja slika**: kliknite gumb ← ali pritisnite tipko **←** (leva puščica)
+* **Naslednja slika**: kliknite gumb → ali pritisnite tipko**→** (desna puščica)
+* **Prejšnja slika**: kliknite gumb ← ali pritisnite tipko**←** (leva puščica)
 * **Preskok na določeno sliko**: vrnite se v brskalnik datotek in kliknite želeno sličico
 
-#### Nadzorne tipke za povečavo
+#### Nadzorni elementi za povečavo
 
-Prilagodite povečavo, da si ogledate podrobnosti slike:
+Prilagodite povečavo, da pregledate podrobnosti slike:
 
-**Povečajte:**
+**Povečajte:*** Kliknite gumb **+** (plus)
+* Pritisnite tipko **+**ali**=*** Pomaknite miškin kolesce **navzgor**
 
-* Kliknite gumb **+** (plus)
-* Pritisnite tipko **+** ali **=**
-* Pomaknite kolesce miške **navzgor**
-
-**Pomanjšajte:**
-
-* Kliknite gumb **−** (minus)
+**Pomanjšajte:*** Kliknite gumb **−** (minus)
 * Pritisnite tipko **−** (minus)
-* Pomaknite kolesce miške **navzdol**
+* Pomaknite miškin kolesce **navzdol**
 
 #### Premikanje slike pri povečavi
 
@@ -73,22 +66,13 @@ Ko je slika povečana preko velikosti zaslona:
 3. **Povlecite**, da premaknete sliko.
 4. Spustite, da ustavite premikanje.
 
-**Alternativa**: Uporabite puščične tipke za premikanje v majhnih korakih.
-
-***
+**Alternativa**: Uporabite puščične tipke za premikanje v majhnih korakih.***
 
 ## Pregled vrednosti pikslov
 
 ### Ogled vrednosti pikslov na kazalcu
 
-Ko premaknete miškin kazalec nad sliko, se vrednosti pikslov prikažejo v realnem času:
-
-**Mesto prikaza vrednosti:**
-
-* **Plavajoče število in rdeča črta v legendi gradienta indeksa LUT na desni strani**
-* **Pri dodatnem povečanju se plavajoča vrednost prikaže blizu kazalca in označenega piksla**
-* Prikaže vrednosti za piksel **pod kazalcem ali označenim**
-* Posodablja se, ko premikate miško
+Ko premaknete kazalec miške nad sliko, se vrednosti pikslov prikažejo v realnem času:**Mesto prikaza vrednosti:*** **Plavajoče število in rdeča črta v legendi gradienta indeksa LUT na desni strani*** **Pri dodatnem povečanju, plavajoča vrednost blizu kazalca in označenega piksla*** Prikaže vrednosti za piksel **pod kazalcem ali označenim*** Posodablja se, ko premikate miško
 
 ***
 
@@ -120,15 +104,15 @@ Ko premaknete miškin kazalec nad sliko, se vrednosti pikslov prikažejo v realn
 * Enopasovne sive slike
 * Vrednosti pikslov predstavljajo rezultate izračuna indeksa
 * Običajno v razponu od -1 do +1 za normalizirane indekse
-* Za vizualizacijo je mogoče uporabiti barvne LUT-e
+* Za vizualizacijo je mogoče uporabiti barvne LUT-je
 
 ***
 
-## Uporaba indeksa in LUT-a
+## Uporaba indeksa in LUT-ja
 
 Uporabite multispektralne indekse in barvne preglednice:
 
-1. Poiščite **Index/LUT Sandbox** v **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> stranski vrstici
+1. Poiščite **Index/LUT Sandbox**v**Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> stranski vrstici
 2. Izberite indeks vegetacije (NDVI, NDRE itd.)
 3. Izberite multispektralno formulo ali ustvarite svojo lastno (samo Chloros+)
 4. Uporabite barvni LUT-gradient za vizualizacijo
@@ -149,26 +133,22 @@ Podrobna navodila najdete v [Index/LUT Sandbox](index-lut-sandbox.md).
 
 ### Povečava
 
-* **+** ali **=**: Povečava
+* **+**ali**=**: Povečava
 * **−**: Pomanjšanje
-* **Miškin kolesce**: Povečava/pomanjšanje
-
-***
+* **Miškin kolesce**: Povečava/pomanjšanje***
 
 ### Preverjanje izračunov indeksa
 
 Preverite, ali so indeksi izračunani pravilno:
 
-1. Odprite NDVI ali drugo sliko indeksa
+1. Odprite NDVI ali drugo sliko indeksa.
 2. Preverite vegetacijska območja:
-   * **NDVI**: Za zdrave rastline mora prikazati 0,4–0,9
-   * **NDRE**: Višje vrednosti za bujno rast
+   * **NDVI**: Za zdrave rastline mora prikazati 0,4–0,9.
+   * **NDRE**: Višje vrednosti za bujno rast.
    * **GNDVI**: podobno kot NDVI, vendar občutljivo na klorofil
 3. Preverite ne-vegetacijo:
    * **Tla**: blizu 0 ali rahlo negativna
-   * **Voda**: negativne vrednosti (-0,5 do 0)
-
-***
+   * **Voda**: negativne vrednosti (od -0,5 do 0)***
 
 ## Odpravljanje težav pri prikazovanju
 
@@ -206,15 +186,15 @@ Preverite, ali so indeksi izračunani pravilno:
 **Možni vzroki:**
 
 * Ogled napačne slike (izvirnik proti obdelani sliki)
-* Kalibracija ni bila pravilno uporabljena
-* Podatki svetlobnega senzorja niso bili vključeni v vnos
-* Način odstotkov je bil nepravilno preklopljen
+* Kalibracija ni bila pravilno uporabljena.
+* Podatki svetlobnega senzorja niso bili vključeni v vnos.
+* Način odstotkov je bil nepravilno preklopljen.
 
 **Rešitve:**
 
-1. Preverite, ali si ogledujete obdelano izhodno sliko (preverite končnico imena datoteke)
-2. Preverite stanje gumba za način odstotkov
-3. Primerjajte s sliko iz istega niza podatkov, za katero veste, da je pravilna
+1. Preverite, ali si ogledujete obdelano izhodno sliko (preverite končnico imena datoteke).
+2. Preverite stanje gumba za način odstotkov.
+3. Primerjajte s sliko iz istega niza podatkov, za katero veste, da je pravilna.
 
 ***
 
@@ -224,8 +204,8 @@ Zdaj, ko lahko slike pregledujete v polnem zaslonu:
 
 * [**Sloji slik**](image-layers.md) – spoznajte vizualizacijo več pasov
 * [**Indeks/LUT Sandbox**](index-lut-sandbox.md) – uporabite prilagojene indekse in barvno mapiranje
-* [**Formule večspektralnega indeksa**](../project-settings/multispectral-index-formulas.md) – razumevanje razpoložljivih indeksov
+* [**Formule večspektralnega indeksa**](../project-settings/multispectral-index-formulas.md) – Razumevanje razpoložljivih indeksov
 
 Za potek obdelave glejte:
 
-* [**Obdelava slik (GUI)**](../processing-images-gui/adding-files-to-a-project.md) – popoln vodnik za obdelavo
+* [**Obdelava slik (GUI)**](../processing-images-gui/adding-files-to-a-project.md) – Celoten vodnik za obdelavo
