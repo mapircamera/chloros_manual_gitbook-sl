@@ -1,19 +1,19 @@
 # Začetek obdelave
 
-Ko ste uvozili slike, označili kalibracijske cilje in konfigurirali nastavitve projekta, ste pripravljeni za začetek obdelave. Ta stran vas vodi skozi začetek obdelave Chloros.
+Ko ste uvozili slike, označili kalibracijske tarče in nastavili projektne nastavitve, ste pripravljeni za začetek obdelave. Ta stran vas vodi skozi zagon obdelovalnega procesa Chloros.
 
-## Seznam za predobdelavo
+## Seznam za preverjanje pred obdelavo
 
 Preden kliknete gumb Začni, preverite, ali je vse pripravljeno:
 
-* [ ] **Uvožene datoteke** – vse slike se prikažejo v brskalniku datotek
-* [ ] **Označene ciljne slike** – stolpec Cilj je preverjen za kalibracijske slike
-* [ ] **Zaznani modeli kamer** – stolpec Model kamere prikazuje prave kamere
-* [ ] **Nastavitve konfigurirane** – nastavitve projekta pregledane in prilagojene
-* [ ] **Indeksi izbrani** – dodani želeni multispektralni indeksi (če je potrebno)
-* [ ] **Izbran izvozni format** – izhodni format, primeren za vaš delovni tok
+* [ ] **Datoteke uvožene** – Vse slike so prikazane v brskalniku datotek
+* [ ] **Ciljne slike označene** – Stolpec Cilj je označen za kalibracijske slike
+* [ ] **Modeli kamer zaznani** – Stolpec Model kamere prikazuje prave kamere
+* [ ] **Nastavitve konfigurirane** – Nastavitve projekta so pregledane in prilagojene
+* [ ] **Izbrani indeksi** – Dodani so željeni multispektralni indeksi (če je potrebno)
+* [ ] **Izbrani izvozni format** – Izvozni format, primeren za vaš delovni tok
 
-{% hint style=&quot;info&quot; %}
+{% hint style="info" %}
 **Nasvet**: Pred obdelavo kliknite na nekaj slik v brskalniku datotek, da preverite, ali so se pravilno naložile.
 {% endhint %}
 
@@ -21,22 +21,22 @@ Preden kliknete gumb Začni, preverite, ali je vse pripravljeno:
 
 ## Začetek obdelave
 
-### Poiščite gumb Začetek
+### Poiščite gumb Začni
 
-Gumb Začetek/Predvajanje se nahaja v zgornji vrstici naslova Chloros:
+Gumb Začni/Predvajaj se nahaja v zgornji vrstici Chloros:
 
-* Položaj: zgornji srednji del okna
-* Ikona: **gumb Predvajanje/Začetek** <img src="../.gitbook/assets/image (2) (1).png" alt="" data-size="line">
+* Položaj: Zgornji srednji del okna
+* Ikona: **Gumb Predvajaj/Začni** <img src="../.gitbook/assets/image (2) (1).png" alt="" data-size="line">
 * Stanje: Gumb je omogočen (svetel), ko je pripravljen za obdelavo
 
-### Kliknite za začetek
+### Kliknite za zagon
 
-1. Kliknite **gumb Predvajaj/Začni** v zgornjem naslovnem vrstnem redu
+1. Kliknite **gumb Predvajaj/Začni** v zgornjem naslovnem pasu
 2. Obdelava se začne takoj
-3. Gumb je med obdelavo onemogočen (siv)
-4. Napredek se posodablja in prikazuje stanje obdelave
+3. Gumb postane onemogočen (siv) med obdelavo
+4. Napredovalna vrstica se posodablja in prikazuje stanje obdelave
 
-{% hint style=&quot;success&quot; %}
+{% hint style="success" %}
 **Obdelava se je začela**: Ko kliknete, Chloros samodejno opravi vse korake obdelave – zaznavanje cilja, debayering, kalibracijo, izračun indeksa in izvoz.
 {% endhint %}
 
@@ -52,17 +52,17 @@ Chloros deluje v dveh različnih načinih obdelave, odvisno od vaše licence:
 
 **Kako deluje:**
 
-* Obdeluje slike eno po eno, zaporedno.
-* Enonitno delovanje.
-* Manjša poraba pomnilnika.
+* Slike obdeluje po eno naenkrat, zaporedno
+* Enonitno delovanje
+* Manjša poraba pomnilnika
 
-**Napredek prikazuje 2 stopnji:**
+**Napredovalna vrstica prikazuje 2 fazi:**
 
-1.**Zaznavanje cilja** – iskanje kalibracijskih ciljev.
-2. **Obdelava** – uporaba kalibracije in izvoz slik.**Čas obdelave:**
+1.**Zaznavanje ciljev** – iskanje kalibracijskih ciljev
+2. **Obdelava** – uporaba kalibracije in izvoz slik**Čas obdelave:**
 
 * Precej počasnejši od vzporednega načina Chloros+
-* Primeren za majhne do srednje velike podatkovne nize (&lt; 200 slik)
+* Primeren za majhne do srednje velike nize podatkov (&lt; 200 slik)
 
 ### Način Chloros+ (vzporedna obdelava)
 
@@ -70,40 +70,40 @@ Chloros deluje v dveh različnih načinih obdelave, odvisno od vaše licence:
 
 **Kako deluje:**
 
-* Hkrati obdeluje več slik
-* Večnitno delovanje (do 16 vzporednih delavcev)
-* Izkorišča več jedr CPU
-* Izbirna pospešitev GPU (CUDA) z grafičnimi karticami NVIDIA
+* Hkrati obdeluje več slik z uporabo [4-nitnega obdelovalnega potoka](../processing-architecture/processing-pipeline.md)
+* [Dinamična prilagoditev računalniške moči](../processing-architecture/dynamic-compute-adaptation.md) samodejno izbere optimalno strategijo za vašo strojno opremo
+* Pospeševanje z grafičnimi karticami NVIDIA (namizni računalniki in Jetson)
+* Prilagodljivost od Jetson Nano (1 delavec) do namiznega računalnika z grafično kartico 12 GB+ (3–4 delavci)
 
-**Napredek prikazuje 4 stopnje:**
+**Napredovalna vrstica prikazuje 4 stopnje** (ki ustrezajo 4 niti v poti):
 
-1.**Zaznavanje** – iskanje kalibracijskih ciljev
-2. **Analiza** – pregledovanje metapodatkov slike in priprava poteka
-3. **Kalibriranje** – uporaba popravkov in kalibracij
-4. **Izvoz** – shranjevanje obdelanih slik in indeksov**Interakcija z napredovalno vrstico:*** **Premaknite miško** nad vrstico, da se prikaže podrobni spustni meni s 4 stopnjami
-* **Kliknite** napredovalno vrstico, da se spustni meni zamrzne na mestu
-* **Kliknite še enkrat**, da se spustni meni odmrzne in skrije**Čas obdelave:**
+1. **Zaznavanje** (Nit 1) – Iskanje ciljev kalibracije
+2. **Analiziranje** (Nit 2) – Preučevanje metapodatkov slike in izračun kalibracije
+3. **Kalibriranje** (Nit 3) – GPU debayering, popravek vinjete, izračun indeksa
+4. **Izvoz** (nit 4) – Shranjevanje obdelanih slik in indeksov**Interakcija z vrstico napredka:*** **Premaknite miško** nad vrstico, da se prikaže podrobni spustni meni s 4 stopnjami
+* **Kliknite** na vrstico napredka, da zamrznete spustni meni na mestu
+* **Kliknite še enkrat**, da odmrznete in skrijete meni**Čas obdelave:**
 
-* Precej hitrejši od prostega načina
-* Prilagaja se številu jedr CPU
-* Pospešek GPU dodatno izboljša hitrost
+* Precej hitreje kot v brezplačnem načinu
+* Prilagaja se številu jeder CPU
+* Pospeševanje s GPU dodatno izboljša hitrost
 
-{% hint style=&quot;info&quot; %}
-**Chloros+ Hitrost**: Vzporedna obdelava je lahko 5-10-krat hitrejša od zaporednega načina za velike podatkovne nize. Projekt s 500 slikami, ki v brezplačnem načinu traja 2 uri, se z Chloros+ lahko zaključi v 15-20 minutah.
+{% hint style="info" %}
+**Chloros+ Hitrost**: Vzporedna obdelava je pri velikih naborih podatkov lahko 5- do 10-krat hitrejša od zaporednega načina. Projekt s 500 slikami, ki v brezplačnem načinu traja 2 uri, se z Chloros+ lahko zaključi v 15–20 minutah.
 {% endhint %}
 
 ***
 
 ## Kaj se dogaja med obdelavo
 
-### Faza 1: Zaznavanje cilja
+### Faza 1: Odkrivanje ciljev
 
 **Kaj počne Chloros:**
 
-* Skenira označene ciljne slike (ali vse slike, če nobena ni označena)
-* Identificira 4 kalibracijske plošče v vsakem cilju
+* Pregleda označene ciljne slike (ali vse slike, če nobena ni označena)
+* Prepozna 4 kalibracijske plošče v vsakem cilju
 * Izvleče vrednosti odbojnosti iz ciljnih plošč
-* Zabeleži časovne oznake ciljev za načrtovanje kalibracije
+* Zapiše časovne oznake ciljev za načrtovanje kalibracije
 
 **Trajanje:** 1–30 sekund (z označenimi cilji), 5–30+ minut (neoznačeni)
 
@@ -111,123 +111,123 @@ Chloros deluje v dveh različnih načinih obdelave, odvisno od vaše licence:
 
 **Kaj počne Chloros:**
 
-* Pretvori podatke RAW Bayerjevega vzorca v polne slike RGB
+* Pretvori podatke RAW v vzorcu Bayer v polne slike RGB
 * Uporabi visokokakovosten algoritem demosaicinga
 * Ohrani najvišjo kakovost slike in podrobnosti
 
-**Trajanje:** Odvisno od števila slik in hitrosti CPU
+**Trajanje:** Odvisno od števila slik in hitrosti procesorja
 
-### Stopnja 3: Kalibracija
+### Faza 3: Kalibracija
 
-**Kaj počne Chloros:*** **Popravek vinjete**: odstrani zatemnitev objektiva na robovih
-* **Kalibracija odbojnosti**: normalizira z uporabo ciljnih vrednosti odbojnosti
-* Uporabi popravke za vse pasove/kanale
+**Kaj počne Chloros:*** **Popravek vinjetiranja**: Odstrani potemnitev objektiva na robovih
+* **Kalibracija odbojnosti**: Normalizira z uporabo ciljnih vrednosti odbojnosti
+* Uporabi popravke na vseh pasovih/kanalih
 * Uporabi ustrezen kalibracijski cilj za vsako sliko na podlagi časovnega žiga
 
 **Trajanje:** Večina časa obdelave
 
-### Stopnja 4: Izračun indeksa
+### Faza 4: Izračun indeksa
 
 **Kaj počne Chloros:**
 
 * Izračuna konfigurirane multispektralne indekse (NDVI, NDRE itd.)
-* Uporabi pasovno matematiko za kalibrirane slike
-* Ustvari indeksne slike za vsak izbran indeks
+* Uporabi matematične operacije na pasovih za kalibrirane slike
+* Ustvari indeksne slike za vsak izbrani indeks
 
-**Trajanje:** nekaj sekund na sliko
+**Trajanje:** Nekaj sekund na sliko
 
-### Stopnja 5: Izvoz
+### Faza 5: Izvoz
 
 **Kaj počne Chloros:**
 
 * Shrani kalibrirane slike v izbranem formatu
-* Izvozi indeksne slike s konfiguriranimi barvami LUT
-* Zapiše datoteke v podmapo modela kamere
+* Izvozi indeksne slike z nastavljenimi barvami LUT
+* Zapiše datoteke v podmapah modelov kamer
 * Ohrani originalna imena datotek s končnicami
 
 **Trajanje:** Odvisno od formata izvoza in velikosti datoteke***
 
-## Obnašanje obdelave
+## Delovanje obdelave
 
-### Avtomatski proces obdelave
+### Avtomatski potek obdelave
 
-Ko se proces začne, poteka avtomatsko:
+Ko se zagnati, celoten potek teče avtomatsko:
 
-* Ni potrebno sodelovanje uporabnika
+* Ni potrebno posredovanje uporabnika
 * Vsi nastavljeni koraki se izvajajo zaporedno
 * Napredek se prikazuje v realnem času
 
-### Uporaba računalnika med obdelavo
+### Poraba računalnika med obdelavo
 
 **Prosti način:**
 
-* Relativno nizka poraba CPU (enonitni)
+* Razmeroma nizka poraba CPU (enonitni)
 * Računalnik ostane odziven za druge naloge
 * Varno je zmanjšati Chloros in delati v drugih aplikacijah
 
-**Chloros+ vzporedni način:**
+**Chloros+ Vzporedni način:**
 
 * Visoka poraba CPU (večnitni, do 16 jeder)
 * Z GPU pospešitvijo: Visoka poraba GPU
-* Računalnik je med obdelavo lahko manj odziven
+* Računalnik je med obdelavo morda manj odziven
 * Izogibajte se zagonu drugih nalog, ki intenzivno obremenjujejo CPU
 
-{% hint style=&quot;warning&quot; %}
-**Nasvet za izboljšanje zmogljivosti**: Za najboljšo zmogljivost Chloros+ zaprite druge aplikacije in pustite, da Chloros uporabi vse sistemske vire.
+{% hint style="warning" %}
+**Nasvet za zmogljivost**: Za najboljšo zmogljivost Chloros+ zaprite druge aplikacije in pustite, da Chloros uporabi vse sistemske vire.
 {% endhint %}
 
 ### Obdelave ni mogoče zaustaviti
 
 **Pomembne omejitve:**
 
-* Ko se obdelava začne, je ni mogoče zaustaviti.
-* Obdelavo lahko prekličete, vendar se napredek izgubi.
-* Delni rezultati se ne shranijo.
-* Če obdelavo prekličete, jo morate začeti znova od začetka.
+* Ko se obdelava začne, je ni mogoče zaustaviti
+* Obdelavo lahko prekinete, vendar se napredek izgubi
+* Delni rezultati se ne shranijo
+* V primeru prekinitve je treba začeti znova od začetka
 
 **Nasvet za načrtovanje:** Pri zelo velikih projektih razmislite o obdelavi v serijah ali uporabi CLI za boljši nadzor.***
 
 ## Spremljanje obdelave
 
-Med obdelavo lahko:
+Med potekom obdelave lahko:
 
-* **Spremljate napredek** – ogledate si skupni odstotek dokončanja
-* **Ogledate si trenutno fazo** – zaznavanje, analiza, kalibracija ali izvoz
-* **Preverite zavihek dnevnika** – ogledate si podrobna sporočila in opozorila o obdelavi
-* **Ogledate si predogled dokončanih slik** – med obdelavo se lahko prikažejo nekatere izvozne datoteke
+* **Spremljate vrstico napredka** – Ogledate si skupni odstotek dokončanja
+* **Ogledate trenutno fazo** – Odkrivanje, analiza, kalibracija ali izvoz
+* **Preverite zavihek z dnevnikom** – oglejte si podrobna obvestila in opozorila o obdelavi
+* **Predogled zaključenih slik** – med obdelavo se lahko prikažejo nekatere izvozne datoteke
 
 Podrobne informacije o spremljanju najdete v [Spremljanje obdelave](monitoring-the-processing.md).
 
 ***
 
-## Preklic obdelave
+## Prekinitev obdelave
 
 Če morate ustaviti obdelavo:
 
-### Kako preklicati
+### Kako prekiniti
 
-1. Poiščite **gumb Stop/Cancel** (med obdelavo nadomesti gumb Start)
+1. Poiščite **gumb Stop/Prekliči** (med obdelavo nadomesti gumb Start)
 2. Kliknite gumb Stop
-3. Obdelava se takoj ustavi.
-4. Delni rezultati se zavržejo.
+3. Obdelava se takoj ustavi
+4. Delni rezultati se zavržejo
 
 ### Kdaj preklicati
 
-**Veljavni razlogi za preklic:**
+**Utemeljene razloge za preklic:**
 
-* Ugotovljeno je bilo, da so bile uporabljene napačne nastavitve.
-* Pozabili ste označiti ciljne slike.
-* Uvožene so bile napačne slike.
-* Sistem deluje prepočasi ali se ne odziva.
+* Ugotovili ste, da so bile uporabljene napačne nastavitve
+* Pozabili ste označiti ciljne slike
+* Uvožene so bile napačne slike
+* Sistem deluje prepočasi ali se ne odziva
 
 **Po preklicu:**
 
-* Preglejte in odpravite morebitne težave.
-* Po potrebi prilagodite nastavitve.
-* Ponovno zaženite obdelavo od začetka.
-* Za najboljšo izkušnjo popolnoma zaprite Chloros in ponovno zaženite.
+* Preglejte in odpravite morebitne težave
+* Po potrebi prilagodite nastavitve
+* Obdelavo ponovno začnite od začetka
+* Za najboljšo izkušnjo popolnoma zaprite Chloros in ponovno zaženite
 
-{% hint style=&quot;warning&quot; %}
+{% hint style="warning" %}
 **Brez delnih rezultatov**: Preklic zavrže ves napredek. Chloros ne shrani delno obdelanih slik.
 {% endhint %}
 
@@ -238,13 +238,13 @@ Podrobne informacije o spremljanju najdete v [Spremljanje obdelave](monitoring-t
 Dejanski čas obdelave se močno razlikuje glede na:
 
 * Število slik
-* Ločljivost slike
+* Ločljivost slik
 * Vhodni format RAW ali JPG
-* Način obdelave (Free ali Chloros+)
-* hitrosti procesorja in števila jeder
-* razpoložljivosti grafične kartice (samo Chloros+)
-* števila indeksov, ki jih je treba izračunati
-* zapletenosti izvoznega formata
+* Način obdelave (Free proti Chloros+)
+* Hitrost procesorja in število jeder
+* Razpoložljivost grafične kartice (samo Chloros+)
+* Število indeksov za izračun
+* Zapletenost izvoznega formata
 
 ### Grobe ocene (Chloros+, slike 12 MP, sodoben procesor)
 
@@ -256,8 +256,8 @@ Dejanski čas obdelave se močno razlikuje glede na:
 | 500 slik  | 2–3 ure   | 45–60 min      | 20–30 min      |
 | 1000 slik | 4–6 ur   | 1,5–2 uri      | 40–60 min      |
 
-{% hint style=&quot;info&quot; %}
-**Prvi zagon**: Začetna obdelava lahko traja dlje, ker Chloros ustvarja predpomnilnike in profile. Nadaljnja obdelava podobnih podatkovnih nizov bo hitrejša.
+{% hint style="info" %}
+**Prvi zagon**: Začetna obdelava lahko traja dlje, saj Chloros ustvarja predpomnilnike in profile. Nadaljnja obdelava podobnih naborov podatkov bo hitrejša.
 {% endhint %}
 
 ***
@@ -270,33 +270,33 @@ Dejanski čas obdelave se močno razlikuje glede na:
 
 * Ni uvoženih slik
 * Backend ni v celoti zagnan
-* Prejšnja obdelava še vedno teče
+* Prejšnja obdelava še vedno poteka
 * Projekt ni v celoti naložen
 
 **Rešitve:**
 
-1. Počakajte, da se backend v celoti inicializira (preverite ikono glavnega menija).
-2. Preverite, ali so slike uvožene v brskalniku datotek.
-3. Ponovno zaženite Chloros, če gumb ostane onemogočen.
-4. Preverite dnevnik odpravljanja napak za sporočila o napakah.
+1. Počakajte, da se backend v celoti inicializira (preverite ikono v glavnem meniju)
+2. Preverite, ali so slike uvožene v brskalniku datotek
+3. Ponovno zaženite Chloros, če gumb ostane onemogočen
+4. Preverite dnevnik razhroščevanja za sporočila o napakah
 
-### Obdelava se začne, nato pa takoj ne uspe
+### Obdelava se začne, nato pa takoj odpove
 
 **Možni vzroki:**
 
 * V projektu ni veljavnih slik
 * Poškodovane slikovne datoteke
 * Premajhen prostor na disku
-* Premajhen pomnilnik (RAM)
+* Premajhno pomnilniško prosto mesto (RAM)
 
 **Rešitve:**
 
-1. Preverite dnevnik odpravljanja napak <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> za sporočila o napakah
-2. Preverite razpoložljivi prostor na disku
+1. Preverite dnevnik razhroščevanja <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> za sporočila o napakah
+2. Preverite razpoložljiv prostor na disku
 3. Poskusite obdelati manjši podsklop slik
 4. Preverite, ali slike niso poškodovane
 
-### Opozorilo „Ni zaznanih ciljev“
+### Opozorilo »Ni zaznanih ciljev«
 
 **Možni vzroki:**
 
@@ -306,7 +306,7 @@ Dejanski čas obdelave se močno razlikuje glede na:
 
 **Rešitve:**
 
-1. Preglejte [Izbira ciljnih slik](choosing-target-images.md)
+1. Preberite [Izbira ciljnih slik](choosing-target-images.md)
 2. Označite ustrezne slike v stolpcu Cilj
 3. Preverite, ali so cilji vidni na označenih slikah
 4. Po potrebi prilagodite nastavitve zaznavanja ciljev
@@ -317,27 +317,27 @@ Dejanski čas obdelave se močno razlikuje glede na:
 
 ### Pred začetkom
 
-1. **Najprej preizkusite z majhnim podsklopom** – obdelajte 10–20 slik, da preverite nastavitve.
-2. **Preverite razpoložljivi prostor na disku** – zagotovite 2–3-krat več prostora, kot je velikost podatkovnega niza.
-3. **Zaprite nepotrebne aplikacije** – sprostite sistemske vire.
-4. **Preverite ciljne slike** – predogledajte označene cilje, da zagotovite kakovost.
-5. **Shranite projekt** – projekt se samodejno shrani, vendar je dobro, da ga shranite ročno.
+1. **Najprej preizkusite z majhnim podnizom** – obdelajte 10–20 slik, da preverite nastavitve
+2. **Preverite razpoložljivi prostor na disku** – zagotovite 2–3-kratno prosto mesto v primerjavi z velikostjo podatkovnega niza
+3. **Zaprite nepotrebne aplikacije** – sprostite sistemske vire
+4. **Preverite ciljne slike** – si oglejte predogled označenih ciljev, da zagotovite kakovost
+5. **Shranite projekt** – Projekt se samodejno shrani, vendar je dobro, da ga shranite ročno
 
 ### Med obdelavo
 
-1. **Izogibajte se mirovanju sistema** – onemogočite načine varčevanja z energijo.
-2. **Chloros pustite v ospredju** – ali vsaj vidno v opravilni vrstici.
-3. **Občasno preverjajte napredek** – preverite, ali so prisotna opozorila ali napake.
-4. **Ne nalagajte drugih težkih aplikacij** – še posebej v vzporednem načinu Chloros+.
+1. **Izogibajte se mirovanju sistema** – Onemogočite načine varčevanja z energijo
+2. **Pustite Chloros v ospredju** – Ali pa vsaj vidnega v opravilni vrstici
+3. **Občasno spremljajte napredek** – Preverite, ali so prisotna opozorila ali napake
+4. **Ne nalagajte drugih zahtevnih programov** – še posebej v vzporednem načinu Chloros+
 
-### Chloros+ GPU pospeševanje
+### Chloros+ Pospeševanje s GPU
 
-Če uporabljate NVIDIA GPU pospeševanje:
+Če uporabljate pospeševanje s GPU NVIDIA:
 
-1. Posodobite NVIDIA gonilnike na najnovejšo različico.
-2. Preverite, ali ima GPU 4 GB+ VRAM.
-3. Zaprite aplikacije, ki intenzivno uporabljajo GPU (igre, urejanje videov)
-4. Spremljajte temperaturo GPU (poskrbite za ustrezno hlajenje)
+1. Posodobite gonilnike NVIDIA na najnovejšo različico
+2. Preverite, ali ima GPU 4 GB ali več VRAM
+3. Zaprite aplikacije, ki intenzivno obremenjujejo grafično kartico (igre, urejanje videov)
+4. Spremljajte temperaturo grafične kartice (poskrbite za ustrezno hlajenje)
 
 ***
 
@@ -346,7 +346,7 @@ Dejanski čas obdelave se močno razlikuje glede na:
 Ko se obdelava začne:
 
 1. **Spremljajte napredek** – glejte [Spremljanje obdelave](monitoring-the-processing.md)
-2. **Počakajte na zaključek** – obdelava poteka samodejno.
-3. **Preglejte rezultate** – glejte [Zaključek obdelave](finishing-the-processing.md).
+2. **Počakajte na zaključek** – obdelava poteka samodejno
+3. **Preglejte rezultate** – glejte [Zaključek obdelave](finishing-the-processing.md)
 
 Za informacije o tem, kaj storiti med obdelavo, glejte [Spremljanje obdelave](monitoring-the-processing.md).

@@ -1,56 +1,54 @@
 # Spremljanje obdelave
 
-Ko se obdelava začne, Chloros ponuja več načinov za spremljanje napredka, preverjanje težav in razumevanje, kaj se dogaja z vašim nizom podatkov. Ta stran pojasnjuje, kako spremljati obdelavo in razlagati informacije, ki jih ponuja Chloros.
+Ko se obdelava začne, Chloros ponuja več načinov za spremljanje napredka, preverjanje morebitnih težav in razumevanje dogajanja z vašim naborom podatkov. Na tej strani je pojasnjeno, kako spremljati obdelavo in razlagati informacije, ki jih zagotavlja Chloros.
 
-## Pregled napredovalne vrstice
+## Pregled kazalnika napredka
 
-Napredek v zgornjem naslovu prikazuje stanje obdelave v realnem času in odstotek dokončanja.
+Kazalnik napredka v zgornjem naslovu prikazuje stanje obdelave v realnem času in odstotek dokončanja.
 
-### Napredek v prostem načinu
+### Kazalnik napredka v brezplačnem načinu
 
 Za uporabnike brez licence Chloros+:
 
-**Prikaz napredka v dveh fazah:**
+**Prikaz napredka v 2 fazah:**
 
-1. **Zaznavanje cilja** – iskanje kalibracijskih ciljev v slikah
-2. **Obdelava** – uporaba popravkov in izvoz
+1.**Zaznavanje ciljev** – iskanje kalibracijskih ciljev v slikah
+2. **Obdelava** – Uporaba popravkov in izvoz**Napredovalna vrstica prikazuje:**
 
-**Napredek prikazuje:**
-
-* Skupni odstotek dokončanja (0–100 %)
+* Splošni odstotek dokončanja (0–100 %)
 * Ime trenutne stopnje
-* Preprosta vizualizacija vodoravne vrstice
+* Preprosta vizualizacija v obliki vodoravne vrstice
 
-### Napredek Chloros
+### Napredovalna vrstica Chloros+
 
 Za uporabnike z licenco Chloros+:
 
 **4-stopenjski prikaz napredka:**
 
-1. **Zaznavanje** – iskanje kalibracijskih ciljev
-2. **Analiziranje** – pregledovanje slik in priprava poteka
-3. **Kalibriranje** – uporaba popravkov vinjete in odbojnosti
-4. **Izvoz** – shranjevanje obdelanih datotek
-
-**Interaktivne funkcije:**
-
-* **Premaknite miško** nad kazalnik napredka, da se prikaže razširjen 4-stopenjski panel
-* **Kliknite** na vrstico napredka, da zamrznete/pritrdite razširjeni panel
-* **Kliknite ponovno**, da odmrznete in samodejno skrijete, ko umaknete miško
+1.**Zaznavanje** – iskanje kalibracijskih ciljev
+2. **Analiza** – pregledovanje slik in priprava poteka
+3. **Kalibracija** – uporaba popravkov vinjete in odbojnosti
+4. **Izvoz** – shranjevanje obdelanih datotek**Interaktivne funkcije:*** **Premaknite miško nad** kazalnik napredka, da se prikaže razširjen 4-stopenjski panel
+* **Kliknite** kazalnik napredka, da zamrznete/pritrdite razširjeni panel
+* **Kliknite še enkrat**, da odmrznete in se samodejno skrije, ko miško odstranite
 * Vsaka stopnja prikazuje posamezni napredek (0–100 %)
 
 ***
 
-## Razumevanje vsake stopnje obdelave
+## Razumevanje posameznih stopenj obdelave
 
-### Stopnja 1: Odkrivanje (odkrivanje ciljev)
+{% hint style="info" %}
+**Arhitektura poteka**: Te 4 stopnje grafičnega vmesnika ustrezajo [4-nitnemu poteku obdelave](../processing-architecture/processing-pipeline.md). Na sistemih s pospešitvijo GPU nit 3 (Kalibriranje) izkorišča [dinamično prilagajanje računanja](../processing-architecture/dynamic-compute-adaptation.md), ki optimizira obdelavo za vašo specifično strojno opremo.
+{% endhint %}
+
+### Stopnja 1: Zaznavanje (zaznavanje ciljev)
 
 **Kaj se dogaja:**
 
-* Chloros skenira slike, označene s potrditvenim poljem Cilj
+* Chloros pregleda slike, označene s potrditvenim poljem Cilj
 * Algoritmi računalniškega vida identificirajo 4 kalibracijske plošče
-* Vrednosti odbojnosti, izvlečene iz vsake plošče
-* Časovni žigi ciljev, zabeleženi za ustrezno načrtovanje kalibracije
+* Iz vsake plošče se izločijo vrednosti odbojnosti
+* Za pravilno načrtovanje kalibracije se zabeležijo časovni žigi ciljev
 
 **Trajanje:**
 
@@ -65,9 +63,9 @@ Za uporabnike z licenco Chloros+:
 
 **Na kaj je treba paziti:**
 
-* Če so cilji pravilno označeni, naj bi se postopek hitro zaključil.
-* Če traja predolgo, cilji morda niso označeni.
-* V dnevniku odpravljanja napak preverite, ali so prisotna sporočila »Target found« (Cilj najden).
+* Če so cilji pravilno označeni, naj bi se postopek hitro zaključil
+* Če traja predolgo, cilji morda niso označeni
+* V dnevniku za odpravljanje napak preverite sporočila »Cilj najden«
 
 ### Faza 2: Analiza
 
@@ -78,9 +76,7 @@ Za uporabnike z licenco Chloros+:
 * Urejanje čakalne vrste za obdelavo slik
 * Priprava delavcev za vzporedno obdelavo (samo Chloros+)
 
-**Trajanje:** 5–30 sekund
-
-**Kazalnik napredka:**
+**Trajanje:** 5–30 sekund**Kazalnik napredka:**
 
 * Analiza: 0 % → 100 %
 * Hitra faza, običajno se hitro zaključi
@@ -88,78 +84,68 @@ Za uporabnike z licenco Chloros+:
 **Na kaj je treba paziti:**
 
 * Napredek mora potekati enakomerno brez premorov
-* Opozorila o manjkajočih metapodatkih se prikažejo v dnevniku odpravljanja napak
+* Opozorila o manjkajočih metapodatkih se bodo pojavila v dnevniku za odpravljanje napak
 
 ### Faza 3: Kalibriranje
 
-**Kaj se dogaja:**
-
-* **Debayering**: pretvorba RAW Bayerjevega vzorca v 3 kanale
-* **Popravek vinjete**: odstranjevanje potemnjenja robov objektiva
-* **Kalibracija odbojnosti**: normalizacija s ciljnimi vrednostmi
-* **Izračun indeksa**: izračun multispektralnih indeksov
+**Kaj se dogaja:*** **Debayering**: Pretvorba RAW-vzorca Bayer v 3 kanale
+* **Popravek vinjetiranja**: Odstranjevanje potemnitve robov objektiva
+* **Kalibracija odbojnosti**: Normalizacija s ciljnimi vrednostmi
+* **Izračun indeksa**: Izračun multispektralnih indeksov
 * Obdelava vsake slike skozi celoten proces
 
-**Trajanje:** večina skupnega časa obdelave (60–80 %)
-
-**Kazalnik napredka:**
+**Trajanje:** Večina skupnega časa obdelave (60–80 %)**Kazalnik napredka:**
 
 * Kalibriranje: 0 % → 100 %
-* Trenutna slika se obdeluje
-* Slike dokončane / Skupno število slik
+* Trenutna slika v obdelavi
+* Obdelane slike / Skupno število slik
 
-**Obnašanje obdelave:**
-
-* **Prosti način**: Obdeluje eno sliko naenkrat zaporedno
+**Način obdelave:*** **Prosti način**: Obdeluje po eno sliko naenkrat zaporedno
 * **Način Chloros+**: Obdeluje do 16 slik hkrati
-* **Pospeševanje GPU**: znatno pospeši to fazo
+* **Pospešitev z GPU**: znatno pospeši to fazo**Na kaj je treba paziti:**
 
-**Na kaj je treba paziti:**
-
-* Stalen napredek skozi število slik
-* Preverite dnevnik odpravljanja napak za sporočila o dokončanju posamezne slike
-* Opozorila o kakovosti slike ali težavah s kalibracijo
+* Enakomeren napredek skozi število slik
+* Preverite dnevnik razhroščevanja za sporočila o zaključku posameznih slik
+* Opozorila o kakovosti slik ali težavah s kalibracijo
 
 ### Faza 4: Izvoz
 
 **Kaj se dogaja:**
 
-* Zapis kalibriranih slik na disk v izbranem formatu
+* Zapišanje kalibriranih slik na disk v izbranem formatu
 * Izvoz multispektralnih indeksnih slik z barvami LUT
 * Ustvarjanje podmap za modele kamer
 * Ohranjanje izvirnih imen datotek z ustreznimi končnicami
 
-**Trajanje:** 10–20 % skupnega časa obdelave
-
-**Kazalnik napredka:**
+**Trajanje:** 10–20 % skupnega časa obdelave**Kazalnik napredka:**
 
 * Izvoz: 0 % → 100 %
 * Zapisovanje datotek
-* Format izvoza in ciljna lokacija
+* Izvozni format in ciljna lokacija
 
 **Na kaj je treba paziti:**
 
 * Opozorila o prostem prostoru na disku
-* Napake pri zapisovanju datotek
+* Napake pri pisanju datotek
 * Zaključek vseh nastavljenih izhodov
 
 ***
 
-## Zavihek Debug Log (Dnevnik odpravljanja napak)
+## Zavihek Dnevnik odpravljanja napak
 
-Dnevnik odpravljanja napak vsebuje podrobne informacije o napredku obdelave in morebitnih težavah.
+Dnevnik odpravljanja napak zagotavlja podrobne informacije o napredku obdelave in morebitnih težavah.
 
 ### Dostop do dnevnika odpravljanja napak
 
-1. Kliknite ikono **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> v levem stranskem meniju.
-2. Odpre se okno dnevnika, ki prikazuje sporočila o obdelavi v realnem času.
-3. Samodejno se pomika navzdol, da prikaže najnovejša sporočila.
+1. Kliknite ikono **Dnevnik odpravljanja napak** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> v levem stranskem meniju
+2. Odpre se okno z dnevnikom, ki prikazuje sporočila o obdelavi v realnem času
+3. Samodejno se pomika navzdol, da prikaže najnovejša sporočila
 
-### Razumevanje sporočil dnevnika
+### Razumevanje sporočil v dnevniku
 
 #### Informacijska sporočila (bela/siva)
 
-Običajne posodobitve obdelave:
+Normalne posodobitve obdelave:
 
 ```
 [INFO] Processing started
@@ -179,11 +165,11 @@ Nekritične težave, ki ne ustavijo obdelave:
 [WARN] Low contrast in calibration panel - results may vary
 ```
 
-**Ukrep:** Po obdelavi preglejte opozorila, vendar ne prekinjajte obdelave.
+**Ukrep:** Po obdelavi preglejte opozorila, vendar ne prekinjajte obdelave
 
-#### Napake (Red)
+#### Sporočila o napakah (Red)
 
-Kritične težave, ki lahko povzročijo napako pri obdelavi:
+Kritične težave, ki lahko povzročijo neuspešno obdelavo:
 
 ```
 [ERROR] Cannot write file - disk full
@@ -191,25 +177,25 @@ Kritične težave, ki lahko povzročijo napako pri obdelavi:
 [ERROR] No targets detected - enable reflectance calibration or mark target images
 ```
 
-**Ukrep:** Prekinite obdelavo, odpravite napako in ponovno zaženite.
+**Ukrep:** Prekinite obdelavo, odpravite napako in ponovno zaženite
 
-### Pogosta sporočila dnevnika
+### Pogosta sporočila v dnevniku
 
 | Sporočilo                          | Pomen                                | Potrebni ukrep                                         |
 | -------------------------------- | -------------------------------------- | ----------------------------------------------------- |
-| „Cilj zaznan v \[ime datoteke]” | Kalibracijski cilj uspešno najden  | Nič – normalno                                         |
-| „Obdelava slike X od Y”        | Trenutna posodobitev napredka                | Nič – normalno                                         |
-| „Cilji niso bili najdeni”               | Kalibracijski cilji niso bili zaznanih        | Označite ciljne slike ali onemogočite kalibracijo odbojnosti |
-| „Premalo prostora na disku“        | Premalo prostora za shranjevanje izhodnih podatkov          | Osvobodite prostor na disku                                    |
-| „Preskočitev poškodovane datoteke“        | Slikovna datoteka je poškodovana                  | Ponovno kopirajte datoteko s kartice SD                             |
-| „Uporabljeni podatki PPK“               | Uporabljene popravke GPS iz datoteke .daq | Nič – normalno                                         |
+| &quot;Cilj zaznan v \[ime datoteke]&quot; | Kalibracijski cilj uspešno najden  | Nobenega – normalno                                         |
+| &quot;Obdelava slike X od Y&quot;        | Trenutna posodobitev napredka                | Nobenega – normalno                                         |
+| &quot;Ciljev ni bilo najdenih&quot;               | Kalibracijskih ciljev ni bilo zaznanih        | Označite ciljne slike ali onemogočite kalibracijo odbojnosti |
+| &quot;Premajhen prostor na disku&quot;        | Premajhno prostora za izhodne podatke          | Osvobodite prostor na disku                                    |
+| &quot;Preskočitev poškodovane datoteke&quot;        | Datoteka slike je poškodovana                  | Ponovno kopirajte datoteko s kartice SD                             |
+| &quot;PPK podatki uporabljeni&quot;               | Uporabljene so bile GPS popravke iz datoteke .daq | Nobenih – normalno                                         |
 
 ### Kopiranje podatkov dnevnika
 
-Kopiranje dnevnika za odpravljanje težav ali podporo:
+Za kopiranje dnevnika za odpravljanje težav ali podporo:
 
-1. Odprite okno Debug Log (Dnevnik odpravljanja napak)
-2. Kliknite gumb **„Copy Log“** (Kopiraj dnevnik) (ali desni klik → Izberi vse)
+1. Odprite okno Debug Log
+2. Kliknite gumb **&quot;Copy Log&quot;** (ali desni klik → Izberi vse)
 3. Prilepite v besedilno datoteko ali e-pošto
 4. Po potrebi pošljite podpori MAPIR
 
@@ -227,26 +213,26 @@ Kopiranje dnevnika za odpravljanje težav ali podporo:
 
 **Chloros+ vzporedni način:**
 
-* Več jeder pri 80–100 % (do 16 jeder)
-* Visoka splošna poraba CPU
-* Sistem je lahko manj odziven
+* Več jedr pri 80–100 % (do 16 jedr)
+* Visoka splošna izkoriščenost CPU
+* Sistem se lahko zdi manj odziven
 
 **Za spremljanje:**
 
-* Windows Task Manager (Ctrl+Shift+Esc)
-* Zavihek Performance → razdelek CPU
+* Windows Upravitelj opravil (Ctrl+Shift+Esc)
+* Zavihek Zmogljivost → razdelek CPU
 * Poiščite procese »Chloros« ali »chloros-backend«
 
 ### Poraba pomnilnika (RAM)
 
-**Tipična uporaba:**
+**Tipična poraba:**
 
 * Majhni projekti (&lt; 100 slik): 2–4 GB
 * Srednji projekti (100–500 slik): 4–8 GB
 * Veliki projekti (500+ slik): 8–16 GB
-* Chloros+ vzporedni način uporablja več RAM-a
+* Vzporedni način Chloros+ porabi več RAM-a
 
-**Če je pomnilnik poln:**
+**Če je pomnilnika malo:**
 
 * Obdelujte manjše serije
 * Zaprite druge aplikacije
@@ -254,9 +240,9 @@ Kopiranje dnevnika za odpravljanje težav ali podporo:
 
 ### Poraba GPU (Chloros+ s CUDA)
 
-Ko je omogočena pospešitev GPU:
+Ko je pospeševanje GPU omogočeno:
 
-* NVIDIA GPU kaže visoko izkoriščenost (60–90 %)
+* GPU NVIDIA kaže visoko izkoriščenost (60–90 %)
 * Poraba VRAM se poveča (zahteva 4 GB+ VRAM)
 * Faza kalibriranja je znatno hitrejša
 
@@ -266,7 +252,7 @@ Ko je omogočena pospešitev GPU:
 * Upravitelj opravil → Zmogljivost → GPU
 * GPU-Z ali podobno orodje za spremljanje
 
-### Disk I/O
+### Diskovni vhod/izhod
 
 **Kaj lahko pričakujete:**
 
@@ -276,7 +262,7 @@ Ko je omogočena pospešitev GPU:
 
 **Nasvet za zmogljivost:**
 
-* Po možnosti uporabite SSD za projektno mapo
+* Po možnosti uporabite SSD za mapo projekta
 * Izogibajte se omrežnim pogonom za velike podatkovne nize
 * Preverite, da disk ni skoraj poln (vpliva na hitrost pisanja)
 
@@ -289,34 +275,34 @@ Ko je omogočena pospešitev GPU:
 **Napredek se ustavi (brez sprememb več kot 5 minut):**
 
 * Preverite dnevnik odpravljanja napak za napake
-* Preverite razpoložljivi prostor na disku
-* Preverite upravitelja opravil, da se prepričate, da Chloros deluje
+* Preverite razpoložljiv prostor na disku
+* Preverite upravitelja opravil, da se prepričate, da Chloros teče
 
-**Pogosto se pojavljajo sporočila o napakah:**
+**Napake se pojavljajo pogosto:**
 
-* Ustavi obdelavo in preglej napake
+* Ustavite obdelavo in preglejte napake
 * Pogosti vzroki: prostor na disku, poškodovane datoteke, težave s pomnilnikom
 * Glejte poglavje Odpravljanje težav spodaj
 
-**Sistem ne odgovarja:**
+**Sistem ne odziva:**
 
 * Chloros+ vzporedni način porablja preveč virov
-* Razmislite o zmanjšanju sočasnih opravil ali nadgradnji strojne opreme
-* Prosti način porabi manj virov
+* Razmislite o zmanjšanju števila sočasnih nalog ali nadgradnji strojne opreme
+* Prosti način porablja manj virov
 
 ### Kdaj ustaviti obdelavo
 
 Ustavite obdelavo, če opazite:
 
 * ❌ Napake »Disk poln« ali »Datoteke ni mogoče zapisati«
-* ❌ Ponavljajoče se napake poškodovanih slikovnih datotek
-* ❌ Sistem je popolnoma zamrznil (ne odziva se)
+* ❌ Ponavljajoče se napake pri poškodovanih slikovnih datotekah
+* ❌ Sistem se je popolnoma zamrznil (ne odziva se)
 * ❌ Ugotovljeno je bilo, da so bile nastavljene napačne nastavitve
 * ❌ Uvožene so bile napačne slike
 
 **Kako ustaviti:**
 
-1. Kliknite **gumb Stop/Cancel** (nadomesti gumb Start)
+1. Kliknite**gumb Stop/Prekliči** (nadomesti gumb Začni)
 2. Obdelava se ustavi, napredek se izgubi
 3. Odpravite težave in začnite znova od začetka
 
@@ -324,21 +310,21 @@ Ustavite obdelavo, če opazite:
 
 ## Odpravljanje težav med obdelavo
 
-### Obdelava je zelo počasna
+### Obdelava poteka zelo počasi
 
 **Možni vzroki:**
 
 * Neoznačene ciljne slike (skeniranje vseh slik)
-* HDD namesto SSD pomnilnika
-* Nezadostni sistemski viri
+* Shranjevanje na HDD namesto na SSD
+* Premajhni sistemski viri
 * Konfiguriranih je veliko indeksov
 * Dostop do omrežnega diska
 
 **Rešitve:**
 
 1. Če ste ravno začeli in ste v fazi zaznavanja: Prekličite, označite cilje, ponovno zaženite
-2. Za prihodnost: Uporabite SSD, zmanjšajte indekse, nadgradite strojno opremo
-3. Razmislite o uporabi CLI za obdelavo velikih podatkovnih nizov v serijah
+2. Za prihodnost: Uporabite SSD, zmanjšajte število indeksov, nadgradite strojno opremo
+3. Razmislite o uporabi CLI za obdelavo velikih podatkovnih nizov v paketih
 
 ### Opozorila o »prostoru na disku«
 
@@ -346,47 +332,47 @@ Ustavite obdelavo, če opazite:
 
 1. Takoj sprostite prostor na disku
 2. Premestite projekt na pogon z več prostora
-3. Zmanjšajte število indeksov za izvoz.
-4. Uporabite format JPG namesto TIFF (manjše datoteke).
+3. Zmanjšajte število indeksov za izvoz
+4. Uporabite format JPG namesto TIFF (manjše datoteke)
 
-### Pogosta sporočila »Površinska datoteka«
-
-**Rešitve:**
-
-1. Ponovno kopirajte slike s kartice SD, da zagotovite njihovo celovitost.
-2. Preverite kartico SD za napake.
-3. Odstranite poškodovane datoteke iz projekta.
-4. Nadaljujte z obdelavo preostalih slik.
-
-### Pregrevanje/upočasnjevanje sistema
+### Pogosta sporočila o »poškodovanih datotekah«
 
 **Rešitve:**
 
-1. Zagotovite ustrezno prezračevanje.
-2. Očistite prah iz prezračevalnih odprtin računalnika.
-3. Zmanjšajte obremenitev obdelave (uporabite prosti način namesto Chloros+).
-4. Obdelujte v hladnejših delih dneva.
+1. Ponovno kopirajte slike s kartice SD, da zagotovite njihovo celovitost
+2. Preverite kartico SD za napake
+3. Odstranite poškodovane datoteke iz projekta
+4. Nadaljujte z obdelavo preostalih slik
+
+### Pregrevanje sistema / omejevanje zmogljivosti
+
+**Rešitve:**
+
+1. Zagotovite ustrezno prezračevanje
+2. Očistite prah iz prezračevalnih odprtin računalnika
+3. Zmanjšajte obremenitev obdelave (uporabite način Free namesto Chloros+)
+4. Obdelujte v hladnejših delih dneva
 
 ***
 
-## Obvestilo o končani obdelavi
+## Obvestilo o zaključku obdelave
 
 Ko se obdelava konča:
 
-* Napredek doseže 100 %
-* V dnevniku odpravljanja napak se prikaže sporočilo **»Obdelava končana«**
-* Gumb za zagon se ponovno vklopi
-* Vse izhodne datoteke so v podmapah modelov kamer
+* Napredovalna vrstica doseže 100 %
+* V dnevniku odpravljanja napak se prikaže sporočilo **»Obdelava zaključena«**
+* Gumb »Začni« postane ponovno aktiven
+* Vse izhodne datoteke so v podmapah modelov fotoaparatov
 
 ***
 
 ## Naslednji koraki
 
-Ko je obdelava končana:
+Ko se obdelava zaključi:
 
 1. **Preglejte rezultate** – glejte [Zaključek obdelave](finishing-the-processing.md)
-2. **Preverite izhodno mapo** – preverite, ali so bile vse datoteke pravilno izvožene
-3. **Preglejte dnevnik odpravljanja napak** – preverite, ali so prisotna opozorila ali napake
-4. **Preglejte obdelane slike** – uporabite pregledovalnik slik ali zunanjo programsko opremo
+2. **Preverite izhodno mapo** – Preverite, ali so bile vse datoteke pravilno izvožene
+3. **Preglejte dnevnik odpravljanja napak** – Preverite, ali so prisotna kakšna opozorila ali napake
+4. **Predogled obdelanih slik** – Uporabite pregledovalnik slik ali zunanjo programsko opremo
 
-Za informacije o pregledovanju in uporabi obdelanih rezultatov glejte [Zaključek obdelave](finishing-the-processing.md).
+Za informacije o pregledu in uporabi obdelanih rezultatov glejte [Zaključek obdelave](finishing-the-processing.md).

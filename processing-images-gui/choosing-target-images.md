@@ -1,6 +1,6 @@
 # Izbiranje ciljnih slik
 
-Označevanje slik, ki vsebujejo kalibracijske cilje, je ključni korak, ki znatno pospeši obdelavo Chloros. Z vnaprejšnjo izbiro ciljnih slik odpravite potrebo, da Chloros skenira vsako sliko v vašem nizu podatkov za kalibracijske cilje.
+Označevanje slik, ki vsebujejo kalibracijske cilje, je ključni korak, ki znatno pospeši potek obdelave v Chloros. Z vnaprejšnjo izbiro ciljnih slik Chloros ni več treba pregledovati vsake slike v vašem nizu podatkov za iskanje kalibracijskih ciljev.
 
 ## Zakaj označiti ciljne slike?
 
@@ -8,35 +8,33 @@ Označevanje slik, ki vsebujejo kalibracijske cilje, je ključni korak, ki znatn
 
 Brez označevanja ciljnih slik mora Chloros:
 
-* pregledati vsako posamezno sliko v projektu
-* izvesti algoritme za zaznavanje ciljev na vsaki sliki
-* nepotrebno preveriti na stotine ali tisoče slik
+* Pregledati vsako posamezno sliko v vašem projektu
+* Izvesti algoritme za zaznavanje ciljev na vsaki sliki
+* Nepotrebno preveriti na stotine ali tisoče slik
 
-**Rezultat**: obdelava lahko traja bistveno dlje, zlasti pri velikih podatkovnih nizih.
+**Rezultat**: Obdelava lahko traja bistveno dlje, še posebej pri velikih podatkovnih nizih.
 
 ### Z označenimi ciljnimi slikami
 
 Ko v stolpcu Cilj označite določene slike:
 
-* Chloros pregleda le označene slike za cilje
-* Odkrivanje ciljev je veliko hitrejše
-* Skupni čas obdelave je znatno krajši
+* Chloros skenira cilje le na označenih slikah
+* Prepoznavanje ciljev se zaključi veliko hitreje
+* Skupni čas obdelave se močno skrajša
 
-{% hint style=&quot;success&quot; %}
-**Izboljšanje hitrosti**: Označitev 2–3 ciljnih slik v nizu podatkov s 500 slikami lahko skrajša čas zaznavanja ciljev s 30+ minut na manj kot 1 minuto.
+{% hint style="success" %}
+**Izboljšanje hitrosti**: Označitev 2–3 ciljnih slik v nizu podatkov s 500 slikami lahko skrajša čas prepoznavanja ciljev s 30+ minut na manj kot 1 minuto.
 {% endhint %}
 
 ***
 
-## Kako označiti ciljne slike
+## Kako označiti slike ciljev
 
-### Korak 1: Prepoznajte ciljne slike
+### Korak 1: Prepoznajte slike ciljev
 
 Preglejte uvožene slike v brskalniku datotek in prepoznajte, katere slike vsebujejo kalibracijske cilje.
 
-**Pogosti scenariji:**
-
-* **Cilj pred zajemom**: zajet pred začetkom seje
+**Pogosti scenariji:*** **Cilj pred zajemom**: zajet pred začetkom seje
 * **Cilj po zajemu**: zajet po zaključku seje
 * **Cilji na terenu**: cilji, nameščeni znotraj območja zajema
 * **Več ciljev**: 2–3 ciljne slike na sejo (priporočeno)
@@ -45,58 +43,56 @@ Preglejte uvožene slike v brskalniku datotek in prepoznajte, katere slike vsebu
 
 Za vsako sliko, ki vsebuje kalibracijski cilj:
 
-1. Poiščite sliko v tabeli brskalnika datotek.
-2. Poiščite stolpec **Cilj** (skrajni desni stolpec).
-3. Kliknite potrditveno polje v stolpcu Cilj za to sliko.
-4. Ponovite za vse slike, ki vsebujejo cilje.
+1. Poiščite sliko v tabeli brskalnika datotek
+2. Poiščite stolpec **Cilj** (skrajni desni stolpec)
+3. Kliknite potrditveno polje v stolpcu Cilj za to sliko
+4. Ponovite za vse slike, ki vsebujejo cilje
 
 ### Korak 3: Preverite svojo izbiro
 
 Pred obdelavo še enkrat preverite:
 
-* [ ] Vse slike s cilji kalibracije so označene.
-* [ ] Nobena slika, ki ni ciljna, ni bila naključno označena.
-* [ ] Cilji so jasno vidni na označenih slikah.
+* [ ] So označene vse slike s kalibracijskimi cilji
+* [ ] Niso bile po pomoti označene slike, ki niso cilji
+* [ ] So cilji jasno vidni na označenih slikah
 
 ***
 
 ## Najboljše prakse za ciljne slike
 
-### Smernice za zajem ciljev
+### Smernice za zajemanje ciljev
 
 **Čas:**
 
-* Ciljne slike zajemajte takoj pred in med sejo zajema.
-* V enakih svetlobnih pogojih kot svetlobni senzor DAQ.
-* Za najboljše rezultate ciljne slike zajemajte čim pogosteje. V nasprotnem primeru se bodo za prilagajanje kalibracije sčasoma uporabili podatki svetlobnega senzorja.
+* Zajemajte ciljne slike takoj pred in med sejo zajemanja
+* V enakih svetlobnih pogojih kot vaš svetlobni senzor DAQ
+* Za najboljše rezultate slike ciljev zajemajte čim pogosteje. V nasprotnem primeru se bodo podatki svetlobnega senzorja uporabili za prilagajanje kalibracije skozi čas.
 
 **Položaj kamere:**
 
-* Kamero držite nad ciljem tako, da je centrirana in zapolnjuje približno 40–60 % sredine slike.
-* Kamero držite vzporedno/nadirno s ciljno površino
+* Kamero držite nad ciljem tako, da je ta v središču in zapolnjuje približno 40–60 % sredine slike.
+* Kamero držite vzporedno/navpično nad površino cilja
 
 **Osvetlitev:**
 
-* Enaka osvetlitev okolice kot pri senzorju svetlobe DAQ.
-* Izogibajte se sencam na ciljnih površinah.
-* Ne prekrivajte vira svetlobe s svojim telesom, vozilom ali vegetacijo.
-* Oblačni pogoji zagotavljajo najbolj dosledne rezultate.
+* Enaka okoljska osvetlitev kot pri vašem svetlobnem senzorju DAQ
+* Izogibajte se sencam na površinah ciljev
+* Ne blokirajte vira svetlobe s svojim telesom, vozilom ali rastlinjem
+* Oblačni pogoji zagotavljajo najbolj dosledne rezultate
 
-**Pogoji cilja:**
+**Stanje cilja:**
 
-* Ciljne plošče morajo biti čiste in suhe.
-* Vse 4 plošče morajo biti jasno vidne in neovirane.
-* Cilji morajo biti po možnosti pravokotni/nadirni glede na vir svetlobe.
+* Plošče ciljev naj bodo čiste in suhe
+* Vse 4 plošče morajo biti jasno vidne in neovirane
+* Cilji naj bodo po možnosti pravokotni/nadirni glede na vir svetlobe
 
-### Koliko ciljnih slik?
+### Koliko slik ciljev?
 
-**Minimalno:** 1 slika cilja na sejo. **Priporočeno:** 3–5 slik cilja na sejo.
+**Najmanj:**1 slika cilja na sejo.**Priporočeno:** 3–5 slik cilja na sejo.**Najboljši urnik:**
 
-**Najboljši urnik:**
-
-* 3–5 slik, posnetih kmalu po začetku snemanja svetlobnega senzorja
-* Za najboljše rezultate med posnetki vrtite kamero
-* Izbirno: redno med sejo, če se svetlobne razmere nenehno spreminjajo
+* 3–5 slik, posnetih kmalu po tem, ko senzor svetlobe začne snemati
+* Za najboljše rezultate med posnetki obračajte kamero
+* Izbirno: občasno med sejo, če se svetlobne razmere nenehno spreminjajo
 
 ***
 
@@ -106,21 +102,21 @@ Pred obdelavo še enkrat preverite:
 
 Če hkrati uporabljate dve kameri MAPIR (npr. Survey3W RGN + Survey3N OCN):
 
-1. Hkrati zajemajte ciljne slike z **obe kamerami**.
-2. Za obe kameri uporabite **isti fizični cilj**.
-3. V brskalniku datotek označite ciljne slike za **obe vrsti kamer**.
-4. Chloros bo za kalibracijo vsake kamere uporabil ustrezne cilje.
+1. Posnemite ciljne slike z **obe kameri** hkrati
+2. Uporabite **isti fizični cilj** za obe kameri
+3. Označite ciljne slike za **oba tipa kamer** v brskalniku datotek
+4. Chloros bo uporabil ustrezne cilje za kalibracijo vsake kamere
 
 ### Stolpec Model kamere
 
-Stolpec **Model kamere** pomaga identificirati, katere slike so bile posnete s katero kamero:
+Stolpec **Model kamere** pomaga ugotoviti, katere slike izhajajo iz katere kamere:
 
 * Survey3W\_RGN
 * Survey3N\_OCN
 * Survey3W\_RGB
 * itd.
 
-Ta stolpec uporabite za preverjanje, ali ste v svojem projektu označili cilje za vsak tip kamere.
+Uporabite ta stolpec, da preverite, ali ste v svojem projektu označili cilje za vsak tip kamere.
 
 ***
 
@@ -128,68 +124,58 @@ Ta stolpec uporabite za preverjanje, ali ste v svojem projektu označili cilje z
 
 ### Nastavitev občutljivosti zaznavanja
 
-Če Chloros ne zazna vaših ciljev pravilno, prilagodite te nastavitve v [Nastavitve projekta](adjusting-project-settings.md):
-
-**Minimalno kalibrirano vzorčno območje:**
-
-* **Privzeto**: 25 pikslov
-* **Povečajte**, če pride do napačnih zaznav na majhnih artefaktih.
-* **Zmanjšajte**, če cilji niso zaznavani.
-
-**Minimalno združevanje ciljev:**
-
-* **Privzeto**: 60
-* **Povečajte**, če so cilji razdeljeni na več zaznav
-* **Zmanjšajte**, če cilji z barvnimi razlikami niso v celoti zaznavni
-
-***
+Če Chloros ne zazna vaših ciljev pravilno, prilagodite te nastavitve v [Nastavitvah projekta](adjusting-project-settings.md):**Najmanjša površina kalibracijskega vzorca:*** **Privzeto**: 25 pikslov
+* **Povečajte**, če prihaja do napačnih zaznavanj na majhnih artefaktih
+* **Zmanjšajte**, če cilji niso zaznavani**Najmanjše združevanje ciljev:*** **Privzeto**: 60
+* **Povečajte**, če se cilji razdelijo na več zaznavanj
+* **Zmanjšajte**, če cilji z barvnimi odstopanji niso v celoti zaznani***
 
 ## Pogoste težave s slikami ciljev
 
-### Težava: Cilji niso zaznavni
+### Težava: Ni zaznanih ciljev
 
 **Možni vzroki:**
 
 * Slike ciljev niso označene v brskalniku datotek
-* Cilj je premajhen v okviru (&lt; 30 % slike)
+* Cilj je v okviru premajhen (&lt; 30 % slike)
 * Slaba osvetlitev (sence, bleščanje)
-* Preveč stroge nastavitve zaznavanja ciljev
+* Nastavitve zaznavanja ciljev so preveč stroge
 
 **Rešitve:**
 
-1. Preverite, ali je stolpec Cilj označen za pravilne slike.
-2. Preverite kakovost slike cilja v predogledu.
-3. Ponovno zajemite cilje, če je kakovost slaba.
-4. Po potrebi prilagodite nastavitve zaznavanja ciljev.
+1. Preverite, ali je stolpec Cilj označen za pravilne slike
+2. Preverite kakovost slike cilja v predogledu
+3. Ponovno zajemite cilje, če je kakovost slaba
+4. Po potrebi prilagodite nastavitve zaznavanja ciljev
 
-### Težava: napačno zaznavanje ciljev
+### Težava: Napačno zaznavanje ciljev
 
 **Možni vzroki:**
 
-* Bele stavbe, vozila ali talna pokrivnost, ki se zamenjujejo za cilje
+* Bele stavbe, vozila ali talna odeja, ki se zamenjujejo za cilje
 * Svetle lise v vegetaciji
-* Premajhna občutljivost zaznavanja
+* Preveč nizka občutljivost zaznavanja
 
 **Rešitve:**
 
-1. Označite samo dejanske ciljne slike, da omejite obseg zaznavanja
-2. Povečajte minimalno kalibrirano vzorčno območje
+1. Označite le dejanske slike ciljev, da omejite obseg zaznavanja
+2. Povečajte minimalno površino kalibracijskega vzorca
 3. Povečajte minimalno vrednost združevanja ciljev
-4. Preverite, da ciljne slike prikazujejo samo cilj (minimalno ozadje)
+4. Poskrbite, da slike ciljev prikazujejo le cilj (minimalno motenje ozadja)
 
 ***
 
 ## Seznam za preverjanje
 
-Pred začetkom obdelave preverite izbiro slik ciljev:
+Pred začetkom obdelave preverite izbor slik ciljev:
 
-* [ ] Vsaj 1 označena slika cilja na sejo
-* [ ] Potrditvena polja v stolpcu Cilji so potrjena za vse slike ciljev
+* [ ] Označena je vsaj 1 slika cilja na sejo
+* [ ] Polja v stolpcu Cilj so označena za vse slike ciljev
 * [ ] Slike ciljev so posnete v istem časovnem okviru kot raziskava
-* [ ] Cilji so jasno vidni v predogledu, ko nanje kliknete
+* [ ] Cilji so jasno vidni v predogledu, ko se nanje klikne
 * [ ] Vsi 4 kalibracijski paneli so vidni na vsaki sliki cilja
 * [ ] Na ciljih ni senc ali ovir
-* [ ] Za dvojno kamero: cilji so označeni za oba tipa kamer
+* [ ] Pri dvojni kameri: Cilji so označeni za oba tipa kamer
 
 ***
 
@@ -199,23 +185,23 @@ Pred začetkom obdelave preverite izbiro slik ciljev:
 
 Čeprav to ni priporočljivo za znanstveno delo, lahko obdelujete brez ciljev:
 
-1. Vse potrditvene polja v stolpcu Cilj pustite neizpolnjena.
-2. **Onemogočite** »Kalibracijo odbojnosti« v nastavitvah projekta.
-3. Popravek vinjete bo še vedno uporabljen.
-4. Izhod ne bo kalibriran za absolutno odbojnost.
+1. Pustite vsa potrditvena polja v stolpcu Cilj neoznačena
+2. **Onemogočite** »Kalibracijo odbojnosti« v nastavitvah projekta
+3. Popravek vinjetiranja bo še vedno uporabljen
+4. Izhod ne bo kalibriran za absolutno odbojnost
 
-{% hint style=&quot;warning&quot; %}
-**Ni priporočljivo**: Brez kalibracije odbojnosti vrednosti pikslov predstavljajo le relativno svetlost, ne pa znanstvene meritve odbojnosti. Za natančne in ponovljive rezultate uporabite kalibracijske cilje.
+{% hint style="warning" %}
+**Ne priporočljivo**: Brez kalibracije odbojnosti vrednosti pikslov predstavljajo le relativno svetlost, ne pa znanstvene meritve odbojnosti. Za natančne in ponovljive rezultate uporabite kalibracijske tarče.
 {% endhint %}
 
 ***
 
 ## Naslednji koraki
 
-Ko označite ciljne slike:
+Ko ste označili svoje ciljne slike:
 
-1. **Preglejte nastavitve** – glejte [Prilagajanje nastavitev projekta](adjusting-project-settings.md)
+1. **Preverite nastavitve** – glejte [Prilagajanje nastavitev projekta](adjusting-project-settings.md)
 2. **Začnite obdelavo** – glejte [Začetek obdelave](starting-the-processing.md)
 3. **Spremljajte napredek** – glejte [Spremljanje obdelave](monitoring-the-processing.md)
 
-Za več informacij o kalibracijskih ciljih glejte [Kalibracijski cilji](../calibration-targets.md).
+Za več informacij o samih kalibracijskih ciljih glejte [Kalibracijski cilji](../calibration-targets.md).

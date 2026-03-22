@@ -1,25 +1,25 @@
 # Oznake na zemljevidu
 
-Zavihek Zemljevid prikaže vaše slike na interaktivnem 2D zemljevidu na podlagi njihovih GPS koordinat. To vam omogoča geografski pregled vaše zajete seje in vam pomaga vizualizirati prostorsko pokritost. Prav tako je koristno, ko prvič uvažate slike, da lahko hitro odstranite vse slike, ki jih ne potrebujete za obdelavo.
+Zavihek »Zemljevid« prikaže vaše slike na interaktivnem 2D-zemljevidu na podlagi njihovih GPS-koordinat. To vam omogoča geografski pregled nad vašo snemalno sejo in pomaga vizualizirati prostorsko pokritost. Uporaben je tudi ob prvem uvozu slik, saj omogoča hitro odstranitev vseh slik, ki jih ni treba obdelati.
 
 <figure><img src="../.gitbook/assets/chloros_map_markers.gif" alt=""><figcaption></figcaption></figure>
 
 ## Dostop do zavihka Zemljevid
 
-1. Odprite ali ustvarite projekt v Chloros.
-2. Uvozite slike, ki vsebujejo metapodatke GPS.
-3. Kliknite zavihek **Zemljevid** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> v levem stranskem meniju.
-4. Zemljevid bo prikazal označevalce na GPS lokaciji vsake slike.
+1. Odprite ali ustvarite projekt v Chloros
+2. Uvozite slike, ki vsebujejo metapodatke GPS
+3. Kliknite zavihek **Zemljevid** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> v levem stranskem meniju
+4. Zemljevid bo prikazal označevalce na GPS-lokaciji vsake slike
 
 {% hint style="info" %}
-**Potreben GPS**: Na zemljevidu se bodo prikazale samo slike z vgrajenimi GPS-koordinatami v metapodatkih EXIF. Prepričajte se, da je med zajemanjem v vaši kameri omogočen GPS.
+**Potreben GPS**: Na zemljevidu se bodo prikazale le slike z vgrajenimi GPS-koordinatami v metapodatkih EXIF. Prepričajte se, da je med zajemanjem v vaši kameri omogočen GPS.
 {% endhint %}
 
 ***
 
 ## Prilagajanje slik iz zavihka Zemljevid
 
-Zavihek **Zemljevid**<img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> ima enake možnosti dodajanja  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  in odstranjevalna  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  kot [**Brskalnik datotek**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> . Prikaže tudi enak seznam projektnih datotek, vendar z drugačnimi naslovi stolpcev:
+Zavihek **Zemljevid**<img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> ima enako gumb za dodajanje  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  in odstranjevanja  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  kot jih ima zavihek [**Brskalnik datotek**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> . Prikazuje tudi isti seznam projektnih datotek, vendar z drugačnimi naslovi stolpcev:
 
 ### Ime datoteke
 
@@ -39,7 +39,7 @@ Zavihek **Zemljevid**<img src="../.gitbook/assets/image (3).png" alt="" data-siz
 * Nadmorska višina slike
 
 {% hint style="info" %}
-S klikom na naslove stolpcev tabele se razvrstijo tudi podatki v vrsticah.
+S klikom na naslove stolpcev v tabeli se podatki v vrsticah tudi razvrstijo
 {% endhint %}
 
 ***
@@ -50,39 +50,39 @@ Vsaka slika z GPS-podatki je na zemljevidu označena z oznako:
 
 ### Prikaz oznak
 
-* Oznake označujejo natančne GPS-koordinate, kjer je bila posneta vsaka slika.
-* Oznake se lahko združijo, ko se slika pomanjša.
-* Povečajte sliko, da vidite posamezne lokacije slik.
+* Oznake označujejo natančne GPS-koordinate, kjer je bila posneta vsaka slika
+* Zgoščene oznake se lahko združijo, ko se oddaljite
+* Približajte, da vidite lokacije posameznih slik
 
 {% hint style="success" %}
-SUPER-ZOOM: Ko dosežete največjo stopnjo povečave od ponudnika zemljevidnih ploščic, se ploščica pri nadaljnjem povečanju poveča, kar vam omogoča, da vidite oznake, ki so blizu skupaj.
+SUPER-ZOOM: Ko dosežete najvišjo stopnjo povečave od ponudnika kartografskih ploščic, se ploščica pri nadaljnjem povečanju še dodatno poveča, kar vam omogoča, da vidite oznake, ki so blizu skupaj.
 {% endhint %}
 
 ### Predogled ob preletu
 
-* **Preletite z miško** nad katerim koli označevalcem, da si ogledate predogled slike v obliki miniaturne slike.
-* To omogoča hitro vizualno prepoznavanje, ne da bi zapustili pogled zemljevida.
-* Koristno za iskanje določenih slik v okviru obsežne seje zajemanja.
+* **Preletite z miško** kateri koli označevalec, da si ogledate predogled slike v obliki sličice
+* To omogoča hitro vizualno prepoznavanje, ne da bi zapustili pogled na zemljevid
+* Koristno za iskanje določenih slik znotraj obsežne seje zajemanja
 
 ***
 
-## Ponudniki zemljevidnih ploščic
+## Ponudniki kartografskih ploščic
 
 {% hint style="success" %}
-**Samodejna izbira**: Chloros samodejno izbere storitev kartografskih ploščic, ki zagotavlja najboljšo stopnjo povečave za vašo trenutno lokacijo na zemljevidu. Po želji lahko ročno preklopite med ponudniki.
+**Samodejna izbira**: Chloros samodejno izbere storitev ploščic, ki zagotavlja najboljšo stopnjo povečave za vašo trenutno lokacijo na zemljevidu. Po želji lahko ročno preklopite med ponudniki.
 {% endhint %}
 
-Zavihek Zemljevid podpira dva ponudnika kartografskih ploščic za slike zemljevida v ozadju:
+Zavihek Zemljevid podpira dva ponudnika ploščic za slike v ozadju zemljevida:
 
 ### Google Maps
 
-* Standardne satelitske in zemljevidske slike iz Googla.
-* Najboljše za splošno pokritost po vsem svetu.
+* Standardne satelitske in zemljevidne slike iz Googla
+* Najboljše za splošno pokritost po vsem svetu
 
 ### ESRI
 
-* Satelitske in letalske slike iz ESRI ArcGIS.
-* Pogosto zagotavlja slike z višjo ločljivostjo v določenih regijah.
+* Satelitske in letalske slike iz ESRI ArcGIS
+* V nekaterih regijah pogosto zagotavlja slike z višjo ločljivostjo
 
 ***
 
@@ -110,34 +110,34 @@ Prikaže satelitske kartografske ploščice z dodatnimi podrobnostmi (ceste itd.
 
 ## Navigacija po zemljevidu
 
-### Nadzorni elementi za povečavo
+### Upravljalniki povečave
 
-* **Povečava/pomanjšanje**: uporabite kolesce miške ali gumbe za povečavo
-* **Celozaslonski način**: zemljevid v celozaslonskem načinu
+* **Povečaj/Pomanjšaj**: Uporabite kolesce miške ali gumbe za povečavo
+* **Celozaslonski način**: Prikaži zemljevid v celozaslonskem načinu
 
-### Nadzorni elementi za premikanje
+### Upravljalniki premikanja
 
-* **Premikanje**: kliknite in povlecite, da se premikate po zemljevidu***
+* **Premikanje**: Kliknite in povlecite, da se premikate po zemljevidu***
 
 ## Primeri uporabe
 
-### Vizualizacija letalske poti
+### Vizualizacija poti leta
 
-* Ogled pokritega območja snemanja z dronom
+* Ogled območja pokritosti posnetkov, zajetih z dronom
 * Prepoznavanje vrzeli v pokritosti slike
-* Preverjanje izvedbe letalske poti
+* Preverjanje izvedbe poti leta
 
-### Pregled zemeljskega pregleda
+### Pregled terenskega pregleda
 
-* Ogled prostorske porazdelitve zemeljskih posnetkov
+* Ogled prostorske porazdelitve posnetkov, zajetih s tal
 * Lociranje kalibracijskih ciljnih slik glede na območje pregleda
-* Načrtovanje dodatnih lokacij snemanja
+* Načrtovanje dodatnih lokacij zajemanja
 
 ### Nadzor kakovosti
 
-* Hitro prepoznajte slike, posnete na nepričakovanih lokacijah.
-* Preverite natančnost GPS v celotnem nizu podatkov.
-* Primerjajte lokacije slik s terenskimi zapisi.
+* Hitro prepoznajte slike, posnete na nepričakovanih lokacijah
+* Preverite natančnost GPS v celotnem nizu podatkov
+* Primerjajte lokacije slik s terenskimi zapisi
 
 ***
 
@@ -147,17 +147,17 @@ Prikaže satelitske kartografske ploščice z dodatnimi podrobnostmi (ceste itd.
 
 **Možni vzroki:**
 
-* Slike ne vsebujejo metapodatkov GPS.
-* GPS je bil med snemanjem izklopljen na kameri.
-* Podatki EXIF so bili odstranjeni z zunanjo programsko opremo.
+* Slike ne vsebujejo metapodatkov GPS
+* Med snemanjem je bil GPS na kameri izklopljen
+* Podatki EXIF so bili odstranjeni z zunanjo programsko opremo
 
-**Rešitev**: Preverite, ali je GPS v kameri omogočen, in ponovno uvozite izvirne datoteke.
+**Rešitev**: Preverite, ali je GPS na vaši kameri omogočen, in ponovno uvozite izvirne datoteke
 
 ### Oznake na napačni lokaciji
 
 **Možni vzroki:**
 
-* GPS kamere je imel slabo satelitsko povezavo.
-* GPS se je med zajemanjem premaknil.
+* GPS kamere je imel slabo satelitsko lokacijo
+* Odklon GPS med zajemanjem
 
-**Rešitev**: To je običajno težava, povezana s časom zajemanja; za natančne aplikacije razmislite o uporabi PPK/RTK GPS.
+**Rešitev**: To je običajno težava v času zajemanja; razmislite o uporabi PPK/RTK GPS za natančne aplikacije

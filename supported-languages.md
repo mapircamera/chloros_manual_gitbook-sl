@@ -1,15 +1,15 @@
 # Podprti jeziki
 
-Chloros ponuja popolno podporo vmesnika v **38 jezikih po vsem svetu**, kar ga naredi dostopnega uporabnikom po vsem svetu. Jezik lahko takoj preklopite v vseh vmesnikih: namizni računalnik, brskalnik, CLI in Python SDK.
+Chloros ponuja popolno podporo vmesnika v **38 jezikih po vsem svetu**, kar omogoča dostop uporabnikom po vsem svetu. Jezike lahko takoj preklapljate na vseh vmesnikih: Desktop, Browser, CLI in Python SDK.
 
 Chloros podpira naslednje jezike:
 
-| # | Jezik | Izvorno ime | CLI Koda |
+| # | Jezik | Ime v izvirnem jeziku | Koda CLI |
 |---|----------|-------------|----------|
-| 1 | 🇺🇸 Angleščina | Angleščina | `en` |
+| 1 | 🇺🇸 Angleščina | English | `en` |
 | 2 | 🇪🇸 Španščina | Español | `es` |
 | 3 | 🇵🇹 Portugalščina | Português | `pt` |
-| 4 | 🇫🇷 Francoščina | Français | `fr` |
+| 4 | 🇫🇷 francoščina | Français | `fr` |
 | 5 | 🇩🇪 Nemščina | Deutsch | `de` |
 | 6 | 🇮🇹 Italijanščina | Italiano | `it` |
 | 7 | 🇯🇵 Japonščina | 日本語 | `ja` |
@@ -37,26 +37,26 @@ Chloros podpira naslednje jezike:
 | 29 | 🇧🇷 brazilska portugalščina | Português Brasileiro | `pt-BR` |
 | 30 | 🇭🇰 kantonščina | 粵語 | `zh-HK` |
 | 31 | 🇲🇾 Malajščina | Bahasa Melayu | `ms` |
-| 32 | 🇸🇰 Slovaščina | Slovenčina | `sk` |
+| 32 | 🇸🇰 Slovene | Slovenčina | `sk` |
 | 33 | 🇧🇬 Bolgarščina | Български | `bg` |
 | 34 | 🇭🇷 Hrvaščina | Hrvatski | `hr` |
 | 35 | 🇱🇹 Litovščina | Lietuvių | `lt` |
 | 36 | 🇱🇻 Latvijščina | Latviešu | `lv` |
 | 37 | 🇪🇪 Estonščina | Eesti | `et` |
-| 38 | 🇸🇮 Slovenščina | Slovenščina | `sl` |
+| 38 | 🇸🇮 Sloveneščina | Slovenščina | `sl` |
 
 ## Kako spremeniti jezik
 
-### V Chloros namizju/brskalniku
+### V Chloros namiznem računalniku/brskalniku
 
-1. Odprite nastavitve aplikacije.
-2. Prejdite na meni za izbiro jezika.
-3. Iz seznama izberite želeni jezik.
-4. Vmesnik se bo takoj posodobil.
+1. Odprite nastavitve aplikacije
+2. Prejdite v meni za izbiro jezika
+3. Izberite želeni jezik s seznama
+4. Vmesnik se bo takoj posodobil
 
 ### V Chloros CLI
 
-Uporabite ukaz `language`, da si ogledate ali spremenite jezik vmesnika CLI:
+Uporabite ukaz `language` za ogled ali spremembo jezika vmesnika CLI:
 
 ```bash
 # View current language
@@ -79,15 +79,15 @@ Za več podrobnosti glejte [dokumentacijo CLI](CLI.md).
 
 ### V Chloros Python SDK
 
-Nastavite jezikovni parameter ob zagonu SDK, da boste prejemali sporočila in izhodne podatke v želenem jeziku.
+Nastavite jezikovni parameter ob zagonu SDK, da boste prejemali sporočila in izpise v želenem jeziku.
 
 ## Pokritost
 
 Vseh 38 jezikov je v celoti podprtih v:
 
-* **Chloros Desktop** - popoln prevod grafičnega uporabniškega vmesnika
-* **Chloros Browser** - spletni vmesnik v vseh jezikih
-* **Chloros CLI** - vmesnik ukazne vrstice in izhodna sporočila
-* **Chloros Python SDK** - API sporočila in dokumentacija
+* **Chloros Desktop** – popoln prevod grafičnega uporabniškega vmesnika
+* **Chloros Browser** – spletni vmesnik v vseh jezikih
+* **Chloros CLI** – vmesnik ukazne vrstice in izhodna sporočila
+* **Chloros Python SDK** – sporočila in dokumentacija API
 
-Jezikovna podpora zagotavlja, da lahko uporabniki po vsem svetu brez ovir učinkovito delajo v svojem maternem jeziku.
+Podpora jezikov zagotavlja, da lahko uporabniki po vsem svetu učinkovito delajo v svojem maternem jeziku brez ovir.
