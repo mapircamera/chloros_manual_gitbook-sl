@@ -17,42 +17,46 @@ Prenesite najnovejšo različico programa Chloros in se lotite obdelave multispe
 | **Operacijski sistem** | Windows 10 (64-bitni)                                  | Windows 11 (64-bitni)                                  |
 | **Procesor**        | Intel Core i5 ali enakovreden                          | Intel Core i7 ali boljši                              |
 | **Pomnilnik (RAM)**     | 8 GB                                                  | 16 GB ali več                                         |
-| **Grafična kartica**    | Združljiva z DirectX 11                                | NVIDIA GPU z 4 GB+ VRAM                            |
-| **Shranjevanje**          | 6 GB prostega prostora                                       | SSD z 10 GB+ prostega prostora                            |
+| **Grafična kartica**    | Združljiva z DirectX 11                                | NVIDIA GPU z 4 GB ali več VRAM                            |
+| **Prostor za shranjevanje**          | 6 GB prostega prostora                                       | SSD z 10 GB ali več prostega prostora                            |
 | **Zaslon**          | 1920x1080                                            | 2560x1440 ali več                                  |
-| **Internet**         | Potreben za \[izbirno] aktivacijo licence Chloros+ | Potreben za \[izbirno] aktivacijo licence Chloros+ |
+| **Internet**         | Potreben za \[neobvezno\] aktivacijo licence Chloros+ | Potreben za \[izbirno] aktivacijo licence Chloros+ |
 
 #### Linux amd64 (x86\_64)
 
 | Zahteva       | Minimalna                    | Priporočena               |
 | ----------------- | -------------------------- | ------------------------- |
-| **Distribucija**  | Ubuntu 20.04+ / Debian 11+ | Ubuntu 22.04+             |
+| **Distribucija**  | Ubuntu 22.04 LTS+ / Debian 12+ | Ubuntu 24.04 LTS      |
 | **Procesor**     | x86\_64 (Intel/AMD)        | Intel Core i7 ali boljši   |
 | **Pomnilnik (RAM)**  | 8 GB                        | 16 GB ali več              |
-| **Grafična kartica** | Ni potrebna (obdelava CPU)      | NVIDIA GPU z 4 GB+ VRAM |
-| **Shranjevanje**       | 2 GB prostega prostora             | SSD z 10 GB+ prostega prostora       |
+| **Grafična kartica** | Ni potrebna (obdelava v procesorju)      | NVIDIA GPU z 4 GB ali več VRAM |
+| **Prostor za shranjevanje**       | 2 GB prostega prostora             | SSD z 10 GB+ prostega prostora       |
 | **Python**        | Python 3.7+ (za SDK)      | Python 3.10+              |
 
 #### Linux arm64 (NVIDIA Jetson)
 
-| Zahteva      | Minimalno                      | Priporočeno                     |
+| Zahteva      | Najmanjša                      | Priporočena                     |
 | ---------------- | ---------------------------- | ------------------------------- |
 | **Platforma**     | NVIDIA Jetson z JetPack 6 | Jetson Orin NX 16 GB ali AGX Orin |
 | **Pomnilnik (RAM)** | 8 GB (skupni GPU/CPU)         | 16 GB+ skupnega                    |
-| **Shranjevanje**      | 2 GB prostega prostora               | NVMe SSD z 10 GB+ prostega        |
+| **Shranjevanje**      | 2 GB prostega prostora               | NVMe SSD z 10 GB+ prostega prostora        |
 | **Python**       | Python 3.7+ (za SDK)        | Python 3.10+                    |
 
 {% hint style="info" %}
-**Pospeševanje s GPU**: Uporabniki Chloros+ z grafičnimi karticami NVIDIA lahko uporabijo pospeševanje CUDA za bistveno hitrejše obdelovanje. To deluje tako na Windows (namizne grafične kartice) kot na Linux (namizne grafične kartice in NVIDIA Jetson). Uporabniki Chloros+ pridobijo tudi večnitno obdelavo za maksimalno hitrost.
+**Pospeševanje s GPU**: Uporabniki Chloros+ z grafičnimi procesorji NVIDIA lahko uporabijo pospeševanje CUDA za znatno hitrejšo obdelavo. To deluje tako na Windows (namizni grafični procesorji) kot tudi na Linux (namizni grafični procesorji in NVIDIA Jetson). Uporabniki Chloros+ pridobijo tudi večnitno obdelavo za največjo hitrost.
 {% endhint %}
 
 ***
 
 ## Prenesite Chloros
 
-### Najnovejša stabilna različica (23. marec 2026): Različica 1.1.0
+### Najnovejša stabilna različica: različica 1.2.0
 
-### <a href="https://drive.google.com/uc?export=download&#x26;id=1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4" class="button primary">Prenos Chloros za Windows (.exe)</a>
+<!-- NOLAN: replace installer links + release date for 1.2.0 — the three download buttons below still point at the 1.1.0 Google Drive files, and the release date needs to be added to the heading above. -->
+
+
+
+### <a href="https://drive.google.com/uc?export=download&#x26;id=1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4" class="button primary">Prenesite Chloros za Windows (.exe)</a>
 
 
 
@@ -69,9 +73,9 @@ Prenesite najnovejšo različico programa Chloros in se lotite obdelave multispe
 1. Prenesite zgornjo datoteko .exe
 2. Dvakrat kliknite namestitveni program, da začnete namestitev
 3. Sledite navodilom namestitvenega čarovnika
-4. Izberite namestitveni imenik (privzeto: `C:\Program Files\[USER]\Chloros\`)
+4. Izberite namestitveni imenik (privzeto: `C:\Program Files\MAPIR\Chloros\`)
 5. Zaključite namestitev in zaženite Chloros ali Chloros CLI
-6. Prijavite se s svojim [MAPIR Cloud Chloros+ računom](https://cloud.mapir.camera/pricing) (ali nadaljujte z brezplačno različico)
+6. Prijavite se s svojim [računom MAPIR Cloud Chloros+](https://cloud.mapir.camera/pricing) (ali nadaljujte z brezplačno različico)
 
 {% hint style="success" %}
 Namestitveni program samodejno doda `chloros-cli` v sistemsko pot PATH za dostop prek ukazne vrstice.
@@ -87,7 +91,7 @@ sudo dpkg -i chloros-amd64.deb
 chloros-cli --version  # Verify installation
 ```
 
-#### Linux arm64 — NVIDIA Jetson (.deb paket — CLI + Backend)
+#### Linux arm64 — NVIDIA Jetson (paket .deb — CLI + Backend)
 
 * **Vrsta datoteke**: .deb (JetPack 6)
 * **Arhitektura**: aarch64 (arm64)
@@ -101,14 +105,22 @@ Za podrobna navodila za namestitev glejte [Namestitev Linux](linux/linux-install
 
 #### Python SDK (vse platforme)
 
+Vsak namestitveni program vsebuje ustrezno kolo `chloros_sdk`, zato se različica SDK vedno ujema z nameščenim GUI/CLI/backendom. Na Windows ga namestitveni program samodejno namesti v vaš sistem Python; na Linux pa `.deb` shrani kolo v `/usr/lib/chloros/sdk/` in izpiše ukaz za namestitev:
+
+```bash
+pip install --user /usr/lib/chloros/sdk/chloros_sdk-*.whl
+```
+
+Za gostitelje, ki uporabljajo le pip (na katerih ni nameščen paket Chloros), je SDK na voljo tudi na PyPI:
+
 ```bash
 pip install chloros-sdk
 ```
 
-Za dokumentacijo glejte [API : Python SDK](api-python-sdk.md).
+Glejte [API : Python SDK](api-python-sdk.md) ter [SDK Referenca](reference/sdk-reference.md) za dokumentacijo.
 
 {% hint style="info" %}
-**Uporabniki Linux**: Paket `.deb` namesti CLI in backend. Python SDK se namesti ločeno prek pip. Za Linux ni grafičnega vmesnika – vsa interakcija poteka prek CLI ali SDK.
+**Uporabniki Linux**: Paket `.deb` namesti CLI in backend. Za Linux ni grafičnega vmesnika – vsa interakcija poteka prek CLI ali SDK.
 {% endhint %}
 
 ***
@@ -125,36 +137,36 @@ pip install chloros-sdk
 
 **Dokumentacija**: [API: Python SDK](api-python-sdk.md)**Zahteve**: Chloros mora biti nameščen (namestitveni program Windows ali paket Linux `.deb`), potrebna je prijava z licenco Chloros+***
 
-## Vsebina
+## Vsebina paketa
 
 ### Namestitveni program Windows
 
 * ✅ **Chloros GUI** – grafični vmesnik s polno funkcionalnostjo
+* ✅ **Chloros CLI** – Vmesnik ukazne vrstice (zahteva licenco Chloros+)
+* ✅ **Chloros Backend** – Procesni motor
+* ✅ **Profil kamere** – vnaprej nastavljene predloge kamer MAPIR
+
+### Paket .deb Linux
+
 * ✅ **Chloros CLI** – vmesnik ukazne vrstice (zahteva licenco Chloros+)
-* ✅ **Chloros Backend** – procesni motor
-* ✅ **Profil kamere** - Vnaprej konfigurirane predloge kamer MAPIR
-
-### Paket Linux .deb
-
-* ✅ **Chloros CLI** - Vmesnik ukazne vrstice (zahteva licenco Chloros+)
 * ✅ **Chloros Backend** – Obdelovalni motor
-* ✅ **Profil kamere** – Vnaprej konfigurirane predloge kamer MAPIR
-* ❌ Brez grafičnega vmesnika — Linux je brez grafičnega vmesnika, samo CLI/SDK
+* ✅ **Profili kamer** – Vnaprej nastavljene predloge za kamere MAPIR
+* ❌ Brez grafičnega vmesnika — Linux je brez grafičnega vmesnika, na voljo je le CLI/SDK
 
-### Python SDK (pip, vse platforme)
+### Python SDK (PIP, vse platforme)
 
-* ✅ **Chloros SDK** - Python API (zahteva licenco Chloros+)***
+* ✅ **Chloros SDK** – Python API (zahteva licenco Chloros+)***
 
 ## Nadgradnja na Chloros+
 
 Odkleni napredne funkcije z naročnino Chloros+:
 
-* 🚀 **Večnitno obdelovanje** – vzporedna obdelava slik
-* ⚡ **Pospešitev z GPU (CUDA)** – izkoristi moč grafičnih procesorjev NVIDIA
+* 🚀 **Večnitna obdelava** – vzporedna obdelava slik
+* ⚡ **Pospeševanje z GPU (CUDA)** – izkoristite zmogljivost grafičnih procesorjev NVIDIA
 * 💻 **Dostop do CLI** – Avtomatizirajte z orodji za ukazno vrstico
 * 🐍 **Python SDK** – Programski dostop do API
-* 📱 **Več naprav** – Uporaba na 2–10+ napravah (odvisno od paketa)
-* **🐻 Napredna metoda debayeringa z upoštevanjem teksture** – visokokakovosten debayering z upoštevanjem robov v kombinaciji z modelom za odstranjevanje šuma AI/ML, ki odstrani skoraj ves šum pri debayeringu.
+* 📱 **Več naprav** – uporaba na 2–10+ napravah (odvisno od paketa)
+* **🐻 Napredna metoda debayerja, ki upošteva teksturo** – visokokakovosten debayer, ki upošteva robove, v kombinaciji z modelom za odstranjevanje šuma na podlagi umetne inteligence in strojnega učenja, ki odstrani skoraj ves šum pri debayerju.
 * 🧮 **Prilagojene formule** – Ustvarjanje prilagojenih multispektralnih indeksov
 
 <p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Oglejte si načrte in cene Chloros+</a></p>***
@@ -173,14 +185,14 @@ Odkleni napredne funkcije z naročnino Chloros+:
 
 * Preverite, ali je nameščen Windows 10/11 (64-bitni)
 * Posodobite grafične gonilnike
-* Preverite Windows pregledovalnik dogodkov za podrobnosti o napaki
-* Obrnite se na podporo s dnevniki napak
+* V pregledovalniku dogodkov Windows preverite podrobnosti o napaki
+* Obrnite se na podporo uporabnikom in priložite dnevnike napak
 
 **CLI se ne zažene (Linux):**
 
 * Preverite, ali je paket `.deb` pravilno nameščen: `dpkg -l | grep chloros`
 * Preverite dovoljenja: `sudo chmod +x /usr/bin/chloros-cli`
-* Zaženite diagnostiko: `chloros-cli selftest`
+* Izvedite diagnostiko: `chloros-cli selftest`
 * Preverite, ali manjkajo knjižnice: `ldd /usr/lib/chloros/chloros-backend | grep "not found"`
 
 **Težave z aktivacijo licence:**
@@ -196,32 +208,16 @@ Potrebujete pomoč pri namestitvi ali nastavitvi?
 
 * 📧 **E-pošta**: info@mapir.camera
 * 🌐 **Spletna stran**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* 📚 **Dokumentacija**: [Začetek](./)
+* 📚 **Dokumentacija**: [Prvi koraki](./)
 * ❓ **Pogosta vprašanja**: [Pogosta vprašanja](faq.md)***
 
-## Seznam sprememb
+## Posodobitve programske opreme
 
-<details>
+Chloros preveri, ali so na voljo posodobitve, vas obvesti, ko je na voljo nova različica, in vas preusmeri na to stran za prenos — posodobitev izvedete z zagonom novega podpisanega namestitvenega programa. Vaše nastavitve in projekti ostanejo nespremenjeni tudi po posodobitvi. V Linux in Jetson `chloros-cli update` preveri, ali je na voljo novejša različica, ter ponudi prenos in namestitev ustreznega `.deb` (ta ukaz je na voljo le v različici Linux).
 
-<summary>Različica 1.1.0 (najnovejša)</summary>
+***
 
-**Datum izdaje: marec 2026**
-
-**Nove funkcije*** **Podpora za Linux** — Native CLI in SDK za Linux amd64 (x86\_64) in arm64 (NVIDIA Jetson JetPack 6). Namestite prek paketov `.deb`.
-* **Podpora za NVIDIA Jetson** — Optimizirano obdelovanje za naprave Jetson Nano, Orin Nano, Orin NX in AGX Orin.
-* **Dinamična prilagoditev računalniških zmogljivosti** — Samodejno zaznavanje strojne opreme in optimizacija strategije obdelave. Chloros se prilagaja vaši strojni opremi, od Jetson Nano do delovne postaje z več grafičnimi procesorji.
-* **4-nitni procesni potek** — Sočasne niti za zaznavanje, kalibracijo, obdelavo in izvoz z dinamično dodelitvijo pomnilnika grafičnega procesorja.
-* **Nove ukaze CLI** — `selftest` (sistemska diagnostika) in `update` (upravljanje posodobitev Linux).
-* **Nove zastavice procesa CLI** — `--debayer` (standardno/upošteva teksturo), `--indices` (določi indekse), `--target` (za hitrejše zaznavanje najprej poišči ciljni podmapo).
-* **Nove postavke v meniju GUI** — Dodaj datoteke, Dodaj mapo in Začni/ustavi obdelavo so zdaj dostopne v spustnem meniju glavnega menija.**Izboljšave**
-
-* Samodejno zaznavanje večplatformnega ozadja (poti Windows in Linux)
-* Izboljšano SDK `get_status()` s sledenjem napredka po posameznih niti
-* Nove izjeme SDK: `ChlorosConfigurationError`, `ChlorosAuthenticationError`
-* Upravljanje toplote in prilagodljivo omejevanje za NVIDIA Jetson
-* Avtomatsko upravljanje pomnilnika z OOM preklopom na obdelavo GPU v obliki ploščic
-
-</details>
+## Seznam sprememb**Različica 1.2.0 (najnovejša)**— za celoten seznam funkcij glejte**Novosti v Chloros 1.2.0** na strani [Začetek](./).
 
 <details>
 
@@ -229,8 +225,8 @@ Potrebujete pomoč pri namestitvi ali nastavitvi?
 
 **Datum izdaje: 10. februar 2026**
 
-**Nove funkcije*** **Metoda Texture Aware Debayer \[Samo Chloros+] -** Texture Aware uporablja visokokakovostni debayer, ki upošteva robove, v kombinaciji z modelom za odstranjevanje šuma AI/ML, ki odstrani skoraj ves šum debayeringa.
-* **Podpora za kalibracijske tarče T4P*** **Hitrejša obdelava s GPU v Chloros+, boljše upravljanje pomnilnika**
+**Nove funkcije*** **Metoda debayiranja z upoštevanjem teksture \[Samo za Chloros+] –** Metoda z upoštevanjem teksture uporablja visokokakovostno debayiranje z upoštevanjem robov v kombinaciji z modelom za odstranjevanje šuma na podlagi umetne inteligence/strojnega učenja, ki odstrani skoraj ves šum pri debayiranju.
+* **Podpora za kalibracijske tarče T4P*** **Hitrejša obdelava s pomočjo grafičnega procesorja (GPU) za Chloros+, boljše upravljanje pomnilnika**
 
 **Popravki napak*** Povsem nov uporabniški vmesnik (GUI), ki naj bi zdaj deloval na vseh računalnikih Windows.
 
@@ -242,14 +238,14 @@ Potrebujete pomoč pri namestitvi ali nastavitvi?
 
 **Datum izdaje: 5. januar 2026**
 
-**Nove funkcije*** **Preklop slike/metapodatkov**: V brskalniku datotek je bil dodan preklopnik za prikaz metapodatkov izbrane slike v tabeli namesto v mreži slik
+**Nove funkcije*** **Preklop med sliko in metapodatki**: V brskalniku datotek je bil dodan preklopnik za prikaz metapodatkov izbrane slike v tabeli namesto v mreži slik
 * **Drsnik za povečavo mreže slik**: Nov drsnik v uporabniškem vmesniku za prilagajanje velikosti sličic (podpira tudi CTRL + kolesce miške)
-* **Gumbi za izvoz mreže slik**: Gumbi v zgornji vrstici za preklop sličic iz JPG v obdelane izvoze (Cilji, Odbojnost, Indeks, LUT)
-* **Zavihek Zemljevid**: Nov interaktiven 2D zemljevid, ki prikazuje oznake GPS lokacij slik
-  * Podpira Google Maps in ESRI zemljevidne ploščice (samodejno izbere najboljšo storitev ploščic glede na razpoložljivost stopnje povečave)
+* **Gumb za izvoz mreže slik**: Gumbi v zgornji vrstici za preklop sličic iz formata JPG na obdelane izvoze (cilji, odbojnost, indeks, LUT)
+* **Zavihek »Zemljevid«**: Nov interaktiven 2D zemljevid, ki prikazuje oznake GPS-lokacij na slikah
+  * Podpira Google Maps in kartografske ploščice ESRI (samodejno izbere najboljšo storitev ploščic glede na razpoložljivost stopnje povečave)
   * Predogled sličic ob preletu z miško nad oznakami na zemljevidu
 
-**Popravki napak*** Izboljšana podpora za namestitev Chloros na računalnikih, ki niso v angleškem jeziku
+**Popravki napak*** Izboljšana podpora za namestitev Chloros na računalnikih z neangleškim jezikom
 
 </details>
 

@@ -1,1205 +1,344 @@
-# CLI: Ukazna vrstica
+# CLI : Ukazna vrstica
 
-<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** omogoča zmogljiv dostop prek ukazne vrstice do motorja za obdelavo slik Chloros, kar omogoča avtomatizacijo, pisanje skriptov in brezglavo delovanje za vaše delovne tokove obdelave slik.
+> **Celoten priročnik:**[CLI Priročnik](reference/cli-reference.md) opisuje**vsak parameter vsakega podukaza** in je optimiziran za AI-pomočnike — vnesite njegov URL v svojega pomočnika in zaprosite za delujoč ukaz: `https://mapir.gitbook.io/chloros/reference/cli-reference`
+>
+> **Nasvet za orodja z umetno inteligenco:** vsaka stran tega priročnika je na voljo v surovem formatu Markdown, če k njenemu URL dodate `.md` (npr. `https://mapir.gitbook.io/chloros/reference/cli-reference.md`), `https://mapir.gitbook.io/chloros/llms.txt` pa indeksira celoten priročnik za uporabo v velikih jezikovnih modelih (LLM).
 
-### Ključne značilnosti
+<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>
+<!-- SCREENSHOT-UPDATE: banner shows CLI 1.1.0; reshoot the CLI welcome/banner output on the 1.2.0 build so the version line reads "Chloros CLI 1.2.0" -->
 
-* 🚀 **Avtomatizacija** – skriptno obdelovanje več podatkovnih nizov v serijah
-* 🔗 **Integracija** – vgradnja v obstoječe delovne tokove in poteke
-* 💻 **Delovanje brez grafičnega vmesnika** – zagon brez grafičnega vmesnika
-* 🌍 **Večjezičnost** – podpora za 38 jezikov
-* ⚡ **Vzporedna obdelava** – [Dinamična prilagoditev računalniške moči](processing-architecture/dynamic-compute-adaptation.md) se samodejno optimizira za vašo strojno opremo
 
-### Zahteve
+## Kaj je »CLI
+«
 
-| Zahteva          | Podrobnosti                                                             |
-| -------------------- | ------------------------------------------------------------------- |
-| **Operacijski sistem** | Windows 10/11 (64-bit), Linux x86_64 (amd64), Linux arm64 (NVIDIA Jetson JetPack 6) |
-| **Licenca**          | Chloros+ ([potreben plačljiv načrt](https://cloud.mapir.camera/pricing)) |
-| **Pomnilnik**           | Najmanj 8 GB RAM (priporočeno 16 GB)                                  |
-| **Internet**         | Potreben za aktivacijo licence                                     |
-| **Prostor na disku**       | Odvisno od velikosti projekta                                              |
+`chloros-cli` je uporabniški vmesnik za ukazno vrstico, ki temelji na istem obdelovalnem jedru, kot ga uporablja namizna aplikacijaChloros
+. Gre za tanekHTTP
+odjemalec, ki deluje prek strežniškega delaChloros
+(lokalni strežnik na `127.0.0.1:5000`) — večina ukazov samodejno zažene strežniški del, zato skriptu zadostuje en sam klic `chloros-cli process …`.
 
-{% hint style="warning" %}
-**Zahteve glede licence**: CLI zahteva plačano naročnino Chloros+. Standardni (brezplačni) načrti nimajo dostopa do CLI. Za nadgradnjo obiščite [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing).
-{% endhint %}
-
-## Hitri začetek
-
-### Namestitev
-
-#### Windows
-
-CLI je samodejno vključen v namestitveni program Chloros:
-
-1. Prenesite in zaženite **Chloros Installer.exe**
-
-2. Izpolnite namestitvenega čarovnika
-3. CLI je nameščen v: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
-
-{% hint style="success" %}
-Namestitveni program samodejno doda `chloros-cli` v sistemsko pot PATH. Po namestitvi ponovno zaženite terminal.
-{% endhint %}
-
-#### Linux
-
-Namestite paket `.deb` za vašo arhitekturo:
+Deluje na **Windows
+10/11 (x64)**in**Linux
+(x86_64 ter NVIDIA Jetson arm64 na JetPack 6)**, v katerem koli terminalu, brez potrebe po grafičnem vmesniku. Preverite svojo namestitev s:
 
 ```bash
-# Linux amd64
+chloros-cli --version    # prints "Chloros CLI 1.2.0"
+```
+
+Pregled družin ukazov:
+
+* **Obdelava in račun** — `process`, `login`, `logout`, `status`, `export-status`, `language` (38 jezikov — glej [Podprti jeziki](supported-languages.md)), `set-project-folder` / `get-project-folder` / `reset-project-folder`, `selftest`, `update` (samo zaLinux
+/Jetson)
+* **Delujoča strojna oprema** — `lattice` (upravljanje kamere LATTICE, več kot 45 podukazov), `daq pool-*` (svetlobni senzorji DAQ), `time-sync` (PTP)
+* **Avtomatizacija** — `project` (izvajanje shranjenega projektaChloros
+brez grafičnega vmesnika, vključno z recepti zajemanja v formatu YAML)
+
+Globalne možnosti, ki jih je vredno poznati: `--port N` (vmesnik strežnika, privzeto `5000`), `-v/--verbose`, `--restart` (prisilni ponovni zagon backenda), `--backend-exe PATH`. Celoten seznam najdete v [CLI
+Referenca](reference/cli-reference.md).
+
+***
+
+## Namestitev
+
+CLI
+**je vključen v namestitveni programChloros** za vse platforme — ni ločenega prenosaCLI
+. Namestitveni program prenesite s strani [Prenos](download.md).
+
+###Windows
+
+
+Namestitveni program namestiCLI
+v:
+
+```
+
+C:\Program Files\Chloros\cli\chloros-cli.exe
+```
+
+in to mapo doda v vaš sistem `PATH` — po namestitvi **odprite nov terminal**, da se posodobi `PATH`. Namestitveni program v korensko mapo namestitve shrani tudi skripte za zagon (`Chloros_CLI.bat` / `Chloros_CLI.ps1`) ter**Chloros
+CLI
+** povezavo v meniju Start, od katerih vsaka odpre terminal z `chloros-cli`, pripravljenim za uporabo.
+
+###Linux
+
+
+Namestite `.deb` za vašo arhitekturo:
+
+```bash
+# Linux x86_64
 sudo dpkg -i chloros-amd64.deb
 
-# Linux arm64 (NVIDIA Jetson, JetPack 6)
+# NVIDIA Jetson (arm64, JetPack 6)
 sudo dpkg -i chloros-arm64-jp6.deb
 ```
 
-Za podrobna navodila o nastavitvi Linux glejte [Namestitev Linux](linux/linux-installation.md).
+S tem namestite `chloros-cli` do `/usr/bin/chloros-cli` (že na `PATH`) ter backend na `/usr/lib/chloros/chloros-backend`, skupaj z izvedbenim okoljem ArenaSDK
+, potrebnim za kamere LATTICE. Za podrobnosti glej [NamestitevLinux
+](linux/linux-installation.md).
 
-### Prva namestitev
+### Preverjanje
 
-Pred uporabo CLI aktivirajte svojo licenco Chloros+:
+```bash
+chloros-cli --version    # "Chloros CLI 1.2.0"
+chloros-cli selftest     # 7-step diagnostic: backend, API, GPU/CUDA, denoiser models
+chloros-cli status       # license tier + logged-in user
+```
 
-**Windows:**
+***
 
-```powershell
-# Login with your Chloros+ account
-chloros-cli login user@example.com 'your_password'
+## Prijava in licenciranje
 
-# Check license status
+CLI
+(inPython
+SDK
+) dostop zahteva **plačljiv načrtChloros
++**— vsi plačljivi načrti ga vključujejo; brezplačni načrt ga ne vključuje. Omejitev se izvaja**na strani strežnika** s strani backenda, ne s strani izvedljive datotekeCLI
+: klic, ko uporabnik ni prijavljen, se zavrne s kodo napake `401 AUTH_REQUIRED`, klic v prijavljenem stanju na brezplačnem paketu pa z napako `403 PLAN_UPGRADE_REQUIRED`, ne glede na to, ali prihaja iz `chloros-cli`,SDK
+ali ročno izdelanega odjemalcaHTTP
+. Nadgradite na [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing).
+
+Prijavite se **enkrat na računalnik**:
+
+```bash
+chloros-cli login user@example.com 'YourPassword'
 chloros-cli status
-
-# Process your first project
-chloros-cli process "C:\Images\Dataset001"
 ```
 
-**Linux:**
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
+<!-- SCREENSHOT-UPDATE: login success output predates 1.2.0; reshoot `chloros-cli login` followed by `chloros-cli status` on the 1.2.0 build showing the license tier line -->
 
-```bash
-# Login with your Chloros+ account
-chloros-cli login user@example.com 'your_password'
-
-# Check license status
-chloros-cli status
-
-# Process your first project
-chloros-cli process ~/images/dataset001
-```
-
-### Osnovna uporaba
-
-Obdelajte mapo s privzetimi nastavitvami:
-
-**Windows:**
-
-```powershell
-chloros-cli process "C:\Images\Dataset001"
-```
-
-**Linux:**
-
-```bash
-chloros-cli process ~/images/dataset001
-```
-
-***
-
-## Referenca ukazov
-
-### Splošna sintaksa
-
-```
-chloros-cli [global-options] <command> [command-options]
-```
-
-***
-
-## Ukazi
-
-### `process` - Obdelava slik
-
-Obdelava slik v mapi s kalibracijo.
-
-**Sintaksa:**
-
-```bash
-chloros-cli process <input-folder> [options]
-```
-
-**Primeri:**
-
-```bash
-# Windows
-chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
-
-# Linux
-chloros-cli process ~/datasets/survey_001 --vignette --reflectance
-```
-
-#### Možnosti ukaza za obdelavo
-
-| Možnost                | Tip    | Privzeto        | Opis                                                                            |
-| --------------------- | ------- | -------------- | -------------------------------------------------------------------------------------- |
-| `<input-folder>`      | Pot    | _Obvezno_     | Mapa, ki vsebuje multispektralne slike RAW/JPG                                         |
-| `-o, --output`        | Pot    | Enako kot vhod  | Izhodna mapa za obdelane slike                                                     |
-| `-n, --project-name`  | Niz  | Samodejno ustvarjeno | Ime projekta po meri                                                                    |
-| `--vignette`          | Oznaka    | Omogočeno        | Omogoči popravek vinjetiranja                                                             |
-| `--no-vignette`       | Oznaka    | -              | Onemogoči popravek vinjetiranja                                                            |
-| `--reflectance`       | Oznaka    | Omogočeno        | Omogoči kalibracijo odbojnosti                                                         |
-| `--no-reflectance`    | Oznaka    | -              | Onemogoči kalibracijo odbojnosti                                                        |
-| `--ppk`               | Oznaka    | Onemogočeno       | Uporabi PPK popravke iz podatkov svetlobnega senzorja .daq                                      |
-| `--format`            | Izbira  | TIFF (16-bit)  | Izhodni format: `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)` |
-| `--min-target-size`   | Celo število | Samodejno           | Najmanjša velikost cilja v pikslatih za zaznavanje kalibracijskega polja                          |
-| `--target-clustering` | Celo število | Samodejno           | Prag združevanja ciljev (0–100)                                                    |
-| `--debayer`           | Izbirno  | `standard`     | Metoda debayeringa: `standard` ali `texture-aware` (samo Chloros+)                          |
-| `--target`, `--targets` | Oznaka  | Onemogočeno       | Iskanje kalibracijskih ciljev samo v podmapah »target« ali »targets« (pospeši obdelavo) |
-| `--indices`           | Seznam    | Noben           | Indeksi vegetacije za izračun (npr. `--indices NDVI NDRE GNDVI`)                    |
-| `--exposure-pin-1`    | Niz  | Noben           | Zakleni osvetlitev za model kamere (Pin 1)                                                 |
-| `--exposure-pin-2`    | Niz  | Noben           | Zaklepanje osvetlitve za model kamere (Pin 2)                                                 |
-| `--recal-interval`    | Cel številka | Samodejno           | Interval ponovne kalibracije v sekundah                                                      |
-| `--timezone-offset`   | Cel številka | 0              | Časovni zamik v urah                                                               |
-
-***
-
-### `login` - Preverjanje pristnosti računa
-
-Prijavite se s svojimi poverilnicami Chloros+, da omogočite obdelavo CLI.
-
-**Sintaksa:**
-
-```bash
-chloros-cli login <email> <password>
-```
-
-**Primer:**
-
-```bash
-chloros-cli login user@example.com 'MyP@ssw0rd123'
-```
 
 {% hint style="warning" %}
-**Posebni znaki**: Uporabite enojne narekovaje okoli gesel, ki vsebujejo znake, kot so `$`, `!` ali presledke.
+**Gesla s posebnimi znaki**(`$`, `!`, spaces): wrap the password in**single quotes**, as shown above. In PowerShell double quotes, `$$` se v lupini poškoduje (CLI
+to zazna ob napaki 401 in samodejno ponovi poskus, vendar se težavi v celoti izognete z uporabo enojnih narekovajev).
 {% endhint %}
 
-**Izhod:**<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>***
+Sejna je shranjena v predpomnilniku v `~/.chloros/user_session.json` in deluje brez internetne povezave še v obdobju odloga plačila (30 dni za mesečne naročnine, do izteka veljavnosti za letne). `chloros-cli status` deluje tudi brez plačanega načrta, zato je razlog za zavrnitev vedno viden.
 
-### `logout` – Izbriši poverilnice
+{% hint style="danger" %}
+**Načrtujete brezglavo delo? Najprej se prijavite.**Ukaz za zagon strežniškega procesa (`process`, `status`, `export-status`, …) brez**shranjene seje**v predpomnilniku ne ponesreči takoj – namesto tega se prikaže interaktivni ukazni vrstici `Email:` / `Password:` na stdin. Avtomatizirana cron naloga ali korak CI se bo zato**zastal v čakanju na vnos**. Pred načrtovanjem česarkoli enkrat zaženite `chloros-cli login EMAIL 'PASSWORD'` na računalniku.
+{% endhint %}
 
-Izbriši shranjene poverilnice in se odjavi iz svojega računa.
+***
 
-**Sintaksa:**
+## Vaš prvi izvedbeni cikel
+
+Usmerite `process` v mapo z zajetimi podatki — samodejno zaznaSurvey3
+(`.raw` + `.jpg`), LATTICE (`.tif`/`.tiff`), `.dng` ali njihovo kombinacijo:
 
 ```bash
-chloros-cli logout
+chloros-cli process "C:\Images\flight_001"          # Windows
+chloros-cli process ~/images/flight_001              # Linux
 ```
 
-**Primer:**
+Napredek se prenaša v realnem času po posameznih niti procesa (zaznavanje, analiza, obdelava, izvoz), uspešno izvajanje pa se zaključi s poročilom o številu zapisnih slikovnih izdelkov (`Image products written: N`).
 
-```bash
-chloros-cli logout
+
+
+<!-- SCREENSHOT-NEEDED: terminal capture of a `chloros-cli process` run on a LATTICE captures folder completing successfully — per-thread progress lines visible and the final "Image products written: N" summary line -->
+### Kam se shranijo izhodni podatki
+
+`process` zapisuje v **projektno mapo**, ne v vašo vhodno mapo:
+
+* Če ni `-o`: projekt se ustvari v vaši privzeti projektni mapi (skupni z grafičnim vmesnikom; upravljajte jo z `get-project-folder` / `set-project-folder`, nadomestna možnost `~/Chloros Projects`), poimenovana z `-n/--project-name` ali časovnim žigom (`YYYYMMDD_HHMMSS`), če je izpuščena.
+* Pri `-o PATH`: ta mapa **je** projektna mapa. Če že vsebuje `project.json`, se namesto prepisovanja ustvari sestrska mapa s končnico `_1`/`_2`…
+
+Znotraj projekta so izdelki razvrščeni **po kameri, nato pa po formatu datoteke**:
+
+```
+<project>/
+├── project.json
+├── calibration_data.json
+└── LATT-M3M-L41-F550/                  # one folder per camera model+lens+filter
+    ├── tiff16/
+    │   ├── Reflectance_Calibrated_Images/
+    │   ├── Debayered_Images/
+    │   ├── Preview_Images/
+    │   └── NDVI_Index_Images/           # one folder per requested index
+    └── tiff32/
+        └── Radiance_Images/             # float32 radiance always lands here
 ```
 
-**Izhod:**
-
-```
-✓ Logout successful
-ℹ Credentials cleared from cache
-```
+Mapa kamere je `LATT-<sensor>-<lens>-F<filter>` za LATTICE (kar ustreza EXIF-u posnetka `Model`) in `<model>_<filter>` (npr. `Survey3N_RGN`) zaSurvey3
+. Mapa formata sledi `--format`: `tiff16`, `tiff8`, `png8`, `jpg8` ali `tiff32` za `TIFF (32-bit, Percent)`.
 
 {% hint style="info" %}
-**SDK Uporabniki**: Python SDK ponuja tudi programsko metodo `logout()` za izbris poverilnic znotraj skriptov Python. Za podrobnosti glejte [dokumentacijo Python SDK](api-python-sdk.md#logout).
+**Vsak izvožen izdelek ohrani ime izvorne datoteke.**Izvoz radianca iz `capture_..._raw.tif` se še vedno imenuje `capture_..._raw.tif` — le da se nahaja v mapi `tiff32/Radiance_Images/`.**Izdelek identificira mapa, ne ime datoteke**, zato uporabite glob za mapo, ne za končnico `*radiance*`.
 {% endhint %}
 
-***
+### Možnosti, ki jih boste dejansko uporabljali
 
-### `status` – Preverjanje stanja licence
+| Oznaka | Privzeto | Kaj počne |
+| --- | --- | --- |
+| `-o, --output PATH` | privzeta mapa projekta | Mesto mape projekta (glej zgoraj). |
+| `-n, --project-name NAME` | časovni žig | Ime projekta. |
+| `--format FMT` | `TIFF (16-bit)` | Ena od naslednjih možnosti: `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)`. |
+| `--indices NAME [NAME ...]` | noben | Indeksi vegetacije za izvoz (glej [Indeksi vegetacije](#vegetation-indices)). |
+| `--debayer {standard,texture-aware}` | `standard` | `texture-aware` = nevronski debayer, počasnejši, najvišja kakovost (Chloros
++, grafična kartica NVIDIA). |
+| `--vignette / --no-vignette` | vklopljeno | Popravek vinjetiranja. |
+| `--reflectance / --no-reflectance` | vklopljeno | Kalibracija odbojnosti; za LATTICE je to tudi stikalo za produkt odbojnosti. |
+| `--input-level {auto,raw,debayered,processed}` | `auto` | Prisilna nastavitev vstopne točke procesnega toka za datoteke TIFF sistema LATTICE. |
 
-Prikaže trenutno stanje licence in avtentifikacije.
-
-**Sintaksa:**
-
-```bash
-chloros-cli status
-```
-
-**Primer:**
-
-```bash
-chloros-cli status
-```
-
-**Izhod:**
-
-```
-╔══════════════════════════════════════╗
-║     LICENSE & ACCOUNT INFORMATION    ║
-╚══════════════════════════════════════╝
-
-📧 Email: user@example.com
-📋 Plan: Chloros+ Professional
-🔓 API/CLI Access: Enabled
-✓ Status: Active
-```
+Za vse ostalo — nastavitev zaznavanja ciljev, PPK, zatiče osvetlitve, zastavice poravnave matrike — glejte [poglavje `process` v referenčnem priročniku za programCLI
+](reference/cli-reference.md).
 
 ***
 
-### `export-status` – Preverjanje napredka izvoza
+## Izbiranje, kaj izvoziti (izdelki LATTICE)
 
-Spremljajte napredek izvoza niti 4 med ali po obdelavi.
+Obdelava LATTICE se v enem prehodu razširi na **vse ustrezne izdelke**. Štiri stikala za posamezne izdelke so**privzeto vklopljena**; uporabite obrazec `--no-`, da eno izklopite:
 
-**Sintaksa:**
+| Stikalo | Izdelek |
+| --- | --- |
+| `--debayered` | Linearna demozajka → `Debayered_Images/` |
+| `--preview` | Predogled zaslona (balanca beline + gama; raztezanje lažnih barv za multispektralne slike) → `Preview_Images/` |
+| `--radiance` | sevanje v formatu float32, W/m²/sr/nm → `Radiance_Images/` (vedno `tiff32/`) |
+| `--reflectance` | uint16 odbojnost, pripravljeno za Pix4D → `Reflectance_Calibrated_Images/` |
 
-```bash
-chloros-cli export-status
-```
-
-**Primer:**
-
-```bash
-chloros-cli export-status
-```
-
-**Primer uporabe:** Ta ukaz pokličite med potekom obdelave, da preverite napredek izvoza.***
-
-### `language` – Upravljanje jezika vmesnika
-
-Preglejte ali spremenite jezik vmesnika CLI.
-
-**Sintaksa:**
+RGB
+glavne kamere vedno oddajajo le podatke brez Bayesovega filtra + predogled — sevanje/odbojnost po posameznih pasovih za širokopasovni senzor nima pomena, zato ti stikala zanje ne delujejo.Survey3
+`.raw` prezre stikala in sledi standardni poti odbojnosti/cilja.
 
 ```bash
-# Show current language
-chloros-cli language
-
-# List all available languages
-chloros-cli language --list
-
-# Set a specific language
-chloros-cli language <language-code>
+# Radiance only — no DAQ downwelling needed
+chloros-cli process ~/captures/lattice_flight --no-debayered --no-preview --no-reflectance
 ```
 
-**Primeri:**
-
-```bash
-# View current language
-chloros-cli language
-
-# List all 38 supported languages
-chloros-cli language --list
-
-# Change to Spanish
-chloros-cli language es
-
-# Change to Japanese
-chloros-cli language ja
-```
-
-#### Podprti jeziki (skupaj 38)
-
-| Koda    | Jezik              | Izvirno ime      |
-| ------- | --------------------- | ---------------- |
-| `en`    | angleščina               | English          |
-| `es`    | španščina               | Español          |
-| `pt`    | portugalščina            | Português        |
-| `fr`    | francoščina                | Français         |
-| `de`    | nemščina                | Deutsch          |
-| `it`    | italijanščina              | Italiano         |
-| `ja`    | japonščina              | 日本語              |
-| `ko`    | korejščina                | 한국어              |
-| `zh`    | Kitajščina (poenostavljena)  | 简体中文             |
-| `zh-TW` | Kitajščina (tradicionalna) | 繁體中文             |
-| `ru`    | Ruščina               | Русский          |
-| `nl`    | Nizozemščina                 | Nederlands       |
-| `ar`    | Arabščina                | العربية          |
-| `pl`    | Poljščina                | Polski           |
-| `tr`    | Turščina               | Türkçe           |
-| `hi`    | Hindijščina                 | हिंदी            |
-| `id`    | Indonezijščina            | Bahasa Indonesia |
-| `vi`    | Vietnamščina            | Tiếng Việt       |
-| `th`    | Tajski                  | ไทย              |
-| `sv`    | Švedski               | Svenska          |
-| `da`    | Danski                | Dansk            |
-| `no`    | Norveški             | Norsk            |
-| `fi`    | finščina               | Suomi            |
-| `el`    | grščina                 | Ελληνικά         |
-| `cs`    | češčina                 | Čeština          |
-| `hu`    | Madžarski             | Magyar           |
-| `ro`    | Romunski              | Română           |
-| `uk`    | Ukrajinski             | Українська       |
-| `pt-BR` | Brazilski portugalščina  | Português Brasileiro |
-| `zh-HK` | Kantonski             | 粵語             |
-| `ms`    | Malajski                | Bahasa Melayu    |
-| `sk`    | Slovaški                | Slovenčina       |
-| `bg`    | Bolgarski             | Български        |
-| `hr`    | Hrvaški              | Hrvatski         |
-| `lt`    | Litovski            | Lietuvių         |
-| `lv`    | Latvijščina               | Latviešu         |
-| `et`    | Estonščina              | Eesti            |
-| `sl`    | Slovene             | Slovenščina      |
-
-{% hint style="success" %}
-**Samodejna ohranitev**: Vaša jezikovna nastavitev se shrani v `~/.chloros/cli_language.json` in se ohrani med vsemi sejami.
-{% endhint %}
-
-***
-
-### `set-project-folder` - Nastavitev privzete mape projekta
-
-Spremenite lokacijo privzete mape projekta (skupno z GUI na Windows).
-
-**Sintaksa:**
-
-```bash
-chloros-cli set-project-folder <folder-path>
-```
-
-**Primeri:**
-
-```bash
-# Windows
-chloros-cli set-project-folder "C:\Projects\2025"
-
-# Linux
-chloros-cli set-project-folder ~/projects/2025
-```
-
-***
-
-### `get-project-folder` - Prikaži mapo projekta
-
-Prikaži trenutno lokacijo privzete mape projekta.
-
-**Sintaksa:**
-
-```bash
-chloros-cli get-project-folder
-```
-
-**Primer:**
-
-```bash
-chloros-cli get-project-folder
-```
-
-**Izhod:**
-
-```
-
-# Windows
-ℹ Current project folder: C:\Projects\2025
-
-# Linux
-ℹ Current project folder: /home/user/.local/share/chloros/projects
-```
-
-***
-
-### `reset-project-folder` – Ponastavi na privzeto
-
-Ponastavi mapo projekta na privzeto lokacijo.
-
-**Sintaksa:**
-
-```bash
-chloros-cli reset-project-folder
-```
-
-***
-
-### `selftest` – Izvedba sistemskih diagnostičnih pregledov
-
-Izvedite 7 diagnostičnih pregledov za preverjanje konfiguracije sistema.
-
-**Sintaksa:**
-
-```bash
-chloros-cli selftest
-```
-
-**Izvedene diagnostične preveritve:**
-
-1. Preverjanje različice
-2. Razpoložljivost vrat (5000)
-3. Zagon ozadja
-4. Preizkus povezljivosti API
-5. Informacije o sistemu in zaznavanje grafičnega procesorja
-6. Preverjanje modelov za odstranjevanje šuma
-7. Preverjanje razpoložljivosti CUDA
+**`--reflectance-source {auto,target,daq}`** (privzeto `auto`) izbere referenco odbojnosti: `auto` ustvari [kalibracijski cilj](calibration-targets.md) znotraj okvirja, ki izpolnjuje zahteve za nadzor kakovosti absolutno referenco in se vrne na delitno razmerje svetlobnega senzorja DAQ za navzdol usmerjeno svetlobo (ρ = π·L/E), kadar cilj ni prisoten; `target` je strog (brez nadomestitve DAQ); `daq` se zanaša na DAQ. Z `--target-reflectance-dir` je mogoče zagotoviti skeniranje ciljev, izmerjenih na enoto.
 
 {% hint style="info" %}
-**Koristno za odpravljanje težav**: Po namestitvi zaženite `selftest`, da preverite, ali je vaš sistem pravilno konfiguriran, zlasti na Linux/Jetson, kjer je morda potrebno preveriti nastavitve grafičnega procesorja in CUDA.
+**Branje pikslov odbojnosti:**DN, ki pomeni ρ = 1,0, je**na vir** — Datoteke LATTICE v XMP vpišejo oznako `Chloros:PixelScale=32768`; datotekeSurvey3
+uporabljajo vrednost 65535 (in ne vsebujejo oznak `Chloros:*`). Preberite oznako in delite z njo, namesto da predpostavljate konstanto. Podrobnosti in en nameren mejni primer brez merila so v [CLI
+Referenca](reference/cli-reference.md).
+{% endhint %}
+
+**Obdelava se vedno začne z `raw`.** Izpeljani izdelki (izvozi brez debayeringa/svetilnosti/odbojnosti) se nikoli ne vračajo skozi procesno verigo — njihov ponovni uvoz in obdelava bi pomenila dvojno uporabo kalibracijskih izračunov, zato jihChloros
+preskoči in to tudi navede. `--input-level` je namerno vgrajena rešitev za primer, ko resnično potrebujete prisiliti začetno točko.
+
+***
+
+## Ko obdelava ni uspešna
+
+Od različice 1.2.0 naprej se `process` jasno ne uspe, namesto da bi se »uspešno« zaključil brez prikazanih rezultatov:
+
+* Izvajanje, ki je **zahtevalo izdelke, a ni zapisalo nobenega**— le `project.json` in `calibration_data.json` — izpiše `Processing finished but wrote no image products.` in**se zaključi z vrednostjo, ki ni nič**, tako da ga skripti lahko zaznajo. Običajni vzroki: vhodna mapa ni bila prepoznana kot zajem (preverite razpored in `--input-level`) ali pa noben od zahtevanih produktov ni bil uporaben za te kamere (npr. zahteva po sevanju/odbojnosti iz kamer, ki podpirajo leRGB
+).
+* **Namerno izvajanje samo z metapodatki** (vsi izdelki izklopljeni, brez `--indices`) je še vedno uspešno — prazen izhodni slikovni zapis je v tem primeru pravilen rezultat.
+* Ponovno zaženite z `--verbose` in v dnevniku strežnika preverite vrstice `[LATTICE-EXPORT]` / `[EXPORT-CHECK]`, ki pojasnjujejo preskoke po posameznih kamerah.
+
+Kode izhoda: `0` uspeh · `1` splošna napaka · `2` napaka v argumentu · `130` prekinjeno s Ctrl+C.
+
+***
+
+## Indeksi vegetacije
+
+`--indices` izvedite z enim ali več imeni prednastavitev; vsak indeks se shrani v svojo mapo `<INDEX>_Index_Images/`:
+
+```bash
+chloros-cli process ~/images/flight_001 --indices NDVI NDRE GNDVI
+```
+
+22 vnaprej nastavljenih imen, ki jih `process --indices` sprejema:
+
+`NDVI` `GNDVI` `NDRE` `OSAVI` `SAVI` `MSAVI2` `EVI` `MSR` `TDVI` `LAI` `GCI` `GRVI` `GSAVI` `GOSAVI` `NLI` `MNLI` `RDVI` `WDRVI` `CVI` `ENDVI` `GLI` `VARI`
+
+{% hint style="warning" %}
+**Obstajajo trije seznami indeksov — ne zamenjujte jih.**Spustni meni »Nastavitve projekta« v grafičnem uporabniškem vmesniku vsebuje 27 formul (dodaja `FCI1`, `FCI2`, `GARI`, `GEMI`, `LCI` – teh pet je na voljo le v grafičnem vmesniku in**ne** veljajo za `--indices`). Ukaz `lattice index --preset` v realnem času/offline uporablja lasten ločen seznam 22 prednastavitev. Formule in matematični izračuni za pasove so dokumentirani v [Formulah multispektralnih indeksov](project-settings/multispectral-index-formulas.md).
 {% endhint %}
 
 ***
 
-### `update` – Preverjanje posodobitev (samo Linux)
+## Svetlobni senzorji DAQ: Kratek pregled
 
-Preverite in namestite posodobitve CLI na sistemih Linux.
-
-**Sintaksa:**
+Družina `daq pool-*` upravlja spektralne senzorje DAQ podjetjMAPIR
+(DAQ-U prek USB, DAQ-M prek BLE, DAQ-E prek Etherneta) prek trajnega sklada v ozadju — grafični vmesnik (GUI),CLI
+inSDK
+si delijo eno aktivno ročico. **`pool-*` je podprta pot DAQ v priloženemCLI
+**; drugi podukazi `daq`, na katere se morda sklicujete, soMAPIR
+– notranja površina, namenjena izključno virom, ki se zaključi z izrecno napako, ki vas usmerja na `pool-*`.
 
 ```bash
-# Check for updates without installing
-chloros-cli update --check
+# 1. Open a pooled session (pick the line matching your sensor)
+chloros-cli daq pool-connect                              # smart-detect
+chloros-cli daq pool-connect --port COM3                  # DAQ-U on a specific COM port
+chloros-cli daq pool-connect --mac AA:BB:CC:DD:EE:FF      # DAQ-M by BLE MAC
+chloros-cli daq pool-connect --eth-host daq-e-xxx.local   # DAQ-E by hostname (reliable)
 
-# Check for and install updates
-chloros-cli update
+# 2. List pooled sensors and their ids
+#    (DAQ-U ids look like 'CB-7C-A8-2E-5F'; DAQ-E ids like 'daq-e-def330')
+chloros-cli daq pool-list
+
+# 3. Read the latest calibrated spectrum (W/m²/nm)
+chloros-cli daq pool-latest --sensor-id CB-7C-A8-2E-5F
+
+# 4. Record a calibrated .daq file for 60 s
+chloros-cli daq pool-record --sensor-id CB-7C-A8-2E-5F --duration 60 \
+  -o ~/Documents/spectra --device-name "field-A"
+
+# 5. Release
+chloros-cli daq pool-disconnect --sensor-id CB-7C-A8-2E-5F
 ```
 
-| Možnost    | Opis                        |
-| --------- | ---------------------------------- |
-| `--check` | Samo preveri posodobitve, ne namesti |
+`pool-record` brez `--duration` teče do `pool-record --stop`; privzeti izhodni imenik je `~/Documents/DAQ Live View/` **na računalniku backenda**. Profil korekcije omejitve se izbere ob vzpostavitvi povezave (`--cap-id`, privzeta vrednost strežnika `sunshine_cosine`) in ga je mogoče v realnem času zamenjati s `pool-set-cap` — profili omejitve in kalibrirano območje senzorja so obravnavani v poglavjih o DAQ v tem priročniku.
 
-{% hint style="info" %}
-Ta ukaz je na voljo samo v Linux. V Windows se posodobitve dostavijo prek namestitvenega programa.
+{% hint style="warning" %}
+**DAQ-E na gostitelju z več mrežnimi karticami:** prvo samodejno odkrivanje `pool-connect --eth` po zagonu lahko spodleti, tudi če je senzor v dobrem stanju. `--eth-host <ip-or-hostname>` je zanesljiva oblika — uporabite jo, kadar odkrivanje ne prinese rezultatov.
 {% endhint %}
 
 ***
 
-## Splošne možnosti
+## Kamere LATTICE, PTP in avtomatizacija projektov
 
-Te možnosti veljajo za vse ukaze:
-
-| Možnost            | Vrsta    | Privzeto       | Opis                                      |
-| ----------------- | ------- | ------------- | ------------------------------------------------ |
-| `--backend-exe`   | Pot    | Samodejno zaznano | Pot do izvedljive datoteke strežnika                       |
-| `--port`          | Celo število | 5000          | Številka vrat strežnika API                          |
-| `--restart`       | Oznaka    | -             | Prisilni ponovni zagon strežnika (ukine obstoječe procese) |
-| `--version`       | Zastavica    | -             | Prikaži informacije o različici in zapri                |
-| `--help`          | Zastavica    | -             | Prikaži informacije o pomoči in zapri                   |
-
-{% hint style="info" %}
-**Samodejno zaznavanje ozadja**: Pot `--backend-exe` se samodejno zazna glede na platformo:
-* **Windows**: `C:\Program Files\MAPIR\Chloros\resources\backend\chloros-backend.exe`
-* **Linux (.deb)**: `/usr/lib/chloros/chloros-backend`
-* **Linux (ročno)**: `/opt/mapir/chloros/backend/chloros-backend`
-{% endhint %}
-
-**Primer z globalnimi možnostmi:**
-
-**Windows:**
-
-```powershell
-chloros-cli --port 5001 process "C:\Datasets\Survey_001"
-```
-
-**Linux:**
+Družina `lattice` (več kot 45 podukazov) pokriva celotno delovanje kamer LATTICE: odkrivanje, posamezne posnetke, trajne sinhronizirane nize s tokom povezovanja »smart-prep« v grafičnem vmesniku, predogled v živo v brskalniku, poravnavo, indeksno matematiko in diagnostiko gostiteljske mrežne kartice. Primer:
 
 ```bash
-chloros-cli --port 5001 process ~/datasets/survey_001
+chloros-cli lattice info                                          # discover cameras
+chloros-cli lattice capture -o output/                            # one frame, all export types
+chloros-cli lattice array-connect --serials SN1,SN2,SN3,SN4       # persistent synced array
+chloros-cli lattice array-capture --processing reflectance -o out/
 ```
+
+Poleg tega: `chloros-cli time-sync` poroča o glavnem PTP-strežniku (grandmaster), ki ga poganja gostiteljChloros
+(kamere LATTICE in senzorji DAQ-E so mu podrejeni za časovne oznake med napravami), `chloros-cli project` pa odpre shranjeni projekt »Chloros
+« in brez grafičnega vmesnika upravlja s kamerami, matričnimi senzorji in senzorji – vključno s skriptiranimi recepti za zajem v formatu YAML.
+
+Te tri družine (`lattice`, `project`, `daq pool-*`) so tudi edine, ki upoštevajo `CHLOROS_BACKEND_URL` za upravljanje **oddaljenega** backenda; osnovni ukazi so vedno usmerjeni na lokalni računalnik.
+
+Podrobna navodila so na voljo v poglavjih o LATTICE v tem priročniku; vsi parametri so navedeni v [CLI
+Referenca](reference/cli-reference.md).
 
 ***
 
-## Priročnik za nastavitve obdelave
-
-### Vzporedna obdelava in dinamična prilagoditev računalniške moči
-
-Chloros 1.1.0 vključuje [dinamično prilagoditev računalniške moči](processing-architecture/dynamic-compute-adaptation.md) — procesni motor **samodejno zazna vašo strojno opremo** in izbere optimalno strategijo:
-
-| Platforma | Strategija | Delavci | Potek | Opombe |
-| --- | --- | --- | --- | --- |
-| **Jetson Nano 8 GB** | `GPU_SINGLE` | 1 | `tiled_gpu` | Učinkovita raba pomnilnika, serializirana |
-| **Jetson Orin NX 16 GB** | `GPU_PARALLEL` | 3 | `fused_gpu` | Sočasna obdelava GPU |
-| **Namizni računalnik z 8 GB GPU** | `GPU_SINGLE` | 3 | `tiled_gpu` | Dobra zmogljivost namiznega računalnika |
-| **Namizni računalnik z grafično kartico 12 GB+** | `GPU_PARALLEL` | 3–4 | `fused_gpu` | Optimalna zmogljivost namiznega računalnika |
-| **Sistem samo s CPU** | `CPU_PARALLEL` | jedra – 1 | `cpu_fallback` | Grafična kartica ni potrebna |
-
-{% hint style="success" %}
-**Ročna konfiguracija ni potrebna!** Chloros samodejno zazna vaš CPU, GPU, RAM in (na Jetsonu) toplotne senzorje, nato pa samodejno konfigurira optimalni procesni potek.
-{% endhint %}
-
-### Metode debayeringa
-
-| Metoda | CLI Oznaka | Kakovost | Hitrost | Licenca |
-| --- | --- | --- | --- | --- |
-| **Standardna (hitra, srednja kakovost)** | `--debayer standard` | Dobra | Hitra | Brezplačna / Chloros+ |
-| **Texture Aware (počasno, najvišja kakovost)** | `--debayer texture-aware` | Najvišja | Počasno | Samo Chloros+ |
-
-Privzeta metoda debayerja je **Standardna**. Metoda**Texture Aware** uporablja model za odstranjevanje šuma AI/ML za izhod najvišje kakovosti, vendar zahteva licenco Chloros+ in grafično kartico NVIDIA.
-
-```bash
-# Use Texture Aware debayer (Chloros+ only)
-chloros-cli process ~/datasets/field_a --debayer texture-aware
-```
-
-### Popravek vinjetiranja
-
-**Kaj počne:** Popravlja padec svetlobe na robovih slike (temnejši koti, ki so pogosti na fotografijah).
-
-* **Privzeto omogočeno** – Večina uporabnikov naj to pusti omogočeno
-* Uporabite `--no-vignette` za onemogočanje
-
-{% hint style="success" %}
-**Priporočilo**: Vedno vklopite popravek vinjete, da zagotovite enakomerno svetlost po celotnem okvirju.
-{% endhint %}
-
-### Kalibracija odbojnosti
-
-Pretvori surove vrednosti senzorja v standardizirane odstotke odbojnosti z uporabo kalibracijskih plošč.
-
-* **Privzeto vklopljeno** – nujno za analizo vegetacije
-* Zahteva kalibracijske ciljne plošče na slikah
-* Uporabite `--no-reflectance` za onemogočanje
-
-{% hint style="info" %}
-**Zahteve**: Za natančno pretvorbo odbojnosti poskrbite, da so kalibracijske plošče na slikah pravilno osvetljene in vidne.
-{% endhint %}
-
-### PPK-popravki
-
-**Kaj počne:** Uporablja poprocesne kinematične popravke z uporabo podatkov dnevnika DAQ-A-SD za izboljšano natančnost GPS.
-
-* **Privzeto onemogočeno**
-* Uporabite `--ppk` za vklop
-* Zahteva datoteke .daq v projektni mapi iz MAPIR svetlobnega senzorja DAQ-A-SD.
-
-### Izhodni formati
-
-<table><thead><tr><th width="197">Oblika</th><th width="130.20001220703125">Bitna globina</th><th width="116.5999755859375">Velikost datoteke</th><th>Najbolj primerno za</th></tr></thead><tbody><tr><td><strong>TIFF (16-bitni)</strong> ⭐</td><td>16-bitno celo število</td><td>Velika</td><td>GIS analiza, fotogrametrija (priporočeno)</td></tr><tr><td><strong>TIFF (32-bitni, odstotek)</strong></td><td>32-bitno število s plavajočo vejico</td><td>Zelo veliko</td><td>Znanstvena analiza, raziskave</td></tr><tr><td><strong>PNG (8-bitni)</strong></td><td>8-bitno celo število</td><td>Srednje</td><td>Vizualni pregled, deljenje na spletu</td></tr><tr><td><strong>JPG (8-bit)</strong></td><td>8-bitno celo število</td><td>Majhno</td><td>Hiter predogled, stisnjena izhodna datoteka</td></tr></tbody></table>***
-
-## Avtomatizacija in skriptiranje
-
-### Obdelava v seriji v PowerShellu (Windows)
-
-Samodejna obdelava več map z nizi podatkov v Windows:
-
-```powershell
-# process_all_datasets.ps1
-
-$datasets = Get-ChildItem "C:\Datasets\2025" -Directory
-
-foreach ($dataset in $datasets) {
-    Write-Host "Processing $($dataset.Name)..." -ForegroundColor Cyan
-    
-    chloros-cli process $dataset.FullName `
-        --vignette `
-        --reflectance
-    
-    if ($LASTEXITCODE -eq 0) {
-        Write-Host "✓ $($dataset.Name) complete" -ForegroundColor Green
-    } else {
-        Write-Host "✗ $($dataset.Name) failed" -ForegroundColor Red
-    }
-}
-
-Write-Host "All datasets processed!" -ForegroundColor Green
-```
-
-### Windows skript za obdelavo v paketih (Windows)
-
-Preprost krog za obdelavo v paketih na Windows:
-
-```batch
-@echo off
-echo Starting batch processing...
-
-for /d %%i in (C:\Datasets\2025\*) do (
-    echo.
-    echo ========================================
-    echo Processing: %%i
-    echo ========================================
-    chloros-cli process "%%i"
-    
-    if %ERRORLEVEL% EQU 0 (
-        echo SUCCESS: %%i processed
-    ) else (
-        echo ERROR: %%i failed
-    )
-)
-
-echo.
-echo All datasets processed!
-pause
-```
-
-### Obdelava v paketu Bash (Linux)
-
-Obdelava več map z nizi podatkov na Linux:
-
-```bash
-#!/bin/bash
-# process_all_datasets.sh
-
-for dataset in ~/datasets/2026/*/; do
-    name=$(basename "$dataset")
-    echo "Processing $name..."
-
-    chloros-cli process "$dataset" \
-        --vignette \
-        --reflectance
-
-    if [ $? -eq 0 ]; then
-        echo "✓ $name complete"
-    else
-        echo "✗ $name failed"
-    fi
-done
-
-echo "All datasets processed!"
-```
-
-### Skript za avtomatizacijo Python (večplatformski)
-
-Napredna avtomatizacija z obdelavo napak (deluje na Windows in Linux):
-
-```python
-import subprocess
-import os
-import sys
-from pathlib import Path
-from datetime import datetime
-
-def process_dataset(input_folder):
-    """Process a folder using Chloros CLI"""
-    cmd = ['chloros-cli', 'process', str(input_folder)]
-    
-    # Execute command
-    result = subprocess.run(
-        cmd, 
-        capture_output=True, 
-        text=True,
-        encoding='utf-8'
-    )
-    
-    return result.returncode == 0, result.stdout, result.stderr
-
-def main():
-    """Process all datasets in a directory"""
-    # Adjust path for your platform
-    # Windows: Path('C:/Datasets/2025')
-    # Linux:   Path.home() / 'datasets' / '2025'
-    datasets_dir = Path('C:/Datasets/2025')
-    log_file = Path('processing_log.txt')
-    
-    successful = []
-    failed = []
-    
-    # Start processing
-    print(f"Starting batch processing: {datetime.now()}")
-    print(f"Scanning: {datasets_dir}")
-    print("=" * 60)
-    
-    for dataset_folder in sorted(datasets_dir.iterdir()):
-        if not dataset_folder.is_dir():
-            continue
-        
-        print(f"\nProcessing: {dataset_folder.name}")
-        
-        success, stdout, stderr = process_dataset(dataset_folder)
-        
-        if success:
-            print(f"✓ {dataset_folder.name} - SUCCESS")
-            successful.append(dataset_folder.name)
-        else:
-            print(f"✗ {dataset_folder.name} - FAILED")
-            failed.append(dataset_folder.name)
-            
-            # Log error details
-            with open(log_file, 'a', encoding='utf-8') as f:
-                f.write(f"\n=== {dataset_folder.name} - {datetime.now()} ===\n")
-                f.write(f"STDOUT:\n{stdout}\n")
-                f.write(f"STDERR:\n{stderr}\n")
-    
-    # Print summary
-    print("\n" + "=" * 60)
-    print(f"SUMMARY - Completed: {datetime.now()}")
-    print(f"  Successful: {len(successful)}")
-    print(f"  Failed: {len(failed)}")
-    
-    if failed:
-        print(f"\nFailed folders:")
-        for folder in failed:
-            print(f"  - {folder}")
-        print(f"\nCheck {log_file} for error details")
-        sys.exit(1)
-    else:
-        print("\nAll datasets processed successfully!")
-        sys.exit(0)
-
-if __name__ == '__main__':
-    main()
-```
-
-***
-
-## Potek obdelave
-
-### Standardni potek
-
-1. **Vnos**: Mapa, ki vsebuje pare slik RAW/JPG
-2. **Odkrivanje**: CLI samodejno skenira za podprte slikovne datoteke
-3. **Obdelava**: Vzporedni način se prilagaja vašim jedrom CPU (Chloros+)
-4. **Izhod**: Ustvari podmapke po modelih fotoaparatov z obdelanimi slikami
-
-### Primer strukture izhodnih datotek
-
-```
-
-MyProject/
-├── project.json                             # Project metadata
-├── 2025_0203_193056_008.JPG                # Original JPG
-├── 2025_0203_193055_007.RAW                # Original RAW
-└── Survey3N_RGN/                           # Processed outputs ✓
-    ├── 2025_0203_193056_008_Reflectance.tif   # Calibrated reflectance
-    ├── 2025_0203_193056_008_Target.tif        # Target detection
-    └── ...
-```
-
-### Ocene časa obdelave
-
-Tipični časi obdelave za 100 slik (vsaka 12 MP):
-
-| Platforma | Način | Predvideni čas | Opombe |
-| --- | --- | --- | --- |
-| **Namizni računalnik z grafično kartico 12 GB+** | `GPU_PARALLEL` | 5–10 min | Najhitrejša možnost |
-| **Namizni računalnik z 8 GB GPU** | `GPU_SINGLE` | 10–15 min | Dobra zmogljivost |
-| **Jetson Orin NX 16 GB** | `GPU_PARALLEL` | 15–25 min | Obdelava na robu omrežja |
-| **Jetson Nano 8 GB** | `GPU_SINGLE` | 30–60 min | Omejen pomnilnik |
-| **Samo CPU** | `CPU_PARALLEL` | 20–40 min | GPU ni potreben |
-
-{% hint style="info" %}
-**Nasvet za izboljšanje zmogljivosti**: Čas obdelave se razlikuje glede na število slik, ločljivost, metodo debayeringa in strojno opremo. Debayering z upoštevanjem teksture traja znatno dlje kot standardni. Za podrobnosti glejte [Dinamično prilagajanje računalniške zmogljivosti](processing-architecture/dynamic-compute-adaptation.md).
-{% endhint %}
-
-***
-
-## Odpravljanje težav
-
-### CLI ni bilo mogoče najti
-
-**Windows Napaka:**
-
-```
-'chloros-cli' is not recognized as an internal or external command
-```
-
-**Windows Rešitve:**
-
-1. Preverite mesto namestitve:
-
-```powershell
-dir "C:\Program Files\Chloros\resources\cli\chloros-cli.exe"
-```
-
-2. Uporabite polno pot, če ni v PATH:
-
-```powershell
-"C:\Program Files\Chloros\resources\cli\chloros-cli.exe" process "C:\Datasets\Field_A"
-```
-
-3. Ročno dodajte v PATH:
-   * Odprite Lastnosti sistema → Okoljske spremenljivke
-   * Uredite spremenljivko PATH
-   * Dodajte: `C:\Program Files\Chloros\resources\cli`
-   * Ponovno zaženite terminal
-
-**Linux Napaka:**
-
-```
-chloros-cli: command not found
-```
-
-**Linux Rešitve:**
-
-1. Preverite namestitev:
-
-```bash
-which chloros-cli
-dpkg -L chloros-amd64  # or chloros-arm64-jp6
-```
-
-2. Ponovno naložite lupino:
-
-```bash
-source ~/.bashrc
-```
-
-3. Preverite dovoljenja:
-
-```bash
-sudo chmod +x /usr/bin/chloros-cli
-```
-
-***
-
-### Backend se ni uspel zagnati**Napaka:**
-
-```
-
-Backend failed to start within 30 seconds
-```
-
-**Rešitve:**
-
-1. Preverite, ali backend že teče (ga najprej zaprite)
-2. Preverite, ali ga požarni zid ne blokira (Windows) ali preverite razpoložljivost vrat (Linux: `lsof -i :5000`)
-3. Poskusite z drugim vratom:
-
-```bash
-# Windows
-chloros-cli --port 5001 process "C:\Datasets\Field_A"
-
-# Linux
-chloros-cli --port 5001 process ~/datasets/field_a
-```
-
-4. Prisilno ponovno zaženite backend:
-
-```bash
-# Windows
-chloros-cli --restart process "C:\Datasets\Field_A"
-
-# Linux
-chloros-cli --restart process ~/datasets/field_a
-```
-
-5. Pri napaki Linux preverite, ali izvedljiva datoteka backenda obstaja:
-
-```bash
-ls -la /usr/lib/chloros/chloros-backend
-```
-
-***
-
-### Težave z licenco / avtentifikacijo**Napaka:**
-
-```
-
-Chloros+ license required for CLI access
-```
-
-**Rešitve:**
-
-1. Preverite, ali imate aktivno naročnino Chloros+
-2. Prijavite se s svojimi poverilnicami:
-
-```bash
-chloros-cli login user@example.com 'password'
-```
-
-3. Preverite stanje licence:
-
-```bash
-chloros-cli status
-```
-
-4. Obrnite se na podporo: info@mapir.camera
-
-***
-
-### Slike niso bile najdene**Napaka:**
-
-```
-
-No images found in the specified folder
-```
-
-**Rešitve:**
-
-1. Preverite, ali mapa vsebuje podprte formate (.RAW, .TIF, .JPG)
-2. Preverite, ali je pot do mape pravilna (za poti z vmesnimi presledki uporabite narekovaje)
-3. Preverite, ali imate dovoljenja za branje mape
-4. Preverite, ali so končnice datotek pravilne
-
-***
-
-### Obdelava se ustavi ali zamrzne**Rešitve:**
-
-1. Preverite razpoložljivi prostor na disku (poskrbite, da je dovolj prostora za izhodne datoteke)
-2. Zaprite druge aplikacije, da sprostite pomnilnik
-3. Zmanjšajte število slik (obdelujte v serijah)
-
-***
-
-### Vrata so že v uporabi**Napaka:**
-
-```
-
-Port 5000 is already in use
-```
-
-**Rešitve:**
-
-**Windows:**
-
-```powershell
-chloros-cli --port 5001 process "C:\Datasets\Field_A"
-```
-
-**Linux:**
-
-```bash
-# Find what's using port 5000
-lsof -i :5000
-
-# Use a different port
-chloros-cli --port 5001 process ~/datasets/field_a
-```
-
-***
-
-## Pogosta vprašanja
-
-### V: Ali potrebujem licenco za CLI?
-
-**O:**Da! Za CLI je potrebna plačljiva**licenca Chloros+**.
-
-* ❌ Standardni (brezplačni) načrt: CLI onemogočen
-* ✅ Chloros+ (plačljivi) načrti: CLI v celoti omogočen
-
-Naročite se na: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
-
-***
-
-### V: Ali lahko uporabljam CLI na strežniku brez grafičnega vmesnika?**O:** Da! CLI deluje popolnoma brez grafičnega vmesnika. To je glavni primer uporabe na Linux.**Windows strežnik:**
-* Windows strežnik 2016 ali novejši
-* Nameščen Visual C++ Redistributable
-
-**Linux strežnik:**
-* Ubuntu 20.04+ / Debian 11+ (amd64) ali JetPack 6 (arm64)
-* Namestitev prek paketa `.deb`
-
-**Obe platformi:**
-* Najmanj 8 GB RAM (priporočeno 16 GB)
-* Enkratna aktivacija licence: `chloros-cli login user@example.com 'password'`
-
-***
-
-### V: Kje se shranijo obdelane slike?**O:**Privzeto se obdelane slike shranijo v**isto mapo kot vhodne** v podmapah po modelih kamer (npr. `Survey3N_RGN/`).
-
-Uporabite možnost `-o`, da določite drugo izhodno mapo:
-
-```bash
-# Windows
-chloros-cli process "C:\Input" -o "D:\Output"
-
-# Linux
-chloros-cli process ~/input -o ~/output
-```
-
-***
-
-### V: Ali lahko obdelujem več map hkrati?**O:** Ne neposredno z enim ukazom, vendar lahko uporabite skripte za zaporedno obdelavo map. Glejte poglavje [Avtomatizacija in skripti](CLI.md#automation--scripting).***
-
-### V: Kako shranim izhod CLI v datoteko dnevnika?**PowerShell:**
-
-```powershell
-chloros-cli process "C:\Datasets\Field_A" | Tee-Object -FilePath "processing.log"
-```
-
-**Batch:**
-
-```batch
-chloros-cli process "C:\Datasets\Field_A" > processing.log 2>&1
-```
-
-**Linux Bash:**
-
-```bash
-chloros-cli process ~/datasets/field_a 2>&1 | tee processing.log
-```
-
-***
-
-### V: Kaj se zgodi, če med obdelavo pritisnem Ctrl+C?**O:** CLI bo:
-
-1. Obdelavo ustavil na primeren način
-2. Zaprl backend
-3. Izstopil s kodo 130
-
-Delno obdelane slike lahko ostanejo v izhodni mapi.
-
-***
-
-### V: Ali lahko avtomatiziram obdelavo CLI?**O:** Seveda! CLI je zasnovan za avtomatizacijo. Glejte [Avtomatizacija in skriptiranje](CLI.md#automation--scripting) za PowerShell (Windows), Batch (Windows), Bash (Linux) in Python (medplatformski).***
-
-### V: Kako preverim različico CLI?**O:**
-
-```bash
-chloros-cli --version
-```
-
-**Izhod:**
-
-```
-
-Chloros CLI 1.1.0
-```
+## Odpravljanje težav: Top 5
+
+| Simptom | Rešitev |
+| --- | --- |
+| `Login required` ali načrtovana naloga se zatakne pri pozivu `Email:` | Na tem računalniku enkrat zaženite `chloros-cli login EMAIL 'PASSWORD'` — ukazi brez shranjene seje se izvajajo interaktivno, namesto da bi se takoj prekinili. |
+| `backend unreachable` | Zaženite namizno aplikacijoChloros
+ali neposredno zaženite binarno datoteko strežnika (`chloros-backend`). Če usmerite `lattice`/`project`/`daq pool-*` na oddaljeni backend, preverite `CHLOROS_BACKEND_URL`. |
+| Povezava z nizom je blokirana: `FRAMES WILL DROP` / `Reduce ROI to enable` | Obroč sprejemanja omrežne kartice gostitelja je bil ponastavljen na privzete vrednosti — to je najpogostejši vzrok, da se sistem, ki je prej deloval, ne želi več povezati, običajno po posodobitvi gonilnika omrežne kartice. Zaženite `chloros-cli lattice network --fix` iz **terminala s povečanimi pravicami** (ali nastavite `ReceiveBufferLen=256`, `PendingReceives=64`); glejte poglavje *Nastavitev in optimizacija omrežne kartice gostitelja* v referenčnem priročniku. |
+| Podukaz `daq` se zapre: »zahteva celoten paket daq…« | Pričakovano pri dobavljenih različicah — kompilirana različicaCLI
+vsebuje le družino ukazov `daq pool-*`, ki zajema povezovanje, prenos podatkov, snemanje in izbiro datotek CAP. Uporabite `pool-*` (ali `chloros_sdk.connect_daq_sensor()` izPython
+). |
+| Jetson pred obdelavo velikih map prikaže opozorilo o zamenjavi | Dodajte zamenjavo, podprto s datotekami —CLI
+izpiše natančne ukaze `fallocate`/`swapon`, ki jih je treba izvesti. |
 
 ***
 
 ## Pomoč
 
-### Pomoč v ukazni vrstici
-
-Oglejte si informacije o pomoči neposredno v CLI:
-
 ```bash
-# General help
-chloros-cli --help
-
-# Command-specific help
-chloros-cli process --help
-chloros-cli login --help
-chloros-cli language --help
+chloros-cli --help              # top-level help
+chloros-cli process --help      # per-command help
+chloros-cli lattice --help
+chloros-cli daq --help          # lists the pool-* subcommands
 ```
 
-### Kanali podpore
-
-* **E-pošta**: info@mapir.camera
-* **Spletna stran**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* **Cene**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)***
-
-## Celotni primeri
-
-### Primer 1: Osnovna obdelava
-
-Obdelava s privzetimi nastavitvami (vignette, odbojnost):
-
-**Windows:**
-
-```powershell
-chloros-cli process "C:\Datasets\Field_A_2025_01_15"
-```
-
-**Linux:**
-
-```bash
-chloros-cli process ~/datasets/field_a_2025_01_15
-```
-
-***
-
-### Primer 2: Visokokakovostni znanstveni izhod
-
-32-bitni float TIFF:
-
-**Windows:**
-
-```powershell
-chloros-cli process "C:\Datasets\Field_A" ^
-  --format "TIFF (32-bit, Percent)" ^
-  --vignette ^
-  --reflectance
-```
-
-**Linux:**
-
-```bash
-chloros-cli process ~/datasets/field_a \
-  --format "TIFF (32-bit, Percent)" \
-  --vignette \
-  --reflectance
-```
-
-***
-
-### Primer 3: Hitra obdelava predogleda
-
-8-bitni PNG brez kalibracije za hiter pregled:
-
-**Windows:**
-
-```powershell
-chloros-cli process "C:\Datasets\Field_A" ^
-  --format "PNG (8-bit)" ^
-  --no-vignette ^
-  --no-reflectance
-```
-
-**Linux:**
-
-```bash
-chloros-cli process ~/datasets/field_a \
-  --format "PNG (8-bit)" \
-  --no-vignette \
-  --no-reflectance
-```
-
-***
-
-### Primer 4: Obdelava s PPK-popravki
-
-Uporabite PPK-popravke z odbojnostjo:
-
-**Windows:**
-
-```powershell
-chloros-cli process "C:\Datasets\Field_A" ^
-  --ppk ^
-  --reflectance
-```
-
-**Linux:**
-
-```bash
-chloros-cli process ~/datasets/field_a \
-  --ppk \
-  --reflectance
-```
-
-***
-
-### Primer 5: Mesto izpisa po meri
-
-Obdelava v drugo mesto z določenim formatom:
-
-**Windows:**
-
-```powershell
-chloros-cli process "C:\Input\Raw_Images" ^
-  -o "D:\Output\Processed" ^
-  --format "TIFF (16-bit)"
-```
-
-**Linux:**
-
-```bash
-chloros-cli process ~/input/raw_images \
-  -o ~/output/processed \
-  --format "TIFF (16-bit)"
-```
-
-***
-
-### Primer 6: Potek avtentifikacije
-
-Celoten potek avtentifikacije (enak na vseh platformah):
-
-```bash
-# Step 1: Login
-chloros-cli login user@example.com 'MyP@ssw0rd'
-
-# Step 2: Verify status
-chloros-cli status
-
-# Step 3: Process images
-# Windows: chloros-cli process "C:\Datasets\Field_A"
-# Linux:   chloros-cli process ~/datasets/field_a
-chloros-cli process ~/datasets/field_a
-
-# Step 4: Logout (optional, when switching accounts)
-chloros-cli logout
-```
-
-***
-
-### Primer 7: Uporaba več jezikov
-
-Sprememba jezika vmesnika (enaka na vseh platformah):
-
-```bash
-# List available languages
-chloros-cli language --list
-
-# Change to Spanish
-chloros-cli language es
-
-# Process with Spanish interface
-# Windows: chloros-cli process "C:\Vuelos\Campo_A"
-# Linux:   chloros-cli process ~/vuelos/campo_a
-chloros-cli process ~/vuelos/campo_a
-
-# Change back to English
-chloros-cli language en
-```
+* **Vsak parameter, vsak podukaz:** [CLI
+Referenca](reference/cli-reference.md)
+* **Ekvivalent vPython
+:** [Python
+SDK
+](api-python-sdk.md) in [SDK
+Referenca](reference/sdk-reference.md)
+* **Podpora:** info@mapir.camera · [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
