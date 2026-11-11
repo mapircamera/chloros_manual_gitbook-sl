@@ -1,48 +1,65 @@
 # Priključevanje kamer
 
-<figure><img src="../.gitbook/assets/image (37).png" alt=""><figcaption><p>Zavihek Kamere, preden je kaj priključeno</p></figcaption></figure>Chloros samodejno odkrije kamere LATTICE na povezavi — iz zavihka »Kamere« v grafičnem vmesniku, iz `chloros-cli lattice` ali iz Python SDK. Niz modela kamere določa vse nadaljnje korake: Chloros določi profil senzorja, razpored pasov in tovarniško kalibracijo na podlagi podatkov kamere `DeviceUserID` + `DeviceSerialNumber`, zato **ni treba ničesar nastavljati za posamezno kamero**.
+<figure><img src="../.gitbook/assets/image (37).png" alt=""><figcaption><p>Zavihek »Kamere«, preden je kaj priključeno</p></figcaption></figure>
 
-Pred priključitvijo se prepričajte, da je omrežje gostitelja pravilno nastavljeno – naslavljanje link-local, jumbo okvirji ter, za matrice, nastavitve sprejemnega pomnilnika mrežne kartice. To je nastavitev na strani strojne opreme in je opisana v priročniku LATTICE: [**Nastavitev omrežja**](https://mapir.gitbook.io/lattice-camera/setup/network-setup).
+Chloros
+samodejno odkrije kamere LATTICE na povezavi — iz zavihka »Kamere« v grafičnem vmesniku, iz `chloros-cli lattice` ali iz Python
+SDK
+. Niz modela kamere določa vse nadaljnje postopke: Chloros
+iz kamere `DeviceUserID` + `DeviceSerialNumber` določi profil senzorja, razpored pasov in tovarniško kalibracijo, zato **ni treba ničesar nastavljati za posamezno kamero**.
 
-## Povezovanje prek grafičnega vmesnika
+Pred priključitvijo se prepričajte, da je omrežje gostitelja pravilno nastavljeno — naslavljanje link-local, jumbo okvirji ter, za matrice, nastavitve sprejemnega pomnilnika mrežne kartice. To je nastavitev na strani strojne opreme in je opisana v priročniku LATTICE: [**Nastavitev omrežja**](https://mapir.gitbook.io/lattice-camera/setup/network-setup).
 
-Odprite zavihek **Kamere**v stranskem meniju Chloros (zaviheki za strojno opremo se prikažejo, ko se zaključi zagon strežnika) ali uporabite glavni meni →**Poveži s kamero**. Obe možnosti odpreta pogovorno okno**Poveži kamero(-e)**.
+## Povezovanje prek grafičnega uporabniškega vmesnika
 
-### Pogovorno okno »Poveži kamero(-e)«
+Odprite zavihek **Kamere** v stranskem meniju Chloros
+a (zaviheki za strojno opremo se prikažejo, ko se zaključi zagon strežnika) ali uporabite glavni meni → **Poveži s kamero**. Obe možnosti odpreta pogovorno okno**Poveži kamero(-e)**.
 
-Pogovorno okno takoj ob odprtju pregleda omrežje („Pregledovanje omrežja...“) in prikaže seznam vseh najdenih kamer. V vsaki vrstici so prikazani **model**kamere (npr. `LATT-M3M-L41-F550`),**serijska številka**in**IP-naslov**.
+### Pogovorno okno **Poveži kamero(-e)**Pogovorno okno takoj ob odprtju pregleda omrežje („Pregled omrežja...“) in prikaže seznam vseh najdenih kamer. Vsaka vrstica prikazuje**model**kamere (npr. `LATT-M3M-L41-F550`),**serijsko številko**in**IP-naslov**.
 
-* **Kliknite vrstico, da jo izberete**(zelena označitev). Izberete lahko**več kamer** in jih povežete naenkrat — Chloros jih poveže zaporedno.
+* **Kliknite vrstico, da jo izberete**(zelena označitev). Izberete lahko**več kamer** in jih povežete naenkrat — Chloros
+jih poveže zaporedno.
 * Vrstice z oznako **»Povezano«** so že povezane in jih ni mogoče ponovno izbrati.
-* Vrstice z oznako **»V nizu«** pripadajo trenutno povezanemu nizu kamer. Najprej prekinite povezavo niza, če želite to kamero uporabljati samostojno.
-* **Poveži** — poveže izbrane kamere; gumb prikazuje število, npr. »Poveži (3)«, kadar je izbranih več kot ena kamera.
+* Vrstice z oznako **»V nizu«** pripadajo trenutno povezanemu nizu kamer. Najprej prekinite povezavo z nizom, če želite to kamero uporabljati samostojno.
+* **Poveži** — poveže izbrane kamere; gumb prikazuje število, npr. »Poveži (3)«, če je izbranih več kamer.
 * **Ponovno skeniranje** — ponovno zažene iskanje.
 * **Zapri** — zapre pogovorno okno.
-* Če se iskanje konča brez rezultatov, pogovorno okno prikaže **»V omrežju ni bilo najdenih kamer«** — glejte [Odpravljanje težav](connecting.md#troubleshooting) spodaj.
+* Če se iskanje konča brez rezultatov, se v pogovornem oknu prikaže **»V omrežju ni najdenih kamer«** — glejte [Odpravljanje težav](connecting.md#troubleshooting) spodaj.
 
-<figure><img src="../.gitbook/assets/image (38).png" alt=""><figcaption><p>Pogovorno okno »Poveži kamero(-e)« — tukaj prikazano brez kamer v omrežju</p></figcaption></figure>### Prvo povezovanje: prenos kalibracijskega paketa
+<figure><img src="../.gitbook/assets/image (38).png" alt=""><figcaption><p>Pogovorno okno »Poveži kamero(-e)« — tukaj prikazano brez kamer v omrežju</p></figcaption></figure>
 
-**Prvič**, ko se določena kamera poveže z računalnikom, Chloros prenese tovarniški kalibracijski paket kamere (\~3,8 MB) iz same kamere prek GigE. Medtem ko se to izvaja, pogovorno okno prikaže zeleni panel**»Prenos kalibracijskih podatkov iz kamere«**s serijsko vrstico napredka – pričakujte približno**70 sekund** na kamero. Paket se shrani v predpomnilnik na gostitelju, zato se pri poznejših priključitvah iste kamere prenos v celoti preskoči (in panel se nikoli ne prikaže).
+### Prvo povezovanje: prenos kalibracijskega paketa
+
+Ko se določena kamera **prvič** poveže z računalnikom, Chloros
+prek GigE prenese tovarniški kalibracijski paket kamere (\~3,8 MB) neposredno iz kamere. Medtem ko se to izvaja, pogovorno okno prikaže zeleni panel **»Prenos kalibracijskih podatkov iz kamere«**s serijsko vrstico napredka — pričakujte približno**70 sekund** na kamero. Pri več kot šestih kamerah se vrstice napredka pomikajo znotraj panela. Paket se shrani v predpomnilnik na gostitelju, zato se pri poznejših priključitvah iste kamere prenos v celoti preskoči (in okno se nikoli ne prikaže).
 
 ### Analiza sistema
 
 Gumb **Analiza sistema** v pogovornem oknu preveri gostiteljski računalnik in omrežje (med izvajanjem se prikaže napis »Analizira se...«) ter prikaže diagnostično poročilo:
 
-* **Gostiteljski računalnik** — jedra procesorja in pomnilnik RAM; ime grafičnega procesorja in pomnilnik ali »GPU: ni zaznan«.
-* **Omrežni vmesniki** — ime vsakega omrežnega vmesnika, hitrost povezave, MTU (z oznako »jumbo«, če je aktivna), stanje prenosa navzgor/navzdol in ali je vmesnik priključen na USB-vodilo.
-* **Kamere**— serijska številka, model, IP in**na kateri mrežni kartici je priključena posamezna kamera**.
-* **Zmogljivost** — trenutno število sličic na sekundo (fps) v primerjavi z idealnim za posamezno kamero glede na format pikslov, z zeleno vrstico »Potential: N× improvement possible«, kadar idealno število presega trenutno.
+* **Gostiteljski računalnik** — jedra procesorja in pomnilnik RAM; ime grafične kartice in njen pomnilnik ali »GPU: ni zaznano«.
+* **Omrežni vmesniki** — ime vsakega omrežnega vmesnika, hitrost povezave, MTU (z oznako »jumbo«, če je aktivna), stanje prenosa (up/down) in ali je vmesnik priključen na USB-vodilo.
+* **Kamere**— serijska številka, model, IP in**na katerem omrežnem vmesniku je priključena vsaka kamera**.
+* **Zmogljivost** — trenutno število sličic na sekundo (fps) v primerjavi z idealnim za vsako kamero glede na format pikslov, z zeleno vrstico »Potential: N× improvement possible«, kadar idealno število presega trenutno.
 * **Opozorila in oštevilčena priporočila** — ali »Sistem deluje dobro za trenutno število kamer«, kadar ni ničesar za popraviti.
 
-Program zaženite, kadar se odkrivanje ali pretakanje obnaša nepričakovano — prepozna večino težav na strani omrežnih kartic (napačna vrednost MTU, kamera na napačnem vmesniku, omejitve USB-adapterja), ne da bi zapustili pogovorno okno.
+Zagnajte ga, kadar se odkrivanje ali pretakanje obnaša nepričakovano — prepozna večino težav na strani omrežnih kartic (napačna MTU, kamera na napačnem vmesniku, omejitve USB-adapterja), ne da bi zapustili pogovorno okno.
 
 ### Povezovanje niza
 
-Če želite dve ali več kamer povezati v **sinhroniziran niz**, namesto tega uporabite čarovnika za povezovanje niza (**Poveži niz kamer**): vodnik vas popelje skozi izbiro glavne/podrejene kamere (predhodno izpolnjeno s sondo za ožičenje GPIO), izbiro načina prikazovanja (ločeni ali združeni kvadratki) ter nastavitve niza s projekcijo v realnem času dosegljivih sličic na sekundo (fps) in pasovne širine ožičenja, preden potrdite izbiro. Čarovnik in poteki dela z nizi so obravnavani v poglavju o nizih z več kamerami v tem priročniku; ekvivalent za CLI je »Postopek prvega priključitve kamere LATTICE« v [CLI Referenca](../reference/cli-reference.md).
+Če želite povezati dve ali več kamer kot **sinhroniziran niz**, namesto tega uporabite čarovnika za povezovanje niza (**Poveži niz kamer**): ta vas vodi skozi izbiro glavne/podrejene kamere (vnaprej izpolnjeno s preizkusom sinhronizacijskega kabla — vsaka priključena kamera lahko postane glavna, kamera RGB
+`-FRGB` pa je vnaprej izbrana, če je priključena s kablom), izbiro načina prikazovanja (ločene ali združene ploščice) ter prizor z nastavitvami niza s projekcijo v realnem času dosegljivih sličic na sekundo (fps) in pasovne širine povezave, preden potrdite izbiro. Čarovnik in delovni tokovi za nize so obravnavani v poglavju o nizih več kamer v tem priročniku; ustreznik v CLI
+-ju je »LATTICE Camera First-Connect Workflow« v [CLI
+Reference](../reference/cli-reference.md).
 
-## Povezovanje iz CLI in SDK
+## Povezovanje prek CLI
+in SDK
+Dostop prek
 
-Za dostop do CLI in SDK je potreben plačljiv paket Chloros+ in prijava; to se izvaja na strani strežnika (`401 AUTH_REQUIRED`, če niste prijavljeni, `403 PLAN_UPGRADE_REQUIRED` na brezplačnem nivoju).
+CLI
+in SDK
+zahteva plačljivo stopnjo Chloros
++ in prijavo; to se uveljavlja na strani strežnika (`401 AUTH_REQUIRED`, če niste prijavljeni, `403 PLAN_UPGRADE_REQUIRED` na brezplačni stopnji).
 
 ```bash
 # List cameras on the network (vendor, model, serial, IP, MAC)
@@ -67,21 +84,27 @@ with chloros_sdk.connect_array(["213800234", "214000533"]) as array:
     ...
 ```
 
-Celotni podpisi, možnosti in delovni tokovi zajemanja: [CLI Referenca](../reference/cli-reference.md) § `chloros-cli lattice`, [SDK Referenca](../reference/sdk-reference.md) § `connect_camera()` / `connect_array()`.
+Celotni podpisi, možnosti in delovni tokovi zajemanja: [Referenca CLI
+](../reference/cli-reference.md) § `chloros-cli lattice`, [Referenca SDK
+](../reference/sdk-reference.md) § `connect_camera()` / `connect_array()`.
 
 ## Kako se kalibracija izvede ob povezavi
 
-Vsaka kamera LATTICE ima tovarniški kalibracijski paket **vgrajena v kamero**, Chloros pa ob povezavi kamere preveri tudi oblak MAPIR:
+Vsaka kamera LATTICE ima svoj tovarniški kalibracijski paket **vgrajena v kamero**, poleg tega pa Chloros
+ob povezavi kamere preveri tudi oblak MAPIR
+:
 
-| Situacija   | Kaj uporablja Chloros                                                                                                                                                                                                          |
+| Situacija   | Kaj uporabi Chloros
+                                                                                                                                                                                                          |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Spletno**|**Najnovejša kalibracija, objavljena za to serijsko številko** — kopija v oblaku prevlada nad kopijo v kameri. Kamera, ki jo je MAPIR ponovno kalibriral ali posodobil, se zato samodejno posodobi; ni potrebno nobeno ukrepanje uporabnika. |
-| **Offline**|**Paket v kameri**, takšen, kakršen je. Delovni tokovi, ki potekajo popolnoma offline, še naprej delujejo; preprosto ne prevzamejo novejših kalibracij, dokler kamera ni vsaj enkrat online (ali dokler ni ponovno posodobljena s tovarniškimi nastavitvami).                                                  |
+| **Spletno**|**Najnovejša kalibracija, objavljena za to serijsko številko** — kopija v oblaku prevlada nad kopijo na kameri. Kamera, ki jo je MAPIR
+ponovno kalibriral ali posodobil, se zato samodejno posodobi; ni potrebno nobeno ukrepanje uporabnika. |
+| **Offline**|**Paket v kameri**, tak kot je. Popolnoma offline delovni tokovi še naprej delujejo; preprosto ne prevzamejo novejših kalibracij, dokler kamera ni enkrat spet online (ali dokler ni ponovno posodobljena na tovarniške nastavitve).                                                  |
 
-Ob zajemanju so dejansko uporabljeni koeficienti **zamrznjeni v metapodatkih XMP vsake slike**. Kasnejša posodobitev kalibracije nikoli tiho ne spremeni slik, ki ste jih že zajeli – ponovna obdelava starega posnetka uporablja koeficiente, vtisnjene v njegovih metapodatkih XMP, ne pa tistih, ki so danes najnovejši.
+Ob zajemanju so dejansko uporabljeni koeficienti **vpisani v XMP-metapodatke vsake slike**. Kasnejša posodobitev kalibracije nikoli tiho ne spremeni že zajetih slik — pri ponovni obdelavi starega posnetka se uporabijo koeficienti, vpisani v njegovih XMP-metapodatkih, ne pa tisti, ki so danes najnovejši.
 
 ## Odpravljanje težav
 
-* **»V omrežju ni najdenih kamer“**— preverite lokalno omrežno nastavitev v [Nastavitve omrežja](https://mapir.gitbook.io/lattice-camera/setup/network-setup): statični naslov gostiteljske mrežne kartice `169.254.x.x/16`, kamere na isti povezavi, DHCP/prehod ni predviden. Nato v pogovornem oknu za povezavo uporabite možnost**Analiza sistema**, da preverite, na kateri mrežni kartici je (ali ni) vidna posamezna kamera. Po vsaki spremembi ožičenja ali mrežne kartice izvedite**ponovno iskanje**.
-* **Sistem, ki je prej deloval, se ne želi povezati** (vrata panelov z `FRAMES WILL DROP` / `Reduce ROI to enable`) — posodobitev gonilnika omrežne kartice je tiho ponastavila nastavitve sprejemnega obroča. Ponovno jih uporabite ali zaženite `chloros-cli lattice network --fix` iz terminala z upraviteljskimi pravicami; glejte [Nastavitev omrežja](https://mapir.gitbook.io/lattice-camera/setup/network-setup).
+* **»V omrežju ni najdenih kamer“**— preverite nastavitve za lokalno povezavo v [Nastavitve omrežja](https://mapir.gitbook.io/lattice-camera/setup/network-setup): statični naslov omrežne kartice gostitelja `169.254.x.x/16`, kamere na isti povezavi, DHCP/prehod ni predviden. Nato v pogovornem oknu za povezavo uporabite**Analiza sistema**, da preverite, na kateri mrežni kartici je (ali ni) vidna posamezna kamera. Po vsaki spremembi ožičenja ali mrežne kartice izvedite**ponovno iskanje**.
+* **Naprava, ki je prej delovala, se ne želi povezati** (vrata plošče z `FRAMES WILL DROP` / `Reduce ROI to enable`) — posodobitev gonilnika mrežne kartice je tiho ponastavila nastavitve sprejemnega obroča. Ponovno jih uporabite ali zaženite `chloros-cli lattice network --fix` iz terminala z upraviteljskimi pravicami; glejte [Nastavitev omrežja](https://mapir.gitbook.io/lattice-camera/setup/network-setup).
 * **Kamera prikazuje »In Array«** — pripada povezani seji niza. Odklopite niz, če želite kamero uporabljati samostojno.

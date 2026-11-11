@@ -1,6 +1,11 @@
-# Priročnik za NVIDIA Jetson
+# Priročnik za NVIDIA Jetson Program
 
-Chloros na platformi NVIDIA Jetson omogoča obdelavo multispektralnih slik na robu omrežja – na terenu, na brezpilotnih letalih (UAV) in v oddaljenih napravah. Chloros 1.2.0 ob zagonu zazna vaš model Jetson in optimizira strategijo obdelave za najdeno strojno opremo. **Ročno nastavljanje ni potrebno.**
+Chloros
+na platformi NVIDIA Jetson omogoča obdelavo multispektralnih slik na robu omrežja – na terenu, na brezpilotnih letalih (UAV) in v oddaljenih napravah. Chloros
+1.3.0 ob zagonu prepozna vaš model Jetson in optimizira strategijo obdelave glede na ugotovljeno strojno opremo. **Ročno nastavljanje ni potrebno.**
+{% hint style="info" %}
+**Paket Jetson 1.3.0 obdeluje podatke na grafičnem procesorju (GPU) naprave Jetson.** `chloros_1.3.0_arm64_jp6.deb` je zasnovan za JetPack 6 in uporablja CUDA-različico PyTorch iz JetPack 6, zato obdelava, vključno z algoritmom Texture Aware debayer, poteka na grafičnem procesorju (GPU) naprave Orin. Paket sam ne vsebuje CUDA: uporablja knjižnici CUDA in cuDNN, ki ju namesti JetPack 6 (`sudo apt install nvidia-jetpack` na sliki, ki ju nima). Kadar ni na voljo grafičnega procesorja s podporo CUDA, obdelava poteka na procesorju, Texture Aware pa uporablja standardni debayer.
+{% endhint %}
 
 ***
 
@@ -9,11 +14,12 @@ Chloros na platformi NVIDIA Jetson omogoča obdelavo multispektralnih slik na ro
 | Model                | RAM            | Strategija obdelave                                     | Priporočena uporaba                                          |
 | -------------------- | -------------- | ------------------------------------------------------- | -------------------------------------------------------- |
 | **Jetson AGX Orin**  | 32–64 GB skupnega pomnilnika | `GPU_PARALLEL` (2 delavca)                              | Največja zmogljivost, veliki nizi podatkov                      |
-| **Jetson Orin NX**   | 8–16 GB skupnega pomnilnika  | `GPU_PARALLEL` (2 delavca, 16 GB) / `GPU_SINGLE` (8 GB)   | Glavno priporočilo za uporabo v zraku in na terenu |
-| **Jetson Orin Nano** | 8 GB skupnega pomnilnika     | `GPU_SINGLE` (1 delovni proces, sekvenčno)                     | Osnovna raven računalništva na robu omrežja                                 |
+| **Jetson Orin NX**   | 8–16 GB skupnega pomnilnika  | `GPU_PARALLEL` (2 delavca, 16 GB) / `GPU_SINGLE` (8 GB)   | Glavno priporočilo za uporabo na terenu              |
+| **Jetson Orin Nano** | 8 GB skupnega pomnilnika     | `GPU_SINGLE` (1 delovni proces, zaporedno)                     | Osnovna raven računalništva na robu omrežja                                 |
 
 {% hint style="info" %}
-Paket Linux arm64 zahteva **JetPack 6**, ki je na voljo za družino Jetson Orin. Starejši modeli (Nano, TX2, Xavier NX) ne morejo izvajati JetPack 6 in jih trenutni paket ne podpira.
+Paket Linux
+arm64 zahteva **JetPack 6**, ki je na voljo za družino Jetson Orin. Starejši modeli (Nano, TX2, Xavier NX) ne morejo izvajati JetPack 6 in jih trenutni paket ne podpira.
 {% endhint %}
 
 ***
@@ -21,30 +27,36 @@ Paket Linux arm64 zahteva **JetPack 6**, ki je na voljo za družino Jetson Orin.
 ## Zahteve
 
 * **JetPack 6.x** (priporočena najnovejša različica)
-* **NVIDIA CUDA** (vključena v JetPack)
-* **Plačljiv načrt Chloros+** — stopnja Copper ali višja (potrebna za ves dostop do CLI/SDK; uveljavljena na strani strežnika)
+* **NVIDIA CUDA in cuDNN** iz JetPack 6 (`sudo apt install nvidia-jetpack`, če jih vaša slika ne vsebuje)
+* **Plačljiv načrt Chloros
++** — stopnja Copper ali višja (potrebna za ves dostop do CLI
+/SDK
+; uveljavljena na strani strežnika)
 
 ## Namestitev
 
 ```bash
-# Install the JetPack 6 .deb package
-sudo dpkg -i chloros_1.2.0_arm64_jp6.deb
-sudo apt-get install -f
+# Install the arm64 .deb package (JetPack 6) -- apt, not dpkg -i, so the
+# Python SDK's requirements (python3-numpy, python3-requests) come too
+sudo apt install ./chloros_1.3.0_arm64_jp6.deb
 
 # Verify installation
-chloros-cli --version    # prints "Chloros CLI 1.2.0"
-
-# Install Python SDK (optional) — the bundled wheel always matches this build
-pip install --user /usr/lib/chloros/sdk/chloros_sdk-*.whl
+chloros-cli --version    # prints "Chloros CLI 1.3.0"
+python3 -c "import chloros_sdk; print(chloros_sdk.__version__)"   # the .deb installs the SDK
 
 # Run system diagnostics
 chloros-cli selftest
 ```
 
-Za splošne podrobnosti o namestitvi Linux, lokacijah datotek in odpravljanju težav glejte [Namestitev Linux](linux-installation.md).
+`.deb` namesti Python
+ov SDK
+za sistem `python3`, ki ustreza tej različici. Le v virtualno okolje (virtualenv) je treba namestiti priloženi wheel: `pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl` (popolnoma brez povezave). Za splošne podrobnosti o namestitvi v sistemu Linux
+, lokacijah datotek in odpravljanju težav glejte [Namestitev v sistemu Linux
+](linux-installation.md).
 
 {% hint style="info" %}
-**Izkopirajte razpakirani imenik na hiter pomnilnik.** Kompilirane izvedljive datoteke se ob vsakem zagonu same razpakirajo v začasni imenik — kar je s pomnilniške kartice SD izredno počasno. Chloros samodejno uporabi `/mnt/ssd/tmp`, če ta obstaja; v nasprotnem primeru nastavite `TMPDIR` na pot na vašem NVMe (`export TMPDIR=/mnt/nvme/tmp`).
+**Pri zagonu ni več razpakiranja.** Od različice 1.3.0 naprej se backend in CLI
+namestita nerazpakirana v mapo `/usr/lib/chloros/`, zato se ob vsakem zagonu ne razpakirata več v začasno mapo. Začasne datoteke se še vedno samodejno shranjujejo v `/mnt/ssd/tmp`, če ta mapa obstaja; v nasprotnem primeru lahko `TMPDIR` nastavite na pot na vašem NVMe (`export TMPDIR=/mnt/nvme/tmp`).
 {% endhint %}
 
 ***
@@ -53,19 +65,23 @@ Za splošne podrobnosti o namestitvi Linux, lokacijah datotek in odpravljanju te
 
 ### Kako deluje
 
-Ob zagonu Chloros profilira vaš sistem:
+Ob zagonu Chloros
+ustvari profil vašega sistema:
 
 1. **Zazna model Jetson** prek `/proc/device-tree/model`
 2. **Prebere razpoložljivi skupni pomnilnik GPU/CPU** (Jetson uporablja enoten pomnilnik)
-3. **Izbere strategijo obdelave** (`GPU_PARALLEL`, `GPU_SINGLE` ali `CPU_PARALLEL`)
-4. **Samodejno nastavi število delavcev, vrsto poti in dodelitev pomnilnika**Odločitev temelji na**skupnem skupnem pomnilniku RAM**, ne na imenu modela:
+3. **Vpraša PyTorch, ali lahko uporabi CUDA** — če sta nameščena CUDA in cuDNN iz JetPack 6, lahko
+4. **Samodejno izbere strategijo obdelave** (`GPU_PARALLEL`, `GPU_SINGLE` ali `CPU_PARALLEL`) in število delavcev
 
-* **Manj kot 12 GB skupnega pomnilnika RAM**(vsi Jetsoni z 8 GB): `GPU_SINGLE` z**1 delavcem – namerno zaporedno obdelovanje**. Pomnilnika je premalo za sočasno delovanje delavcev, zato se slike obdelujejo po ena naenkrat. Na napravah Jetson z**8 GB ali manj** nit 3 v celoti preskoči skupino delavcev in svoje delo za posamezno sliko izvaja znotraj procesa.
-* **12 GB ali več**(Orin NX 16 GB, AGX Orin): enotni pomnilnik ustreza zahtevam za `GPU_PARALLEL`, vendar je število delavcev**na Jetsonu omejeno na 2** — grafični procesor (GPU), pomnilnik RAM delovnih procesov in njihovi konteksti CUDA za vsakega delavca črpajo iz istega skupnega sklopa, zato več delavcev povečuje tveganje za napake zaradi pomanjkanja pomnilnika.
+Odločitev temelji na **skupnem deljenem pomnilniku RAM**, ne na imenu modela:
+
+* **Pri skupnem pomnilniku RAM manj kot 12 GB**(vsi Jetsoni z 8 GB):**1 delavec — namerno zaporedna obdelava**. Pomnilnika je premalo za sočasno delovanje več delavcev, zato se slike obdelujejo po ena naenkrat. Na napravah Jetson z**8 GB ali manj** niti 3 v celoti preskoči skupino delavcev in svoje delo za posamezno sliko izvaja znotraj procesa. V dnevniku strežnika je ta strategija poimenovana `GPU_SINGLE`.
+* **12 GB ali več**(Orin NX 16 GB, AGX Orin): združen pomnilnik izpolnjuje pogoje za `GPU_PARALLEL`, vendar je število delavcev**na Jetsonu omejeno na 2** — grafični procesor (GPU), pomnilnik RAM delovnih procesov in njihovi konteksti CUDA za vsakega delavca črpajo iz istega skupnega sklopa, zato več delavcev povečuje tveganje za napake zaradi pomanjkanja pomnilnika.
+* **Ni uporabnega CUDA** (manjkajo CUDA-knjižnice JetPacka): `CPU_PARALLEL` pri 12 GB ali več, spodaj po ena slika naenkrat.
 
 Avtomatsko izbiro lahko prepisate s spremenljivko okolja `CHLOROS_STRATEGY` — glejte [Dinamično prilagajanje računalniške moči](../processing-architecture/dynamic-compute-adaptation.md#manual-strategy-override).
 
-### Delovanje po posameznih modelih
+### Obnašanje po posameznih modelih
 
 | Model Jetson                | Strategija       | Delavci | Izvedba                                      |
 | --------------------------- | -------------- | ------- | ---------------------------------------------- |
@@ -74,11 +90,11 @@ Avtomatsko izbiro lahko prepisate s spremenljivko okolja `CHLOROS_STRATEGY` — 
 | **Jetson Orin NX 16 GB**     | `GPU_PARALLEL` | 2       | Vzporedni delovni procesi, pot `fused_gpu`  |
 | **Jetson AGX Orin 32–64 GB** | `GPU_PARALLEL` | 2       | Sočasni delovni procesi, pot `fused_gpu`  |
 
-Ključna razlika med platformami je **pomnilnik**. Jetson z 8 GB mora ob visoki obremenitvi slike obdelovati po eno naenkrat z uporabo pomnilniško učinkovitega pristopa s ploščicami, medtem ko lahko Orin z 16 GB in več prek GPU hkrati obdeluje 2 sliki z uporabo združenega potoka z višjo prepustnostjo.
+Ključna razlika med platformami je **pomnilnik**. Jetson z 8 GB mora ob visoki obremenitvi slike obdelovati po eno naenkrat z uporabo pomnilniško učinkovitega pristopa s ploščicami, medtem ko lahko Orin z 16 GB ali več hkrati obdeluje 2 sliki prek grafičnega procesorja z uporabo združenega potoka z višjo prepustnostjo.
 
 ### Proračun GPU na model
 
-Vsak model Jetson ima tudi profil strojne opreme, ki omejuje, koliko prostora iz skupnega sklada lahko porabi obdelava, ter prilagaja velikosti serij:
+Vsak model Jetson ima tudi profil strojne opreme, ki omejuje, koliko prostora iz skupnega sklada lahko porabi obdelava, ter prilagaja velikost serij:
 
 | Model | Zgornja meja proračuna GPU | Multiplikator velikosti serije | Rezervirano za sistem/zaslon |
 | --- | --- | --- | --- |
@@ -86,18 +102,21 @@ Vsak model Jetson ima tudi profil strojne opreme, ki omejuje, koliko prostora iz
 | **Jetson Orin NX** | 75 % | ×1,0 | 3,0 GB |
 | **Jetson AGX Orin** | 80 % | ×1,5 | 4,0 GB |
 
-Profil se prilagodi glede na zaznani RAM: pri napravi Jetson, ki poroča o **16 GB ali več**, se množitelj velikosti serije poveča za ×1,2. Osnovna velikost serije pred uporabo množiteljev je 8 slik.
+Profil se prilagodi glede na zaznan RAM: pri napravi Jetson, ki poroča o **16 GB ali več**, se množitelj velikosti serije poveča za ×1,2. Osnovna velikost serije pred uporabo množiteljev je 8 slik.
 
-Za celoten referenčni dokument o prilagajanju računskih zmogljivosti glejte [Dinamično prilagajanje računskih zmogljivosti](../processing-architecture/dynamic-compute-adaptation.md).
+Za celoten referenčni dokument o prilagajanju računske zmogljivosti glejte [Dinamično prilagajanje računske zmogljivosti](../processing-architecture/dynamic-compute-adaptation.md).
 
 ***
 
 ## Omejitev frekvence GPU za Texture Aware na modelih Nano in Orin Nano
 
-Algoritem Texture Aware za odstranjevanje pikslov izvaja inferenco nevronskega omrežja na GPU, kar lahko pri modelih Jetson z nizko porabo energije (razred 10–15 W) pri polni hitrosti takta GPU sproži **opozorila o prevelikem toku**. Pred obdelavo s Texture Aware na**Jetson Nano ali Orin Nano**Chloros preveri najvišjo frekvenco GPU-ja in jo omeji na**510 MHz** (510000000), če je trenutno višja:
+Algoritem Texture Aware za odstranjevanje pikslov izvaja sklepanje nevronskih mrež na GPU, kar lahko pri modelih Jetson z nizko porabo energije (razred 10–15 W) pri polni hitrosti takta GPU sproži **opozorila o prevelikem toku**. Ko v**Jetson Nano ali Orin Nano**, CLI
+preveri najvišjo frekvenco GPU-ja in jo omeji na **510 MHz** (510000000), če je trenutno višja:
 
-* Če lahko CLI zapiše v sysfs vozlišče frekvence grafičnega procesorja, se omejitev **uporabi samodejno** in prikaže se potrditev.
-* Če ne (potrebuje root), CLI izpiše natančen ukaz `sudo` za ročno uporabo omejitve, počaka trenutek, da ga lahko preberete, nato pa nadaljuje — obdelava še vedno poteka, vendar se lahko prikažejo opozorila o prevelikem toku.
+* Če lahko CLI
+zapiše v sysfs vozlišče frekvence grafičnega procesorja, se omejitev **uporabi samodejno** in prikaže se potrditev.
+* Če ne (potrebuje pravice root), CLI
+izpiše natančen ukaz `sudo` za ročno uporabo omejitve, počaka trenutek, da ga lahko preberete, nato pa nadaljuje — obdelava še vedno poteka, vendar se lahko prikažejo opozorila o prevelikem toku.
 
 Če želite omejitev nastaviti sami pred obdelavo:
 
@@ -105,22 +124,24 @@ Algoritem Texture Aware za odstranjevanje pikslov izvaja inferenco nevronskega o
 echo 510000000 | sudo tee /sys/devices/platform/bus@0/17000000.gpu/devfreq/17000000.gpu/max_freq
 ```
 
-Modeli z večjo močjo (Orin NX 25 W, AGX Orin 60 W) delujejo pri polni hitrosti grafičnega procesorja; omejitev ni nastavljena. Standardni debayer na nobenem modelu nikoli ne sproži omejitve.
+Modeli z večjo močjo (Orin NX 25 W, AGX Orin 60 W) delujejo pri polni hitrosti grafičnega procesorja; omejitev se ne uporablja. Standardni debayer na nobenem modelu nikoli ne sproži omejitve.
 
 {% hint style="info" %}
-**Texture Aware na Jetsonu vedno obdeluje eno sliko naenkrat.** Vsak delavec bi potreboval svoj CUDA-kontekst (~1 GB) ter svojo kopijo modela za odstranjevanje šuma, česar enotni pomnilnik ne more zagotoviti – zato je na Jetsonu pot »Texture Aware« pritrjena na enega samega delavca, pri čemer je dostop do grafičnega procesorja serializiran. Pričakujte, da bo »Texture Aware« na katerem koli Jetsonu opazno počasnejši od »Standard«.
+**Texture Aware na Jetsonu vedno obdeluje eno sliko naenkrat.** Vsak delavec bi potreboval svoj CUDA-kontekst (~1 GB) ter svojo kopijo modela za odstranjevanje šuma, česar enotni pomnilnik ne more zagotoviti – zato je na Jetsonu pot Texture Aware vezana na enega samega delavca, pri čemer je dostop do grafičnega procesorja (GPU) serializiran. Pričakujte, da bo Texture Aware na katerem koli Jetsonu znatno počasnejši od Standard. Texture Aware se uporablja za slike Survey3
+: zajemi LATTICE vedno uporabljajo Standardni debayer. Brez uporabnega CUDA GPU-ja se izvede Standardni način, backend pa zabeleži eno vrstico `[DEBAYER] … needs a CUDA GPU …`, ki pojasni razlog (prikazano z `chloros-cli --verbose`).
 {% endhint %}
 
 ***
 
 ## Upravljanje toplote
 
-Naprave Jetson imajo omejeno toplotno rezervo, zlasti v zaprtih prostorih ali pri uporabi v zraku. Chloros spremlja temperaturo SoC-ja in samodejno omejuje velikost serij:
+Naprave Jetson imajo omejeno toplotno rezervo, zlasti v zaprtih prostorih ali pri uporabi v zraku. Program Chloros
+spremlja temperaturo SoC-ja in samodejno omejuje velikost serij:
 
 | Temperatura         | Ukrep                                            |
 | ------------------- | ------------------------------------------------- |
 | **&lt; 70 °C**          | Normalno delovanje — polna hitrost obdelave          |
-| **70 °C** (Opozorilo) | Velikost serije se postopoma zmanjšuje (100 % → 50 % med 70 °C in 80 °C) |
+| **70 °C** (Opozorilo)  | Velikost serije se postopoma zmanjšuje (100 % → 50 % med 70 °C in 80 °C) |
 | **80 °C** (kritično) | Agresivno omejevanje (50 % → 0 % med 80 °C in 90 °C) |
 | **90 °C** (izklop) | Popolna zaustavitev obdelave GPU — potrebno hlajenje |
 
@@ -132,24 +153,21 @@ Naprave Jetson imajo omejeno toplotno rezervo, zlasti v zaprtih prostorih ali pr
 
 ## Upravljanje pomnilnika
 
-Naprave Jetson uporabljajo **enotni pomnilnik** — grafični procesor (GPU) in centralni procesor (CPU) si delita isti fizični pomnilnik RAM. Navedeni VRAM (npr. ~15,3 GB na napravi Orin NX 16 GB) ni namenski pomnilnik grafičnega procesorja; gre za isti pomnilnik RAM, ki ga uporabljata operacijski sistem in vsi drugi procesi.
+Naprave Jetson uporabljajo **enotni pomnilnik** — grafična kartica (GPU) in procesor (CPU) si delita isti fizični pomnilnik RAM. Navedeni VRAM (npr. ~15,3 GB na Orin NX 16 GB) ni namenski pomnilnik grafične kartice; gre za isti pomnilnik RAM, ki ga uporabljajo operacijski sistem in vsi drugi procesi.
 
-### Opozorilo glede izmenjave pomnilnika in priporočila
+### Opozorilo in priporočila glede zamenjave
 
-Pred obdelavo na napravi Jetson program CLI prešteje RAW-slike v vaši vhodni mapi (`.tif`, `.tiff`, `.raw`, `.dng` — predogledi v formatu JPG se ne štejejo), oceni največjo količino pomnilnika, ki jo bo obdelava potrebovala, in **opozori pred zagonom**, če je verjetno, da RAM in zamenjalni pomnilnik ne bosta zadostovala. Opozorilo ima naslov `LOW MEMORY WARNING - Jetson Detected`, prikaže število slik, RAM, trenutni swap in ocenjeno največjo porabo, nato pa poda natančne ukaze `fallocate` / `chmod` / `mkswap` / `swapon`, prilagojene velikosti vašega projekta (nikoli manjše od 8 GB). Program se za nekaj sekund ustavi, da se sporočilo ne izgubi v pomiku nazaj, nato pa se obdelava nadaljuje.**Ocene pomnilnika, ki jih uporablja opozorilo:**
+Pred obdelavo na napravi Jetson CLI
+prešteje RAW-slike v vaši vhodni mapi (`.tif`, `.tiff`, `.raw`, `.dng` — predogledi v formatu JPG se ne štejejo), oceni največjo količino pomnilnika, ki jo bo izvajanje potrebovalo, in **opozori pred začetkom**, če je verjetno, da RAM + swap ne bosta zadostovala. Opozorilo ima naslov `LOW MEMORY WARNING - Jetson Detected`, izpiše število vaših slik, RAM, trenutni swap in ocenjeno največjo porabo, nato pa poda natančne ukaze `fallocate` / `chmod` / `mkswap` / `swapon`, prilagojene velikosti vaš projekt (nikoli manjši od 8 GB). Za nekaj sekund se ustavi, da se sporočilo ne izgubi v zgodovini pomikanja, nato pa se obdelava nadaljuje.**Ocene pomnilnika, ki jih uporablja opozorilo:**
 
-| Način odstranjevanja pik | Osnova | Na sliko |
+| Način Debayer | Osnovno | Na sliko |
 | --- | --- | --- |
 | Standardni | ~1,5 GB | ~10 MB |
-| Texture Aware | ~2,5 GB (model + izvedbeni čas Python) | ~15 MB |
+| Texture Aware | ~2,5 GB (model + Pythonovo izvajališče) | ~15 MB |
 
-Opozorilo se sproži, ko ocenjena največja poraba presega RAM + zamenjevalni prostor minus 1 GB varnostne rezerve, pri čemer se upošteva le zamenjevalni prostor, **podprt z datotekami** – nastavitev, ki uporablja izključno zram, bo še vedno označena.
+Opozorilo se sproži, ko ocenjena največja poraba presega RAM + zamenjavo minus 1 GB varnostne rezerve, pri čemer se upošteva le zamenjava, **podprta s datotekami** — nastavitev, ki uporablja izključno zram, bo še vedno označena.
 
-Če želite zamenjavo dodati ročno (primer: 8 GB):
-
-
-
-<!-- SCREENSHOT-NEEDED: Terminal on a Jetson Orin (SSH session) showing the full "LOW MEMORY WARNING - Jetson Detected" block printed by `chloros-cli process` on a large folder: the image count and debayer mode line, RAM / current swap / estimated peak figures, and the fallocate/chmod/mkswap/swapon command block it recommends -->
+Za ročno dodajanje izmenjalnega prostora (primer: 8 GB):
 
 ```bash
 # Check current memory and swap
@@ -163,13 +181,21 @@ sudo swapon /swapfile
 
 # Make persistent across reboots
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
-```### Obravnavanje OOM (Out of Memory)
+```
 
-Med obdelavo Chloros spremlja pomnilnik grafičnega procesorja in namesto da se sesuje, gladko zmanjša zmogljivost:
+<!-- SCREENSHOT-NEEDED: Terminal on a Jetson Orin (SSH session) showing the full "LOW MEMORY WARNING - Jetson Detected" block printed by `chloros-cli process` on a large folder: the image count and debayer mode line, RAM / current swap / estimated peak figures, and the fallocate/chmod/mkswap/swapon command block it recommends -->
+
+
+### Obravnavanje OOM (Out of Memory)
+
+Med obdelavo program Chloros
+spremlja pomnilnik grafičnega procesorja (GPU) in namesto da bi se sesul, postopoma zmanjša zmogljivost:
 
 1. Ko izkoriščenost pomnilnika GPU preseže **85 %**, se velikosti serij preventivno zmanjšajo
-2. Če se kljub temu pojavi dogodek pomanjkanja pomnilnika, se velikost serije **prepolovi** in se ob vsakem naslednjem OOM ponovno prepolovi; vsaka naslednja uspešna serija to kazen zmanjša za eno stopnjo
-3. Pri trajnem obremenjevanju se potek obdelave preusmeri s poti `fused_gpu` na pot `tiled_gpu`, ki je bolj učinkovita z vidika porabe pomnilnika, v skrajnem primeru pa na obdelavo s CPU
+2. Če se kljub temu pojavi dogodek pomanjkanja pomnilnika, se velikost serije **prepolovi**, pri vsakem naslednjem OOM pa se ponovno prepolovi; vsaka naslednja uspešna serija to kazen zniža za eno stopnjo
+3. Pri trajnem pritisku se potek obdelave preusmeri s poti `fused_gpu` na pot `tiled_gpu`, ki je bolj učinkovita z vidika porabe pomnilnika, v skrajnem primeru pa na obdelavo v CPU
+
+Ker si GPU deli RAM-a naprave Jetson, RAM skupaj z izmenjevalnim prostorom še vedno omejuje izvajanje – zgornje opozorilo o izmenjevalnem prostoru je preverjanje, na katerega je treba paziti.
 
 ***
 
@@ -188,12 +214,15 @@ Načrtujte porabo energije za neprekinjeno obdelavo — največja poraba energij
 ### Priporočila glede shranjevanja
 
 * **NVMe SSD** se močno priporoča za namestitve arm64
-* SD-kartice so prepočasne za obdelavo — uporabljajte jih le kot zagonski nosilec
+* SD-kartice so prepočasne za obdelavo — uporabljajte jih le kot zagonski medij
 * Za obdelane izhodne podatke predvidite 2–3-kratno velikost surovih slikovnih podatkov
 
-### Delovanje brez zaslona prek SSH
+### Delovanje brez grafičnega vmesnika prek SSH
 
-Chloros CLI je idealen za namestitve Jetson brez zaslona:
+
+Chloros
+CLI
+je idealen za namestitve Jetsona brez grafičnega vmesnika:
 
 ```bash
 # SSH into the Jetson
@@ -208,14 +237,16 @@ chloros-cli export-status
 
 ### Vedno vklopljen backend za sinhronizacijo časa LATTICE / DAQ-E
 
-Če vaš Jetson brez grafičnega vmesnika krmili kamere LATTICE ali svetlobne senzorje DAQ-E, omogočite storitev systemd v ozadju, da bo glavni PTP-strežnik deloval neprekinjeno (enota je nameščena, vendar privzeto ni omogočena):
+Če vaš Jetson brez zaslona upravlja kamere LATTICE ali svetlobne senzorje DAQ-E, omogočite storitev systemd v ozadju **kot vaš uporabnik**, da bo PTP grandmaster deloval neprekinjeno in da bodo skripti SDK
+našli delujoče ozadje (enota je nameščena, vendar privzeto ni omogočena):
 
 ```bash
-sudo systemctl enable --now chloros-backend.service
+sudo systemctl enable --now chloros-backend@$USER.service    # $USER expands to your user name
 chloros-cli time-sync status
 ```
 
-Za podrobnosti, vključno s tem, kako paket omogoča vezavo PTP-vrat 319/320 brez pravic root, glejte [Linux Namestitev](linux-installation.md#always-on-ptp-for-headless-hosts).
+Backend nato deluje kot vi: posnetki, ki jih zapiše, so vaši, uporablja pa vaš `chloros-cli login`. Za podrobnosti, vključno z uporabniškim imenom root `chloros-backend.service` in načinom, kako paket omogoča vezavo PTP-vrat 319/320 brez pravic root, glejte [Namestitev v sistemu Linux
+](linux-installation.md#always-on-ptp-for-headless-hosts).
 
 ### Avtomatizirana obdelava s systemd
 
@@ -240,7 +271,7 @@ WantedBy=multi-user.target
 
 `chloros-cli process` se zaključi z vrednostjo, ki ni nič, kadar izvedba, ki je zahtevala izdelke, ne zapiše nobenih slik, zato je stanje napake v systemd pomembno za spremljanje.
 
-Za načrtovano obdelavo jo povežite s časovnikom systemd:
+Za načrtovano obdelavo ga združite s časovnikom systemd:
 
 ```ini
 # /etc/systemd/system/chloros-process.timer
@@ -262,7 +293,7 @@ sudo systemctl start chloros-process.timer
 
 ***
 
-## Primeri delovnih tokov
+## Primeri poteka dela
 
 ### Osnovna obdelava na Jetsonu
 
@@ -272,10 +303,12 @@ sudo systemctl start chloros-process.timer
 chloros-cli process /data/flights/flight_042 \
     --output /data/processed/flight_042 \
     --format "TIFF (32-bit, Percent)" \
-    --indices NDVI NDRE GNDVI
+    --indices NDVI GNDVI OSAVI
 ```
 
-### Python SDK na Jetsonu
+### Python
+SDK
+na Jetsonu
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -284,7 +317,7 @@ with ChlorosLocal() as chloros:
     chloros.create_project("field_survey_042")
     chloros.import_images("/data/flights/flight_042")
     chloros.configure(
-        indices=["NDVI", "NDRE", "GNDVI"],
+        indices=["NDVI", "GNDVI", "OSAVI"],
         export_format="TIFF (32-bit, Percent)",
         reflectance_calibration=True
     )
@@ -304,7 +337,7 @@ for flight in /data/flights/*/; do
     chloros-cli process "$flight" \
         --output "/data/processed/$name" \
         --format "TIFF (32-bit, Percent)" \
-        --indices NDVI NDRE
+        --indices NDVI OSAVI
     echo "Completed $name"
 done
 ```
@@ -315,19 +348,30 @@ done
 
 Za uporabo na terenu in v zraku upoštevajte naslednje možnosti nosilnih plošč Jetson Orin NX 16 GB:
 
-* **V zraku/droni**: sistemi z odpornostjo proti vibracijam (MIL-STD), lahki (manj kot 300 g), pasivno hlajenje
-* **Robustna uporaba na terenu**: vodotesna ohišja s stopnjo zaščite IP67/IP69K in povezljivostjo kamere PoE GigE
+* **V zraku/droni**: Sistemi z odpornostjo proti vibracijam (MIL-STD), lahki (manj kot 300 g), s pasivnim hlajenjem
+* **Zahtevne terenske razmere**: vodotesna ohišja s stopnjo zaščite IP67/IP69K in povezljivostjo s kamero PoE GigE
 * **Minimalna/proračunska rešitev**: razvojni kompleti z dodatnimi ohišji
 
-Obrnite se na [MAPIR podporo](https://www.mapir.camera/community/contact) za konkretna priporočila glede strojne opreme za vaš scenarij namestitve.
+Za konkretna priporočila glede strojne opreme za vaš scenarij uporabe se obrnite na [podporo MAPIR
+](https://www.mapir.camera/community/contact).
 
 ***
 
 ## Naslednji koraki
 
-* [Linux Namestitev](linux-installation.md) — Splošni podatki o namestitvi Linux
+* [Namestitev Linux
+a](linux-installation.md) — Splošni podatki o namestitvi Linux
+a
 * [Dinamična prilagoditev računalniške zmogljivosti](../processing-architecture/dynamic-compute-adaptation.md) — Celoten pregled strategij računalniške zmogljivosti
 * [Obdelovalni potek](../processing-architecture/processing-pipeline.md) — Razumevanje 4-nitnega poteka
-* [CLI : Ukazna vrstica](../CLI.md) — Priročnik za CLI
-* [API : Python SDK](../api-python-sdk.md) — Priročnik za SDK
-* [CLI Referenca](../reference/cli-reference.md) in [SDK Referenca](../reference/sdk-reference.md) — Izčrpen seznam ukazov/API za različico 1.2.0
+* [CLI: ukazna vrstica](../CLI.md) — Priročnik za CLI
+
+* [API
+: Python
+SDK
+](../api-python-sdk.md) — Priročnik za SDK
+
+* [Referenca CLI
+](../reference/cli-reference.md) in [Referenca SDK
+](../reference/sdk-reference.md) — Izčrpni seznami ukazov/API
+za različico 1.3.0
