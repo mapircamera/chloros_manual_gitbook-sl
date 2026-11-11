@@ -2,18 +2,16 @@
 
 Svetlobni senzor DAQ pretvori radiometrične posnetke v odbojnost. Obstajata dva različna delovna postopka:
 
-1. **En senzor** — en DAQ meri navzdol usmerjeno sevanje, medtem ko kamera snema, program Chloros
-pa sevanje kamere deli s to referenčno vrednostjo.
+1. **En senzor** — en DAQ meri navzdol usmerjeno sevanje, medtem ko kamera snema, program Chloros pa sevanje kamere deli s to referenčno vrednostjo.
 2. **Dva senzorja** — dva senzorja DAQ, eden usmerjen v nebo, drugi pa v objekt, ustvarjata spektralno krivuljo odbojnosti v realnem času brez uporabe kamere.
 
 ## En senzor + kamera (referenca navzdol usmerjenega sevanja)
 
-DAQ deluje kot senzor navzdol usmerjenega svetlobnega sevanja (DLS): kamera meri sevalno moč navzgor **L**(W/m²/sr/nm), DAQ meri sevanje navzdol**E** (W/m²/nm), program Chloros
-pa izračuna odbojnost po posameznih pasovih po formuli:
+DAQ deluje kot senzor navzdol usmerjenega svetlobnega sevanja (DLS): kamera meri sevalno moč navzgor **L**(W/m²/sr/nm), DAQ meri sevanje navzdol**E** (W/m²/nm), program Chloros pa izračuna odbojnost po posameznih pasovih po formuli:
 
 > ρ = π · L / E
 
-Odčitek DAQ je vedno **časovno usklajen z osvetlitvijo** — zato si DAQ in kamere delijo uro, ki deluje po standardu PTP (glej [Mrežno povezovanje in sinhronizacija časa DAQ-E](ethernet-ptp.md)). Za delo na prostem namestite sončno kosinusno kapico in jo pravilno deklarirajte; deklaracija kapice neposredno prilagaja vrednost E (glej [Cap Profiles &amp; Calibrated Range](caps-and-range.md)). Za kvantitativno delo upoštevajte značilnosti instrumenta: kvantitativna obsevanost izhaja iz povprečja odčitkov v obdobju vsaj 15 s.
+Odčitek DAQ je vedno **časovno usklajen z osvetlitvijo** — zato si DAQ in kamere delijo uro, ki deluje po standardu PTP (glej [Mrežno povezovanje in sinhronizacija časa DAQ-E](ethernet-ptp.md)). Za delo na prostem namestite sončno kosinusno kapico in jo pravilno deklarirajte; deklaracija kapice neposredno prilagaja vrednost E (glej [Cap Profiles & Calibrated Range](caps-and-range.md)). Za kvantitativno delo upoštevajte značilnosti instrumenta: kvantitativna obsevanost izhaja iz povprečja odčitkov v obdobju vsaj 15 s.
 
 ### Snemanje v živo
 
@@ -24,14 +22,12 @@ Povežite DAQ s kamero v zavihku »Kamere«: v nastavitvenem oknu vsake kamere j
 
 Dve lastnosti, ki jih je vredno poznati:
 
-* **Če ni vezave z DAQ → se odbojnost zavrne, ne pa ponaredi.** Program Chloros
-zavrne izračun odbojnosti in zabeleži razlog za preskok, namesto da bi tiho vrnil manjši izračun.
+* **Če ni vezave z DAQ → se odbojnost zavrne, ne pa ponaredi.** Program Chloros zavrne izračun odbojnosti in zabeleži razlog za preskok, namesto da bi tiho vrnil manjši izračun.
 * **Uporabljena vrednost se ohrani.** Za vsak okvir odbojnosti se dejansko uporabljena vrednost DAQ zapiše kot datoteka `.daq` v mapi `daq/` zajetih podatkov, tako da se zajem lahko kasneje ponovno obdela ([Snemanje in format .daq](recording.md)). Datoteka `.daq.cameras.json` poleg nje navaja kamere, ki jih opisuje, ponovna obdelava pa jo uskladi le s slikami teh kamer.
 
 ### Obdelava posnetih slik
 
-Za obdelavo po letu med sejo posnemite datoteko `.daq` in jo shranite skupaj s slikovnim gradivom – obdelovalni proces samodejno razreši časovno usklajene posnetke navzdol usmerjenega žarka ter ob prvi uporabi pridobi morebitne manjkajoče tovarniške kalibracije iz oblaka MAPIR
-. Posnetki iz grafičnega vmesnika se ob zaključku samodejno dodajo odprtemu projektu.
+Za obdelavo po letu med sejo posnemite datoteko `.daq` in jo shranite skupaj s slikovnim gradivom – obdelovalni proces samodejno razreši časovno usklajene posnetke navzdol usmerjenega žarka ter ob prvi uporabi pridobi morebitne manjkajoče tovarniške kalibracije iz oblaka MAPIR. Posnetki iz grafičnega vmesnika se ob zaključku samodejno dodajo odprtemu projektu.
 
 Referenčno odbojnost je mogoče izbrati ob obdelavi – `--reflectance-source` na `chloros-cli process` ali nastavitev vira odbojnosti v nastavitvah projekta v grafičnem uporabniškem vmesniku:
 
@@ -41,21 +37,15 @@ Referenčno odbojnost je mogoče izbrati ob obdelavi – `--reflectance-source` 
 | `daq` | DAQ je avtoritativen |
 | `target` | Strog cilj znotraj okvirja; brez nadomestitve z DAQ |
 
-Glejte [Kalibracijske tarče](../calibration-targets.md) za delovne tokove tarč ter [poglavje LATTICE](../lattice/README.md) ter [referenco CLI
-](../reference/cli-reference.md) za celoten procesni potek. Pri branju izvoženih pikslov odbojnosti uporabite označeno lestvico (LATTICE: 32768 = ρ 1,0, XMP `Chloros:PixelScale`; Survey3
-: 65535) — glejte [Formati izhodnih slik](../output-image-formats.md).
+Glejte [Kalibracijske tarče](../calibration-targets.md) za delovne tokove tarč ter [poglavje LATTICE](../lattice/README.md) ter [referenco CLI](../reference/cli-reference.md) za celoten procesni potek. Pri branju izvoženih pikslov odbojnosti uporabite označeno lestvico (LATTICE: 32768 = ρ 1,0, XMP `Chloros:PixelScale`; Survey3: 65535) — glejte [Formati izhodnih slik](../output-image-formats.md).
 
 ### Pasovi zunaj kalibriranega območja DAQ-ja
 
-Radiometrično kalibrirano območje DAQ-ja je ~374–974 nm. Program Chloros
-zavrne odbojnost, pridobljeno prek DAQ-ja, za kateri koli pas kamere, pri katerem je manj kot polovica spektralne teže znotraj tega območja, in pri tem navede razlog za preskok `dls-uncalibrated-band-<nm>`. Med trenutno dostopnimi artikli to vpliva le na model F988: odbojnost modela F988 se kalibrira z uporabo plošče za merjenje odbojnosti v prizoru; pas leži zunaj kalibriranega območja svetlobnega senzorja DAQ, zato Chloros
-uporabi vaš najnovejši posnetek plošče in ga ohrani med posameznimi meritvami plošče. Če kamera F988 deluje izključno v načinu DAQ, Chloros
-zavrne odbojnost, ki temelji na DAQ, za ta pas z razlogom za preskok `dls-uncalibrated-band-988` – podprt je delovni tok s ploščo.
+Radiometrično kalibrirano območje DAQ-ja je ~374–974 nm. Program Chloros zavrne odbojnost, pridobljeno prek DAQ-ja, za kateri koli pas kamere, pri katerem je manj kot polovica spektralne teže znotraj tega območja, in pri tem navede razlog za preskok `dls-uncalibrated-band-<nm>`. Med trenutno dostopnimi artikli to vpliva le na model F988: odbojnost modela F988 se kalibrira z uporabo plošče za merjenje odbojnosti v prizoru; pas leži zunaj kalibriranega območja svetlobnega senzorja DAQ, zato Chloros uporabi vaš najnovejši posnetek plošče in ga ohrani med posameznimi meritvami plošče. Če kamera F988 deluje izključno v načinu DAQ, Chloros zavrne odbojnost, ki temelji na DAQ, za ta pas z razlogom za preskok `dls-uncalibrated-band-988` – podprt je delovni tok s ploščo.
 
 ## Dvojni senzor (okoljska svetloba + objekt)
 
-Dva senzorja DAQ – kateri koli par, ne glede na način prenosa – zagotavljata spektrum odbojnosti v realnem času brez kamere: en senzor je usmerjen proti nebu (**vir okoljske svetlobe**), drugi pa proti predmetu (**skener predmeta**), pri čemer program Chloros
-izračuna vrednost za vsako valovno dolžino:
+Dva senzorja DAQ – kateri koli par, ne glede na način prenosa – zagotavljata spektrum odbojnosti v realnem času brez kamere: en senzor je usmerjen proti nebu (**vir okoljske svetlobe**), drugi pa proti predmetu (**skener predmeta**), pri čemer program Chloros izračuna vrednost za vsako valovno dolžino:
 
 > R(λ) = objekt(λ) / okolje(λ)
 
@@ -70,24 +60,11 @@ Ko sta oba senzorja priključena v zavihku Svetlobni senzorji, odprite prekrivni
 <!-- SCREENSHOT-NEEDED: A live Apparent Reflectance chart from an Ambient+Object DAQ pair in list view, with the vegetation-index table visible below the chart (NDVI etc. showing live values). -->
 
 
-Pod grafom odbojnosti (pogled v obliki seznama) **tabela indeksov vegetacije** v realnem času izračuna indekse iz krivulje z uporabo središč pasov pri modri 450 / zeleni 550 / rdeči 670 / NIR
-800 nm. Indeksi, ki temeljijo na razmerjih in izničijo absolutno lestvico (NDVI
-, GNDVI
-, ENDVI, WDRVI
-, GRVI
-, CVI
-, GCI
-, MSR), so vedno prikazani; indeksi, ki potrebujejo absolutno odbojnost (EVI
-, SAVI
-, OSAVI
-, GSAVI, GOSAVI, MSAVI2, RDVI, TDVI, LAI
-, NLI, MNLI, FCI, GEMI
-), se prikažejo le, če sta oba senzorja kalibrirana glede na moč.
+Pod grafom odbojnosti (pogled v obliki seznama) **tabela indeksov vegetacije** v realnem času izračuna indekse iz krivulje z uporabo središč pasov pri modri 450 / zeleni 550 / rdeči 670 / NIR 800 nm. Indeksi, ki temeljijo na razmerjih in izničijo absolutno lestvico (NDVI, GNDVI, ENDVI, WDRVI, GRVI, CVI, GCI, MSR), so vedno prikazani; indeksi, ki potrebujejo absolutno odbojnost (EVI, SAVI, OSAVI, GSAVI, GOSAVI, MSAVI2, RDVI, TDVI, LAI, NLI, MNLI, FCI, GEMI), se prikažejo le, če sta oba senzorja kalibrirana glede na moč.
 
 ### Navidezna proti relativni – pravilo označevanja
 
-Chloros
-označuje izhod dvojnega senzorja glede na to, kar lahko senzorski par dejansko zagotovi:
+Chloros označuje izhod dvojnega senzorja glede na to, kar lahko senzorski par dejansko zagotovi:
 
 | Senzorski par | Oznaka |
 | --- | --- |
@@ -99,8 +76,4 @@ Vsi trije modeli so radiometrični: ko je naložen tovarniški kalibracijski pak
 ### Iz Python
 a
 
-V združenem vmesniku SDK
-ni namenske funkcije za delo z dvema senzorjema: odprite dve seji z `chloros_sdk.connect_daq_sensor()` in sami izračunajte razmerje med njunima spektroma `latest()`, pri čemer uporabite enako konvencijo označevanja. (Orodje za snemanje z dvema senzorjema obstaja tudi v MAPIR
--jevem notranjem vmesniku za neposredno upravljanje strojne opreme, ki je zaradi popolnosti navedeno v [CLI
-Reference](../reference/cli-reference.md) — ni del priloženega CLI
-; zgoraj navedeni potek dela v grafičnem vmesniku je podprta pot v živo.)
+V združenem vmesniku SDK ni namenske funkcije za delo z dvema senzorjema: odprite dve seji z `chloros_sdk.connect_daq_sensor()` in sami izračunajte razmerje med njunima spektroma `latest()`, pri čemer uporabite enako konvencijo označevanja. (Orodje za snemanje z dvema senzorjema obstaja tudi v MAPIR-jevem notranjem vmesniku za neposredno upravljanje strojne opreme, ki je zaradi popolnosti navedeno v [CLI Reference](../reference/cli-reference.md) — ni del priloženega CLI; zgoraj navedeni potek dela v grafičnem vmesniku je podprta pot v živo.)

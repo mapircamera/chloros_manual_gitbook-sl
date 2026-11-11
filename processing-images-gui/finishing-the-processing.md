@@ -1,7 +1,6 @@
 # Zaključek obdelave
 
-Ko program Chloros
-zaključi obdelavo, je čas, da pregledate rezultate, preverite kakovost izhodnih datotek in pripravite obdelane slike za uporabo v svojem delovnem toku. Ta stran vas vodi skozi zadnje korake in nadaljnje ukrepe.
+Ko program Chloros zaključi obdelavo, je čas, da pregledate rezultate, preverite kakovost izhodnih datotek in pripravite obdelane slike za uporabo v svojem delovnem toku. Ta stran vas vodi skozi zadnje korake in nadaljnje ukrepe.
 
 ## Oznaka zaključene obdelave
 
@@ -13,10 +12,7 @@ Ko se obdelava uspešno zaključi, se prikažejo naslednji kazalniki:
 * ✅ **Izhodne datoteke**: Vse obdelane slike so shranjene v izhodni mapi projekta (spodaj)
 
 {% hint style="warning" %}
-**Cikel, ki ne zapiše nobene slike, je neuspešen.** Če ste zahtevali slikovne izdelke, izvedba pa ni zapisala nobene slike, Chloros
-to poroča kot neuspeh — `[RUN-SUMMARY]` v imenu dnevnika namiguje na verjetni vzrok (ni bilo uvoženo nič, ni bil zaznan noben cilj ali so bili vsi zahtevani izdelki preskočeni kot neuporabni). Enakovredna CLI
--ukazna vrstica se zaključi z izhodno vrednostjo, ki ni nič. Namerno izvajanje, namenjeno izključno metapodatkom (vsi izvozni izdelki izklopljeni, brez indeksov), se še vedno šteje za uspešno. Glejte [referenco za CLI
-](../reference/cli-reference.md#a-run-that-writes-no-images-fails).
+**Cikel, ki ne zapiše nobene slike, je neuspešen.** Če ste zahtevali slikovne izdelke, izvedba pa ni zapisala nobene slike, Chloros to poroča kot neuspeh — `[RUN-SUMMARY]` v imenu dnevnika namiguje na verjetni vzrok (ni bilo uvoženo nič, ni bil zaznan noben cilj ali so bili vsi zahtevani izdelki preskočeni kot neuporabni). Enakovredna CLI-ukazna vrstica se zaključi z izhodno vrednostjo, ki ni nič. Namerno izvajanje, namenjeno izključno metapodatkom (vsi izvozni izdelki izklopljeni, brez indeksov), se še vedno šteje za uspešno. Glejte [referenco za CLI](../reference/cli-reference.md#a-run-that-writes-no-images-fails).
 {% endhint %}
 
 ***
@@ -48,10 +44,8 @@ Izdelki so shranjeni **v projektni mapi, razvrščeni po fotoaparatih in nato po
         └── Radiance_Images/             # float32 radiance always lands here
 ```
 
-* **Mapa fotoaparata**: `LATT-<sensor>-<lens>-F<filter>` za LATTICE (kar ustreza EXIF-podatkom posnetka `Model`), `<model>_<filter>` za Survey3
-(npr. `Survey3N_RGN`). Dve kamere, ki imata skupen senzor in filter, a se razlikujeta po objektivu, imata ločeni drevesni strukturi — vinjeta, vidno polje in popačenje se razlikujejo.
-* **Mapa formata**: sledi vaši nastavitvi izvoznega formata — `tiff16`, `tiff8`, `png8`, `jpg8`, ali `tiff32` za TIFF
-(32-bitni, v odstotkih). Sijaj je vedno v formatu float32 in se vedno shrani pod `tiff32`.
+* **Mapa fotoaparata**: `LATT-<sensor>-<lens>-F<filter>` za LATTICE (kar ustreza EXIF-podatkom posnetka `Model`), `<model>_<filter>` za Survey3 (npr. `Survey3N_RGN`). Dve kamere, ki imata skupen senzor in filter, a se razlikujeta po objektivu, imata ločeni drevesni strukturi — vinjeta, vidno polje in popačenje se razlikujejo.
+* **Mapa formata**: sledi vaši nastavitvi izvoznega formata — `tiff16`, `tiff8`, `png8`, `jpg8`, ali `tiff32` za TIFF (32-bitni, v odstotkih). Sijaj je vedno v formatu float32 in se vedno shrani pod `tiff32`.
 * **Mape izdelkov**:
   * `Reflectance_Calibrated_Images/` — kalibrirana odbojnost
   * `Debayered_Images/` — linearno razbajeriranje (LATTICE): odstranjen temni odmik in demosaicing, brez flat field ali unmix, v izvorni orientaciji senzorja
@@ -70,8 +64,7 @@ Izdelki so shranjeni **v projektni mapi, razvrščeni po fotoaparatih in nato po
 
 ### Koliko datotek naj bi bilo?
 
-Ne računajte po formuli — število izhodnih datotek je odvisno od tega, kateri izdelki so bili omogočeni in kateri veljajo za posamezno kamero (npr. kamere RGB
-nimajo podatkov o sevanju/odbojnosti). Uradno število je navedeno v dnevniku: zadnja vrstica `[RUN-SUMMARY]` natančno poroča, koliko datotek je bilo zapisano, vrstice z namigi pa pojasnjujejo vse, kar je bilo preskočeno.
+Ne računajte po formuli — število izhodnih datotek je odvisno od tega, kateri izdelki so bili omogočeni in kateri veljajo za posamezno kamero (npr. kamere RGB nimajo podatkov o sevanju/odbojnosti). Uradno število je navedeno v dnevniku: zadnja vrstica `[RUN-SUMMARY]` natančno poroča, koliko datotek je bilo zapisano, vrstice z namigi pa pojasnjujejo vse, kar je bilo preskočeno.
 
 ***
 
@@ -79,8 +72,7 @@ nimajo podatkov o sevanju/odbojnosti). Uradno število je navedeno v dnevniku: z
 
 ### Hiter predogled v Raziskovalcu datotek
 
-**Vgrajeni predogled v Windows
-:**
+**Vgrajeni predogled v Windows:**
 
 1. Preidite v mapo z izdelki (npr. `tiff16/Reflectance_Calibrated_Images/`)
 2. Izberite datoteko s sliko
@@ -91,20 +83,15 @@ nimajo podatkov o sevanju/odbojnosti). Uradno število je navedeno v dnevniku: z
 ### Predogled v zunanjih pregledovalnikih slik
 
 **Priporočeni pregledovalniki:*** **QGIS** – brezplačna programska oprema GIS (najboljša za georeferencirano multispektralno analizo)
-* **IrfanView** – hiter, lahek pregledovalnik slik (podpira format TIFF
-)
-* **Adobe Photoshop** – profesionalno urejanje (podpora formatu TIFF
-)
+* **IrfanView** – hiter, lahek pregledovalnik slik (podpira format TIFF)
+* **Adobe Photoshop** – profesionalno urejanje (podpora formatu TIFF)
 * **GIMP** – brezplačna alternativa programu Photoshop
-* **Windows
-Photos** – osnovno pregledovanje (morda ne podpira 16-bitnega formata TIFF
-)
+* **Windows Photos** – osnovno pregledovanje (morda ne podpira 16-bitnega formata TIFF)
 
 ### Predogled v pregledovalniku slik Chloros
 
 
-Za napredno vizualizacijo uporabite vgrajeni pregledovalnik slik Chloros
-:
+Za napredno vizualizacijo uporabite vgrajeni pregledovalnik slik Chloros:
 
 1. Kliknite miniaturno sliko v brskalniku datotek
 2. Slika se odpre v glavnem območju predogleda
@@ -123,9 +110,7 @@ Odbojnost je shranjena kot celo število DN, **DN, ki pomeni ρ = 1,0, pa je odv
 | Izvor          | ρ = 1,0 je | Kako ugotoviti                                        |
 | --------------- | ---------- | -------------------------------------------------- |
 | LATTICE (M3C/M3M) | **32768** (rezerva do ρ 2,0) | V datoteko je vtisnjena oznaka XMP `Chloros:PixelScale=32768` |
-| Survey3
-         | **65535** (omejeno na ρ 1,0)     | Ni oznake `Chloros:PixelScale` — ta odsotnost je znak (izdelki Survey3
-vsebujejo druge oznake obdelave `Chloros:*`) |
+| Survey3          | **65535** (omejeno na ρ 1,0)     | Ni oznake `Chloros:PixelScale` — ta odsotnost je znak (izdelki Survey3 vsebujejo druge oznake obdelave `Chloros:*`) |
 
 **Preberite oznako `Chloros:PixelScale` in delite z njo**, namesto da predpostavljate splošno vrednost 65535 — deljenje odbojnosti LATTICE z 65535 tiho prepolovi vsako vrednost. Datoteka odbojnosti iz časa pred različico 1.3.0, zapisana v 8-bitni obliki, je bila odrezana, ne pa ponovno skalirana, in nima oznake merila: namesto deljenja jo ponovno izvozite v 16-bitni ali 32-bitni obliki. Za celotno pojasnilo glejte [Formati izhodnih slik](../output-image-formats.md).***
 
@@ -153,15 +138,12 @@ povzroči poškodbo izhodnih podatkov LATTICE), izključeni pa so tudi `ExifImag
 ker opisujejo prvotni posnetek – izvoz, katerega velikost je bila spremenjena, bi sicer
 navajal dimenzije, ki so v nasprotju z njegovo lastno rastrsko sliko.
 
-Chloros
-prav tako zapiše svoje lastne oznake XMP `Chloros:*`, ki opisujejo, kaj je bilo narejeno z vsakim izdelkom
+Chloros prav tako zapiše svoje lastne oznake XMP `Chloros:*`, ki opisujejo, kaj je bilo narejeno z vsakim izdelkom
 (na primer `Chloros:ProcessingLevel`, `Chloros:CalibrationApplied`,
-`Chloros:VignetteCorrected`). Od različice 1.3.0 naprej jih izdelki Survey3
-vsebujejo v vsakem načinu obdelave
+`Chloros:VignetteCorrected`). Od različice 1.3.0 naprej jih izdelki Survey3 vsebujejo v vsakem načinu obdelave
 načinu obdelave, indeksni izdelki opisujejo sam indeks (`Chloros:ProcessingLevel=index`,
 formulo in ali je bil izračunan na podlagi odbojnosti ali sevanja), namesto da bi ponavljali
-oznake izvirnih surovih podatkov, izdelki v mapah, katerih imena so daljša od 260 znakov, pa ohranijo tudi svoje metapodatke
-. Glejte [Formati izhodnih slik](../output-image-formats.md#index-products).
+oznake izvirnih surovih podatkov, izdelki v mapah, katerih imena so daljša od 260 znakov, pa ohranijo tudi svoje metapodatke. Glejte [Formati izhodnih slik](../output-image-formats.md#index-products).
 
 ***
 
@@ -179,18 +161,13 @@ oznake izvirnih surovih podatkov, izdelki v mapah, katerih imena so daljša od 2
 
 ### Shranjevanje dnevnika
 
-Za arhiviranje obdelave ali pošiljanje podpori MAPIR
-:
+Za arhiviranje obdelave ali pošiljanje podpori MAPIR:
 
 1. Kliknite gumb **»Kopiraj«**ali**»Prenesi«**
 
 2. Shranite kot besedilno datoteko v mapo projekta
 3. Priložite k dokumentaciji projekta
-4. V primeru težav ga pošljite podpori MAPIR
-
-
-Če želite težavo poslati neposredno podjetju MAPIR
-, uporabite ikono napake (**Prijavi napako**) na vrhu zavihka »Dnevnik odpravljanja napak« — glejte [Prijava napake iz zavihka »Dnevnik«](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
+4. V primeru težav ga pošljite podpori MAPIR Če želite težavo poslati neposredno podjetju MAPIR, uporabite ikono napake (**Prijavi napako**) na vrhu zavihka »Dnevnik odpravljanja napak« — glejte [Prijava napake iz zavihka »Dnevnik«](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
 
 ## Pogoste težave z izhodnimi datotekami in rešitve
 
@@ -198,8 +175,7 @@ Za arhiviranje obdelave ali pošiljanje podpori MAPIR
 
 **Možni vzroki:**
 
-* Izdelek ni primeren za to kamero (npr. sevanje/odbojnost za RGB
--kamere — to je navedeno v dnevniku)
+* Izdelek ni primeren za to kamero (npr. sevanje/odbojnost za RGB-kamere — to je navedeno v dnevniku)
 * Manjkala je potrebna referenca (npr. odbojnost brez cilja in brez navzdolnega sevanja `.daq`)
 * Polje za izvoz izdelka je bilo onemogočeno v nastavitvah projekta
 * Med izvozom je zmanjkalo prostora na disku
@@ -243,11 +219,9 @@ Za arhiviranje obdelave ali pošiljanje podpori MAPIR
 3. Preverite kakovost slik ciljev
 4. Ponovno obdelajte s pravilno označenimi cilji
 
-### Težava: Vrednosti NDVI
-se zdijo napačne
+### Težava: Vrednosti NDVI se zdijo napačne
 
-**Pričakovani razponi vrednosti NDVI
-:*** **Voda, kamnine, tla**: od -0,1 do 0,2
+**Pričakovani razponi vrednosti NDVI:*** **Voda, kamnine, tla**: od -0,1 do 0,2
 * **Redka/nezdrava vegetacija**: od 0,2 do 0,4
 * **Zmerna vegetacija**: od 0,4 do 0,6
 * **Zdrava, gosta vegetacija**: od 0,6 do 0,9**Če so vrednosti zunaj teh razponov:**
@@ -284,11 +258,8 @@ se zdijo napačne
 
 1.**Naložite v QGIS, ArcGIS ali podobno**
 
-2.**Uporabite 16-bitne TIFF
-** slike odbojnosti za večpasovno analizo (delite z vrednostjo `Chloros:PixelScale` v datoteki)
-3. **Uporabite indeksne slike** (NDVI
-, NDRE
-) kot pripravljene vegetacijske plasti
+2.**Uporabite 16-bitne TIFF** slike odbojnosti za večpasovno analizo (delite z vrednostjo `Chloros:PixelScale` v datoteki)
+3. **Uporabite indeksne slike** (NDVI, NDRE) kot pripravljene vegetacijske plasti
 4. **Rasterski kalkulator**: združite pasove za lastno analizo
 5. **Izvoz**: ustvarite klasifikacijske karte, zaznavanje sprememb, karte zdravstvenega stanja vegetacije
 
@@ -297,8 +268,7 @@ se zdijo napačne
 **Priporočeni potek dela:**
 
 1.**Uporabite indeksne slike z barvami LUT** za vizualna poročila
-2. **Izpis statistike**: povprečni NDVI
-na polje/parcelo
+2. **Izpis statistike**: povprečni NDVI na polje/parcelo
 3. **Časovne vrste**: primerjava indeksov med več sejami
 4. **Priprava poročil**: vključite karte, statistike in vizualizacije***
 
@@ -335,27 +305,17 @@ Za več sej/naborov podatkov:**Možnost 1: GUI – več projektov**
 * Uporabite dosledne nastavitve predloge
 * Obdelujte po eno naenkrat
 
-**Možnost 2: Chloros
-CLI
-(samo Chloros
-+)**
+**Možnost 2: Chloros CLI (samo Chloros+)**
 
 * Avtomatizirajte obdelavo v serijah
 * Obdelajte več map s skripti
-* Glejte [Dokumentacijo CLI
-](../CLI.md) in [Referenco CLI
-](../reference/cli-reference.md)
+* Glejte [Dokumentacijo CLI](../CLI.md) in [Referenco CLI](../reference/cli-reference.md)
 
-**Možnost 3: Python
-SDK
-(samo Chloros
-+)**
+**Možnost 3: Python SDK (samo Chloros+)**
 
 * Programsko upravljanje
 * Integracija z analitičnimi poteki
-* Glejte [dokumentacijo API
-](../api-python-sdk.md) in [referenčni priročnik SDK
-](../reference/sdk-reference.md)
+* Glejte [dokumentacijo API](../api-python-sdk.md) in [referenčni priročnik SDK](../reference/sdk-reference.md)
 
 ***
 
@@ -366,8 +326,7 @@ SDK
 Če rezultati niso zadovoljivi:
 
 1. Ohranite izvirne slike (nikoli jih ne izbrišite)
-2. Odprite isti projekt v Chloros
-u 3. Prilagodite nastavitve v oknu »Nastavitve projekta«
+2. Odprite isti projekt v Chloros u 3. Prilagodite nastavitve v oknu »Nastavitve projekta«
 4. Ponovno obdelajte – izhodni podatki se shranijo v iste mape izdelkov, zato se datoteke z istim imenom iz prejšnjega izvajanja nadomestijo
 
 ### Obdelava podskupine slik
@@ -386,15 +345,13 @@ u 3. Prilagodite nastavitve v oknu »Nastavitve projekta«
 * 📧 **E-pošta**: info@mapir.camera (priložite dnevnik odpravljanja napak)
 * 🌐 **Podpora**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **Pogosta vprašanja**: [Pogosta vprašanja](../faq.md)
-* 📖 **Dokumentacija**: [Priročnik za Chloros
-](../)
+* 📖 **Dokumentacija**: [Priročnik za Chloros](../)
 
 ***
 
 ## Povzetek: Celoten potek dela
 
-Sedaj ste zaključili celoten potek obdelave v Chloros
-u:
+Sedaj ste zaključili celoten potek obdelave v Chloros u:
 
 1. ✅ **Ustvarjen projekt** – glejte [Projekti](../projects.md)
 2. ✅ **Dodali ste datoteke** – glejte [Dodajanje datotek](adding-files-to-a-project.md)
@@ -417,11 +374,8 @@ u:
 ### Avtomatizacija in integracija
 
 * [**Dokumentacija CLI**](../CLI.md) – Obdelava v paketih prek ukazne vrstice
-* [**Python
-SDK
-**](../api-python-sdk.md) – Programska avtomatizacija
-* [**Funkcije Chloros
-+**](../#chloros) – Napredne zmogljivosti obdelave
+* [**Python SDK**](../api-python-sdk.md) – Programska avtomatizacija
+* [**Funkcije Chloros+**](../#chloros) – Napredne zmogljivosti obdelave
 
 ### Podpora in učenje
 

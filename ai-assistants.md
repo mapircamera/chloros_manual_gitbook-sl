@@ -43,7 +43,7 @@ Orodja strežnika pokrivajo funkcionalnost [Python SDK](api-python-sdk.md). Name
 claude mcp add chloros -- chloros-mcp
 ```
 
-**Claude Desktop:**to dodajte v `claude_desktop_config.json` (odprete ga v**Nastavitve &gt; Razvijalec &gt; Uredi konfiguracijo**), nato ponovno zaženite Claude Desktop.**Cursor** uporabi isti vnos v `~/.cursor/mcp.json`.
+**Claude Desktop:**to dodajte v `claude_desktop_config.json` (odprete ga v**Nastavitve > Razvijalec > Uredi konfiguracijo**), nato ponovno zaženite Claude Desktop.**Cursor** uporabi isti vnos v `~/.cursor/mcp.json`.
 
 ```json
 {

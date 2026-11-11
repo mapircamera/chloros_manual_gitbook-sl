@@ -1,10 +1,6 @@
 # Spremljanje obdelave
 
-Ko se obdelava začne, Chloros
-
-ponuja več načinov za spremljanje napredka, preverjanje morebitnih težav in razumevanje, kaj se dogaja z vašim naborom podatkov. Na tej strani je pojasnjeno, kako spremljati obdelavo in razlagati informacije, ki jih zagotavlja Chloros
-
-.
+Ko se obdelava začne, Chloros ponuja več načinov za spremljanje napredka, preverjanje morebitnih težav in razumevanje, kaj se dogaja z vašim naborom podatkov. Na tej strani je pojasnjeno, kako spremljati obdelavo in razlagati informacije, ki jih zagotavlja Chloros.
 
 ## Pregled kazalnika napredka
 
@@ -12,9 +8,7 @@ Napredovalna vrstica v zgornjem naslovnem pasu prikazuje stanje obdelave v realn
 
 ### Napredovalna vrstica v brezplačnem načinu
 
-Za uporabnike brez licence Chloros
-
-+:
+Za uporabnike brez licence Chloros+:
 
 **Dvostopenjski prikaz napredka:**
 
@@ -25,13 +19,9 @@ Za uporabnike brez licence Chloros
 * Ime trenutne stopnje
 * Preprosta vizualizacija v obliki vodoravne črte
 
-### Kazalnik napredka Chloros
+### Kazalnik napredka Chloros+
 
-+
-
-Za uporabnike z licenco Chloros
-
-+:
+Za uporabnike z licenco Chloros+:
 
 **Prikaz napredka v 4 stopnjah:**
 
@@ -44,9 +34,7 @@ Za uporabnike z licenco Chloros
 * Vsaka faza prikazuje posamezen napredek (0–100 %)
 
 {% hint style="info" %}
-**Pariteta CLI**: med izvajanjem `chloros-cli process` se v vseh štirih niti prikazujejo stanja »Zaznavanje«, »Analiziranje«, »Obdelava« in »Izvoz«, `chloros-cli export-status` pa v realnem času prikazuje napredek izvoza v niti 4 z drugega terminala. Glejte [Referenco CLI
-
-](../reference/cli-reference.md).
+**Pariteta CLI**: med izvajanjem `chloros-cli process` se v vseh štirih niti prikazujejo stanja »Zaznavanje«, »Analiziranje«, »Obdelava« in »Izvoz«, `chloros-cli export-status` pa v realnem času prikazuje napredek izvoza v niti 4 z drugega terminala. Glejte [Referenco CLI](../reference/cli-reference.md).
 {% endhint %}
 
 ***
@@ -61,9 +49,7 @@ Za uporabnike z licenco Chloros
 
 **Kaj se dogaja:**
 
-* Chloros
-
-pregleda slike, ki ste jih označili s potrditvenim poljem »Cilj« (vse slike, če ni označena nobena)
+* Chloros pregleda slike, ki ste jih označili s potrditvenim poljem »Cilj« (vse slike, če ni označena nobena)
 * Algoritmi računalniškega vida prepoznajo kalibracijske plošče
 * Iz vsake plošče se izluščijo vrednosti odbojnosti
 * Zabeležijo se časovni žigi ciljev za pravilno načrtovanje kalibracije
@@ -92,9 +78,7 @@ pregleda slike, ki ste jih označili s potrditvenim poljem »Cilj« (vse slike, 
 * Branje metapodatkov EXIF slik (časovni žigi, nastavitve osvetlitve)
 * Določanje strategije kalibracije na podlagi časovnih žigov ciljev in razpoložljivih podatkov DAQ o navzdolnem sevanju
 * Urejanje čakalne vrste za obdelavo slik
-* Priprava delavcev za vzporedno obdelavo (samo Chloros
-
-+)
+* Priprava delavcev za vzporedno obdelavo (samo Chloros+)
 
 **Trajanje:** 5–30 sekund**Kazalnik napredka:**
 
@@ -121,9 +105,7 @@ pregleda slike, ki ste jih označili s potrditvenim poljem »Cilj« (vse slike, 
 * Obdelane slike / Skupno število slik
 
 **Način obdelave:*** **Prosti način**: Zaporedno obdeluje po eno sliko naenkrat
-* **Način Chloros
-
-+**: Upravlja s skupino delavcev, ki se prilagaja strojni opremi – 1–4 sočasnih delavcev na sistemih z grafičnimi procesorji (glede na VRAM), en delavec na fizično jedro (minus eno) na sistemih, ki uporabljajo samo procesorje. Glej [Dinamično prilagajanje računalniške moči](../processing-architecture/dynamic-compute-adaptation.md)
+* **Način Chloros+**: Upravlja s skupino delavcev, ki se prilagaja strojni opremi – 1–4 sočasnih delavcev na sistemih z grafičnimi procesorji (glede na VRAM), en delavec na fizično jedro (minus eno) na sistemih, ki uporabljajo samo procesorje. Glej [Dinamično prilagajanje računalniške moči](../processing-architecture/dynamic-compute-adaptation.md)
 * **Pospešitev z GPU**: znatno pospeši to fazo**Na kaj je treba paziti:**
 
 * Enakomeren napredek pri številu slik
@@ -169,17 +151,13 @@ Dnevnik odpravljanja napak ponuja podrobne informacije o napredku obdelave in mo
 
 ### Razumevanje sporočil v dnevniku V vrsticah dnevnika
 
-Chloros
-
-a so na začetku oznake v oklepajih, ki poimenujejo podsistem — na primer `[PROCESSING]`, `[RUN-SUMMARY]`, `[LATTICE-EXPORT]`, `[EXPORT-CHECK]`, `[IMPORT-LEVEL]`. Najpomembnejše, kar morate vedeti, je **povzetek izvajanja**, ki se izpiše na koncu vsakega izvajanja (vključno z ustavljenimi izvajanji):
+Chloros a so na začetku oznake v oklepajih, ki poimenujejo podsistem — na primer `[PROCESSING]`, `[RUN-SUMMARY]`, `[LATTICE-EXPORT]`, `[EXPORT-CHECK]`, `[IMPORT-LEVEL]`. Najpomembnejše, kar morate vedeti, je **povzetek izvajanja**, ki se izpiše na koncu vsakega izvajanja (vključno z ustavljenimi izvajanji):
 
 ```
 [RUN-SUMMARY] 49 image(s) in 2 camera group(s); 4 target(s) detected; 45 image(s) calibrated; 180 file(s) written.
 ```
 
-Dodatne vrstice z namigi `[RUN-SUMMARY]` sledijo vedno, kadar je potrebno kaj pojasniti — na primer izvedba, ki ni prinesla nobenih rezultatov, ali kamero, katere zahtevani izdelek je bil preskočen kot neuporaben. Vrstice `[EXPORT-CHECK]` pojasnjujejo preskoke po posameznih kamerah (npr. zakaj RGB
-
--kamera ni dobila izdelka sevanja).
+Dodatne vrstice z namigi `[RUN-SUMMARY]` sledijo vedno, kadar je potrebno kaj pojasniti — na primer izvedba, ki ni prinesla nobenih rezultatov, ali kamero, katere zahtevani izdelek je bil preskočen kot neuporaben. Vrstice `[EXPORT-CHECK]` pojasnjujejo preskoke po posameznih kamerah (npr. zakaj RGB-kamera ni dobila izdelka sevanja).
 
 Splošne stopnje resnosti sporočil (spodnji primeri so ilustrativni, ne dobesedni):
 
@@ -210,17 +188,9 @@ Kritične težave, ki lahko povzročijo neuspešno obdelavo – npr. poln disk, 
 | Cilji niso bili najdeni                      | Kalibracijski cilji niso bili zaznani               | Označite ciljne slike ali onemogočite kalibracijo odbojnosti |
 | Premajhen prostor na disku               | Premalo prostora za shranjevanje izhodnih podatkov                 | Osvobodite prostor na disku                                    |
 | Preskočitev poškodovane datoteke               | Datoteka slike je poškodovana                         | Ponovno kopirajte datoteko s kartice SD                             |
-| `[IMPORT-LEVEL] Skipping ... no raw source` | Posnetka brez surovega okvirja ni mogoče obdelati | Ponovno posnemite s surovim okvirjem, ali uporabite CLI
-
-`--input-level`  |
+| `[IMPORT-LEVEL] Skipping ... no raw source` | Posnetka brez surovega okvirja ni mogoče obdelati | Ponovno posnemite s surovim okvirjem, ali uporabite CLI `--input-level`  |
 | `[RUN-SUMMARY] ... 0 file(s) written` | Izvedba ni ustvarila nobenih slikovnih izdelkov — poročano kot napaka z namigi | Preberite vrstice z namigi; preverite, kaj je bilo preskočeno in zakaj |
-| `[PROCESS] refused: The project folder is too deep for this computer…` | Dolge poti v Windows
-
-u so izklopljene, projektna mapa pa je pregloboka za omejitev poti na 260 znakov; nič ni bilo obdelano | Uporabite krajšo projektno mapo (sporočilo navaja najdaljšo, ki ustreza), ali vklopite dolge poti v sistemu Windows
-
-in ponovno zaženite program Chloros
-
-— glejte [Začetek obdelave](starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer) |
+| `[PROCESS] refused: The project folder is too deep for this computer…` | Dolge poti v Windows u so izklopljene, projektna mapa pa je pregloboka za omejitev poti na 260 znakov; nič ni bilo obdelano | Uporabite krajšo projektno mapo (sporočilo navaja najdaljšo, ki ustreza), ali vklopite dolge poti v sistemu Windows in ponovno zaženite program Chloros — glejte [Začetek obdelave](starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer) |
 | `[unmix-clamp-mask] …` | Maske omejitve izdelka LATTICE ni bilo mogoče zapisati; sam izdelek je v redu in prikazuje `Chloros:UnmixClampMask=unavailable` | Preverite prostora na disku in dovoljenja za mape, nato pa ponovno obdelajte, če potrebujete masko |
 
 ### Kopiranje podatkov dnevnika
@@ -236,26 +206,14 @@ Za kopiranje dnevnika za odpravljanje težav ali podporo:
 
 ### Prijava napake iz zavihka »Dnevnik odpravljanja napak«
 
-Novost v različici 1.3.0: ikona napake (**Prijavi napako**) na vrhu zavihka »Dnevnik odpravljanja napak« pošlje poročilo neposredno podjetju MAPIR
-
-.
+Novost v različici 1.3.0: ikona napake (**Prijavi napako**) na vrhu zavihka »Dnevnik odpravljanja napak« pošlje poročilo neposredno podjetju MAPIR.
 
 1. Kliknite ikono napake na vrhu zavihka »Dnevnik odpravljanja napak«
 2. Opišite težavo: kaj ste počeli, kaj ste pričakovali in kaj se je namesto tega zgodilo (obvezno)
 3. Po želji označite **Dodaj nekaj slik (do 10)**in izberite slike iz odprtega projekta ali uporabite**Prebrskaj...** za katero koli drugo slikovno datoteko
 4. Kliknite **Pošlji**
 
-Poročilo vključuje vaš opis, vse priložene slike, dnevnike Chloros
-
-ter podrobnosti o sistemu (različica Chloros
-
-, operacijski sistem, grafična kartica in nastavitve projekta). Za pošiljanje poročila morate biti prijavljeni v Chloros
-
-(zavihek »User«). Med pošiljanjem lahko okno zaprete; ko se pošiljanje konča, se v dnevnik zapiše sklic, na primer `Bug report sent. Reference: BR-…` – navedite ga, ko se obrnete na MAPIR
-
-. Če poročila ni mogoče naložiti (na primer zaradi pomanjkanja internetne povezave), ga Chloros
-
-shrani na vaš računalnik in prikaže pot do datoteke, da ga lahko pošljete po e-pošti na naslov support@mapir.camera.
+Poročilo vključuje vaš opis, vse priložene slike, dnevnike Chloros ter podrobnosti o sistemu (različica Chloros, operacijski sistem, grafična kartica in nastavitve projekta). Za pošiljanje poročila morate biti prijavljeni v Chloros (zavihek »User«). Med pošiljanjem lahko okno zaprete; ko se pošiljanje konča, se v dnevnik zapiše sklic, na primer `Bug report sent. Reference: BR-…` – navedite ga, ko se obrnete na MAPIR. Če poročila ni mogoče naložiti (na primer zaradi pomanjkanja internetne povezave), ga Chloros shrani na vaš računalnik in prikaže pot do datoteke, da ga lahko pošljete po e-pošti na naslov support@mapir.camera.
 
 ***
 
@@ -269,33 +227,25 @@ shrani na vaš računalnik in prikaže pot do datoteke, da ga lahko pošljete po
 * Druga jedra so v mirovanju ali na voljo
 * Sistem ostaja odziven
 
-**Vzporedni način Chloros
-
-+:**
+**Vzporedni način Chloros+:**
 
 * Več jeder z visoko izkoriščenostjo – število je odvisno od strategije, izbrane v [Dinamični prilagoditvi računalniške moči](../processing-architecture/dynamic-compute-adaptation.md)
 * Sistem se lahko zdi manj odziven
 
 **Za spremljanje:**
 
-* Upravitelj opravil Windows
-
-a (Ctrl+Shift+Esc)
+* Upravitelj opravil Windows a (Ctrl+Shift+Esc)
 * Zavihek »Zmogljivost« → razdelek »Procesor«
-* Poiščite procese »Chloros
-
-« ali »chloros-backend«
+* Poiščite procese »Chloros « ali »chloros-backend«
 
 ### Poraba pomnilnika (RAM)
 
 **Tipična poraba:**
 
-* Majhni projekti (&lt; 100 slik): 2–4 GB
+* Majhni projekti (< 100 slik): 2–4 GB
 * Srednji projekti (100–500 slik): 4–8 GB
 * Veliki projekti (500+ slik): 8–16 GB
-* Vzporedni način delovanja »Chloros
-
-+« porabi več pomnilnika RAM
+* Vzporedni način delovanja »Chloros+« porabi več pomnilnika RAM
 
 **Če je pomnilnika premalo:**
 
@@ -303,9 +253,7 @@ a (Ctrl+Shift+Esc)
 * Zaprite druge aplikacije
 * Nadgradite RAM, če redno obdelujete velike nize podatkov
 
-### Poraba GPU (»Chloros
-
-+« s CUDA)
+### Poraba GPU (»Chloros+« s CUDA)
 
 Ko je pospeševanje s GPU omogočeno:
 
@@ -343,9 +291,7 @@ Ko je pospeševanje s GPU omogočeno:
 
 * Preverite dnevnik odpravljanja napak za morebitne napake
 * Preverite razpoložljiv prostor na disku
-* V upravitelju opravil preverite, ali Chloros
-
-deluje
+* V upravitelju opravil preverite, ali Chloros deluje
 
 **Pogosto se pojavljajo sporočila o napakah:**
 
@@ -355,9 +301,7 @@ deluje
 
 **Sistem ne odziva:**
 
-* Vzporedni način delovanja programa Chloros
-
-porablja preveč virov
+* Vzporedni način delovanja programa Chloros porablja preveč virov
 * Razmislite o zmanjšanju števila sočasnih nalog ali nadgradnji strojne opreme
 * Prosti način porablja manj virov
 
@@ -396,9 +340,7 @@ Ustavite obdelavo, če opazite:
 
 1. Če se je obdelava šele začela in je v fazi zaznavanja: ustavite, označite ciljne slike, ponovno zaženite
 2. Za prihodnost: uporabite SSD, zmanjšajte število indeksov, nadgradite strojno opremo
-3. Razmislite o uporabi CLI
-
--ja za obdelavo velikih naborov podatkov v paketih
+3. Razmislite o uporabi CLI-ja za obdelavo velikih naborov podatkov v paketih
 
 ### Opozorila o »prostoru na disku«
 
@@ -408,9 +350,7 @@ Ustavite obdelavo, če opazite:
 2. Premestite projekt na pogon z več prostora
 3. Zmanjšajte število indeksov za izvoz
 4. Onemogočite izvozne produkte LATTICE, ki jih ne potrebujete (Nastavitve projekta → Obdelava)
-5. Uporabite format JPG namesto TIFF
-
-a (manjše datoteke)
+5. Uporabite format JPG namesto TIFF a (manjše datoteke)
 
 ### Pogosta sporočila o »poškodovanih datotekah«
 
@@ -427,9 +367,7 @@ a (manjše datoteke)
 
 1. Poskrbite za ustrezno prezračevanje
 2. Očistite prah iz prezračevalnih odprtin računalnika
-3. Zmanjšajte obremenitev obdelave (uporabite način »Free« namesto »Chloros
-
-+«)
+3. Zmanjšajte obremenitev obdelave (uporabite način »Free« namesto »Chloros+«)
 4. Obdelujte v hladnejših delih dneva
 
 ***

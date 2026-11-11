@@ -63,7 +63,7 @@ Chloros deluje v dveh različnih načinih obdelave, odvisno od vaše licence:
 2. **Obdelava** – izvedba kalibracije in izvoz slik**Čas obdelave:**
 
 * Precej počasnejši od vzporednega načina Chloros+
-* Primeren za majhne do srednje velike nize podatkov (&lt; 200 slik)
+* Primeren za majhne do srednje velike nize podatkov (< 200 slik)
 
 ### Način Chloros+ (vzporedna obdelava)
 
@@ -306,7 +306,7 @@ Za celotno semantiko glej [referenco CLI](../reference/cli-reference.md#a-run-th
 **Rešitve:**
 
 1. Shranite projekte v krajšo mapo — spremenite**Delovni imenik** v [Nastavitvah projekta](../project-settings/project-settings.md) in projekt ustvarite na novo, ali
-2. Vklopite dolge poti v sistemu Windows in ponovno zaženite Chloros: ponovno zaženite namestitveni program Chloros z označeno možnostjo **Omogoči dolge poti v sistemu Windows** (ta je privzeto označena) ali uporabite skupinsko politiko: *Konfiguracija računalnika &gt; Upravne predloge &gt; Sistem &gt; Datotečni sistem &gt; Omogoči dolge poti Win32*.
+2. Vklopite dolge poti v sistemu Windows in ponovno zaženite Chloros: ponovno zaženite namestitveni program Chloros z označeno možnostjo **Omogoči dolge poti v sistemu Windows** (ta je privzeto označena) ali uporabite skupinsko politiko: *Konfiguracija računalnika > Upravne predloge > Sistem > Datotečni sistem > Omogoči dolge poti Win32*.
 
 ### Opozorilo »Ni zaznanih ciljev«
 

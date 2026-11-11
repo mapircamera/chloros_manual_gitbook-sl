@@ -22,19 +22,7 @@ Zgornji naslovni trak od leve proti desni vsebuje:
 * **Poveži se s svetlobnim senzorjem** — preide na [zavihek Svetlobni senzorji](daq/), da se poveže s svetlobnim senzorjem DAQ. Deluje tudi brez odprtega projekta.
 
 {% hint style="info" %}
-**Samo za Windows**: Grafični uporabniški vmesnik Chloros
-
-Desktop je na voljo v sistemu Windows
-
-. Uporabniki Linux
-
-a naj za obdelavo brez grafičnega vmesnika preberejo dokumentacijo o [CLI
-
-](CLI.md) in [Python
-
-SDK
-
-](api-python-sdk.md).
+**Samo za Windows**: Grafični uporabniški vmesnik Chloros Desktop je na voljo v sistemu Windows. Uporabniki Linux a naj za obdelavo brez grafičnega vmesnika preberejo dokumentacijo o [CLI](CLI.md) in [Python SDK](api-python-sdk.md).
 {% endhint %}
 
 ### <img src=".gitbook/assets/image (2) (1) (1).png" alt="" data-size="line">
@@ -49,15 +37,9 @@ Kazalnik napredka <img src=".gitbook/assets/image (5).png" alt="" data-size="lin
 
 
 
-V brezplačnem načinu Chloros
+V brezplačnem načinu Chloros, ki vse datoteke obdeluje zaporedno, kazalnik napredka prikazuje 2 fazi: zaznavanje ciljev in obdelava.
 
-, ki vse datoteke obdeluje zaporedno, kazalnik napredka prikazuje 2 fazi: zaznavanje ciljev in obdelava.
-
-V plačljivem načinu z licenco Chloros
-
-+, ki vse datoteke obdeluje sočasno, kazalnik napredka prikazuje 4 faze: zaznavanje, analiziranje, kalibriranje, izvoz. Če z miškinim kazalcem preletite kazalnik napredka Chloros
-
-+, se odpre razširjen panel s štirimi kazalniki napredka, da lahko spremljate potek. S klikom na zgornji kazalnik napredka zamrznete razširjeni panel, s ponovnim klikom pa ga sprostite.
+V plačljivem načinu z licenco Chloros+, ki vse datoteke obdeluje sočasno, kazalnik napredka prikazuje 4 faze: zaznavanje, analiziranje, kalibriranje, izvoz. Če z miškinim kazalcem preletite kazalnik napredka Chloros+, se odpre razširjen panel s štirimi kazalniki napredka, da lahko spremljate potek. S klikom na zgornji kazalnik napredka zamrznete razširjeni panel, s ponovnim klikom pa ga sprostite.
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 

@@ -1,8 +1,6 @@
 # DAQ-E: omrežje in sinhronizacija časa
 
-> Fizična namestitev omrežja za senzor – ožičenje, PoE, dodelitev IP-naslova in lastne omrežne nastavitve naprave – je opisana v **[uporabniškem priročniku za DAQ](https://mapir.gitbook.io/daq/daq-e/network-setup)**. Ta stran obravnava stran Chloros
-
-: povezovanje, sinhronizacijo časa in kaj storiti, če iskanje ne prinese rezultatov.
+> Fizična namestitev omrežja za senzor – ožičenje, PoE, dodelitev IP-naslova in lastne omrežne nastavitve naprave – je opisana v **[uporabniškem priročniku za DAQ](https://mapir.gitbook.io/daq/daq-e/network-setup)**. Ta stran obravnava stran Chloros: povezovanje, sinhronizacijo časa in kaj storiti, če iskanje ne prinese rezultatov.
 
 DAQ-E je član družine DAQ, ki deluje prek omrežja Ethernet: napaja se prek PoE, odkrije se prek mDNS (storitev `_daq-e._tcp`), nasloviti pa ga je mogoče z imenom gostitelja, ki izhaja iz njegove identifikacijske številke senzorja — `daq-e-<6 hex>.local`, npr. `daq-e-def330.local`. Ta stran obravnava, kako naprava prenaša podatke po omrežju in kako sodeluje pri časovni sinhronizaciji PTP.
 
@@ -13,35 +11,17 @@ DAQ-E je član družine DAQ, ki deluje prek omrežja Ethernet: napaja se prek Po
 | **Multicast** (privzeto) | UDP `239.10.10.10:5002` | Vsak naslov v istem LAN-omrežju prejme isti tok | Vsak datagram je preverjen s CRC-16/CCITT |
 | **Raw** | TCP vrata `5000` | Točno en odjemalec (izključno) | Neposredno združljiv na ravni bajtov z DAQ-U |
 
-Chloros
-
-privzeto uporablja multicast, kar omogoča, da GUI, CLI
-
-in SDK
-
-hkrati spremljajo en senzor.
+Chloros privzeto uporablja multicast, kar omogoča, da GUI, CLI in SDK hkrati spremljajo en senzor.
 
 ## Zahteve omrežja
 
-* **Ista domena oddajanja.** Računalnik, na katerem teče Chloros
-
-, mora biti v istem segmentu omrežja L2 kot senzor — odkrivanje mDNS ne prehaja skozi usmerjevalnike.
-* **Požarni zid.** V sistemu Windows
-
-namestitveni program v vsak omrežni profil doda pravilo požarnega zida **Chloros
-
-Backend (UDP-In)**za backend, ki zajema podatke DAQ-E (UDP 5002), mDNS (UDP 5353) in PTP (UDP 319/320), ter pravilo**»Chloros
-
-Backend (TCP-In)«**, omejeno na lokalno podomrežje, za povezavo, ki jo DAQ-E vzpostavi nazaj z računalnikom med posodobitvijo firmware-a. V sistemu Linux
-
-`.deb` odpre vrata UDP v `ufw` ali `firewalld`, če je ta požarni zid aktiven ob namestitvi. Za požarni zid tretje osebe ali tistega, ki je bil omogočen kasneje, je treba dovoliti iste vrata.
+* **Ista domena oddajanja.** Računalnik, na katerem teče Chloros, mora biti v istem segmentu omrežja L2 kot senzor — odkrivanje mDNS ne prehaja skozi usmerjevalnike.
+* **Požarni zid.** V sistemu Windows namestitveni program v vsak omrežni profil doda pravilo požarnega zida **Chloros Backend (UDP-In)**za backend, ki zajema podatke DAQ-E (UDP 5002), mDNS (UDP 5353) in PTP (UDP 319/320), ter pravilo**»Chloros Backend (TCP-In)«**, omejeno na lokalno podomrežje, za povezavo, ki jo DAQ-E vzpostavi nazaj z računalnikom med posodobitvijo firmware-a. V sistemu Linux `.deb` odpre vrata UDP v `ufw` ali `firewalld`, če je ta požarni zid aktiven ob namestitvi. Za požarni zid tretje osebe ali tistega, ki je bil omogočen kasneje, je treba dovoliti iste vrata.
 * **Napajanje prek PoE, brez LED-a za stanje.** Naprava DAQ-E nima lastnega LED-a – preverite napajanje prek indikatorja povezave/PoE na stikalu ali vstopni vratih injektorja ter po vklopu počakajte nekaj sekund, da se naprava zagoni in priključi na omrežje.
 
 ## Povezovanje
 
-**GUI:** Zavihek Svetlobni senzorji → Poveži senzor → Vrsta naprave »DAQ-E (Ethernet)«. Iskanje poteka le, dokler je na zaslonu prikazano okno za povezovanje (brskanje po mDNS in ARP-skeniranje v sistemu Windows
-
-), in se ponavlja vsakih 15 sekund; gumb Osveži takoj ponovno izvede skeniranje. Odkriti senzorji se prikažejo v spustnem meniju; prvi zaznan senzor je samodejno izbran.
+**GUI:** Zavihek Svetlobni senzorji → Poveži senzor → Vrsta naprave »DAQ-E (Ethernet)«. Iskanje poteka le, dokler je na zaslonu prikazano okno za povezovanje (brskanje po mDNS in ARP-skeniranje v sistemu Windows), in se ponavlja vsakih 15 sekund; gumb Osveži takoj ponovno izvede skeniranje. Odkriti senzorji se prikažejo v spustnem meniju; prvi zaznan senzor je samodejno izbran.
 
 <!-- SCREENSHOT-NEEDED: DAQ connect dialog with Device Type set to "DAQ-E (Ethernet)" and at least one discovered sensor listed in the Hostname/IP dropdown (e.g. daq-e-xxxxxx.local), Connect button enabled. -->
 
@@ -67,23 +47,9 @@ chloros-cli daq pool-connect --eth-host daq-e-def330.local
 
 ## Nastavitve naprave in vgrajena programska oprema
 
-Senzor sam hrani svoje omrežne nastavitve: DHCP (tovarniška nastavitev, ki se preklopi na lokalni naslov povezave 169.254.x.x, če noben strežnik DHCP ne odgovori) ali statični naslov. Hrani tudi nastavitev, ali naj začne s prenosom podatkov ob vklopu. Te nastavitve spremenite v grafičnem vmesniku (v nastavitvah senzorja z ikono zobnika, **Mreža**:**Spremeni…**,**Prenos ob vklopu**,**Ponovni zagon senzorja**; glej [Zavihek DAQ](gui.md)), ali prek CLI
+Senzor sam hrani svoje omrežne nastavitve: DHCP (tovarniška nastavitev, ki se preklopi na lokalni naslov povezave 169.254.x.x, če noben strežnik DHCP ne odgovori) ali statični naslov. Hrani tudi nastavitev, ali naj začne s prenosom podatkov ob vklopu. Te nastavitve spremenite v grafičnem vmesniku (v nastavitvah senzorja z ikono zobnika, **Mreža**:**Spremeni…**,**Prenos ob vklopu**,**Ponovni zagon senzorja**; glej [Zavihek DAQ](gui.md)), ali prek CLI-ja in SDK-ja s komandami `pool-set-network`, `pool-set-auto-stream` in `pool-reboot` (`DAQSensorSession.set_network()`, `set_auto_stream()`, `reboot()`; glejte [Referenco za CLI](../reference/cli-reference.md#daq-e-device-settings)). Senzor se ponovno zažene, da se upošteva sprememba v omrežju, Chloros pa ga ponovno poveže. V omrežju računalnika, na katerem teče Chloros, mora biti statični naslov: Chloros zavrne tistega, do katerega po ponovnem zagonu ne more dostopati. ID senzorja in njegovo ime gostitelja `daq-e-<id>.local` se nikoli ne spremenita. Novost v različici 1.3.0.
 
--ja in SDK
-
--ja s komandami `pool-set-network`, `pool-set-auto-stream` in `pool-reboot` (`DAQSensorSession.set_network()`, `set_auto_stream()`, `reboot()`; glejte [Referenco za CLI
-
-](../reference/cli-reference.md#daq-e-device-settings)). Senzor se ponovno zažene, da se upošteva sprememba v omrežju, Chloros
-
-pa ga ponovno poveže. V omrežju računalnika, na katerem teče Chloros
-
-, mora biti statični naslov: Chloros
-
-zavrne tistega, do katerega po ponovnem zagonu ne more dostopati. ID senzorja in njegovo ime gostitelja `daq-e-<id>.local` se nikoli ne spremenita. Novost v različici 1.3.0.
-
-**Posodobitve firmware-a so vgrajene v grafični uporabniški vmesnik (GUI).** Ko priključen DAQ-E uporablja starejšo različico firmware-a od tiste, ki je priložena vaši različici Chloros
-
-, se v vrstici senzorja prikaže rumena ikona **Posodobitev na voljo**, v oknu nastavitev z zobnikom pa se prikaže <version>gumb</version>
+**Posodobitve firmware-a so vgrajene v grafični uporabniški vmesnik (GUI).** Ko priključen DAQ-E uporablja starejšo različico firmware-a od tiste, ki je priložena vaši različici Chloros, se v vrstici senzorja prikaže rumena ikona **Posodobitev na voljo**, v oknu nastavitev z zobnikom pa se prikaže <version>gumb</version>
 
 »Posodobi na<version>«. Posodobitev se prenese prek omrežja v približno 30 sekundah; senzor se samodejno ponovno zažene in ponovno poveže, prekinjen prenos pa ohrani trenutno firmware nespremenjeno. V CLI-ju ali SDK-ju ter v sistemu Linux, ki nima grafičnega vmesnika, zaženite `chloros-cli daq pool-update-firmware --sensor-id <id>` (`DAQSensorSession.update_firmware()`).
 

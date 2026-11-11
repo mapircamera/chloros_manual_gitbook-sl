@@ -27,15 +27,9 @@ Da. Chloros 1.3.0 v celoti podpira kamere LATTICE M3C in M3M: **nadzor v realnem
 
 <summary>Ali lahko kalibriram svoje slike za odbojnost brez kalibracijskega cilja?</summary>
 
-**Survey3
+**Survey3:** Ne. Brez slike kalibracijskega cilja, posnete ob istem času kot slike brez cilja, ne boste mogli povezati vrednosti pikslov slike z znanim odstotkom odbojnosti. Če ne vključite tudi dnevnika svetlobnega senzorja MAPIR, se spekter okoljske svetlobe ne bo izmeril, rezultati odbojnosti pa ne bodo natančni.
 
-:** Ne. Brez slike kalibracijskega cilja, posnete ob istem času kot slike brez cilja, ne boste mogli povezati vrednosti pikslov slike z znanim odstotkom odbojnosti. Če ne vključite tudi dnevnika svetlobnega senzorja MAPIR
-
-, se spekter okoljske svetlobe ne bo izmeril, rezultati odbojnosti pa ne bodo natančni.
-
-**LATTICE:** Da. Odbojnost se lahko nanaša na navzdolno sevanje, izmerjeno s svetlobnim senzorjem DAQ namesto s panelom (ρ = π·L/E). Ko je v okviru prisoten cilj, ki je uspešno prestal kontrolo kakovosti (QA), ta postane privzeto absolutna referenca (`--reflectance-source auto`), razen če je bil sprejet z oznako, v tem primeru pa se cilj in verige DAQ merijo med seboj glede na izmerjeno oceno. Ena izjema: »Odbojnost F988 se kalibrira z uporabo plošče za odbojnost v prizoru: pas leži zunaj kalibriranega območja svetlobnega senzorja DAQ, zato Chloros
-
-uporabi vaš najnovejši posnetek plošče in ga ohrani med posameznimi opazovanji plošče.« Glejte [Kalibracijske tarče](calibration-targets.md).
+**LATTICE:** Da. Odbojnost se lahko nanaša na navzdolno sevanje, izmerjeno s svetlobnim senzorjem DAQ namesto s panelom (ρ = π·L/E). Ko je v okviru prisoten cilj, ki je uspešno prestal kontrolo kakovosti (QA), ta postane privzeto absolutna referenca (`--reflectance-source auto`), razen če je bil sprejet z oznako, v tem primeru pa se cilj in verige DAQ merijo med seboj glede na izmerjeno oceno. Ena izjema: »Odbojnost F988 se kalibrira z uporabo plošče za odbojnost v prizoru: pas leži zunaj kalibriranega območja svetlobnega senzorja DAQ, zato Chloros uporabi vaš najnovejši posnetek plošče in ga ohrani med posameznimi opazovanji plošče.« Glejte [Kalibracijske tarče](calibration-targets.md).
 
 </details>
 
@@ -43,9 +37,7 @@ uporabi vaš najnovejši posnetek plošče in ga ohrani med posameznimi opazovan
 
 <summary>Ali potrebujem svetlobni senzor DAQ?</summary>
 
-Ne za sevanje: izvozi sevanja LATTICE izhajajo iz tovarniške radiometrične kalibracije vsake kamere in ne potrebujejo niti senzorja DAQ niti cilja. Za **odbojnost**potrebujete referenco za okolno svetlobo – bodisi meritev navzdol usmerjenega svetlobnega toka senzorja DAQ bodisi kalibracijski cilj v kadru. S senzorjem DAQ lahko pridobite kalibrirano odbojnost**brez namestitve kakršnih koli plošč v prizor**. Posnete datoteke `.daq` se samodejno uskladijo z vašimi slikami na podlagi časovnega žiga. Glejte [Kalibracijske tarče](calibration-targets.md) in [Referenco CLI
-
-](reference/cli-reference.md).
+Ne za sevanje: izvozi sevanja LATTICE izhajajo iz tovarniške radiometrične kalibracije vsake kamere in ne potrebujejo niti senzorja DAQ niti cilja. Za **odbojnost**potrebujete referenco za okolno svetlobo – bodisi meritev navzdol usmerjenega svetlobnega toka senzorja DAQ bodisi kalibracijski cilj v kadru. S senzorjem DAQ lahko pridobite kalibrirano odbojnost**brez namestitve kakršnih koli plošč v prizor**. Posnete datoteke `.daq` se samodejno uskladijo z vašimi slikami na podlagi časovnega žiga. Glejte [Kalibracijske tarče](calibration-targets.md) in [Referenco CLI](reference/cli-reference.md).
 
 </details>
 
@@ -143,9 +135,7 @@ Ne. Podprte so le posamezne slike kamerMAPIR, ne pa sestavljenih slik, kot je or
 
 <summary>Če bom svoje slike naložil v <a href="https://www.mapir.camera/collections/software/products/mapir-cloud-subscription">MAPIR Cloud,</a> ali jih moram pred nalaganjem obdelati v Chlorosu?</summary>
 
-Če nameravate slike naložiti na našo spletno platformo za obdelavo [MAPIR
-
-Cloud](https://www.mapir.camera/collections/software/products/mapir-cloud-subscription), jih pred nalaganjem ne urejajte. Cloud bo opravil enako obdelavo in še več.
+Če nameravate slike naložiti na našo spletno platformo za obdelavo [MAPIR Cloud](https://www.mapir.camera/collections/software/products/mapir-cloud-subscription), jih pred nalaganjem ne urejajte. Cloud bo opravil enako obdelavo in še več.
 
 </details>
 
@@ -185,9 +175,7 @@ Da! Chloros vključuje [dinamično prilagajanje računalniške moči](processing
 
 <summary>Kaj je 4-nitni obdelovalni potok?</summary>
 
-Chloros
-uporablja 4-nitno arhitekturo s potekom obdelave za uporabnike Chloros
-+: Nit 1 (Zaznavanje) naloži slike in zazna kalibracijske cilje, Nit 2 (Kalibracija) izračuna kalibracijo odbojnosti, Nit 3 (Obdelava) izvede GPU-pospešeno odstranjevanje bayerjevega vzorca in izračun indeksa, Nit 4 (Izvoz) pa zapiše izhodne datoteke. Za maksimalno zmogljivost lahko več slik hkrati poteka v različnih niti. Za podrobnosti glejte [Obdelovalni potek](processing-architecture/processing-pipeline.md).
+Chloros uporablja 4-nitno arhitekturo s potekom obdelave za uporabnike Chloros+: Nit 1 (Zaznavanje) naloži slike in zazna kalibracijske cilje, Nit 2 (Kalibracija) izračuna kalibracijo odbojnosti, Nit 3 (Obdelava) izvede GPU-pospešeno odstranjevanje bayerjevega vzorca in izračun indeksa, Nit 4 (Izvoz) pa zapiše izhodne datoteke. Za maksimalno zmogljivost lahko več slik hkrati poteka v različnih niti. Za podrobnosti glejte [Obdelovalni potek](processing-architecture/processing-pipeline.md).
 
 </details>
 

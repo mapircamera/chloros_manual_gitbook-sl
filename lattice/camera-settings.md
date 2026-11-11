@@ -1,12 +1,8 @@
 # Nastavitve kamer
 
-Zavihek **Kamere** je vmesnik za nadzor v realnem času, ki ga je razvil Chloros
+Zavihek **Kamere** je vmesnik za nadzor v realnem času, ki ga je razvil Chloros za kamere LATTICE: glavno območje za prikaz v živo, kjer se vsaka priključena kamera prikaže kot ploščica v realnem času, ter stranski pas, ki se premika med tremi stranmi – **seznamom kamer**,**oknom z nastavitvami**(nastavitve za posamezno kamero, niz kamer ali zajem – po ena naenkrat) ter**indeksni kalkulator**. Ta stran opisuje vsak element upravljanja na seznamu kamer, v oknu nastavitev za posamezno kamero in v oknu nastavitev za niz kamer. Načini zajema, izbira vrste izvoza in potek »Capture All« so na spremljevalni strani [Nastavitve in načini zajema](capture.md).
 
-za kamere LATTICE: glavno območje za prikaz v živo, kjer se vsaka priključena kamera prikaže kot ploščica v realnem času, ter stranski pas, ki se premika med tremi stranmi – **seznamom kamer**,**oknom z nastavitvami**(nastavitve za posamezno kamero, niz kamer ali zajem – po ena naenkrat) ter**indeksni kalkulator**. Ta stran opisuje vsak element upravljanja na seznamu kamer, v oknu nastavitev za posamezno kamero in v oknu nastavitev za niz kamer. Načini zajema, izbira vrste izvoza in potek »Capture All« so na spremljevalni strani [Nastavitve in načini zajema](capture.md).
-
-Zavihek »Kamere« se prikaže v stranskem meniju, ko je Chloros
-
-ov backend pripravljen. Vsi spodnji elementi za upravljanje komunicirajo z lokalnim backendom prek `127.0.0.1:5000`; spremembe se takoj upoštevajo v živi sliki kamere, razen če ni drugače navedeno.
+Zavihek »Kamere« se prikaže v stranskem meniju, ko je Chloros ov backend pripravljen. Vsi spodnji elementi za upravljanje komunicirajo z lokalnim backendom prek `127.0.0.1:5000`; spremembe se takoj upoštevajo v živi sliki kamere, razen če ni drugače navedeno.
 
 ## Vrste kamer, uporabljene na tej strani
 
@@ -14,40 +10,12 @@ Upravljalni elementi se prikazujejo ali skrijejo glede na to, katera vrsta kamer
 
 | Izraz | Pomen | Filtrski kanali |
 | --- | --- | --- |
-| **RGB
-
--kamera** | LATTICE M3C s filtrom FRGB (model vsebuje `-FRGB`) | Red
-
-/ Green
-
-/ Blue
-
-|
-| **Bayerjeva multispektralna** | LATTICE M3C s filtri FRGN, FOCN ali FNGB | FRGN: Red
-
-/ Green
-
-/ NIR
-
-· FOCN: Orange
-
-/ Cyan
-
-/ NIR
-
-· FNGB: NIR
-
-/ Green
-
-/ Blue
-
-|
+| **RGB-kamera** | LATTICE M3C s filtrom FRGB (model vsebuje `-FRGB`) | Red / Green / Blue |
+| **Bayerjeva multispektralna** | LATTICE M3C s filtri FRGN, FOCN ali FNGB | FRGN: Red / Green / NIR · FOCN: Orange / Cyan / NIR · FNGB: NIR / Green / Blue |
 | **Mono (M3M)** | LATTICE M3M — en ozkopasovni filter, en kalibriran pas | En pas |
 | **Član matrike** | Kamera, priključena kot del sinhronizirane matrike (združen ali ločen prikaz) | Glede na svoj filter |
 
-Kamere RGB
-
-so obdelane fotometrično (belina, barvni profili, gama); multispektralne in mono kamere so obdelane radiometrično in preskočijo fotometrične nastavitve. Člani matrike posredujejo nastavitve na ravni toka (format pikslov, ločljivost, združevanje pikslov, sprožilec, hitrost snemanja) nizu — te vrstice postanejo v oknu za posamezno kamero samo za branje in se namesto tega premaknejo v okno z nastavitvami niza.
+Kamere RGB so obdelane fotometrično (belina, barvni profili, gama); multispektralne in mono kamere so obdelane radiometrično in preskočijo fotometrične nastavitve. Člani matrike posredujejo nastavitve na ravni toka (format pikslov, ločljivost, združevanje pikslov, sprožilec, hitrost snemanja) nizu — te vrstice postanejo v oknu za posamezno kamero samo za branje in se namesto tega premaknejo v okno z nastavitvami niza.
 
 ## Glavno območje prenosa
 
@@ -55,9 +23,7 @@ so obdelane fotometrično (belina, barvni profili, gama); multispektralne in mon
 
 
 
-Če ni priključenih kamer, območje prenosa prikazuje uvodno sporočilo **»Priključite kamero, da začnete«**z dvema gumboma:**Priključi kamero**(zelen, odpre pogovorno okno za povezavo posamezne kamere) in**Poveži niz kamer** (modro, odpre pogovorno okno za povezavo niza kamer). Sama pogovorna okna za povezavo so opisana v [Povezovanje kamer](connecting.md); koncepti niza kamer (sinhronizacija, ravni, pasovna širina) pa v [Nizi več kamer](arrays.md). Ko odprete shranjen projekt, ki vsebuje kamere, se namesto tega prikaže ikona vrtenja z napisom »Ponovno odpiranje N shranjenih kamer…«, medtem ko Chloros
-
-obnavlja tokove iz zadnje seje.
+Če ni priključenih kamer, območje prenosa prikazuje uvodno sporočilo **»Priključite kamero, da začnete«**z dvema gumboma:**Priključi kamero**(zelen, odpre pogovorno okno za povezavo posamezne kamere) in**Poveži niz kamer** (modro, odpre pogovorno okno za povezavo niza kamer). Sama pogovorna okna za povezavo so opisana v [Povezovanje kamer](connecting.md); koncepti niza kamer (sinhronizacija, ravni, pasovna širina) pa v [Nizi več kamer](arrays.md). Ko odprete shranjen projekt, ki vsebuje kamere, se namesto tega prikaže ikona vrtenja z napisom »Ponovno odpiranje N shranjenih kamer…«, medtem ko Chloros obnavlja tokove iz zadnje seje.
 
 <!-- SCREENSHOT-NEEDED: Cameras tab empty state — the "Connect a camera to get started" splash with the green Connect Camera and blue Connect Array buttons. -->
 
@@ -122,9 +88,7 @@ Odprete ga z **zobnikom** v vrstici kamere. Okno se pomakne čez seznam kamer.
 
 ### Histogram v realnem času
 
-Na vrhu okna je histogram svetlosti v realnem času, izračunan iz predogleda v formatu JPEG
-
-s frekvenco ~8 Hz. Povprečje je tehtano po Bayerjevi metodi — (R+2G+B)/4 — da se ujema z merjenjem avtomatske osvetlitve (AE) same kamere.
+Na vrhu okna je histogram svetlosti v realnem času, izračunan iz predogleda v formatu JPEG s frekvenco ~8 Hz. Povprečje je tehtano po Bayerjevi metodi — (R+2G+B)/4 — da se ujema z merjenjem avtomatske osvetlitve (AE) same kamere.
 
 * **OranžnaOrange
 
@@ -132,9 +96,7 @@ a prekinjena črta**= ciljna vrednost AE.**Povlecite jo vodoravno, da spremenite
 * **ZelenaGreen
 
 a neprekinjena črta** = dejanska povprečna svetlost (kar trenutno zagotavlja AE).
-* **Gumb RGB** (zgoraj desno): preklaplja med prekrivnimi histogrami po posameznih pasovih, obarvanimi po filtru kamere (npr. pri FRGN: sivo NIR
-
-, zeleno, rdeče). Pri mono (M3M) kamerah je na gumbu napis »MONO« in je onemogočen — mono vedno prikazuje enopasovni histogram svetlosti.
+* **Gumb RGB** (zgoraj desno): preklaplja med prekrivnimi histogrami po posameznih pasovih, obarvanimi po filtru kamere (npr. pri FRGN: sivo NIR, zeleno, rdeče). Pri mono (M3M) kamerah je na gumbu napis »MONO« in je onemogočen — mono vedno prikazuje enopasovni histogram svetlosti.
 * Oznake na osi X sledijo bitni globini senzorja trenutnega formata pikslov: 0..255, 0..1023, 0..4095 ali 0..65535.
 
 ### Vrstice
@@ -146,56 +108,22 @@ s podatki o kameri
 | Vrstica | Delovanje |
 | --- | --- |
 | **Model** | Samo za branje (npr. `LATT-M3C-L87-FRGN`). |
-| **Radiometrična kalibracija** | Green
-
-a **»Aktivna«**oznaka z napisom, ki prikazuje stopnjo kalibracije, hash, datum kalibracije in seznam pasov, naloženih iz kalibracijskega paketa kamere (glej [Tovarniška radiometrična kalibracija](https://mapir.gitbook.io/lattice-camera/calibration/factory-radiometric-calibration)).**Skrito za RGB
-
--kamere** — te imajo fotometrično kalibracijo beline, ne pa sevanja po posameznih pasovih. |
-| **Poročilo o kalibraciji**| Gumb**Prenesi** — v pregledovalniku vašega operacijskega sistema odpre PDF-datoteko s certifikatom NIST o kalibraciji kamere po serijski številki. Če certifikat še ni shranjen v predpomnilniku, Chloros
-
-namesto tega prikaže namig. |
+| **Radiometrična kalibracija** | Green a **»Aktivna«**oznaka z napisom, ki prikazuje stopnjo kalibracije, hash, datum kalibracije in seznam pasov, naloženih iz kalibracijskega paketa kamere (glej [Tovarniška radiometrična kalibracija](https://mapir.gitbook.io/lattice-camera/calibration/factory-radiometric-calibration)).**Skrito za RGB-kamere** — te imajo fotometrično kalibracijo beline, ne pa sevanja po posameznih pasovih. |
+| **Poročilo o kalibraciji**| Gumb**Prenesi** — v pregledovalniku vašega operacijskega sistema odpre PDF-datoteko s certifikatom NIST o kalibraciji kamere po serijski številki. Če certifikat še ni shranjen v predpomnilniku, Chloros namesto tega prikaže namig. |
 | **Serijska številka** | Samo za branje. |
 | **Firmware**| Prikaže trenutno različico, nato pa poišče razpoložljivo različico za ta model (shranjeno v predpomnilniku po modelu — niz N kamer enkrat preveri strežnik). Stanj: »Preverjanje…« → gumb**»Posodobi na X«**→ »Posodabljanje…« → »Posodobljeno A → B« / »Neuspešno: …« / »Preskočeno: …« / zeleno**»Posodobljeno«**. Opomba pri gumbu za posodobitev: »Ponastavitev na tovarniške nastavitve + posodobitev + ponovno programiranje UserSet1. ~2–3 minute; ne prekinjajte povezave.« |
 | **IP** | Samo za branje. |
 | **Temperatura** | Samo za branje, osvežuje se vsake 3 s. Ob ≥65 °C postane oranžna, ob ≥75 °C pa rdeča z opozorilnim simbolom ⚠. |
-| **Kalibracijski cilj** | Omogoča zaznavanje cilja odbojnosti ArUco s tabelo za validacijo NDVI
-
-za vsak panel pod živo sliko (pogled seznama) — glej [tabelo kalibracijskih ciljev](#the-calibration-target-table). Na voljo le v seji — vedno se odpre v izklopljenem stanju. |
+| **Kalibracijski cilj** | Omogoča zaznavanje cilja odbojnosti ArUco s tabelo za validacijo NDVI za vsak panel pod živo sliko (pogled seznama) — glej [tabelo kalibracijskih ciljev](#the-calibration-target-table). Na voljo le v seji — vedno se odpre v izklopljenem stanju. |
 | Spustni meni **Svetlobni senzor** | Poveže svetlobni senzor DAQ (DAQ-E/M/U, iz seznama na zavihku Svetlobni senzorji) s to kamero za korekcijo osvetlitve z navzdol usmerjeno svetlobo (DLS) in predvidljivo samodejno osvetlitev. »»Nič« izbriše povezavo. Če ni priključenih senzorjev, se v spustnem meniju prikaže »(ni priključenih senzorjev — odpri zavihek DAQ)«. Povezava se shrani skupaj s projektom. |
 
 #### Tabela kalibracijskih tarč
 
 Tabela je **namenjena izključno za preverjanje** („samo za preverjanje — ne spreminja kalibracije“). V naslovu so navedene serijska številka kamere, filter, številka tarče in velikost označevalca v piksljih, vsaka vrstica pa ustreza enemu panelu:
 
-* **Panel**, nato pa en stolpec na pas z vrednostjo panela — Bayerjeva kamera prikazuje svoje tri pasove po imenu in valovni dolžini (npr. FRGN: Red
-
-660 nm / Green
-
-550 nm / NIR
-
-850 nm); **mono (M3M) kamera prikazuje en sam pas** (npr. `F750`) in nima stolpcev NDVI
-
-.
+* **Panel**, nato pa en stolpec na pas z vrednostjo panela — Bayerjeva kamera prikazuje svoje tri pasove po imenu in valovni dolžini (npr. FRGN: Red 660 nm / Green 550 nm / NIR 850 nm); **mono (M3M) kamera prikazuje en sam pas** (npr. `F750`) in nima stolpcev NDVI.
 * **Sat** — delež pikslov panela, ki so nasičeni (jantarni od 1 %, rdeči od 5 %).
-* **NDVI
-
-Meas**,**NDVI
-
-Theo** (referenčni NDVI
-
-odbojnosti panela) in **Δ**— samo za multispektralne kamere Bayer. Majhna oznaka za »NDVI
-
-Meas« navaja, na podlagi česa je bil izračunan izmerjeni NDVI
-
-:**ρ**(odbojnost — na voljo je odčitek svetlobnega senzorja),**L**(sevanje — ni odčitka svetlobnega senzorja) ali**DN**(surove vrednosti kamere). Le**ρ** NDVI
-
-je primerljiv z NDVI
-
-Theo: za L in DN je stolpec Δ sivo obarvan, kar potrjuje tudi opomba (»Ni odčitka svetlobnega senzorja: NDVI
-
-izhaja iz sevanja, zato Δ ni preverjanje kalibracije« / »NDVI
-
-izhaja iz surovih vrednosti kamere, zato Δ ni preverjanje kalibracije«). Pri ρ je Δ zelen, če je vrednost manjša od 0,02, rumen, če je manjša od 0,05, v vseh drugih primerih pa rdeč.
+* **NDVI Meas**,**NDVI Theo** (referenčni NDVI odbojnosti panela) in **Δ**— samo za multispektralne kamere Bayer. Majhna oznaka za »NDVI Meas« navaja, na podlagi česa je bil izračunan izmerjeni NDVI:**ρ**(odbojnost — na voljo je odčitek svetlobnega senzorja),**L**(sevanje — ni odčitka svetlobnega senzorja) ali**DN**(surove vrednosti kamere). Le**ρ** NDVI je primerljiv z NDVI Theo: za L in DN je stolpec Δ sivo obarvan, kar potrjuje tudi opomba (»Ni odčitka svetlobnega senzorja: NDVI izhaja iz sevanja, zato Δ ni preverjanje kalibracije« / »NDVI izhaja iz surovih vrednosti kamere, zato Δ ni preverjanje kalibracije«). Pri ρ je Δ zelen, če je vrednost manjša od 0,02, rumen, če je manjša od 0,05, v vseh drugih primerih pa rdeč.
 
 <!-- SCREENSHOT-NEEDED: a 1.3.0 Calibration Target table under a live feed in list view — a Bayer camera's table showing the band columns, Sat, and "NDVI Meas ρ" / NDVI Theo / Δ; ideally next to a mono camera's single-band table with no NDVI columns. -->
 
@@ -203,7 +131,7 @@ izhaja iz surovih vrednosti kamere, zato Δ ni preverjanje kalibracije«). Pri �
 
 <!-- SCREENSHOT-NEEDED: per-camera Exposure & Gain section — Exposure (us) and Gain (dB) rows with Auto/Manual toggles, AE Target Brightness, AE Smoothing slider, AE Region of Interest row with the Aim button, and (on an array camera) AE Tune Speed and Highlight Protection rows. -->
 
-Vsi številčni vnosi tukaj uporabljajo drsnike, ki se pospešijo ob podaljšanem dotiku: dotik = ±1, podaljšan dotik &gt;1,5 s = ±10, podaljšan dotik &gt;3 s = ±100. Vrednost se pošlje kameri, ko sprostite prst.
+Vsi številčni vnosi tukaj uporabljajo drsnike, ki se pospešijo ob podaljšanem dotiku: dotik = ±1, podaljšan dotik >1,5 s = ±10, podaljšan dotik >3 s = ±100. Vrednost se pošlje kameri, ko sprostite prst.
 
 | Nadzor | Obseg / možnosti | Privzeto | Velja za | Kaj počne |
 | --- | --- | --- | --- | --- |
@@ -216,21 +144,11 @@ Vsi številčni vnosi tukaj uporabljajo drsnike, ki se pospešijo ob podaljšane
 | **Zaščita svetlih delov** | Stroga (1 %) / Normalna (5 %) / Ohlapna (15 %) | Stroga | Kamere, ki omogočajo to nastavitev | Koliko okvirja se lahko preklopi v belo, preden AE potemni sliko. |
 
 {% hint style="info" %}
-**Zahteve glede osvetljenosti za multispektralne kamere Bayer (RGN
-
-/ OCN
-
-/ NGB
-
-):** prizor mora imeti dovolj svetlobe v vseh treh kanalih, sicer kalibracija ne deluje pravilno — ena sama osvetlitev senzorja pokriva vsa tri spektra. Za merjenje svetlobe uporabite svetlobni senzor DAQ ali preklopite na popolnoma monokromatski način (M3M), da vsak pas dobi svojo osvetlitev. Če posnetek to zahtevo krši, ga Chloros
-
-zazna in vas opozori (obvestilo o omejitvi razmešavanja). V živo ploščica z razdeljenimi kanali prikaže **»Podatki pasu z nizko zanesljivostjo · N %«**, kadar je unmix omejil ta pas na 25 % ali več njegovih pikslov.
+**Zahteve glede osvetljenosti za multispektralne kamere Bayer (RGN / OCN / NGB):** prizor mora imeti dovolj svetlobe v vseh treh kanalih, sicer kalibracija ne deluje pravilno — ena sama osvetlitev senzorja pokriva vsa tri spektra. Za merjenje svetlobe uporabite svetlobni senzor DAQ ali preklopite na popolnoma monokromatski način (M3M), da vsak pas dobi svojo osvetlitev. Če posnetek to zahtevo krši, ga Chloros zazna in vas opozori (obvestilo o omejitvi razmešavanja). V živo ploščica z razdeljenimi kanali prikaže **»Podatki pasu z nizko zanesljivostjo · N %«**, kadar je unmix omejil ta pas na 25 % ali več njegovih pikslov.
 {% endhint %}
 
 {% hint style="info" %}
-**Kako avtomatska osvetlitev porablja čas osvetlitve in ojačanje (1.3.0).** Ko je ojačanje nastavljeno na »Auto«, Chloros
-
-ohranja ojačanje na 0 dB, dokler osvetlitev ne doseže najdaljše dovoljene vrednosti (zgornja meja AE, sprožilno obdobje matrike ali zgornja meja osvetlitve DAQ); šele takrat se ojačanje poveča. V matriki ima prednost sprožilna frekvenca: avtomatska osvetlitev zapolni obdobje, ki ga določa ta frekvenca, nato pa poveča ojačanje, tako da temnejša scena ne znižuje več hitrosti sprožanja v avtomatskem načinu (v različici 1.2.0 se je to dogajalo). **Ročna**osvetlitev na elementu matrike, ki traja dlje od obdobja sprožanja, upočasni sprožanje matrike, da se temu prilagodi; avtomatska frekvenca se ponovno vzpostavi, ko se vsi elementi, ki so jo upočasnili, vrnejo na avtomatsko osvetlitev. Če sta**osvetlitev**in**ciljna svetlost AE** nastavljeni na »Avto« in senzor svetlobe DAQ zagotavlja odčitek, se osvetlitev vsake kamere ohrani, ko se avtomatska osvetlitev ustalijo, dokler izmerjena svetloba ostane v okviru približno ±25 %; večja, trajna sprememba svetlobe, ponovni zagon nastavitev (na primer sprememba ROI) ali vaša lastna sprememba osvetlitve jo ponovno sproži.
+**Kako avtomatska osvetlitev porablja čas osvetlitve in ojačanje (1.3.0).** Ko je ojačanje nastavljeno na »Auto«, Chloros ohranja ojačanje na 0 dB, dokler osvetlitev ne doseže najdaljše dovoljene vrednosti (zgornja meja AE, sprožilno obdobje matrike ali zgornja meja osvetlitve DAQ); šele takrat se ojačanje poveča. V matriki ima prednost sprožilna frekvenca: avtomatska osvetlitev zapolni obdobje, ki ga določa ta frekvenca, nato pa poveča ojačanje, tako da temnejša scena ne znižuje več hitrosti sprožanja v avtomatskem načinu (v različici 1.2.0 se je to dogajalo). **Ročna**osvetlitev na elementu matrike, ki traja dlje od obdobja sprožanja, upočasni sprožanje matrike, da se temu prilagodi; avtomatska frekvenca se ponovno vzpostavi, ko se vsi elementi, ki so jo upočasnili, vrnejo na avtomatsko osvetlitev. Če sta**osvetlitev**in**ciljna svetlost AE** nastavljeni na »Avto« in senzor svetlobe DAQ zagotavlja odčitek, se osvetlitev vsake kamere ohrani, ko se avtomatska osvetlitev ustalijo, dokler izmerjena svetloba ostane v okviru približno ±25 %; večja, trajna sprememba svetlobe, ponovni zagon nastavitev (na primer sprememba ROI) ali vaša lastna sprememba osvetlitve jo ponovno sproži.
 {% endhint %}
 
 {% hint style="info" %}
@@ -271,34 +189,18 @@ Vse v tem razdelku je **samo na strani prikaza**— spreminja tisto, kar vidite 
 | --- | --- | --- | --- | --- |
 | **Ločljivost upodabljanja** | 360p (najhitrejša) / 480p / 720p / 1080p / Izvorna ločljivost senzorja (najpočasnejša) | 720p | Vse | Višina, na kateri backend izvaja radiometrično verigo predogleda. Nižja vrednost zagotavlja višjo hitrost snemanja brez spremembe vidnega polja. |
 | **Indeks**| Potrditveno polje »Omogoči« + zobnik | Izklopljeno | Samo za Bayerjev multispektralni senzor,**ne** za senzorje s kombiniranim nizom | Predogled indeksa žive vegetacije. Z ikono zobnika se odpre skupno okno [Index Calculator](#index-calculator-pane), v katerem so že vnaprej naloženi naravni spektralni pasovi kamere (npr. `Red_660_RGN`, `Green_550_RGN`, `NIR_850_RGN`). Po meri določen izraz skupaj z LUT (vklop/izklop, privzeta raven 7 stopenj, privzeta najmanjša vrednost 0,2, privzeta največja vrednost 1) se izračuna za vsak predogledni okvir. Člani kombinirane matrice skrijejo to vrstico – matrica ima en skupni indeks. |
-| **Bela bilanca** | Izklopljeno / Enkrat / Neprekinjeno + gumb za ponovno zajemanje | Neprekinjeno | Samo RGB
-
-| Belina v realnem času. Gumb za osvežitev ponovno zajame belo ravnovesje iz trenutnega DLS-spektra (onemogočeno, če je način izklopljen). |
-| **Gama** | Vklopljeno / Izklopljeno | Vklopljeno | Samo RGB
-
-| Prikaz gama (γ = 2,2 LUT) v predogledu v živo. Shranjene posnetke ostanejo linearni. |
+| **Bela bilanca** | Izklopljeno / Enkrat / Neprekinjeno + gumb za ponovno zajemanje | Neprekinjeno | Samo RGB | Belina v realnem času. Gumb za osvežitev ponovno zajame belo ravnovesje iz trenutnega DLS-spektra (onemogočeno, če je način izklopljen). |
+| **Gama** | Vklopljeno / Izklopljeno | Vklopljeno | Samo RGB | Prikaz gama (γ = 2,2 LUT) v predogledu v živo. Shranjene posnetke ostanejo linearni. |
 | **Odstranjevanje šuma** | Potrditveno polje + jakost 0–100 | Izklopljeno / 50 | Vse (po kameri, tudi znotraj nizov) | Dvostranski filter v živi predogledu. Višja vrednost = gladkejši, a mehkejši detajli. |
 | **Ostrina** | Potrditveno polje + jakost 0–100 | Izklopljeno / 30 | Vse | Maska neostrosti v živi predogledu, uporabljena kot zadnja. Lahko okrepi šum. Samo v predogledu. |
 | **Vignette**| Potrditveno polje + jakost 0–100 | Izklopljeno / 0 | Vse | Ročno odstranjevanje preostale vinjetacije (posvetli kotičke), ki se naloži na oceno pametne vinjetacije niza.**Radiometrično — vpliva na živi prikaz IN izvoze**, za razliko od zmanjševanja šuma/ostrine. |
-| **Barvni profil** | Raw / Linear / Natural / Enhanced / Custom Temperature | Natural | Samo RGB
-
-| Glej spodaj. |
-| **Barvna temperatura** | 2000–10000 K, korak 100 | 5500 K | Samo RGB
-
-, profil po meri | Belino uravnava na fiksno korelirano barvno temperaturo (vnos DLS se ne upošteva). Zadnja izbrana vrednost v kelvinih se shrani tudi ob preklopu med profili. |
-| **Svetli deli** | od −100 do 0, korak 1 | 0 (izklopljeno) | samo RGB
-
-| Novost v različici 1.3.0. Pritemni najsvetlejša, najbelja območja slike (0 = nespremenjeno, −100 = najmočnejše). Velja za predogled v živo **in za posnetke na ravni zaslona (Predogled)**, ki shranijo nastavitev (`Chloros:DisplayHighlights`); izvoz sevanja in odbojnosti ni nikoli prizadet. Ne more obnoviti podatkov senzorja, ki so bili odrezani — za to zmanjšajte osvetlitev. Zebra prekrivni vzorec sledi potemnjeni sliki. Onemogočeno z barvnim profilom Raw (»Ne velja pri barvnem profilu Raw.«). |
-| **Nasičenost** | 0–200 (100 = nevtralno) | 100 | Samo RGB
-
-| Nasičenost HSV v živi predogledu. |
-| **Kontrast** | 0–200 (100 = nevtralno) | 100 | Samo RGB
-
-| Linearen kontrast okoli srednje sive barve v predogledu v živo. |
+| **Barvni profil** | Raw / Linear / Natural / Enhanced / Custom Temperature | Natural | Samo RGB | Glej spodaj. |
+| **Barvna temperatura** | 2000–10000 K, korak 100 | 5500 K | Samo RGB, profil po meri | Belino uravnava na fiksno korelirano barvno temperaturo (vnos DLS se ne upošteva). Zadnja izbrana vrednost v kelvinih se shrani tudi ob preklopu med profili. |
+| **Svetli deli** | od −100 do 0, korak 1 | 0 (izklopljeno) | samo RGB | Novost v različici 1.3.0. Pritemni najsvetlejša, najbelja območja slike (0 = nespremenjeno, −100 = najmočnejše). Velja za predogled v živo **in za posnetke na ravni zaslona (Predogled)**, ki shranijo nastavitev (`Chloros:DisplayHighlights`); izvoz sevanja in odbojnosti ni nikoli prizadet. Ne more obnoviti podatkov senzorja, ki so bili odrezani — za to zmanjšajte osvetlitev. Zebra prekrivni vzorec sledi potemnjeni sliki. Onemogočeno z barvnim profilom Raw (»Ne velja pri barvnem profilu Raw.«). |
+| **Nasičenost** | 0–200 (100 = nevtralno) | 100 | Samo RGB | Nasičenost HSV v živi predogledu. |
+| **Kontrast** | 0–200 (100 = nevtralno) | 100 | Samo RGB | Linearen kontrast okoli srednje sive barve v predogledu v živo. |
 | **Zrcaljenje po vodoravni / Zrcaljenje po navpični** | Potrditvena polja | Izklopljeno | Vse | Obračanje predogleda vodoravno / navpično. |
-| **Rotacija**| 0° / 90° / 180° / 270° | 0° | Vse | Rotacija predogleda. Usmeritev se uporabi na koncu verige predogleda v ozadju.**Shranjeni posnetki (1.3.0):**izdelki samostojne kamere, kot so Predogled, Sijaj, Odbojnost in Indeks, se obrnejo z Zrcaljenjem/Vrtljajem, medtem ko**Raw in Debayered ohranita izvorno usmeritev kamere**; vsaka datoteka posnetka shrani nastavitev v svojem XMP, zato se pri kasnejši obdelavi surovega posnetka ta uporabi na enak način.**Datoteke v nizu ostanejo v izvorni usmeritvi** (nastavitev je shranjena, vendar se ne uporabi), sestavljeni pogledi niza pa jo ignorirajo. |**Semantika barvnih profilov** (kamere RGB
-
-):
+| **Rotacija**| 0° / 90° / 180° / 270° | 0° | Vse | Rotacija predogleda. Usmeritev se uporabi na koncu verige predogleda v ozadju.**Shranjeni posnetki (1.3.0):**izdelki samostojne kamere, kot so Predogled, Sijaj, Odbojnost in Indeks, se obrnejo z Zrcaljenjem/Vrtljajem, medtem ko**Raw in Debayered ohranita izvorno usmeritev kamere**; vsaka datoteka posnetka shrani nastavitev v svojem XMP, zato se pri kasnejši obdelavi surovega posnetka ta uporabi na enak način.**Datoteke v nizu ostanejo v izvorni usmeritvi** (nastavitev je shranjena, vendar se ne uporabi), sestavljeni pogledi niza pa jo ignorirajo. |**Semantika barvnih profilov** (kamere RGB):
 
 * **Raw** — v celoti preskoči verigo obdelave.
 * **Linear** — temni signal + izravnava polja + bela ravnovesja; brez barvne matrike, brez gama.
@@ -323,20 +225,12 @@ Ti elementi so na voljo le v uporabniškem vmesniku — so narisani prek videa, 
 | **Mreža** | Izklopljeno / 3 × 3 / 9 × 9 | Izklopljeno | Mreža za kompozicijo. |
 | **Histogram** | Potrditveno polje + širina 0,10–0,90 okvirja | Izklopljeno / 0,25 | Pas histograma v živo. |
 | **Focus Peak** | Potrditveno polje + prag 20–200 + barvni vzorec | Izklopljeno / 80 / `#ff5722` | Sobelovo poudarjanje robov za ostrenje. |
-| **Channel Splits** | »Pokaži razdelitve (Red
-
-/ Green
-
-/ NIR
-
-)« / gumb »Skrij razdelitve« | Skrito | Dodaja tri neodvisne ploščice v sivih odtenkih za vsak kanal poleg sestavljenega slike (oznaka gumba sledi filtrskim kanalom kamere). Vsaka razdeljena ploščica se lahko premika in ima barvo robov kamere. Ni na voljo pri monokromatskih kamerah. Shrani se skupaj s projektom. |
+| **Channel Splits** | »Pokaži razdelitve (Red / Green / NIR)« / gumb »Skrij razdelitve« | Skrito | Dodaja tri neodvisne ploščice v sivih odtenkih za vsak kanal poleg sestavljenega slike (oznaka gumba sledi filtrskim kanalom kamere). Vsaka razdeljena ploščica se lahko premika in ima barvo robov kamere. Ni na voljo pri monokromatskih kamerah. Shrani se skupaj s projektom. |
 
 ### Točkovni merilnik
 
 * Polje za potrditev **Klikni za vzorčenje**: kliknite na živo sliko, da vzorčite en sam piksel (označi ga križec), ali kliknite in povlecite območje za izračun povprečja pikslov. Gumb**Izbriši**izbriše vzorec in križec. Medsebojno izključljivo z načinom**Aim** v AE-ROI.
-* **Spustni meni**Prikaži**:**Raw (bitna globina)**— izvorne digitalne vrednosti z bitno globino senzorja (npr. 12-bitni → 0..4095) — ali**Prikaz (8-bitni)**(privzeto). Ko je aktiven indeks v realnem času, se v polju**Display** namesto tega prikaže izračunana vrednost indeksa (npr. NDVI
-
-).
+* **Spustni meni**Prikaži**:**Raw (bitna globina)**— izvorne digitalne vrednosti z bitno globino senzorja (npr. 12-bitni → 0..4095) — ali**Prikaz (8-bitni)**(privzeto). Ko je aktiven indeks v realnem času, se v polju**Display** namesto tega prikaže izračunana vrednost indeksa (npr. NDVI).
 * Na odčitnem panelu so navedene koordinate pikslov, velikost okvirja, format pikslov, bitna globina in tabela kanalov (Chan / Value / %) z oznakami pasov in valovnimi dolžinami; pari zelene barve po Bayerjevem sistemu so povprečeni; vzorci območij prikazujejo »N px avg«.
 
 Stanje točkovnega merilnika velja le za tekočo sejo.
@@ -358,18 +252,10 @@ Ta razdelek se prikaže le, če je **priključen vsaj en svetlobni senzor DAQ** 
 | **Odbojnost prizora**| Gumb**Ponovna kalibracija ρ** | — | Ponovno oceni faktor odbojnosti prizora, ki ga uporablja reševalec. |
 
 {% hint style="info" %}
-**Povezava matrike privzeto izklopi prediktivno AE** — za matrike izpostavljenost uravnavata pametna AE sistema Chloros
-
-ter avtomatska izpostavljenost na strani kamere (z zaščito pred zasičenostjo), pri čemerocena odbojnosti ni zanesljiva v mešanih prizorih. Tukaj jo lahko ponovno vklopite za posamezno kamero, če želite izrecno radiometrično osvetlitev, ki jo poganja DLS.
+**Povezava matrike privzeto izklopi prediktivno AE** — za matrike izpostavljenost uravnavata pametna AE sistema Chloros ter avtomatska izpostavljenost na strani kamere (z zaščito pred zasičenostjo), pri čemerocena odbojnosti ni zanesljiva v mešanih prizorih. Tukaj jo lahko ponovno vklopite za posamezno kamero, če želite izrecno radiometrično osvetlitev, ki jo poganja DLS.
 {% endhint %}
 
-**Zgornja meja osvetlitve, ki jo poganja DAQ, in AE, vezana na padajoče sevanje.** Ne glede na zgornje potrditveno polje, ko je svetlobni senzor DAQ dodeljen RGB
-
--kameri, Chloros
-
-izmerjeno absolutno navzdolno sevanje uporabi za izračun največje osvetlitve × ojačitve, pri kateri površina s 100-odstotno odbojnostjo ostane pod pragom izrezanja, in to uporabi kot **zgornjo mejo**pri avtomatski osvetlitvi. Od različice 1.3.0 se zgornja meja uporablja le, dokler je kalibracijski cilj v vidnem polju te kamere (viden v njenem kadru v zadnjih 10 sekundah); če cilj ni v vidnem polju, namesto tega deluje običajna avtomatska osvetlitev kamere z lastno zaščito pred preosvetlitvijo, tako da preostali del prizora ni temnejši, kot je potrebno. Medtem ko je zgornja meja aktivna, kamera deluje**v načinu pritrditve na padajočo svetlobo**: deluje v odprtem krogu pri osvetlitvi, merjeni na padajočo svetlobo, z ojačitvijo 0 dB — osvetlitev sledi izmerjeni svetlobi, ne vsebini prizora. Ker zgornja meja lahko le skrajša osvetlitev, sama po sebi ne more povzročiti izrezovanja. Od različice 1.3.0 se zgornja meja izračuna z lastno ekspozicijsko konstanto kamere iz njenega kalibracijskega paketa (vrednost povprečja flote se uporabi le, če paket te vrednosti ne vsebuje). Zgornja meja se samodejno izklopi – in se ponovno vzpostavi običajna avtomatska ekspozicija scene –, kadar v vidnem polju ni kalibracijskega cilja, manjka odčitek DAQ, je ta zastarel (&gt;30 s), temna ali če se pri fiksirani osvetlitvi izreže ≥15 % slike (kar pomeni, da senzor in kamera zaznavata različno osvetlitev). V grafičnem vmesniku ni stikala za to; to je standardno obnašanje, kadar je RGB
-
--kamera povezana z DAQ.
+**Zgornja meja osvetlitve, ki jo poganja DAQ, in AE, vezana na padajoče sevanje.** Ne glede na zgornje potrditveno polje, ko je svetlobni senzor DAQ dodeljen RGB-kameri, Chloros izmerjeno absolutno navzdolno sevanje uporabi za izračun največje osvetlitve × ojačitve, pri kateri površina s 100-odstotno odbojnostjo ostane pod pragom izrezanja, in to uporabi kot **zgornjo mejo**pri avtomatski osvetlitvi. Od različice 1.3.0 se zgornja meja uporablja le, dokler je kalibracijski cilj v vidnem polju te kamere (viden v njenem kadru v zadnjih 10 sekundah); če cilj ni v vidnem polju, namesto tega deluje običajna avtomatska osvetlitev kamere z lastno zaščito pred preosvetlitvijo, tako da preostali del prizora ni temnejši, kot je potrebno. Medtem ko je zgornja meja aktivna, kamera deluje**v načinu pritrditve na padajočo svetlobo**: deluje v odprtem krogu pri osvetlitvi, merjeni na padajočo svetlobo, z ojačitvijo 0 dB — osvetlitev sledi izmerjeni svetlobi, ne vsebini prizora. Ker zgornja meja lahko le skrajša osvetlitev, sama po sebi ne more povzročiti izrezovanja. Od različice 1.3.0 se zgornja meja izračuna z lastno ekspozicijsko konstanto kamere iz njenega kalibracijskega paketa (vrednost povprečja flote se uporabi le, če paket te vrednosti ne vsebuje). Zgornja meja se samodejno izklopi – in se ponovno vzpostavi običajna avtomatska ekspozicija scene –, kadar v vidnem polju ni kalibracijskega cilja, manjka odčitek DAQ, je ta zastarel (>30 s), temna ali če se pri fiksirani osvetlitvi izreže ≥15 % slike (kar pomeni, da senzor in kamera zaznavata različno osvetlitev). V grafičnem vmesniku ni stikala za to; to je standardno obnašanje, kadar je RGB-kamera povezana z DAQ.
 
 ### Pridobivanje in sprožitev
 
@@ -419,11 +305,7 @@ Prikazano za združene in ločene nize:
 
 Lastna skupina neposredno za senzorjem okoljske svetlobe, tako za združene kot za ločene nize:
 
-* Potrditveno polje **Omogoči** — »Zaznaj cilj MAPIR
-
-ArUco in preveri LUT za NDVI
-
-glede na odbojnost plošče«; upravlja prekrivni cilj in tabele preverjanja za združeno ploščico. Pri **ločenem** nizu vklopi lastno [tabelo kalibracijskega cilja](#the-calibration-target-table) (eno na vrstico kamere v pogledu seznama).
+* Potrditveno polje **Omogoči** — »Zaznaj cilj MAPIR ArUco in preveri LUT za NDVI glede na odbojnost plošče«; upravlja prekrivni cilj in tabele preverjanja za združeno ploščico. Pri **ločenem** nizu vklopi lastno [tabelo kalibracijskega cilja](#the-calibration-target-table) (eno na vrstico kamere v pogledu seznama).
 
 ### Zajemanje — enotne nastavitve senzorjev
 

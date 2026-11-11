@@ -66,7 +66,7 @@
 * [Dinamična prilagoditev računalniške moči](processing-architecture/dynamic-compute-adaptation.md)
 * [Obdelovalni potek](processing-architecture/processing-pipeline.md)
 
-## Referenca (CLI &amp; SDK)
+## Referenca (CLI & SDK)
 
 * [Referenca za Chloros CLI](reference/cli-reference.md)
 * [Referenca za Chloros Python SDK](reference/sdk-reference.md)

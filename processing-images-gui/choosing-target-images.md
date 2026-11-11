@@ -161,7 +161,7 @@ Ta stolpec uporabite za preverjanje, ali ste v svojem projektu označili cilje z
 **Možni vzroki:**
 
 * Ciljne slike niso označene v brskalniku datotek
-* Cilj je v okvirju premajhen (&lt; 30 % slike)
+* Cilj je v okvirju premajhen (< 30 % slike)
 * Slaba osvetlitev (sence, bleščanje)
 * Preveč stroge nastavitve zaznavanja ciljev
 

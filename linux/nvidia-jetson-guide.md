@@ -1,8 +1,6 @@
 # Priročnik za NVIDIA Jetson Program
 
-Chloros
-na platformi NVIDIA Jetson omogoča obdelavo multispektralnih slik na robu omrežja – na terenu, na brezpilotnih letalih (UAV) in v oddaljenih napravah. Chloros
-1.3.0 ob zagonu prepozna vaš model Jetson in optimizira strategijo obdelave glede na ugotovljeno strojno opremo. **Ročno nastavljanje ni potrebno.**
+Chloros na platformi NVIDIA Jetson omogoča obdelavo multispektralnih slik na robu omrežja – na terenu, na brezpilotnih letalih (UAV) in v oddaljenih napravah. Chloros 1.3.0 ob zagonu prepozna vaš model Jetson in optimizira strategijo obdelave glede na ugotovljeno strojno opremo. **Ročno nastavljanje ni potrebno.**
 {% hint style="info" %}
 **Paket Jetson 1.3.0 obdeluje podatke na grafičnem procesorju (GPU) naprave Jetson.** `chloros_1.3.0_arm64_jp6.deb` je zasnovan za JetPack 6 in uporablja CUDA-različico PyTorch iz JetPack 6, zato obdelava, vključno z algoritmom Texture Aware debayer, poteka na grafičnem procesorju (GPU) naprave Orin. Paket sam ne vsebuje CUDA: uporablja knjižnici CUDA in cuDNN, ki ju namesti JetPack 6 (`sudo apt install nvidia-jetpack` na sliki, ki ju nima). Kadar ni na voljo grafičnega procesorja s podporo CUDA, obdelava poteka na procesorju, Texture Aware pa uporablja standardni debayer.
 {% endhint %}
@@ -18,8 +16,7 @@ na platformi NVIDIA Jetson omogoča obdelavo multispektralnih slik na robu omre�
 | **Jetson Orin Nano** | 8 GB skupnega pomnilnika     | `GPU_SINGLE` (1 delovni proces, zaporedno)                     | Osnovna raven računalništva na robu omrežja                                 |
 
 {% hint style="info" %}
-Paket Linux
-arm64 zahteva **JetPack 6**, ki je na voljo za družino Jetson Orin. Starejši modeli (Nano, TX2, Xavier NX) ne morejo izvajati JetPack 6 in jih trenutni paket ne podpira.
+Paket Linux arm64 zahteva **JetPack 6**, ki je na voljo za družino Jetson Orin. Starejši modeli (Nano, TX2, Xavier NX) ne morejo izvajati JetPack 6 in jih trenutni paket ne podpira.
 {% endhint %}
 
 ***
@@ -28,10 +25,7 @@ arm64 zahteva **JetPack 6**, ki je na voljo za družino Jetson Orin. Starejši m
 
 * **JetPack 6.x** (priporočena najnovejša različica)
 * **NVIDIA CUDA in cuDNN** iz JetPack 6 (`sudo apt install nvidia-jetpack`, če jih vaša slika ne vsebuje)
-* **Plačljiv načrt Chloros
-+** — stopnja Copper ali višja (potrebna za ves dostop do CLI
-/SDK
-; uveljavljena na strani strežnika)
+* **Plačljiv načrt Chloros+** — stopnja Copper ali višja (potrebna za ves dostop do CLI/SDK; uveljavljena na strani strežnika)
 
 ## Namestitev
 
@@ -48,15 +42,10 @@ python3 -c "import chloros_sdk; print(chloros_sdk.__version__)"   # the .deb ins
 chloros-cli selftest
 ```
 
-`.deb` namesti Python
-ov SDK
-za sistem `python3`, ki ustreza tej različici. Le v virtualno okolje (virtualenv) je treba namestiti priloženi wheel: `pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl` (popolnoma brez povezave). Za splošne podrobnosti o namestitvi v sistemu Linux
-, lokacijah datotek in odpravljanju težav glejte [Namestitev v sistemu Linux
-](linux-installation.md).
+`.deb` namesti Python ov SDK za sistem `python3`, ki ustreza tej različici. Le v virtualno okolje (virtualenv) je treba namestiti priloženi wheel: `pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl` (popolnoma brez povezave). Za splošne podrobnosti o namestitvi v sistemu Linux, lokacijah datotek in odpravljanju težav glejte [Namestitev v sistemu Linux](linux-installation.md).
 
 {% hint style="info" %}
-**Pri zagonu ni več razpakiranja.** Od različice 1.3.0 naprej se backend in CLI
-namestita nerazpakirana v mapo `/usr/lib/chloros/`, zato se ob vsakem zagonu ne razpakirata več v začasno mapo. Začasne datoteke se še vedno samodejno shranjujejo v `/mnt/ssd/tmp`, če ta mapa obstaja; v nasprotnem primeru lahko `TMPDIR` nastavite na pot na vašem NVMe (`export TMPDIR=/mnt/nvme/tmp`).
+**Pri zagonu ni več razpakiranja.** Od različice 1.3.0 naprej se backend in CLI namestita nerazpakirana v mapo `/usr/lib/chloros/`, zato se ob vsakem zagonu ne razpakirata več v začasno mapo. Začasne datoteke se še vedno samodejno shranjujejo v `/mnt/ssd/tmp`, če ta mapa obstaja; v nasprotnem primeru lahko `TMPDIR` nastavite na pot na vašem NVMe (`export TMPDIR=/mnt/nvme/tmp`).
 {% endhint %}
 
 ***
@@ -65,8 +54,7 @@ namestita nerazpakirana v mapo `/usr/lib/chloros/`, zato se ob vsakem zagonu ne 
 
 ### Kako deluje
 
-Ob zagonu Chloros
-ustvari profil vašega sistema:
+Ob zagonu Chloros ustvari profil vašega sistema:
 
 1. **Zazna model Jetson** prek `/proc/device-tree/model`
 2. **Prebere razpoložljivi skupni pomnilnik GPU/CPU** (Jetson uporablja enoten pomnilnik)
@@ -110,13 +98,10 @@ Za celoten referenčni dokument o prilagajanju računske zmogljivosti glejte [Di
 
 ## Omejitev frekvence GPU za Texture Aware na modelih Nano in Orin Nano
 
-Algoritem Texture Aware za odstranjevanje pikslov izvaja sklepanje nevronskih mrež na GPU, kar lahko pri modelih Jetson z nizko porabo energije (razred 10–15 W) pri polni hitrosti takta GPU sproži **opozorila o prevelikem toku**. Ko v**Jetson Nano ali Orin Nano**, CLI
-preveri najvišjo frekvenco GPU-ja in jo omeji na **510 MHz** (510000000), če je trenutno višja:
+Algoritem Texture Aware za odstranjevanje pikslov izvaja sklepanje nevronskih mrež na GPU, kar lahko pri modelih Jetson z nizko porabo energije (razred 10–15 W) pri polni hitrosti takta GPU sproži **opozorila o prevelikem toku**. Ko v**Jetson Nano ali Orin Nano**, CLI preveri najvišjo frekvenco GPU-ja in jo omeji na **510 MHz** (510000000), če je trenutno višja:
 
-* Če lahko CLI
-zapiše v sysfs vozlišče frekvence grafičnega procesorja, se omejitev **uporabi samodejno** in prikaže se potrditev.
-* Če ne (potrebuje pravice root), CLI
-izpiše natančen ukaz `sudo` za ročno uporabo omejitve, počaka trenutek, da ga lahko preberete, nato pa nadaljuje — obdelava še vedno poteka, vendar se lahko prikažejo opozorila o prevelikem toku.
+* Če lahko CLI zapiše v sysfs vozlišče frekvence grafičnega procesorja, se omejitev **uporabi samodejno** in prikaže se potrditev.
+* Če ne (potrebuje pravice root), CLI izpiše natančen ukaz `sudo` za ročno uporabo omejitve, počaka trenutek, da ga lahko preberete, nato pa nadaljuje — obdelava še vedno poteka, vendar se lahko prikažejo opozorila o prevelikem toku.
 
 Če želite omejitev nastaviti sami pred obdelavo:
 
@@ -127,20 +112,18 @@ echo 510000000 | sudo tee /sys/devices/platform/bus@0/17000000.gpu/devfreq/17000
 Modeli z večjo močjo (Orin NX 25 W, AGX Orin 60 W) delujejo pri polni hitrosti grafičnega procesorja; omejitev se ne uporablja. Standardni debayer na nobenem modelu nikoli ne sproži omejitve.
 
 {% hint style="info" %}
-**Texture Aware na Jetsonu vedno obdeluje eno sliko naenkrat.** Vsak delavec bi potreboval svoj CUDA-kontekst (~1 GB) ter svojo kopijo modela za odstranjevanje šuma, česar enotni pomnilnik ne more zagotoviti – zato je na Jetsonu pot Texture Aware vezana na enega samega delavca, pri čemer je dostop do grafičnega procesorja (GPU) serializiran. Pričakujte, da bo Texture Aware na katerem koli Jetsonu znatno počasnejši od Standard. Texture Aware se uporablja za slike Survey3
-: zajemi LATTICE vedno uporabljajo Standardni debayer. Brez uporabnega CUDA GPU-ja se izvede Standardni način, backend pa zabeleži eno vrstico `[DEBAYER] … needs a CUDA GPU …`, ki pojasni razlog (prikazano z `chloros-cli --verbose`).
+**Texture Aware na Jetsonu vedno obdeluje eno sliko naenkrat.** Vsak delavec bi potreboval svoj CUDA-kontekst (~1 GB) ter svojo kopijo modela za odstranjevanje šuma, česar enotni pomnilnik ne more zagotoviti – zato je na Jetsonu pot Texture Aware vezana na enega samega delavca, pri čemer je dostop do grafičnega procesorja (GPU) serializiran. Pričakujte, da bo Texture Aware na katerem koli Jetsonu znatno počasnejši od Standard. Texture Aware se uporablja za slike Survey3: zajemi LATTICE vedno uporabljajo Standardni debayer. Brez uporabnega CUDA GPU-ja se izvede Standardni način, backend pa zabeleži eno vrstico `[DEBAYER] … needs a CUDA GPU …`, ki pojasni razlog (prikazano z `chloros-cli --verbose`).
 {% endhint %}
 
 ***
 
 ## Upravljanje toplote
 
-Naprave Jetson imajo omejeno toplotno rezervo, zlasti v zaprtih prostorih ali pri uporabi v zraku. Program Chloros
-spremlja temperaturo SoC-ja in samodejno omejuje velikost serij:
+Naprave Jetson imajo omejeno toplotno rezervo, zlasti v zaprtih prostorih ali pri uporabi v zraku. Program Chloros spremlja temperaturo SoC-ja in samodejno omejuje velikost serij:
 
 | Temperatura         | Ukrep                                            |
 | ------------------- | ------------------------------------------------- |
-| **&lt; 70 °C**          | Normalno delovanje — polna hitrost obdelave          |
+| **< 70 °C**          | Normalno delovanje — polna hitrost obdelave          |
 | **70 °C** (Opozorilo)  | Velikost serije se postopoma zmanjšuje (100 % → 50 % med 70 °C in 80 °C) |
 | **80 °C** (kritično) | Agresivno omejevanje (50 % → 0 % med 80 °C in 90 °C) |
 | **90 °C** (izklop) | Popolna zaustavitev obdelave GPU — potrebno hlajenje |
@@ -157,8 +140,7 @@ Naprave Jetson uporabljajo **enotni pomnilnik** — grafična kartica (GPU) in p
 
 ### Opozorilo in priporočila glede zamenjave
 
-Pred obdelavo na napravi Jetson CLI
-prešteje RAW-slike v vaši vhodni mapi (`.tif`, `.tiff`, `.raw`, `.dng` — predogledi v formatu JPG se ne štejejo), oceni največjo količino pomnilnika, ki jo bo izvajanje potrebovalo, in **opozori pred začetkom**, če je verjetno, da RAM + swap ne bosta zadostovala. Opozorilo ima naslov `LOW MEMORY WARNING - Jetson Detected`, izpiše število vaših slik, RAM, trenutni swap in ocenjeno največjo porabo, nato pa poda natančne ukaze `fallocate` / `chmod` / `mkswap` / `swapon`, prilagojene velikosti vaš projekt (nikoli manjši od 8 GB). Za nekaj sekund se ustavi, da se sporočilo ne izgubi v zgodovini pomikanja, nato pa se obdelava nadaljuje.**Ocene pomnilnika, ki jih uporablja opozorilo:**
+Pred obdelavo na napravi Jetson CLI prešteje RAW-slike v vaši vhodni mapi (`.tif`, `.tiff`, `.raw`, `.dng` — predogledi v formatu JPG se ne štejejo), oceni največjo količino pomnilnika, ki jo bo izvajanje potrebovalo, in **opozori pred začetkom**, če je verjetno, da RAM + swap ne bosta zadostovala. Opozorilo ima naslov `LOW MEMORY WARNING - Jetson Detected`, izpiše število vaših slik, RAM, trenutni swap in ocenjeno največjo porabo, nato pa poda natančne ukaze `fallocate` / `chmod` / `mkswap` / `swapon`, prilagojene velikosti vaš projekt (nikoli manjši od 8 GB). Za nekaj sekund se ustavi, da se sporočilo ne izgubi v zgodovini pomikanja, nato pa se obdelava nadaljuje.**Ocene pomnilnika, ki jih uporablja opozorilo:**
 
 | Način Debayer | Osnovno | Na sliko |
 | --- | --- | --- |
@@ -188,8 +170,7 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 ### Obravnavanje OOM (Out of Memory)
 
-Med obdelavo program Chloros
-spremlja pomnilnik grafičnega procesorja (GPU) in namesto da bi se sesul, postopoma zmanjša zmogljivost:
+Med obdelavo program Chloros spremlja pomnilnik grafičnega procesorja (GPU) in namesto da bi se sesul, postopoma zmanjša zmogljivost:
 
 1. Ko izkoriščenost pomnilnika GPU preseže **85 %**, se velikosti serij preventivno zmanjšajo
 2. Če se kljub temu pojavi dogodek pomanjkanja pomnilnika, se velikost serije **prepolovi**, pri vsakem naslednjem OOM pa se ponovno prepolovi; vsaka naslednja uspešna serija to kazen zniža za eno stopnjo
@@ -220,9 +201,7 @@ Načrtujte porabo energije za neprekinjeno obdelavo — največja poraba energij
 ### Delovanje brez grafičnega vmesnika prek SSH
 
 
-Chloros
-CLI
-je idealen za namestitve Jetsona brez grafičnega vmesnika:
+Chloros CLI je idealen za namestitve Jetsona brez grafičnega vmesnika:
 
 ```bash
 # SSH into the Jetson
@@ -237,16 +216,14 @@ chloros-cli export-status
 
 ### Vedno vklopljen backend za sinhronizacijo časa LATTICE / DAQ-E
 
-Če vaš Jetson brez zaslona upravlja kamere LATTICE ali svetlobne senzorje DAQ-E, omogočite storitev systemd v ozadju **kot vaš uporabnik**, da bo PTP grandmaster deloval neprekinjeno in da bodo skripti SDK
-našli delujoče ozadje (enota je nameščena, vendar privzeto ni omogočena):
+Če vaš Jetson brez zaslona upravlja kamere LATTICE ali svetlobne senzorje DAQ-E, omogočite storitev systemd v ozadju **kot vaš uporabnik**, da bo PTP grandmaster deloval neprekinjeno in da bodo skripti SDK našli delujoče ozadje (enota je nameščena, vendar privzeto ni omogočena):
 
 ```bash
 sudo systemctl enable --now chloros-backend@$USER.service    # $USER expands to your user name
 chloros-cli time-sync status
 ```
 
-Backend nato deluje kot vi: posnetki, ki jih zapiše, so vaši, uporablja pa vaš `chloros-cli login`. Za podrobnosti, vključno z uporabniškim imenom root `chloros-backend.service` in načinom, kako paket omogoča vezavo PTP-vrat 319/320 brez pravic root, glejte [Namestitev v sistemu Linux
-](linux-installation.md#always-on-ptp-for-headless-hosts).
+Backend nato deluje kot vi: posnetki, ki jih zapiše, so vaši, uporablja pa vaš `chloros-cli login`. Za podrobnosti, vključno z uporabniškim imenom root `chloros-backend.service` in načinom, kako paket omogoča vezavo PTP-vrat 319/320 brez pravic root, glejte [Namestitev v sistemu Linux](linux-installation.md#always-on-ptp-for-headless-hosts).
 
 ### Avtomatizirana obdelava s systemd
 
@@ -306,9 +283,7 @@ chloros-cli process /data/flights/flight_042 \
     --indices NDVI GNDVI OSAVI
 ```
 
-### Python
-SDK
-na Jetsonu
+### Python SDK na Jetsonu
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -352,26 +327,17 @@ Za uporabo na terenu in v zraku upoštevajte naslednje možnosti nosilnih ploš�
 * **Zahtevne terenske razmere**: vodotesna ohišja s stopnjo zaščite IP67/IP69K in povezljivostjo s kamero PoE GigE
 * **Minimalna/proračunska rešitev**: razvojni kompleti z dodatnimi ohišji
 
-Za konkretna priporočila glede strojne opreme za vaš scenarij uporabe se obrnite na [podporo MAPIR
-](https://www.mapir.camera/community/contact).
+Za konkretna priporočila glede strojne opreme za vaš scenarij uporabe se obrnite na [podporo MAPIR](https://www.mapir.camera/community/contact).
 
 ***
 
 ## Naslednji koraki
 
-* [Namestitev Linux
-a](linux-installation.md) — Splošni podatki o namestitvi Linux
-a
+* [Namestitev Linux a](linux-installation.md) — Splošni podatki o namestitvi Linux a
 * [Dinamična prilagoditev računalniške zmogljivosti](../processing-architecture/dynamic-compute-adaptation.md) — Celoten pregled strategij računalniške zmogljivosti
 * [Obdelovalni potek](../processing-architecture/processing-pipeline.md) — Razumevanje 4-nitnega poteka
 * [CLI: ukazna vrstica](../CLI.md) — Priročnik za CLI
 
-* [API
-: Python
-SDK
-](../api-python-sdk.md) — Priročnik za SDK
+* [API: Python SDK](../api-python-sdk.md) — Priročnik za SDK
 
-* [Referenca CLI
-](../reference/cli-reference.md) in [Referenca SDK
-](../reference/sdk-reference.md) — Izčrpni seznami ukazov/API
-za različico 1.3.0
+* [Referenca CLI](../reference/cli-reference.md) in [Referenca SDK](../reference/sdk-reference.md) — Izčrpni seznami ukazov/API za različico 1.3.0

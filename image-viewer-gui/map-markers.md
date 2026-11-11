@@ -84,7 +84,7 @@ Vsaka slika z GPS-podatki dobi oznako na svojih koordinatah.
 
 Izberite vrsto kartografske plasti s pomočjo gumbov (od leve proti desni):
 
-![](&lt;../.gitbook/assets/image (14).png&gt;)
+![](<../.gitbook/assets/image (14).png>)
 
 | Vrsta                 | Prikaže                                                                |
 | -------------------- | -------------------------------------------------------------------- |

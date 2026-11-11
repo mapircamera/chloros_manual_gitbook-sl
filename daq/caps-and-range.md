@@ -1,10 +1,8 @@
 # Profili pokrovčkov in kalibrirano območje
 
-> Sami pokrovi – kateri pokrov je priložen kateremu senzorju, kako se pritrdijo in kakšno je njihovo optično obnašanje – so dokumentirani v **[uporabniškem priročniku za DAQ](https://mapir.gitbook.io/daq)**. Ta stran obravnava *deklariranje* nameščenega pokrova v sistemu Chloros
-, kar omogoča pravilno korekcijo.
+> Sami pokrovi – kateri pokrov je priložen kateremu senzorju, kako se pritrdijo in kakšno je njihovo optično obnašanje – so dokumentirani v **[uporabniškem priročniku za DAQ](https://mapir.gitbook.io/daq)**. Ta stran obravnava *deklariranje* nameščenega pokrova v sistemu Chloros, kar omogoča pravilno korekcijo.
 
-Tovarniška radiometrična kalibracija vsakega svetlobnega senzorja DAQ opisuje *goli* senzor. Fizični pokrovček, nameščen nad difuzorjem, spreminja svetlobo, ki jo senzor zajema, zato Chloros
-na kalibracijski paket uporabi **profil korekcije pokrovčka**, izmerjen v tovarni. Določitev pravilnega pokrova je del pridobivanja kalibriranih podatkov – ta stran obravnava, kateri pokrovi so na voljo za posamezne modele, kako jih določiti in kakšen je dejanski kalibrirani spektralni razpon senzorja.
+Tovarniška radiometrična kalibracija vsakega svetlobnega senzorja DAQ opisuje *goli* senzor. Fizični pokrovček, nameščen nad difuzorjem, spreminja svetlobo, ki jo senzor zajema, zato Chloros na kalibracijski paket uporabi **profil korekcije pokrovčka**, izmerjen v tovarni. Določitev pravilnega pokrova je del pridobivanja kalibriranih podatkov – ta stran obravnava, kateri pokrovi so na voljo za posamezne modele, kako jih določiti in kakšen je dejanski kalibrirani spektralni razpon senzorja.
 
 ## Razpoložljivost pokrovčkov po modelih
 
@@ -50,16 +48,11 @@ chloros-cli daq pool-connect --eth-host daq-e-def330.local --cap-id sunshine_cos
 chloros-cli daq pool-set-cap --sensor-id daq-e-def330 --cap-id fov_45
 ```
 
-CLI
-sintaktično sprejema celoten seznam `cap_id` (`{none, fov_15, fov_30, fov_45, fov_60, fov_90, sunshine_cosine}`); vsak profil se ob povezavi preveri glede na model senzorja, zato nedosegljiva identifikacijska številka pokrova (na primer identifikacijska številka, ki velja samo za E, na DAQ-U) povzroči jasno napako namesto napačne korekcije. Privzeta vrednost strežnika, če ni posredovano nič, je `sunshine_cosine`.
+CLI sintaktično sprejema celoten seznam `cap_id` (`{none, fov_15, fov_30, fov_45, fov_60, fov_90, sunshine_cosine}`); vsak profil se ob povezavi preveri glede na model senzorja, zato nedosegljiva identifikacijska številka pokrova (na primer identifikacijska številka, ki velja samo za E, na DAQ-U) povzroči jasno napako namesto napačne korekcije. Privzeta vrednost strežnika, če ni posredovano nič, je `sunshine_cosine`.
 
-Python
-SDK
-: ob vzpostavitvi povezave poimenujte kapico z `connect_daq_sensor(cap_id="sunshine_cosine")` ali jo med izvajanjem zamenjajte z `DAQSensorSession.set_cap("fov_45")`; glejte [Referenco SDK
-](../reference/sdk-reference.md#daq-sensor-sessions).
+Python SDK: ob vzpostavitvi povezave poimenujte kapico z `connect_daq_sensor(cap_id="sunshine_cosine")` ali jo med izvajanjem zamenjajte z `DAQSensorSession.set_cap("fov_45")`; glejte [Referenco SDK](../reference/sdk-reference.md#daq-sensor-sessions).
 
-Napredno: profili so vgrajeni v namestitvi Chloros
-pod `daq/cap_profiles/<u|m|e>/<cap_id>.json` in jih lahko posamezni uporabnik prepiše pod `~/.chloros/daq_cap_profiles/<u|m|e>/<cap_id>.json`.
+Napredno: profili so vgrajeni v namestitvi Chloros pod `daq/cap_profiles/<u|m|e>/<cap_id>.json` in jih lahko posamezni uporabnik prepiše pod `~/.chloros/daq_cap_profiles/<u|m|e>/<cap_id>.json`.
 
 Ne glede na omejitve senzorji, ki še nikoli niso bili ponovno kalibrirani, samodejno prejmejo majhno izboljšavo temnega odmika, izpeljano iz flote – brez posredovanja uporabnika.
 
@@ -68,12 +61,10 @@ Ne glede na omejitve senzorji, ki še nikoli niso bili ponovno kalibrirani, samo
 **DAQ-E-S** je DAQ-E z dvema razlikama, ki sta pomembni zChloros
 a. Vse ostalo (odkrivanje, povezovanje, PTP, snemanje, nastavitve naprave) deluje točno tako kot pri DAQ-E.
 
-* **Njegov difuzor je fiksni, zato ne potrebuje popravka omejitve.** Difuzor je bil nameščen na enoti že ob merjenju tovarniške kalibracije, zato ta kalibracija že prikazuje dejansko navzdolno sevanje. Chloros
-mu ne uporablja nobenega profila omejitve, ne glede na zahtevo: omejitev, poimenovana po njem, se prezre s sporočilom, njegovi zapisi kažejo, da je omejitev izhajala iz modela, opozorilo o predpostavljeni omejitvi pa se zanj nikoli ne sproži. V nastavitvah projekta → DAQ svetlobni senzor v njegovi vrstici ni prikazan noben omejevalnik, prav tako pa nanj ne vpliva prekrivanje omejevalnika na ravni projekta. Na njegove podatke ne uporabljajte omejevalnika ročno: popravek sončnega sevanja bi v tem primeru pokazal približno 11-krat višjo vrednost.
+* **Njegov difuzor je fiksni, zato ne potrebuje popravka omejitve.** Difuzor je bil nameščen na enoti že ob merjenju tovarniške kalibracije, zato ta kalibracija že prikazuje dejansko navzdolno sevanje. Chloros mu ne uporablja nobenega profila omejitve, ne glede na zahtevo: omejitev, poimenovana po njem, se prezre s sporočilom, njegovi zapisi kažejo, da je omejitev izhajala iz modela, opozorilo o predpostavljeni omejitvi pa se zanj nikoli ne sproži. V nastavitvah projekta → DAQ svetlobni senzor v njegovi vrstici ni prikazan noben omejevalnik, prav tako pa nanj ne vpliva prekrivanje omejevalnika na ravni projekta. Na njegove podatke ne uporabljajte omejevalnika ročno: popravek sončnega sevanja bi v tem primeru pokazal približno 11-krat višjo vrednost.
 * **Opremljen je s 3-osnim pospeškomerom.** Kosinusni odziv difuzorja velja le, ko je senzor v vodoravnem položaju, zato nagnjeni senzor poroča o napačni obsevanosti brez drugih simptomov. Vsaka odčitana vrednost DAQ-E-S zato vsebuje podatke o nagibu, vrtenju in naklonu, `.daq`, posnet iz enega senzorja, pa jih shrani ob vsakem spektru (`imu_tilt_deg`, `imu_roll_deg`, `imu_pitch_deg`, …), tako da lahko razlikujete med oblakom in poškodovanim nosilcem.
 
-Za vsako polje lege in način poročanja o napaki v toku podatkov o legi glejte [DAQ-E-S v referenčnem priročniku za CLI
-](../reference/cli-reference.md#daq-e-s--fixed-diffuser-and-tilt-sensor).
+Za vsako polje lege in način poročanja o napaki v toku podatkov o legi glejte [DAQ-E-S v referenčnem priročniku za CLI](../reference/cli-reference.md#daq-e-s--fixed-diffuser-and-tilt-sensor).
 
 ## Delovanje sončnega pokrova (konfiguracija za zunanjo uporabo)
 
@@ -97,7 +88,6 @@ Za katero koli vrednost količinske sončne obsevanosti – vključno z referen�
 | Spektralno vzorčenje | 340–1010 nm v korakih po 5 nm (135 točk) |
 | Radiometrično kalibrirano območje | **~374–974 nm** (določeno v programski opremi) |
 
-Senzor poroča o celotni mreži 340–1010 nm, vendar radiometrična ojačitev, sledljiva po standardih NIST, zajema območje ~374–974 nm. Chloros
-**zavrača delitev po absolutni odbojnosti** za kateri koli pas kamere, katerega spektralna teža v tem obsegu ne dosega niti polovice, in poroča o razlogu za preskok `dls-uncalibrated-band-<nm>`, namesto da bi ustvaril nekalibriran izdelek. Med serijskimi kamerami le filter F988 ne sodi v ta razpon; namesto tega uporablja delovni tok z odbojnostno ploščo – glej [Delovni tokovi odbojnosti](reflectance.md).
+Senzor poroča o celotni mreži 340–1010 nm, vendar radiometrična ojačitev, sledljiva po standardih NIST, zajema območje ~374–974 nm. Chloros **zavrača delitev po absolutni odbojnosti** za kateri koli pas kamere, katerega spektralna teža v tem obsegu ne dosega niti polovice, in poroča o razlogu za preskok `dls-uncalibrated-band-<nm>`, namesto da bi ustvaril nekalibriran izdelek. Med serijskimi kamerami le filter F988 ne sodi v ta razpon; namesto tega uporablja delovni tok z odbojnostno ploščo – glej [Delovni tokovi odbojnosti](reflectance.md).
 
 Za modele senzorjev, transportne poti in identifikacijske številke senzorjev glejte [Pregled DAQ](README.md). Za informacije o tem, kako se med obdelavo porablja omejitev števila posnetkov, glejte [Snemanje in format .daq](recording.md).

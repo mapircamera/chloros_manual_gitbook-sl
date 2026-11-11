@@ -76,7 +76,7 @@ Slika je narisana v **sivi lestvici**, raztegnjena med dvema pragovnima vrednost
 
 ### Dodajanje LUT-a
 
-1. Kliknite gumb **&quot;+ Dodaj LUT&quot;**v meniju**<img src="../.gitbook/assets/image (1) (1) (1).png" alt="" data-size="line">** pod formulo
+1. Kliknite gumb **"+ Dodaj LUT"**v meniju**<img src="../.gitbook/assets/image (1) (1) (1).png" alt="" data-size="line">** pod formulo
 2. Izberite barvni prehod
 3. Nastavite minimalno in maksimalno vrednost obrezovanja
 4. Izberite način obrezovanja

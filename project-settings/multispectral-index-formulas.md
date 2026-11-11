@@ -163,7 +163,7 @@ $$
 
 V grafičnem uporabniškem vmesniku (GUI) ter na seznamu prednastavitev za CLI/SDK je to simbolna formula `(z/y)*(x/y)`, kjer x = Red, y = Green, z = NIR (pasovi kamere RGN); prednastavitev indeksnega motorja LATTICE je `nir * red / green**2`. Vsak površinski izračun izračuna isti indeks.
 
-_Sklic: Vincini, M., E. Frazzi in P. D&#x27;Alessio. »Širokopasovni indeks vegetacije na podlagi klorofila v listih na ravni krošnje.« Precision Agriculture 9 (2008): 303–319._
+_Sklic: Vincini, M., E. Frazzi in P. D'Alessio. »Širokopasovni indeks vegetacije na podlagi klorofila v listih na ravni krošnje.« Precision Agriculture 9 (2008): 303–319._
 
 ***
 
@@ -205,7 +205,7 @@ $$
 
 Gozdna območja bodo imela nižje vrednosti FCI1 zaradi manjše odbojnosti dreves in prisotnosti senc znotraj krošnj.
 
-_Sklic: Becker, Sarah J., Craig S.T. Daughtry in Andrew L. Russ. »Robustni indeksi gozdnega pokrova za multispektralne slike.« Photogrammetric Engineering &amp; Remote Sensing 84.8 (2018): 505–512._
+_Sklic: Becker, Sarah J., Craig S.T. Daughtry in Andrew L. Russ. »Robustni indeksi gozdnega pokrova za multispektralne slike.« Photogrammetric Engineering & Remote Sensing 84.8 (2018): 505–512._
 
 ***
 
@@ -221,7 +221,7 @@ $$
 
 Gozdna območja bodo imela nižje vrednosti indeksa FCI2 zaradi manjše odbojnosti dreves in prisotnosti senc znotraj krošnj.
 
-_Sklic: Becker, Sarah J., Craig S.T. Daughtry in Andrew L. Russ. »Robustni indeksi gozdnega pokrova za multispektralne slike.« Photogrammetric Engineering &amp; Remote Sensing 84.8 (2018): 505–512._
+_Sklic: Becker, Sarah J., Craig S.T. Daughtry in Andrew L. Russ. »Robustni indeksi gozdnega pokrova za multispektralne slike.« Photogrammetric Engineering & Remote Sensing 84.8 (2018): 505–512._
 
 ***
 
@@ -487,7 +487,7 @@ $$
 TDVI = 1.5 * {(NIR- Red) \over \sqrt{NIR^{2} + Red + 0.5}  }
 $$
 
-_Sklic: Bannari, A., H. Asalhi in P. Teillet. »Transformirani indeks razlike vegetacije (TDVI) za kartiranje vegetacijskega pokrova« V: Zbornik simpozija o geoznanosti in daljinskem zaznavanju, IGARSS &#x27;02, IEEE International, zvezek 5 (2002)._
+_Sklic: Bannari, A., H. Asalhi in P. Teillet. »Transformirani indeks razlike vegetacije (TDVI) za kartiranje vegetacijskega pokrova« V: Zbornik simpozija o geoznanosti in daljinskem zaznavanju, IGARSS '02, IEEE International, zvezek 5 (2002)._
 
 ***
 

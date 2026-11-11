@@ -1,17 +1,14 @@
 # Dinamično prilagajanje računalniške zmogljivosti
 
-Chloros
-1.3.0 uporablja zaznavanje strojne opreme in samodejno izbiro strategije obdelave. Obdelovalni motor se prilagaja vaši strojni opremi – od Jetson Orin Nano do delovne postaje z več grafičnimi procesorji – brez kakršne koli ročne konfiguracije.
+Chloros 1.3.0 uporablja zaznavanje strojne opreme in samodejno izbiro strategije obdelave. Obdelovalni motor se prilagaja vaši strojni opremi – od Jetson Orin Nano do delovne postaje z več grafičnimi procesorji – brez kakršne koli ročne konfiguracije.
 
 ***
 
 ## Kako deluje
 
-Ko se Chloros
-zažene, naredi profil vašega sistema:
+Ko se Chloros zažene, naredi profil vašega sistema:
 
-1. **Zazna operacijski sistem** – Windows
-ali Linux
+1. **Zazna operacijski sistem** – Windows ali Linux
 2. **Prepozna jedra procesorja in skupno količino pomnilnika RAM**
 
 3.**Zazna prisotnost grafičnega procesorja** – zmogljivost NVIDIA CUDA, VRAM, model
@@ -24,19 +21,16 @@ Zaznan profil se za tekoče sejo shrani v predpomnilnik v pomnilniku in na disku
 
 | Platforma | Profil v predpomnilniku |
 | --- | --- |
-| **Linux
-/ Jetson** | `~/.config/chloros/system_config.json` (upošteva `XDG_CONFIG_HOME`) |
+| **Linux / Jetson** | `~/.config/chloros/system_config.json` (upošteva `XDG_CONFIG_HOME`) |
 | **Windows** | `%LOCALAPPDATA%\Chloros\config\system_config.json` |
 
-Izbrišite to datoteko, da prisilite novo zaznavanje — to je koristno po dodajanju grafičnega procesorja (GPU) ali več pomnilnika RAM. Chloros
-samodejno ponovno zazna tudi takrat, ko je predpomnilnik zapisala nezdružljiva starejša različica.
+Izbrišite to datoteko, da prisilite novo zaznavanje — to je koristno po dodajanju grafičnega procesorja (GPU) ali več pomnilnika RAM. Chloros samodejno ponovno zazna tudi takrat, ko je predpomnilnik zapisala nezdružljiva starejša različica.
 
 ***
 
 ## Strategije izračuna
 
-Chloros
-izbere eno od treh strategij izračuna glede na vašo strojno opremo:
+Chloros izbere eno od treh strategij izračuna glede na vašo strojno opremo:
 
 | Strategija | Izbrana, ko | Delavci | Izvajalec | Potek |
 | --- | --- | --- | --- | --- |
@@ -50,11 +44,7 @@ Praktični primeri formule za število delavcev `GPU_PARALLEL`: 12 GB VRAM → 2
 **Strategije za GPU zahtevajo PyTorch, ki podpira CUDA.** Naprava, katere PyTorch nima uporabne CUDA-naprave, dobi `CPU_PARALLEL`, ne glede na njen GPU. Paket Jetson 1.3.0 uporablja CUDA-različico PyTorcha iz JetPack 6, zato je Jetson primeren, ko so nameščene CUDA- in cuDNN-knjižnice iz JetPacka. Jetson z manj kot 12 GB RAM-a vedno obdeluje eno sliko naenkrat, med obdelavo (zabeleženo kot `GPU_SINGLE`).
 {% endhint %}
 
-Strategije GPU izvajajo skupino delovnih procesov, od katerih je vsak ločen proces operacijskega sistema z lastnim CUDA-kontekstom, ki jih Chloros
-zažene s ponovnim zagonom lastnega nameščenega backend programa (ne prek Python
-ovega `multiprocessing`, katerega zagon delovnih procesov ne deluje znotraj pakirane aplikacije). Strategija CPU uporablja nabor niti (Python
-ov `ThreadPoolExecutor`). Chloros
-ne uporablja nobenega distribuiranega okvira tretjih ponudnikov (kot je Ray).
+Strategije GPU izvajajo skupino delovnih procesov, od katerih je vsak ločen proces operacijskega sistema z lastnim CUDA-kontekstom, ki jih Chloros zažene s ponovnim zagonom lastnega nameščenega backend programa (ne prek Python ovega `multiprocessing`, katerega zagon delovnih procesov ne deluje znotraj pakirane aplikacije). Strategija CPU uporablja nabor niti (Python ov `ThreadPoolExecutor`). Chloros ne uporablja nobenega distribuiranega okvira tretjih ponudnikov (kot je Ray).
 
 ### Vrste poti obdelave
 
@@ -75,8 +65,7 @@ Nastavite spremenljivko okolja `CHLOROS_STRATEGY`, da prisilite uporabo določen
 CHLOROS_STRATEGY=CPU_PARALLEL chloros-cli process ~/datasets/flight001
 ```
 
-Pri iskanju spremenljivke se ne upošteva velike in male črke; vse, kar ni eno od treh imen, se prezre, samodejno zaznavanje pa poteka normalno. Tudi ob ročnem preklopu Chloros
-še vedno sam izbere število delavcev:
+Pri iskanju spremenljivke se ne upošteva velike in male črke; vse, kar ni eno od treh imen, se prezre, samodejno zaznavanje pa poteka normalno. Tudi ob ročnem preklopu Chloros še vedno sam izbere število delavcev:
 
 | Preklop | Uporabljeno število delavcev |
 | --- | --- |
@@ -124,8 +113,7 @@ Diskretne grafične kartice za sistem rezervirajo le 0,5 GB, saj ne delijo siste
 
 ## Dinamična dodelitev pomnilnika grafične kartice
 
-Chloros
-uporablja [4-nitni procesni potek](processing-pipeline.md):
+Chloros uporablja [4-nitni procesni potek](processing-pipeline.md):
 
 * **Nit 1** (Zaznavanje) — nalaganje slike, razčlenjevanje EXIF, zaznavanje cilja
 * **Nit 2** (Kalibracija) — Izračun kalibracije odbojnosti
@@ -152,26 +140,23 @@ Vrednost, ki se dejansko uporabi med izvajanjem, je **nižja** od dodelitve prof
 
 ## Obdelava, ki upošteva teksturo
 
-Debayer »Texture Aware« (**samo Chloros
-+** — `--debayer texture-aware`) izvaja model za odstranjevanje šuma z umetno inteligenco/strojnim učenjem, ki potrebuje približno 1,75 GB VRAM v FP16 na kopijo, zato porabi veliko več pomnilnika GPU kot standardna metoda:
+Debayer »Texture Aware« (**samo Chloros+** — `--debayer texture-aware`) izvaja model za odstranjevanje šuma z umetno inteligenco/strojnim učenjem, ki potrebuje približno 1,75 GB VRAM v FP16 na kopijo, zato porabi veliko več pomnilnika GPU kot standardna metoda:
 
 * Sistemi z **manj kot 7 GB VRAM**obdelujejo Texture Aware v**sinhronem ciklu, po eno sliko naenkrat** — več kopij modela se ne more zmestiti, delavniški bazen pa bi le povečal tekmovanje za dostop
 * Sistemi z **7 GB ali več VRAM** lahko Texture Aware obdelujejo sočasno, čeprav z manj delavci v primerjavi s Standardno metodo
 * Na **Jetsonu** je Texture Aware vedno dodeljen enemu delavcu
 * Če **ni uporabnega CUDA grafičnega procesorja**, se izvede standardni debayer, backend pa zabeleži eno vrstico `[DEBAYER] … needs a CUDA GPU …`, ki pojasni razlog
-* Na Jetsonih z nizko porabo energije (Nano, Orin Nano) CLI
-, ko zahtevate »Texture Aware«, omeji frekvenco grafičnega procesorja – glejte [NVIDIA Jetson Guide](../linux/nvidia-jetson-guide.md#gpu-frequency-cap-for-texture-aware-on-nano-and-orin-nano)
+* Na Jetsonih z nizko porabo energije (Nano, Orin Nano) CLI, ko zahtevate »Texture Aware«, omeji frekvenco grafičnega procesorja – glejte [NVIDIA Jetson Guide](../linux/nvidia-jetson-guide.md#gpu-frequency-cap-for-texture-aware-on-nano-and-orin-nano)
 
 ***
 
 ## Upravljanje toplote (Jetson)
 
-Naprave Jetson imajo toplotne omejitve, zlasti pri namestitvah v zaprtih prostorih ali v zraku. Chloros
-spremlja vgrajene temperaturne senzorje naprave Jetson in samodejno prilagaja velikost serij:
+Naprave Jetson imajo toplotne omejitve, zlasti pri namestitvah v zaprtih prostorih ali v zraku. Chloros spremlja vgrajene temperaturne senzorje naprave Jetson in samodejno prilagaja velikost serij:
 
 | Temperatura | Odziv |
 | --- | --- |
-| **&lt; 70 °C** | Normalno delovanje – polna hitrost |
+| **< 70 °C** | Normalno delovanje – polna hitrost |
 | **70 °C** (Opozorilo) | Velikost serije se postopoma zmanjšuje (100 % → 50 % med 70 °C in 80 °C) |
 | **80 °C** (kritično) | Agresivno omejevanje zmogljivosti (50 % → 0 % med 80 °C in 90 °C) |
 | **90 °C** (izklop) | Popolna zaustavitev obdelave GPU |
@@ -182,11 +167,9 @@ Na namiznih sistemih z ustreznim hlajenjem se toplotno omejevanje redko sproži.
 
 ## Obravnavanje pritiska na pomnilnik
 
-Program Chloros
-med obdelavo neprekinjeno spremlja pomnilnik grafičnega procesorja in reagira na treh ravneh.
+Program Chloros med obdelavo neprekinjeno spremlja pomnilnik grafičnega procesorja in reagira na treh ravneh.
 
-**Določanje velikosti serije.** Serija se začne z 8 slikami, pomnoženimi z multiplikatorjem platforme iz zgornjih tabel. Chloros
-nato preveri prosti VRAM, 20 % tega rezervira za lastne potrebe PyTorcha in predpostavlja približno 100 MB pomnilnika grafičnega procesorja na sliko z ločljivostjo 12 MP – serija je tista, ki je manjša, bodisi omejitev, izpeljana iz pomnilnika, bodisi osnovna vrednost platforme. Nikoli ne pade pod 1.
+**Določanje velikosti serije.** Serija se začne z 8 slikami, pomnoženimi z multiplikatorjem platforme iz zgornjih tabel. Chloros nato preveri prosti VRAM, 20 % tega rezervira za lastne potrebe PyTorcha in predpostavlja približno 100 MB pomnilnika grafičnega procesorja na sliko z ločljivostjo 12 MP – serija je tista, ki je manjša, bodisi omejitev, izpeljana iz pomnilnika, bodisi osnovna vrednost platforme. Nikoli ne pade pod 1.
 
 **Preventivno zmanjšanje.**Pri**izkoriščenosti VRAM nad 85 %** se velikosti serij zmanjšajo, še preden pride do napake.**Zmanjšanje dodelitve na nit.** Ko se trenutna izkoriščenost poveča, se proračun GPU za vsako nit zmanjša: ×0,75 pri izkoriščenosti nad 80 %, ×0,5 pri izkoriščenosti nad 90 %. Pragi monitorja so 70 % (konzervativni), 85 % (normalna meja delovanja) in 95 % (tveganje za pomanjkanje pomnilnika).**Umaknitev in obnovitev ob pomanjkanju pomnilnika.** Če kljub vsemu pride do pomanjkanja pomnilnika:
 
@@ -194,8 +177,7 @@ nato preveri prosti VRAM, 20 % tega rezervira za lastne potrebe PyTorcha in pred
 * se dodelitve aktivnim nitim zmanjšajo na 70 % njihove trenutne vrednosti, dodeljevalnik pa preklopi na konzervativno strategijo, ki se po nizu uspešnih dodelitev spet sprosti
 * pod hudim pritiskom se potek obdelave umakne s `fused_gpu` na `tiled_gpu`, v skrajnem primeru pa na `cpu_fallback`
 
-**Pomnilnik gostitelja (Jetson).** Pred obdelavo CLI
-oceni največjo porabo pomnilnika gostitelja na podlagi števila slik in načina debayeringa ter opozori, če je verjetno, da RAM skupaj z izmenjavo, podprto s datotekami, ne bo zadostoval, pri čemer izpiše natančne ukaze za dodajanje izmenjave — glej [NVIDIA Jetson Guide](../linux/nvidia-jetson-guide.md#swap-warning-and-recommendations).
+**Pomnilnik gostitelja (Jetson).** Pred obdelavo CLI oceni največjo porabo pomnilnika gostitelja na podlagi števila slik in načina debayeringa ter opozori, če je verjetno, da RAM skupaj z izmenjavo, podprto s datotekami, ne bo zadostoval, pri čemer izpiše natančne ukaze za dodajanje izmenjave — glej [NVIDIA Jetson Guide](../linux/nvidia-jetson-guide.md#swap-warning-and-recommendations).
 
 ***
 
@@ -219,21 +201,17 @@ Preverjanje 7 izpiše `CUDA: <bool>, Denoiser: <bool>` — oba morata biti resni
 
 ### Dnevniki backenda
 
-Strategija in število delavcev se izbereta znotraj backenda na začetku vsakega izvajanja — ni nobenega CLI
--pasice, ki bi ju prikazovala. Ko se nekaj obnaša nepričakovano (preklop na GPU pot, OOM, odšumevalnik, ki se ne naloži), se to prikaže v dnevniku backenda za tisto sejo:
+Strategija in število delavcev se izbereta znotraj backenda na začetku vsakega izvajanja — ni nobenega CLI-pasice, ki bi ju prikazovala. Ko se nekaj obnaša nepričakovano (preklop na GPU pot, OOM, odšumevalnik, ki se ne naloži), se to prikaže v dnevniku backenda za tisto sejo:
 
 | Platforma | Mesto dnevnika |
 | --- | --- |
-| **Linux
-/ Jetson** | `~/.cache/chloros/logs/backend_<YYYYMMDD_HHMMSS>.log` (ena datoteka na zagon) |
-| **Linux
-, backend zagnan prek CLI** | prav tako `~/.chloros/backend.log` |
+| **Linux / Jetson** | `~/.cache/chloros/logs/backend_<YYYYMMDD_HHMMSS>.log` (ena datoteka na zagon) |
+| **Linux, backend zagnan prek CLI** | prav tako `~/.chloros/backend.log` |
 | **Windows** | `%LOCALAPPDATA%\Chloros\logs\` |
 
 ### Napredek v realnem času
 
-Med izvajanjem CLI
-prikazuje napredek v realnem času za vsak niti (Detecting, Analyzing, Processing, Exporting), ki se prenaša prek Server-Sent Events — to je praktičen pokazatelj, ali je nit 3 ozko grlo. Glej [Obdelovalni potek](processing-pipeline.md).
+Med izvajanjem CLI prikazuje napredek v realnem času za vsak niti (Detecting, Analyzing, Processing, Exporting), ki se prenaša prek Server-Sent Events — to je praktičen pokazatelj, ali je nit 3 ozko grlo. Glej [Obdelovalni potek](processing-pipeline.md).
 
 ***
 
@@ -241,7 +219,5 @@ prikazuje napredek v realnem času za vsak niti (Detecting, Analyzing, Processin
 
 * [Obdelovalni potek](processing-pipeline.md) — Razumevanje arhitekture poteka s 4 niti
 * [Vodnik za NVIDIA Jetson](../linux/nvidia-jetson-guide.md) — Namestitev in optimizacija, specifična za Jetson
-* [CLI
-: ukazna vrstica](../CLI.md) — Vodnik po ukazni vrstici
-* [CLI
-Reference](../reference/cli-reference.md) — Izčrpen seznam ukazov za različico 1.3.0
+* [CLI: ukazna vrstica](../CLI.md) — Vodnik po ukazni vrstici
+* [CLI Reference](../reference/cli-reference.md) — Izčrpen seznam ukazov za različico 1.3.0

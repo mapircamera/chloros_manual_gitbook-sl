@@ -6,23 +6,10 @@ metaLinks:
 
 # Podprte kamere:
 
-Chloros
-obdeluje posnetke iz dveh družin kamer MAPIR
-na **vseh platformah** (Windows
-, Linux
-amd64 in Linux
-arm64/Jetson):
+Chloros obdeluje posnetke iz dveh družin kamer MAPIR na **vseh platformah** (Windows, Linux amd64 in Linux arm64/Jetson):
 
-* **Survey3** — kamere Survey3W
-(širokokotne) in Survey3N
-(ozkokotne). Vhod: `RAW+JPG`.
-* **LATTICE**— multispektralni kamerni moduli M3C in M3M. Vnos: posnetki `.tif`/`.tiff`. Kamere LATTICE je mogoče**v živo upravljati** tudi iz programa Chloros
-— prek zavihka »Kamere« v grafičnem uporabniškem vmesniku (Windows
-) ali prek `chloros-cli lattice` / Python
-ovega SDK
--ja (Windows
-in Linux
-) — vključno s sinhroniziranimi nizi več kamer. Glejte [priročnik za LATTICE](lattice/).
+* **Survey3** — kamere Survey3W (širokokotne) in Survey3N (ozkokotne). Vhod: `RAW+JPG`.
+* **LATTICE**— multispektralni kamerni moduli M3C in M3M. Vnos: posnetki `.tif`/`.tiff`. Kamere LATTICE je mogoče**v živo upravljati** tudi iz programa Chloros — prek zavihka »Kamere« v grafičnem uporabniškem vmesniku (Windows) ali prek `chloros-cli lattice` / Python ovega SDK-ja (Windows in Linux) — vključno s sinhroniziranimi nizi več kamer. Glejte [priročnik za LATTICE](lattice/).
 
 Obdelovalni proces sprejema tudi vhodne datoteke `.dng`.
 
@@ -36,9 +23,7 @@ Serija LATTICE je modularni multispektralni sistem kamer, zasnovan na senzorju S
 <sensor>-<lens>-F<filter>        e.g.  M3C-L41-FRGN,  M3M-L87-F550
 ```
 
-Chloros
-
-jo prikaže s predpono `LATT-` (na primer `LATT-M3M-L41-F550`), niz modela pa določa vse nadaljnje postopke – profil senzorja, razpored pasov in kalibracija se določijo samodejno; za posamezno kamero ni treba ničesar nastavljati. Številka objektiva predstavlja **horizontalno vidno polje v stopinjah**: `L41` = ozek 41°, `L87` = širok 87°.
+Chloros jo prikaže s predpono `LATT-` (na primer `LATT-M3M-L41-F550`), niz modela pa določa vse nadaljnje postopke – profil senzorja, razpored pasov in kalibracija se določijo samodejno; za posamezno kamero ni treba ničesar nastavljati. Številka objektiva predstavlja **horizontalno vidno polje v stopinjah**: `L41` = ozek 41°, `L87` = širok 87°.
 
 Obstajata dve konfiguraciji senzorjev:
 
@@ -49,52 +34,20 @@ Obstajata dve konfiguraciji senzorjev:
 
 ### Možnosti filtrov M3C (Bayer)
 
-| Filter | Pasovi (ime @ središče nm / FWHM
-
-nm)       |
+| Filter | Pasovi (ime @ središče nm / FWHM nm)       |
 | ------ | ---------------------------------------- |
-| `FRGB` | Blue
+| `FRGB` | Blue 475/30 · Green 550/30 · Red 625/30  |
+| `FRGN` | Red 660/21 · Green 550/30 · NIR 850/30   |
+| `FOCN` | Orange 618,4/46 · Cyan 494,1/40 · NIR 821,6/54 (izmerjeno — glej spodaj) |
+| `FNGB` | Blue 475/30 · Green 550/30 · NIR 850/30  |
 
-475/30 · Green
-
-550/30 · Red
-
-625/30  |
-| `FRGN` | Red
-
-660/21 · Green
-
-550/30 · NIR
-
-850/30   |
-| `FOCN` | Orange
-
-618,4/46 · Cyan
-
-494,1/40 · NIR
-
-821,6/54 (izmerjeno — glej spodaj) |
-| `FNGB` | Blue
-
-475/30 · Green
-
-550/30 · NIR
-
-850/30  |
-
-Za `FOCN` so vrednosti **izmerjeni** pas polovične maksimalne vrednosti filtra (Chloros
-
-1.3.0 in novejše različice; starejše različice so uporabljale vrednosti iz tehničnih podatkov 615/21 · 490/38 · 808/14). Imena pasov ostajajo `Orange_615`, `Cyan_490` in `NIR_808`, izmerjeni središčni valovni dolžini in širini pa sta tisti, ki ju Chloros
-
-vtisne v vsak kalibriran izvoz.
+Za `FOCN` so vrednosti **izmerjeni** pas polovične maksimalne vrednosti filtra (Chloros 1.3.0 in novejše različice; starejše različice so uporabljale vrednosti iz tehničnih podatkov 615/21 · 490/38 · 808/14). Imena pasov ostajajo `Orange_615`, `Cyan_490` in `NIR_808`, izmerjeni središčni valovni dolžini in širini pa sta tisti, ki ju Chloros vtisne v vsak kalibriran izvoz.
 
 ### Katalog filtrov M3M (mono) — 23 artiklov
 
 Številka F je oznaka artikla; izmerjen pas (vtisnjen v vsak kalibriran izvoz) je sken filtra za posamezno serijo:
 
-| Art. št.    | Središče (nm, izmerjeno) | Robovi FWHM
-
-(nm) | Širina (nm) |
+| Art. št.    | Središče (nm, izmerjeno) | Robovi FWHM (nm) | Širina (nm) |
 | ------ | --------------------- | --------------- | ---------- |
 | F385   | 379,4                 | 367–392         | 25         |
 | F405   | 403,9                 | 390–417         | 27         |
@@ -120,14 +73,8 @@ vtisne v vsak kalibriran izvoz.
 | F950   | 945,1                 | 929–961         | 32         |
 | F988 † | 985,3                 | 968–1003        | 35         |
 
-_»Robovi pasov so izmerjene vrednosti polne širine na polovici maksimuma iz MAPIR
+_»Robovi pasov so izmerjene vrednosti polne širine na polovici maksimuma iz MAPIR jevih skenov filtrov po serijah — iste vrednosti, ki jih Chloros vtisne v vsak kalibriran izvoz.«_ »— (nominalno)« = skeniranje serije še ni bilo opravljeno; za te SKU-je je navedeno središče številka SKU, širina pa je podatek proizvajalca.
 
-jevih skenov filtrov po serijah — iste vrednosti, ki jih Chloros
-
-vtisne v vsak kalibriran izvoz.«_ »— (nominalno)« = skeniranje serije še ni bilo opravljeno; za te SKU-je je navedeno središče številka SKU, širina pa je podatek proizvajalca.
-
-† »Odbojnost F988 je kalibrirana z uporabo plošče za merjenje odbojnosti v prizoru: pas leži zunaj kalibriranega območja svetlobnega senzorja DAQ, zato Chloros
-
-uporabi vaš najnovejši posnetek plošče in ga ohrani med posameznimi meritvami plošče.« Glejte [Kalibracijske tarče](calibration-targets.md).
+† »Odbojnost F988 je kalibrirana z uporabo plošče za merjenje odbojnosti v prizoru: pas leži zunaj kalibriranega območja svetlobnega senzorja DAQ, zato Chloros uporabi vaš najnovejši posnetek plošče in ga ohrani med posameznimi meritvami plošče.« Glejte [Kalibracijske tarče](calibration-targets.md).
 
 Za nadzor kamere v realnem času, matrike, nastavitev omrežja in radiometrično obdelovalno verigo glejte [LATTICE priročnik](lattice/).
