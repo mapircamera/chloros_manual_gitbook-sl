@@ -10,7 +10,8 @@ Chloros 1.3.0 zagotavlja nativno podporo za sistem Linux za **CLI**in**Python SD
 
 ## Matrika podpore platform
 
-| Funkcija | Windows (GUI) | Windows (CLI/SDK) | Linux amd64 (CLI/ --- | --- | --- | --- |
+| Funkcija | Windows (GUI) | Windows (CLI/SDK) | Linux amd64 (CLI/SDK) | Linux arm64 / Jetson (CLI/SDK) |
+| --- | --- | --- | --- | --- |
 | **Namizni GUI** | Da | N/A | Ne | Ne |
 | **CLI** (`chloros-cli`) | Da | Da | Da | Da |
 | **Python SDK** (`chloros-sdk`) | Da | Da | Da | Da |
@@ -22,7 +23,9 @@ Chloros 1.3.0 zagotavlja nativno podporo za sistem Linux za **CLI**in**Python SD
 | **Texture Aware debayer** (potreben je grafični procesor s podporo CUDA) | Da (Chloros+) | Da (Chloros+) | Da (Chloros+) | Da (Chloros+) |
 | **Dinamična prilagoditev računalniških zmogljivosti** | Da | Da | Da | Da |
 | **Backend kot sistemska storitev** (`chloros-backend@<user>.service`) | Ne | Ne | Da (po izbiri) | Da (po izbiri) |
-| **Posodobitveni program na mestu** (`chloros-cli update`) | Ne (zaženite namestitveni program) | Ne (zaženite namestitveni program) | Da | Da |***
+| **Posodobitveni program na mestu** (`chloros-cli update`) | Ne (zaženite namestitveni program) | Ne (zaženite namestitveni program) | Da | Da |
+
+***
 
 ## Podprte arhitekture
 
@@ -35,7 +38,9 @@ Chloros 1.3.0 zagotavlja nativno podporo za sistem Linux za **CLI**in**Python SD
 
 * **Ubuntu 22.04 LTS ali novejši** (amd64)
 * **Debian 12 ali novejši** (amd64)
-* **NVIDIA JetPack 6** (arm64 — platforme Jetson Orin)***
+* **NVIDIA JetPack 6** (arm64 — platforme Jetson Orin)
+
+***
 
 ## Kaj dobijo uporabniki Linuxa
 
@@ -54,7 +59,9 @@ Chloros 1.3.0 zagotavlja nativno podporo za sistem Linux za **CLI**in**Python SD
 
 * **Namizni grafični vmesnik** — ni grafičnega vmesnika; vsa interakcija poteka prek CLI-ja ali Python SDK-ja
 * **Pregledovalnik slik** — ni interaktivnega pregledovalnika slik, pogleda v mreži ali označevalcev na zemljevidu
-* **Vizualno upravljanje projektov** — projekti se ustvarjajo in upravljajo prek ukazov CLI in klicev SDK (sama strojna oprema — kamere, senzorji, zajem — ostaja v celoti nadzorovana iz terminala)***
+* **Vizualno upravljanje projektov** — projekti se ustvarjajo in upravljajo prek ukazov CLI in klicev SDK (sama strojna oprema — kamere, senzorji, zajem — ostaja v celoti nadzorovana iz terminala)
+
+***
 
 ## Zahteve glede licence
 

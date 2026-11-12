@@ -102,4 +102,4 @@ Podrobnosti za uporabnike, ki zahtevajo strogo usklajevanje:
 | Domena oddajanja | Gostitelj in senzor sta v istem segmentu L2; mDNS ne usmerja |
 | Požarni zid | Windows: pravilo **Chloros Backend (UDP-In)** v namestitvenem programu omogoča pretok DAQ-E (UDP 5002), mDNS (5353) in PTP (319/320); požarni zid tretje osebe mora imeti enake nastavitve. Linux: `.deb` odpre ta vrata v `ufw` / `firewalld` le, če je bil požarni zid aktiven ob namestitvi — jih sami omogočite v enem, ki ga kasneje vklopite |
 | Gostitelj z več mrežnimi karticami | Odkrivanje brska po mDNS z nadomestnim ARP-jem; `--eth-host <ip-or-hostname>` preskoči odkrivanje in se poveže neposredno |
-| Ponovno skeniranje v grafičnem vmesniku | Odkrivanje poteka le, dokler je odprto okno za povezavo; uporabite gumb »Osveži« |</version>
+| Ponovno skeniranje v grafičnem vmesniku | Odkrivanje poteka le, dokler je odprto okno za povezavo; uporabite gumb »Osveži« |

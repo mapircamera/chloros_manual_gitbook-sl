@@ -15,7 +15,9 @@ Images In → [Thread 1: Detection] → [Thread 2: Calibration] → [Thread 3: P
 
 Vsaka slika poteka skozi vsa štiri niti v določenem vrstnem redu. Pri večnitni obdelavi v Chloros+ več slik hkrati zaseda različne niti – medtem ko nit 3 obdeluje eno sliko, nit 1 lahko zazna naslednjo, nit 2 kalibrira še eno, nit 4 pa končano sliko zapiše na disk.
 
-Napredek se poroča po posameznih niti in se prenaša prek dogodkov Server-Sent Events (zadnji del sistema jih objavlja na `/api/events`). V prikazu napredka v realnem času v CLI so štiri stopnje označene kot **Zaznavanje, Analiza, Obdelava, Izvoz**.***
+Napredek se poroča po posameznih niti in se prenaša prek dogodkov Server-Sent Events (zadnji del sistema jih objavlja na `/api/events`). V prikazu napredka v realnem času v CLI so štiri stopnje označene kot **Zaznavanje, Analiza, Obdelava, Izvoz**.
+
+***
 
 ## Podrobnosti o niti
 

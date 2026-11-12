@@ -10,7 +10,9 @@ Za prilagajanje velikosti sličic uporabite drsnik povečave v zgornjem desnem k
 * **Ctrl + `+`**/**Ctrl + `=`**in**Ctrl + `−`** spreminjajo velikost za 4 px ob vsakem pritisku. Obseg nastavitev s tipkovnico se na spodnji meji konča pri 64 px, na zgornji meji pa pri velikosti, ki v trenutnem oknu natančno ustreza dvema sličicama na vrstico.
 * Velikost, za katero se odločite, se shrani skupaj s projektom (`UI → Grid thumbnail size` v `project.json`, privzeto `160`), tako da se ob ponovnem odprtju projekta ta ponovno vzpostavi.
 
-<figure><img src="../.gitbook/assets/chloros_grid_zoom.gif" alt=""><figcaption></figcaption></figure>*Ločljivost* sličic je nastavljiva ločeno od *velikosti* sličic: glejte **Prikaz → Ločljivost sličic slik** v [Nastavitvah projekta](../project-settings/project-settings.md) (privzeto 512 px na daljši strani). Velikost določa, kako velika je ploščica; ločljivost pa določa, koliko podrobnosti se prinese za njeno zapolnitev.***
+<figure><img src="../.gitbook/assets/chloros_grid_zoom.gif" alt=""><figcaption></figcaption></figure>*Ločljivost* sličic je nastavljiva ločeno od *velikosti* sličic: glejte **Prikaz → Ločljivost sličic slik** v [Nastavitvah projekta](../project-settings/project-settings.md) (privzeto 512 px na daljši strani). Velikost določa, kako velika je ploščica; ločljivost pa določa, koliko podrobnosti se prinese za njeno zapolnitev.
+
+***
 
 ## Orodna vrstica mreže
 

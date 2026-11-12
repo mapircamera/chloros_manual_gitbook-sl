@@ -112,7 +112,9 @@ Odbojnost je shranjena kot celo število DN, **DN, ki pomeni ρ = 1,0, pa je odv
 | LATTICE (M3C/M3M) | **32768** (rezerva do ρ 2,0) | V datoteko je vtisnjena oznaka XMP `Chloros:PixelScale=32768` |
 | Survey3          | **65535** (omejeno na ρ 1,0)     | Ni oznake `Chloros:PixelScale` — ta odsotnost je znak (izdelki Survey3 vsebujejo druge oznake obdelave `Chloros:*`) |
 
-**Preberite oznako `Chloros:PixelScale` in delite z njo**, namesto da predpostavljate splošno vrednost 65535 — deljenje odbojnosti LATTICE z 65535 tiho prepolovi vsako vrednost. Datoteka odbojnosti iz časa pred različico 1.3.0, zapisana v 8-bitni obliki, je bila odrezana, ne pa ponovno skalirana, in nima oznake merila: namesto deljenja jo ponovno izvozite v 16-bitni ali 32-bitni obliki. Za celotno pojasnilo glejte [Formati izhodnih slik](../output-image-formats.md).***
+**Preberite oznako `Chloros:PixelScale` in delite z njo**, namesto da predpostavljate splošno vrednost 65535 — deljenje odbojnosti LATTICE z 65535 tiho prepolovi vsako vrednost. Datoteka odbojnosti iz časa pred različico 1.3.0, zapisana v 8-bitni obliki, je bila odrezana, ne pa ponovno skalirana, in nima oznake merila: namesto deljenja jo ponovno izvozite v 16-bitni ali 32-bitni obliki. Za celotno pojasnilo glejte [Formati izhodnih slik](../output-image-formats.md).
+
+***
 
 ## Metapodatki, preneseni v izvoze
 
@@ -167,7 +169,9 @@ Za arhiviranje obdelave ali pošiljanje podpori MAPIR:
 
 2. Shranite kot besedilno datoteko v mapo projekta
 3. Priložite k dokumentaciji projekta
-4. V primeru težav ga pošljite podpori MAPIR Če želite težavo poslati neposredno podjetju MAPIR, uporabite ikono napake (**Prijavi napako**) na vrhu zavihka »Dnevnik odpravljanja napak« — glejte [Prijava napake iz zavihka »Dnevnik«](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
+4. V primeru težav ga pošljite podpori MAPIR Če želite težavo poslati neposredno podjetju MAPIR, uporabite ikono napake (**Prijavi napako**) na vrhu zavihka »Dnevnik odpravljanja napak« — glejte [Prijava napake iz zavihka »Dnevnik«](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).
+
+***
 
 ## Pogoste težave z izhodnimi datotekami in rešitve
 

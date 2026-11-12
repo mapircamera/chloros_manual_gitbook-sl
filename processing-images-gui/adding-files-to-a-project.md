@@ -62,7 +62,9 @@ output/
 * Mapa s posnetki, shranjena **brez** surovih uvozov, se prikaže normalno, vendar jo obdelava preskoči in to navede v dnevniku. (Zastavica CLI `--input-level` lahko v tem primeru prisili vstopno točko — glej [referenco CLI](../reference/cli-reference.md#what-a-captures-folder-looks-like).)
 * Od različice 1.3.0 naprej lahko mapa zajetih posnetkov vsebuje tudi mapo `clamp_masks/` (maske na piksel za ravni sevanja in odbojnosti — glej [formate izhodnih slik](../output-image-formats.md#clamp-masks)). Maske niso slike prizora, zato jih program Chloros pri uvozu preskoči, ne glede na to, kje se nahajajo.
 
-**Sejne mape LATTICE hub** se uvažajo na enak način: kliknite »Dodaj mapo« in izberite mapo seje, ki ste jo kopirali iz huba (vsebuje `raw/` in `previews/`), skupaj z morebitnim dnevnikom navzdolnega sevanja DAQ-M `.csv`. Če kalibracija kamere ali DAQ-ja še ni shranjena v predpomnilniku na vašem računalniku, jo Chloros ob uvozu samodejno pridobi na podlagi serijske številke (za to je enkrat potrebna internetna povezava).***
+**Sejne mape LATTICE hub** se uvažajo na enak način: kliknite »Dodaj mapo« in izberite mapo seje, ki ste jo kopirali iz huba (vsebuje `raw/` in `previews/`), skupaj z morebitnim dnevnikom navzdolnega sevanja DAQ-M `.csv`. Če kalibracija kamere ali DAQ-ja še ni shranjena v predpomnilniku na vašem računalniku, jo Chloros ob uvozu samodejno pridobi na podlagi serijske številke (za to je enkrat potrebna internetna povezava).
+
+***
 
 ## Razumevanje tabele brskalnika datotek
 
@@ -104,7 +106,9 @@ S klikom na gumb za preklop v zgornjem desnem kotu nad tabelo se v območju mre�
 
 * Datoteki `.daq` in `.csv` se prikažeta na seznamu brskalnika datotek, vendar nista sliki, na kateri lahko kliknete — zagotavljata navzdolno sevanje za kalibracijo odbojnosti.
 * Vsaka uvožena datoteka `.daq`/`.csv` je navedena v **Nastavitve projekta → Svetlobni senzor DAQ**, kjer lahko pregledate korekcijo difuzorskega pokrova, ki velja za vsako datoteko. Glejte [Prilagajanje nastavitev projekta](adjusting-project-settings.md).
-* Zapisi, ki jih naredite v zavihku **Svetlobni senzorji**, se samodejno dodajo v odprt projekt – ročni uvoz ni potreben.***
+* Zapisi, ki jih naredite v zavihku **Svetlobni senzorji**, se samodejno dodajo v odprt projekt – ročni uvoz ni potreben.
+
+***
 
 ## Upravljanje datotek v projektu
 
@@ -221,7 +225,9 @@ Program Chloros samodejno zazna in prezre podvojene datoteke:
 
 ### Ponovno odprt projekt poroča o manjkajočih datotekah
 
-Če so bile izvorne datoteke od zadnjega odprtja projekta premaknjene ali izbrisane, vam Chloros sporoči, **katere**datoteke manjkajo, namesto da bi se odprla prazna mreža. Če se je premaknila sama mapa projekta, Chloros preusmeri poti do izvornih datotek na mapo, v kateri se zdaj nahaja mapa `project.json`, in ohrani varnostno kopijo (`project.json.before-relink-<date>-<time>`). Če jih tudi tam ne najde, okno**Izvorne datoteke niso najdene**ponuja možnost**Brskanje** do nove lokacije, nato pa Nov projekt ali Izbriši projekt. V CLI uporabite `chloros-cli project open PATH --relink FOLDER`; v SDK pa `open_project(path, relink=...)`.***
+Če so bile izvorne datoteke od zadnjega odprtja projekta premaknjene ali izbrisane, vam Chloros sporoči, **katere**datoteke manjkajo, namesto da bi se odprla prazna mreža. Če se je premaknila sama mapa projekta, Chloros preusmeri poti do izvornih datotek na mapo, v kateri se zdaj nahaja mapa `project.json`, in ohrani varnostno kopijo (`project.json.before-relink-<date>-<time>`). Če jih tudi tam ne najde, okno**Izvorne datoteke niso najdene**ponuja možnost**Brskanje** do nove lokacije, nato pa Nov projekt ali Izbriši projekt. V CLI uporabite `chloros-cli project open PATH --relink FOLDER`; v SDK pa `open_project(path, relink=...)`.
+
+***
 
 ## Naslednji koraki
 

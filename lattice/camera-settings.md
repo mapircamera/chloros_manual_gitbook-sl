@@ -200,7 +200,9 @@ Vse v tem razdelku je **samo na strani prikaza**— spreminja tisto, kar vidite 
 | **Nasičenost** | 0–200 (100 = nevtralno) | 100 | Samo RGB | Nasičenost HSV v živi predogledu. |
 | **Kontrast** | 0–200 (100 = nevtralno) | 100 | Samo RGB | Linearen kontrast okoli srednje sive barve v predogledu v živo. |
 | **Zrcaljenje po vodoravni / Zrcaljenje po navpični** | Potrditvena polja | Izklopljeno | Vse | Obračanje predogleda vodoravno / navpično. |
-| **Rotacija**| 0° / 90° / 180° / 270° | 0° | Vse | Rotacija predogleda. Usmeritev se uporabi na koncu verige predogleda v ozadju.**Shranjeni posnetki (1.3.0):**izdelki samostojne kamere, kot so Predogled, Sijaj, Odbojnost in Indeks, se obrnejo z Zrcaljenjem/Vrtljajem, medtem ko**Raw in Debayered ohranita izvorno usmeritev kamere**; vsaka datoteka posnetka shrani nastavitev v svojem XMP, zato se pri kasnejši obdelavi surovega posnetka ta uporabi na enak način.**Datoteke v nizu ostanejo v izvorni usmeritvi** (nastavitev je shranjena, vendar se ne uporabi), sestavljeni pogledi niza pa jo ignorirajo. |**Semantika barvnih profilov** (kamere RGB):
+| **Rotacija**| 0° / 90° / 180° / 270° | 0° | Vse | Rotacija predogleda. Usmeritev se uporabi na koncu verige predogleda v ozadju.**Shranjeni posnetki (1.3.0):**izdelki samostojne kamere, kot so Predogled, Sijaj, Odbojnost in Indeks, se obrnejo z Zrcaljenjem/Vrtljajem, medtem ko**Raw in Debayered ohranita izvorno usmeritev kamere**; vsaka datoteka posnetka shrani nastavitev v svojem XMP, zato se pri kasnejši obdelavi surovega posnetka ta uporabi na enak način.**Datoteke v nizu ostanejo v izvorni usmeritvi** (nastavitev je shranjena, vendar se ne uporabi), sestavljeni pogledi niza pa jo ignorirajo. |
+
+**Semantika barvnih profilov** (kamere RGB):
 
 * **Raw** — v celoti preskoči verigo obdelave.
 * **Linear** — temni signal + izravnava polja + bela ravnovesja; brez barvne matrike, brez gama.

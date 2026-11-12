@@ -64,7 +64,9 @@ Celoten vodnik: [Uporaba Chloros a z AI-pomočniki](ai-assistants.md).
 * **Pojasnjena semantika napak.** Izvedba `chloros-cli process`, ki je zahtevala izdelke, a ni zapisala nobenega, zdaj jasno poroča o napaki in se zaključi z izhodno vrednostjo, ki ni nič; uspešne izvedbe poročajo, koliko slikovnih izdelkov so zapisale.
 * **Nova razporeditev izhodnih podatkov.** Izdelki se shranijo v mape `<project>/<camera>/<format>/<Product>_Images/` in ohranijo ime izvorne datoteke — izdelek identificira mapa, ne pa končnica imena datoteke. Glej [Formati izhodnih slik](output-image-formats.md).
 * **Več vhodnih podatkov, načrtov in jezikov.** Podpora za vhodne podatke `.dng`; vseh 38 jezikov vmesnika je v celoti na voljo; omejitve strojne opreme po načrtu z brezplačno (brez prijave) uporabo do 4 kamer in 2 svetlobnih senzorjev.
-* **Zanesljivost.** Funkcija »Stop Processing« se čisto ustavi s poštenim povzetkom izvedbe, projekti z več kamerami izvozijo podatke vsake kamere, nadgradnje namestitvenega programa pa vas ne odjavijo več.***
+* **Zanesljivost.** Funkcija »Stop Processing« se čisto ustavi s poštenim povzetkom izvedbe, projekti z več kamerami izvozijo podatke vsake kamere, nadgradnje namestitvenega programa pa vas ne odjavijo več.
+
+***
 
 Program Chloros je na voljo v 3 uporabniških vmesnikih:
 

@@ -30,7 +30,9 @@ Za dostop do nastavitev projekta:
 * **Možnosti**: `Default (512 px)`, `1024 px`, `2048 px`, `Full resolution`
 * **Privzeto**: Privzeto (512 px)
 * **Opis**: Ločljivost (najdaljša stranica, v pikslah), pri kateri se upodabljajo sličice v mreži slik. Višje vrednosti so pri povečavi videti ostrejše, vendar se nalagajo počasneje in porabijo več pomnilnika. Polna ločljivost ustreza originalni velikosti slike.
-* **Opomba**: Samo za prikaz — to nikoli ne vpliva na obdelavo ali izvožene datoteke.***
+* **Opomba**: Samo za prikaz — to nikoli ne vpliva na obdelavo ali izvožene datoteke.
+
+***
 
 ## Prepoznavanje ciljev
 
@@ -180,7 +182,9 @@ Shranjena vrednost se primerja brez upoštevanja velikosti črk, nekaj različni
   * Ena kamera + en pin: Pin 2 se samodejno nastavi na »Ne uporabljaj«
   * Ena kamera + dva pina: Pin 2 se samodejno nastavi na »Ne uporabljaj«
   * Več kamer: Potrebna je ročna izbira
-* **Opomba**: Ista kamera ne more biti hkrati dodeljena priključku 1 in priključku 2.***
+* **Opomba**: Ista kamera ne more biti hkrati dodeljena priključku 1 in priključku 2.
+
+***
 
 ## Senzor svetlobe DAQ
 
@@ -201,7 +205,9 @@ Vsaka vrstica prikazuje datoteko, model senzorja in popravek pokrovčka difuzorj
 * **Opis**: `Auto` uporablja pokrov, zabeležen v posamezni datoteki (če ni zabeležen, se predpostavlja pokrov Sunshine, vendar so DAQ-U, DAQ-M in DAQ-E dobavljeni brez pokrova, program Chloros pa ne more ugotoviti, kateri je nameščen, zato obdelava izda opozorilo o predpostavljeni omejitvi: izberite omejitev, ki je bila nameščena). Izbor določene omejitve prevlada nad **vsemi** datotekami z navzdolnjim tokom v projektu, razen pri DAQ-E-S, katerega difuzor je del njegove kalibracije; projekt, ki vsebuje samo DAQ-E-S, ne prikaže spustnega menija: surove posnetke se popravi z njim, posnetki, ki že vsebujejo pokrovček, pa se ponovno referencirajo (zabeležena korekcija se razveljavi in uporabi se izbrana).
 * **Pomembno**: Izbrani pokrovček mora ustrezati pokrovčku, ki je bil fizično nameščen med snemanjem. Niti senzor niti programska oprema ne moreta zaznati fizičnega pokrovčka – neujemanje ID-ja pokrovčka povzroči napačno korekcijo spektrov.
 
-Namesto spustnih menijev za posamezne datoteke je namerno na voljo **en** nadzorni element za celoten projekt: ta nastavitev velja za vsak vir, usmerjen navzdol, v projektu.***
+Namesto spustnih menijev za posamezne datoteke je namerno na voljo **en** nadzorni element za celoten projekt: ta nastavitev velja za vsak vir, usmerjen navzdol, v projektu.
+
+***
 
 ## Poravnava niza
 
@@ -272,7 +278,9 @@ Vsak indeks, ki ga dodate, prikaže svojo formulo kot matematični izraz, z barv
   * Operaterji: `+`, `-`, `*`, `/`, `^` in `()` za združevanje v skupine
   * Funkcije: `sqrt()`, `log()`, `ln()`, `abs()`, `sign()`, `log1p()`, `log2()`
 * **Zakaj simboli in ne imena skupin**: formula, zapisana kot `(y-x)/(y+x)`, deluje na kateri koli kameri, saj preslikava s povleci in spusti določi, ali je `y` 850 nm NIR filtra RGN ali 808 nm NIR filtra OCN. Vgrajene prednastavitve so shranjene na enak način — glejte [Formule multispektralnih indeksov](multispectral-index-formulas.md) za natančno obliko simbolov vseh 27.
-* **Kje delujejo**: prilagojene formule se shranijo skupaj z nastavitvami projekta in jih je mogoče uporabljati v [Index/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md) ter pri obdelavi. CLI/SDK-ov seznam imen `--indices` jih **ne** sprejema, saj ta seznam razširja le imena 22 vgrajenih prednastavitev.***
+* **Kje delujejo**: prilagojene formule se shranijo skupaj z nastavitvami projekta in jih je mogoče uporabljati v [Index/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md) ter pri obdelavi. CLI/SDK-ov seznam imen `--indices` jih **ne** sprejema, saj ta seznam razširja le imena 22 vgrajenih prednastavitev.
+
+***
 
 ## Izvoz
 

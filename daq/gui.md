@@ -194,7 +194,9 @@ Za kvantitativne vrednosti sevanja izračunajte povprečje podatkov iz najmanj 1
 
 * Združite več senzorjev na enem grafu (skupne osi), ohranite ločene grafe (avtomatska mrežna razporeditev), premikajte senzorje med grafi, s povlekanjem spreminjajte vrstni red vrstic/ploščic ter posamezne senzorje skrijte s stikalom v obliki očesa.
 * Chloros za vsak projekt ohranja: imena naprav, barve grafikonov, velikost grafikonov, način prikaza ter nastavitve vsakega senzorja (čas integracije, povprečenje okvirjev, stanje AE, izbira pokrova).
-* **Ob ponovnem odprtju projekta se senzorji samodejno ponovno povežejo** po naslovu – COM-vrata za DAQ-U, BLE-naprava za DAQ-M, ime gostitelja mDNS za DAQ-E (prepoznano tudi, če se je IP-naslov enote spremenil) – ter ponovno uporabi shranjeni profil pokrovčka, povprečenje okvirjev, stanje AE in ročni čas integracije za vsak senzor.***
+* **Ob ponovnem odprtju projekta se senzorji samodejno ponovno povežejo** po naslovu – COM-vrata za DAQ-U, BLE-naprava za DAQ-M, ime gostitelja mDNS za DAQ-E (prepoznano tudi, če se je IP-naslov enote spremenil) – ter ponovno uporabi shranjeni profil pokrovčka, povprečenje okvirjev, stanje AE in ročni čas integracije za vsak senzor.
+
+***
 
 ## Seznanjanje kamere (DLS)
 

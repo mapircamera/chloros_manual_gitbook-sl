@@ -70,7 +70,9 @@ Za popoln pregled formul – vseh treh seznamov prednastavitev in tega, katera i
 
 ### Z označeno možnostjo »Index«, vendar brez LUT
 
-Slika je narisana v **sivi lestvici**, raztegnjena med dvema pragovnima vrednostma. To je namerno: indeksna slika je skalarni podatek, siva lestvica pa je njeno verodostojno upodabljanje. Če želite barvo, dodajte LUT.***
+Slika je narisana v **sivi lestvici**, raztegnjena med dvema pragovnima vrednostma. To je namerno: indeksna slika je skalarni podatek, siva lestvica pa je njeno verodostojno upodabljanje. Če želite barvo, dodajte LUT.
+
+***
 
 ## Delovanje z LUT-i (preglednicami)**Iskalna tabela** preslikava indeksne vrednosti v barve: vhod NDVI 0,65, izhod določena zelena barva. Ne spreminja podatkov – spreminja način njihovega branja.
 
@@ -134,7 +136,9 @@ Primer oken NDVI:
 | Samo zdrava vegetacija                 | 0,5  | 0,9 |
 | Poudari stres                        | 0,2  | 0,5 |
 
-Z ožanjem okna povečate kontrast znotraj območja, ki vas zanima, in vse ostalo potisnete izven območja – kjer **način odrezovanja** določi, kaj se z njim zgodi.***
+Z ožanjem okna povečate kontrast znotraj območja, ki vas zanima, in vse ostalo potisnete izven območja – kjer **način odrezovanja** določi, kaj se z njim zgodi.
+
+***
 
 ## Načini odrezovanja
 

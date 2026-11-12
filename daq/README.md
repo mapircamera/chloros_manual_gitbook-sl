@@ -17,7 +17,9 @@ MAPIR merijo okoljsko svetlobo kot radiometrično kalibrirane spektre. V program
 | --- | --- | --- |
 | **DAQ-U** | USB (serijski) | skeniranje serijskega vmesnika |
 | **DAQ-M** | Bluetooth Low Energy | skeniranje BLE po imenu |
-| **DAQ-E** | Ethernet (IPv4, napajanje prek PoE) | mDNS `_daq-e._tcp` (ime gostitelja `daq-e-<id>.local`) |**DAQ-E-S (novost v različici 1.3.0).** DAQ-E s fiksnim difuzorjem in senzorjem naklona. V Chlorosu je naveden kot `DAQ-E-S` in deluje popolnoma enako kot DAQ-E, razen da ne upošteva korekcije pokrova in vsaka odčitana vrednost vsebuje podatke o naklonu, zvrtanju in nagibu naprave. Glej [DAQ-E-S: fiksni difuzor in nagib](caps-and-range.md#daq-e-s-fixed-diffuser-and-tilt).
+| **DAQ-E** | Ethernet (IPv4, napajanje prek PoE) | mDNS `_daq-e._tcp` (ime gostitelja `daq-e-<id>.local`) |
+
+**DAQ-E-S (novost v različici 1.3.0).** DAQ-E s fiksnim difuzorjem in senzorjem naklona. V Chlorosu je naveden kot `DAQ-E-S` in deluje popolnoma enako kot DAQ-E, razen da ne upošteva korekcije pokrova in vsaka odčitana vrednost vsebuje podatke o naklonu, zvrtanju in nagibu naprave. Glej [DAQ-E-S: fiksni difuzor in nagib](caps-and-range.md#daq-e-s-fixed-diffuser-and-tilt).
 
 Vsi trije uporabljajo isti komunikacijski protokol in zagotavljajo identične podatke:
 

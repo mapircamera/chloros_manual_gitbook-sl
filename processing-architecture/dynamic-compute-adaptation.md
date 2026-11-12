@@ -136,7 +136,9 @@ Niti 1, 2 in 4 porabljajo malo zmogljivosti grafičnega procesorja; Nit 3 pa je 
 * Niti, ki je **edina** aktivna, se dodeli največja dodelitev iz njenega profila.
 * Ko je aktivnih več kot ena *zahtevna* naloga GPU-ja, se osnovna dodelitev vsake zahtevne naloge razdeli mednje (nikoli pod nastavljenim minimumom).
 
-Vrednost, ki se dejansko uporabi med izvajanjem, je **nižja** od dodelitve profila platforme in trenutnega priporočila iz monitorja pomnilnika GPU, zato ima obremenjena kartica vedno prednost pred optimističnim profilom.***
+Vrednost, ki se dejansko uporabi med izvajanjem, je **nižja** od dodelitve profila platforme in trenutnega priporočila iz monitorja pomnilnika GPU, zato ima obremenjena kartica vedno prednost pred optimističnim profilom.
+
+***
 
 ## Obdelava, ki upošteva teksturo
 

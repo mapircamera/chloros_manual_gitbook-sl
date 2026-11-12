@@ -154,7 +154,9 @@ Ta razdelek se prikaže **samo**, če vsaj ena slika v projektu vsebuje transfor
 
 * **Uporabi poravnavo matrike** (privzeto: vklopljeno): vsak obdelan izdelek (debayering / predogled / sevanje / odbojnost / indeks) poravna v skupno referenčno geometrijo matrike. Izklopljeno = izvoz v izvorni geometriji senzorja.
 * **Obreži na skupno prekrivanje** (privzeto: vklopljeno): izvožene poravnane slike obreže na območje, ki je skupno vsem modulom, tako da ima vsak pas enak odtis. Izklop ohrani celotno platno senzorja (črna zapolnitev zunaj vira).
-* **Ponovno vzorčenje**:**Bilinearno (gladko, privzeto)**,**Najbližje (ohranjanje natančnih vrednosti)**— brez mešanja med pikslami, za strogo radiometrično analizo — ali**Kubično (najostrejše)**.***
+* **Ponovno vzorčenje**:**Bilinearno (gladko, privzeto)**,**Najbližje (ohranjanje natančnih vrednosti)**— brez mešanja med pikslami, za strogo radiometrično analizo — ali**Kubično (najostrejše)**.
+
+***
 
 ## Shranjevanje in nalaganje nastavitev
 

@@ -57,7 +57,9 @@ Ko efektivno povečanje preseže **60×**, Chloros okoli posameznega prikazanega
 | **←**                           | Celozaslonski način | Prejšnja slika                      |
 | **Ctrl + R**                    | Celozaslonski način | Ponastavi indeks/LUT peskovnik         |
 | **Ctrl + `+`**/**Ctrl + `=`** | Mreža        | Večje sličice (4 px na pritisk)  |
-| **Ctrl + `−`**                  | Mreža        | Manjše sličice (4 px na pritisk) |***
+| **Ctrl + `−`**                  | Mreža        | Manjše sličice (4 px na pritisk) |
+
+***
 
 ## Vrednosti kazalca
 
@@ -100,7 +102,9 @@ Pregledovalnik, peskovnik indeksa/LUT in izvoz indeksa vsi določajo merilo prek
 Dve posledici, ki jih je vredno poznati:
 
 * **32-bitni odstotek**TIFF shranjuje DN/65535 kot float,**8-bitni** PNG/JPG izvoz shranjuje DN × 255/65535 – pregledovalnik oba pretvori nazaj, preden izpiše odstotek.
-* Enega primera ni mogoče obnoviti: **8-bitni izvoz TIFF zajema iz 8-bitnega vira** je omejen na 0–255 namesto da bi bil ponovno skaliran, in namerno ne vsebuje oznake merila. Za te datoteke plošča natisne le DN, brez stolpca z odstotki. To je iskren odgovor, ne pa napaka.***
+* Enega primera ni mogoče obnoviti: **8-bitni izvoz TIFF zajema iz 8-bitnega vira** je omejen na 0–255 namesto da bi bil ponovno skaliran, in namerno ne vsebuje oznake merila. Za te datoteke plošča natisne le DN, brez stolpca z odstotki. To je iskren odgovor, ne pa napaka.
+
+***
 
 ## Histogram plasti
 
@@ -126,7 +130,9 @@ Nad histogramom so trije gumbi:
 | **INDEKS**| Vklopljeno      | Prikaže se le, ko je indeks aktiven. Preklopi histogram iz izvornih pasov na**porazdelitev indeksnih vrednosti**, pri čemer sta oba praga odrezanja prikazana kot oranžni prekinjeni črti, indeksna vrednost kazalca pa kot bela črta                                                          |
 | **RGB**| Izklopljeno     | Preklopi s skupne krivulje na krivulje po posameznih kanalih. Na mono senzorju ta gumb prikazuje**MONO** in je onemogočen — prikazati je mogoče le en kanal                                                                                                                                  |
 
-Histogram se izračuna na podlagi **blokov, ki jih vidite**, ne pa na podlagi izvornih pikslov za njimi: spremenite velikost bloka GSD in porazdelitev se ponovno izračuna, tako da so histogram, označevalec kazalca in prikazana slika vedno usklajeni.***
+Histogram se izračuna na podlagi **blokov, ki jih vidite**, ne pa na podlagi izvornih pikslov za njimi: spremenite velikost bloka GSD in porazdelitev se ponovno izračuna, tako da so histogram, označevalec kazalca in prikazana slika vedno usklajeni.
+
+***
 
 ## Velikost bloka GSD
 
@@ -185,7 +191,9 @@ Uporabite multispektralne indekse in barvne preglednice (LUT) iz stranskega meni
 
 3. Izberite filter vaše kamere in formulo indeksa, nato pa kroge kanalov povlecite na mesta v formuli
 4. Dodajte LUT in izberite barvni prehod, pragove ter način izreza
-5. Preberite vrednosti na mestu kazalca in shranite rezultat z **Izvoz/Shrani sliko(-e)**Za celoten vodnik glejte [Index/LUT Sandbox](index-lut-sandbox.md).***
+5. Preberite vrednosti na mestu kazalca in shranite rezultat z **Izvoz/Shrani sliko(-e)**Za celoten vodnik glejte [Index/LUT Sandbox](index-lut-sandbox.md).
+
+***
 
 ## Odpravljanje težav
 

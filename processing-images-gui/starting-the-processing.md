@@ -181,7 +181,9 @@ Ko se proces zažene, celoten potek obdelave poteka avtomatsko:
 * Ustavljeno izvajanje natančno poroča, kaj je bilo zaključeno (glejte vrstice `[RUN-SUMMARY]` v dnevniku)
 * Novo izvajanje začne potek obdelave od začetka
 
-**Nasvet za načrtovanje:** Pri zelo velikih projektih razmislite o obdelavi v serijah ali uporabi CLI za boljši nadzor.***
+**Nasvet za načrtovanje:** Pri zelo velikih projektih razmislite o obdelavi v serijah ali uporabi CLI za boljši nadzor.
+
+***
 
 ## Spremljanje obdelave
 

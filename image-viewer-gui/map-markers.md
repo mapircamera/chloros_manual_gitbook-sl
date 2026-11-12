@@ -78,7 +78,9 @@ Vsaka slika z GPS-podatki dobi oznako na svojih koordinatah.
 | Ponudnik        | Opombe                                                                                                                                                             |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Google Maps** | Široko svetovno pokritje; podpira vse štiri vrste ploščic                                                                                                            |
-| **Esri ArcGIS**| Pogosto zračne slike z višjo ločljivostjo v določenih regijah. Vrsta ploščic**Terrain** ni na voljo za Esri, zato je gumb za njo onemogočen, dokler je izbran Esri |***
+| **Esri ArcGIS**| Pogosto zračne slike z višjo ločljivostjo v določenih regijah. Vrsta ploščic**Terrain** ni na voljo za Esri, zato je gumb za njo onemogočen, dokler je izbran Esri |
+
+***
 
 ## Vrste kartografskih ploščic
 
@@ -93,7 +95,9 @@ Izberite vrsto kartografske plasti s pomočjo gumbov (od leve proti desni):
 | **Satelit**        | Podrobne satelitske slike, brez oznak — možnost z največjo porabo pasovne širine |
 | **Hibrid** (privzeto) | Satelitske slike s cestami in oznakami, narisanimi nanje                |
 
-Zavihek »Zemljevid« se odpre v načinu **Hibridni**. Vaša izbira se prenese tudi na druge ponudnike, če ti to podpirajo.***
+Zavihek »Zemljevid« se odpre v načinu **Hibridni**. Vaša izbira se prenese tudi na druge ponudnike, če ti to podpirajo.
+
+***
 
 ## Navigacija po zemljevidu
 
@@ -141,7 +145,9 @@ Zavihek »Zemljevid« se odpre v načinu **Hibridni**. Vaša izbira se prenese t
 
 ### Zemljevid je prazen ali se ploščice ne nalagajo več
 
-Ponudniki ploščic so spletne storitve. Če se ploščice ne nalagajo več, preverite omrežno povezavo naprave, nato pa poskusite zamenjati ponudnika. Če ste močno povečali prikaz, pritisnite gumb za ponastavitev **×**, da se vrnete na normalno stopnjo povečave in omogočite zemljevidu, da ponovno zahteva ploščice.***
+Ponudniki ploščic so spletne storitve. Če se ploščice ne nalagajo več, preverite omrežno povezavo naprave, nato pa poskusite zamenjati ponudnika. Če ste močno povečali prikaz, pritisnite gumb za ponastavitev **×**, da se vrnete na normalno stopnjo povečave in omogočite zemljevidu, da ponovno zahteva ploščice.
+
+***
 
 ## Povezane strani
 
