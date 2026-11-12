@@ -579,7 +579,7 @@ izvajanja navede vsak preskočen posnetek z razlogom:
 Mapa z zapisi, iz katere se **ni** izvozil noben, ne uspe: glej
 [Izvedba, ki ne zapiše nobene slike, ne uspe](#a-run-that-writes-no-images-fails).
 
-Posnetek, katerega ime se konča z `_calibrated` ali `_raw` (`field_raw.daq`), **ni****: to so imena, ki jih `process` dodeli svojim lastnim izdelkom, in izdelek, ki se prebere nazaj
+Posnetek, katerega ime se konča z `_calibrated` ali `_raw` (`field_raw.daq`), **ni**: to so imena, ki jih `process` dodeli svojim lastnim izdelkom, in izdelek, ki se prebere nazaj
 kot posnetek, bi se štel dvakrat. CLI to tudi navaja in imenuje datoteko —
 `Not imported as a light-sensor recording: field_raw.daq … Rename the file to import it.`
 — namesto da bi poročal o prazni mapi. Takšen posnetek pred obdelavo preimenujte.
