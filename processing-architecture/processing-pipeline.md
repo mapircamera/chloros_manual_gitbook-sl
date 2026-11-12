@@ -45,7 +45,11 @@ Računski niz, vezan na CPU. Pri izvajanju programa Survey3 ali mešanem izvajan
 
 ### Nit 3: Obdelava (GPU)
 
-**Namen**: Uporabi popravke in izračuna indekse vegetacije.**To je niti, ki zahteva največ računskih zmogljivosti.*** **Debayering**: pretvori surove podatke Bayer v večkanalne slike
+**Namen**: Uporabi popravke in izračuna indekse vegetacije.
+
+**To je niti, ki zahteva največ računskih zmogljivosti.**
+
+* **Debayering**: pretvori surove podatke Bayer v večkanalne slike
   * Standardno (hitro, srednja kakovost) — privzeto, `--debayer standard`
   * Texture Aware (počasno, najvišja kakovost) — samo za Chloros+, `--debayer texture-aware`, uporablja model za odstranjevanje šuma z AI/ML
   * Posnetki LATTICE mono (M3M) so enopasovni: pri njih se preskočita koraka demosaika in uravnoteženja beline (z enovrstičnim sporočilom v dnevniku), medtem ko se ti koraki še vedno izvedejo za vse slike M3C/Bayer v istem izvajanju

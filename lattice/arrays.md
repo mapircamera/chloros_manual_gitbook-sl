@@ -197,7 +197,7 @@ Prikaz fps ploščice matrike prav tako poroča o stanju prenosa:**»Uporabljam 
 Koristna dejstva o kombiniranem načinu:
 
 * Sestavljena slika je poravnana s sličico **glavne**kamere. Usmerjanje AE-ROI in točkovno merjenje osvetlitve na sestavljeni sliki sta natančna za glavno kamero in približna za podrejene kamere; uporabite**Split View** (nastavitve niza → »Pokaži kamere v nizu«) za ploščice, natančne do posameznega pikslja za vsako kamero, brez odpiranja dodatnih povezav s kamerami.
-* ****Display Layers**(nastavitve matrike; privzeto izklopljeno) vam omogoča izbiro plasti v ospredju in ozadju — katero koli kamero v sistemu ali**Index**. Če je v ospredju izbran**Index**, se v pikslah zunaj LUT Min/Max prikaže plast v ozadju.
+* **Display Layers** (nastavitve matrike; privzeto izklopljeno) vam omogoča izbiro plasti v ospredju in ozadju — katero koli kamero v sistemu ali**Index**. Če je v ospredju izbran**Index**, se v pikslah zunaj LUT Min/Max prikaže plast v ozadju.
 * **Ločljivost upodabljanja** (privzeto 720p) nastavi višino živega prenosa *in* velikost izvoza shranjene kompozicije. Slike posameznih kamer se vedno izvozijo v polni ločljivosti.
 * Poravnava se izračuna za vsako sejo in se nikoli ne shrani. Chloros **vsako matrico samodejno poravna po povezavi, v obeh načinih prikazovanja**, ko se samodejna osvetlitev članov ustalijo (poskuša do 5 minut). V razdelku**Poravnava**v oknu nastavitev niza so prikazani RMS-ostanki in gumb**Ponovna kalibracija poravnave** — tudi za posamezne nize, ki nimajo sestavljene ploščice.
 

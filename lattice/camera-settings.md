@@ -208,7 +208,7 @@ Vse v tem razdelku je **samo na strani prikaza**— spreminja tisto, kar vidite 
 * **Linear** — temni signal + izravnava polja + bela ravnovesja; brez barvne matrike, brez gama.
 * **Naravno** *(privzeto)* — linearno plus izmerjena matrika barvne korekcije in tonovna krivulja, prilagojena sceni.
 * **Izboljšano**— Naravno plus živost in lokalni kontrast CLAHE. Dodatni strošek velja**samo za predogled v živo** — shranjene posnetke vedno obdela v celoti, ne glede na profil.
-* ****Prilagojena temperatura** — Naravno z belo ravnovesjem, fiksiranim na izbrano vrednost v kelvinih.
+* **Prilagojena temperatura** — Naravno z belo ravnovesjem, fiksiranim na izbrano vrednost v kelvinih.
 
 {% hint style="warning" %}
 Za nastavitve »Naravno«, »Izboljšano« in »Prilagojena temperatura« se v oknu prikaže opomba o tonih: posnetki so posvetljeni glede na posamezno sceno, zato shranjene *zaslonske* slike niso primerljive med posameznimi posnetki. **Za meritve izvozite sevanje ali odbojnost.**
@@ -379,7 +379,7 @@ Plošča, ki je samo za branje in se osvežuje vsakih 5 s:
 
 * **Oznaka stopnje**: »Hkratno zajemanje« (zelena) · »Hkratno zajemanje (FTD – postopno oddajanje)« (zelena) · »Postopno zajemanje (100 ms zamik)« (rumena) · »Prevelika konfiguracija« (rdeča).
 * **Stanje okvirja**: »x,xx % nepopolno« — zelena pod 1 %, rumena pod 5 %, rdeča pri 5 % ali več.
-* ****Povezovalna linija**: »NIC {mbps} Mbps – trajna {MB/s} MB/s«.
+* **Povezovalna linija**: »NIC {mbps} Mbps – trajna {MB/s} MB/s«.
 
 To je trenutni proračun pasovne širine niza. Za osnovne vrednosti fps in omrežni model — ter kaj spremeniti, ko stopnja preide v rumeno ali rdečo — glejte [Nizi z več kamerami](arrays.md) in [Referenco CLI](../reference/cli-reference.md).
 
@@ -405,7 +405,7 @@ Kratek pregled, kaj se nahaja kje, ko je kamera članica niza:
 Druga medsektorska obnašanja:
 
 * **Kombinirani ali ločeni prikaz** se izbere ob povezavi matrice: kombinirani = ena poravnana sestavljena ploščica (člani prenašajo sliko le prek razdeljenega pogleda); ločeni = vsak član prikaže svojo sinhronizirano ploščico. Kamera nikoli ne prikazuje hkrati samostojnega posnetka in ploščice matrice.
-* ****Samodejna ponovna povezava**: ob odprtju shranjenega projekta se obnovijo kamere in matrice, vsaka shranjena nastavitev pa se ponovno uporabi v ozadju, preden se tokovi nadaljujejo.
+* **Samodejna ponovna povezava**: ob odprtju shranjenega projekta se obnovijo kamere in matrice, vsaka shranjena nastavitev pa se ponovno uporabi v ozadju, preden se tokovi nadaljujejo.
 * **Omejevanje zajemanja**: skrite ali zaustavljene kamere so izključene iz funkcije »Zajemi vse«; matrica je popolnoma blokirana le, če so VSE enote skrite/zaustavljene. Glej [Nastavitve in načini zajemanja](capture.md).
 
 ## Kako se nastavitve ohranijo

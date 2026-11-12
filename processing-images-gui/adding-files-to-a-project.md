@@ -57,7 +57,11 @@ output/
 └── *.daq          the downwelling reading matched to the capture
 ```
 
-**Nastavite »Dodaj mapo« na korensko mapo posnetkov** (`output/` zgoraj). Če izbrana mapa sama ne vsebuje slik, ampak ima podmap, se Chloros samodejno spusti v njih — podmap na tej ravni in korenska mapa `.daq` se zajamejo v enem zamahu.**Kako poteka uvoz posnetkov:*** Vsak posnetek se uvozi kot **posamezna slika**, združena po posnetku (ne en vnos na raven). Druge ravni istega posnetka se prikažejo kot načini pregleda te ene slike.
+**Nastavite »Dodaj mapo« na korensko mapo posnetkov** (`output/` zgoraj). Če izbrana mapa sama ne vsebuje slik, ampak ima podmap, se Chloros samodejno spusti v njih — podmap na tej ravni in korenska mapa `.daq` se zajamejo v enem zamahu.
+
+**Kako poteka uvoz posnetkov:**
+
+* Vsak posnetek se uvozi kot **posamezna slika**, združena po posnetku (ne en vnos na raven). Druge ravni istega posnetka se prikažejo kot načini pregleda te ene slike.
 * **Obdelava se vedno začne z neobdelanim okvirjem.** Druge ravni so vidne, vendar se skozi obdelovalno verigo vedno posreduje le `raw` – ponovna obdelava že obdelanega izdelka bi pomenila dvojno uporabo popravkov, zato to Chloros zavrne. Ponovno uvožen izvoz nikoli ne more zasedati prostora za surovo sliko posnetka.
 * Mapa s posnetki, shranjena **brez** surovih uvozov, se prikaže normalno, vendar jo obdelava preskoči in to navede v dnevniku. (Zastavica CLI `--input-level` lahko v tem primeru prisili vstopno točko — glej [referenco CLI](../reference/cli-reference.md#what-a-captures-folder-looks-like).)
 * Od različice 1.3.0 naprej lahko mapa zajetih posnetkov vsebuje tudi mapo `clamp_masks/` (maske na piksel za ravni sevanja in odbojnosti — glej [formate izhodnih slik](../output-image-formats.md#clamp-masks)). Maske niso slike prizora, zato jih program Chloros pri uvozu preskoči, ne glede na to, kje se nahajajo.

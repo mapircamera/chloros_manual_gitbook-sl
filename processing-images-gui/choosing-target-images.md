@@ -32,7 +32,9 @@ Ko v stolpcu »Cilj« označite določene slike:
 
 Preglejte uvožene slike v brskalniku datotek in ugotovite, katere slike vsebujejo kalibracijske cilje.
 
-**Pogosti scenariji:*** **Cilj pred zajemom**: zajet pred začetkom seje
+**Pogosti scenariji:**
+
+* **Cilj pred zajemom**: zajet pred začetkom seje
 * **Cilj po zajemu**: posnet po zaključku seje
 * **Cilji na terenu**: cilji, nameščeni znotraj območja zajema
 * **Več ciljev**: 2–3 slike ciljev na sejo (priporočeno)
@@ -142,9 +144,17 @@ Ta stolpec uporabite za preverjanje, ali ste v svojem projektu označili cilje z
 
 ### Prilagajanje občutljivosti zaznavanja
 
-Če program »Chloros« ne zazna vaših ciljev pravilno, prilagodite te nastavitve v [Nastavitvah projekta](adjusting-project-settings.md):**Najmanjša površina kalibracijskega vzorca (px):*** **Privzeto**: 25 pikslov
+Če program »Chloros« ne zazna vaših ciljev pravilno, prilagodite te nastavitve v [Nastavitvah projekta](adjusting-project-settings.md):
+
+**Najmanjša površina kalibracijskega vzorca (px):**
+
+* **Privzeto**: 25 pikslov
 * **Povečajte**, če prihaja do napačnih zaznav pri majhnih artefaktih
-* **Zmanjšajte**, če se cilji ne zaznavajo**Najmanjše združevanje ciljev (0–100):*** **Privzeto**: 60
+* **Zmanjšajte**, če se cilji ne zaznavajo
+
+**Najmanjše združevanje ciljev (0–100):**
+
+* **Privzeto**: 60
 * **Povečajte**, če se cilji razdelijo na več zaznav
 * **Zmanjšajte**, če cilji z barvnimi odstopanji niso v celoti zaznani
 

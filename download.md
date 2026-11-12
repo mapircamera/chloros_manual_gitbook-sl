@@ -259,10 +259,15 @@ u 1.3.0** na strani [Začetek](./).**Različica 1.2.0**— glejte**Novosti v Chl
 
 **Datum izdaje: 10. februar 2026**
 
-**Nove funkcije*** **Metoda debayeringa, ki upošteva teksturo \[Samo Chloros+] –** Texture Aware uporablja visokokakovosten debayering, ki upošteva robove, v kombinaciji z modelom za odstranjevanje šuma na podlagi umetne inteligence/strojnega učenja (AI/ML), ki odstrani skoraj ves šum pri debayeringu.
-* **Podpora za kalibracijske tarče T4P*** **Hitrejša obdelava s pomočjo grafičnega procesorja (GPU) v Chloros+, boljše upravljanje pomnilnika**
+**Nove funkcije**
 
-**Popravki napak*** Povsem nov uporabniški vmesnik (GUI), ki naj bi zdaj deloval na vseh računalnikih s sistemom Windows.
+* **Metoda debayeringa, ki upošteva teksturo \[Samo Chloros+] –** Texture Aware uporablja visokokakovosten debayering, ki upošteva robove, v kombinaciji z modelom za odstranjevanje šuma na podlagi umetne inteligence/strojnega učenja (AI/ML), ki odstrani skoraj ves šum pri debayeringu.
+* **Podpora za kalibracijske tarče T4P**
+* **Hitrejša obdelava s pomočjo grafičnega procesorja (GPU) v Chloros+, boljše upravljanje pomnilnika**
+
+**Popravki napak**
+
+* Povsem nov uporabniški vmesnik (GUI), ki naj bi zdaj deloval na vseh računalnikih s sistemom Windows.
 
 </details>
 
@@ -272,14 +277,18 @@ u 1.3.0** na strani [Začetek](./).**Različica 1.2.0**— glejte**Novosti v Chl
 
 **Datum izdaje: 5. januar 2026**
 
-**Nove funkcije*** **Preklop med sliko in metapodatki**: V brskalniku datotek je bil dodan preklopnik za prikaz metapodatkov izbrane slike v tabeli namesto v mreži slik
+**Nove funkcije**
+
+* **Preklop med sliko in metapodatki**: V brskalniku datotek je bil dodan preklopnik za prikaz metapodatkov izbrane slike v tabeli namesto v mreži slik
 * **Drsnik za povečavo mreže slik**: Nov drsnik v uporabniškem vmesniku za prilagajanje velikosti sličic (podpira tudi kombinacijo tipk CTRL + kolesce miške)
 * **Gumbi za izvoz mreže slik**: Gumbi v zgornji vrstici za preklop sličic iz formata JPG na obdelane izvoze (Targets, Reflectance, Index, LUT)
 * **Zavihek »Zemljevid«**: Nov interaktiven 2D-zemljevid, ki prikazuje oznake GPS-lokacij na slikah
   * Podpira Google Maps in kartografske ploščice ESRI (samodejno izbere najboljšo storitev ploščic glede na razpoložljivost stopnje povečave)
   * Predogled sličic ob preletu z miško nad označbami na zemljevidu
 
-**Popravki napak*** Izboljšana podpora za namestitev programa Chloros na računalnikih, ki niso v angleškem jeziku
+**Popravki napak**
+
+* Izboljšana podpora za namestitev programa Chloros na računalnikih, ki niso v angleškem jeziku
 
 </details>
 
@@ -289,13 +298,21 @@ u 1.3.0** na strani [Začetek](./).**Različica 1.2.0**— glejte**Novosti v Chl
 
 **Datum izdaje: 20. december 2025**
 
-**Nove funkcije*** Prvi zagon
+**Nove funkcije**
 
-**Izboljšave*** Prvi zagon
+* Prvi zagon
 
-**Popravki napak*** Prvi zagon
+**Izboljšave**
 
-**Znane težave*** Prvi zagon
+* Prvi zagon
+
+**Popravki napak**
+
+* Prvi zagon
+
+**Znane težave**
+
+* Prvi zagon
 
 </details>
 

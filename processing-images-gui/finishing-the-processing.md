@@ -82,7 +82,9 @@ Ne računajte po formuli — število izhodnih datotek je odvisno od tega, kater
 
 ### Predogled v zunanjih pregledovalnikih slik
 
-**Priporočeni pregledovalniki:*** **QGIS** – brezplačna programska oprema GIS (najboljša za georeferencirano multispektralno analizo)
+**Priporočeni pregledovalniki:**
+
+* **QGIS** – brezplačna programska oprema GIS (najboljša za georeferencirano multispektralno analizo)
 * **IrfanView** – hiter, lahek pregledovalnik slik (podpira format TIFF)
 * **Adobe Photoshop** – profesionalno urejanje (podpora formatu TIFF)
 * **GIMP** – brezplačna alternativa programu Photoshop
@@ -225,7 +227,9 @@ Za arhiviranje obdelave ali pošiljanje podpori MAPIR:
 
 ### Težava: Vrednosti NDVI se zdijo napačne
 
-**Pričakovani razponi vrednosti NDVI:*** **Voda, kamnine, tla**: od -0,1 do 0,2
+**Pričakovani razponi vrednosti NDVI:**
+
+* **Voda, kamnine, tla**: od -0,1 do 0,2
 * **Redka/nezdrava vegetacija**: od 0,2 do 0,4
 * **Zmerna vegetacija**: od 0,4 do 0,6
 * **Zdrava, gosta vegetacija**: od 0,6 do 0,9**Če so vrednosti zunaj teh razponov:**
@@ -280,12 +284,18 @@ Za arhiviranje obdelave ali pošiljanje podpori MAPIR:
 
 ### Priporočena strategija varnostnega kopiranja
 
-**Kaj shraniti:*** ✅ **Izvirne slike v formatu RAW/JPG ali surove posnetke LATTICE** – arhivirajte na ločenem disku/v oblaku; surovi podatki so vir obdelave, iz njih pa je mogoče ponovno ustvariti vse ostalo
+**Kaj shraniti:**
+
+* ✅ **Izvirne slike v formatu RAW/JPG ali surove posnetke LATTICE** – arhivirajte na ločenem disku/v oblaku; surovi podatki so vir obdelave, iz njih pa je mogoče ponovno ustvariti vse ostalo
 * ✅ **Datoteke svetlobnih senzorjev `.daq` / `.csv`** – potrebne za poznejšo ponovno izračunavanje odbojnosti
 * ✅ **Obdelani izhodni podatki** – shranite kalibrirane slike in indekse
 * ✅ **Projektna mapa** (`project.json` in spremljajoče datoteke) – Vsebuje vse nastavitve za ponovno obdelavo, če bo to potrebno
 * ✅ **Dnevnik odpravljanja napak** – Dokumentira podrobnosti obdelave
-* ✅ **Slike kalibracijskih ciljev** – Za preverjanje in ponovno obdelavo**Priporočila za shranjevanje:*** **Takojšnja varnostna kopija**: zunanji trdi disk
+* ✅ **Slike kalibracijskih ciljev** – Za preverjanje in ponovno obdelavo
+
+**Priporočila za shranjevanje:**
+
+* **Takojšnja varnostna kopija**: zunanji trdi disk
 * **Dolgoročno arhiviranje**: shranjevanje v oblaku (Google Drive, Dropbox itd.)
 * **Ključni podatki**: shranite 2–3 kopije na različnih lokacijah***
 

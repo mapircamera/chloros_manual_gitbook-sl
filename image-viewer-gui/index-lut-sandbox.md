@@ -26,7 +26,8 @@ Index/LUT Sandbox je interaktiven delovni prostor v stranskem pasu programa Chlo
 Stranski trak prikazuje, od zgoraj navzdol:
 
 * ime slike in model kamere
-* gumb **Izvoz/Shrani sliko(-e)**— prikaže se, ko je označena možnost**Indeks**ali**LUT*** potrditvena polja **Indeks**in**LUT**
+* gumb **Izvoz/Shrani sliko(-e)**— prikaže se, ko je označena možnost**Indeks**ali**LUT**
+* potrditvena polja **Indeks**in**LUT**
 * ploščo za konfiguracijo indeksa
 * ploščo **Vrednosti kazalca** z odčitkom, histogramom in nadzorom GSD
 

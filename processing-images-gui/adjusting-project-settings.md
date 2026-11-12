@@ -44,7 +44,9 @@ Plošča »Nastavitve projekta« je razdeljena na spodaj navedene razdelke. Dva 
 
 Upravlja, kako program Chloros prepoznava kalibracijske cilje na vaših slikah.
 
-**Ključne nastavitve:*** **Najmanjša površina kalibracijskega vzorca (px)**: Prag velikosti za prepoznavanje ciljev (privzeto:**25**, razpon 0–10000)
+**Ključne nastavitve:**
+
+* **Najmanjša površina kalibracijskega vzorca (px)**: Prag velikosti za prepoznavanje ciljev (privzeto:**25**, razpon 0–10000)
 * **Najmanjša stopnja združevanja ciljev (0–100)**: Prag podobnosti za združevanje ciljnih območij (privzeto:**60**)**Kdaj prilagoditi:**
 
 * Povečajte površino vzorca, če se pojavljajo napačna zaznavanja
@@ -59,19 +61,26 @@ Te nastavitve so sive, če je **Kalibracija odbojnosti / bela bilanca** izkloplj
 
 Glavne možnosti za obdelavo slik in kalibracijo.
 
-**Ključne nastavitve:*** **Korekcija vinjetiranja**: Kompenzira potemnitev objektiva na robovih ✅ Priporočeno
+**Ključne nastavitve:**
+
+* **Korekcija vinjetiranja**: Kompenzira potemnitev objektiva na robovih ✅ Priporočeno
 * **Kalibracija odbojnosti / bela bilanca**: Kalibrira slike z uporabo zaznanih ciljnih točk (program Survey3) in/ali podatkov svetlobnega senzorja DAQ (LATTICE) ✅ Priporočeno
 * **Metoda debayiranja**: Algoritem za pretvorbo RAW v 3-kanalni multispektralni format
 * **Najkrajši interval ponovne kalibracije**: Najkrajši čas v sekundah med uporabo kalibracijskih ciljnih točk (privzeto:**0** = uporabi vse, razpon 0–3600)**Nekalibrirani nadomestni izdelki:**Ko okvirja ni mogoče kalibrirati glede na odbojnost (cilj ni na voljo ali je kalibracija onemogočena), se izvozi kot eden od dveh nadomestnih izdelkov —**na vsakem izvajanju obstaja natanko eden izmed njiju**, izbran s stikalom za korekcijo vinjete:
 
-* **Izvoz odziva senzorja**: zapiše `Sensor_Response_Images` — uporablja se, ko je korekcija vinjete**izklopljena*** **Izvoz s popravkom vinjete**: zapiše `Vignette_Corrected_Images` — uporablja se, ko je popravek vinjete**vklopljen**Polje, ki ni v uporabi, je sivo. Odkljukanje aktivnega polja prepreči, da bi se ta datoteka sploh zapisala.**Izdelki za izvoz LATTICE** (prikazani za vsak projekt; veljajo za zajeme LATTICE):
+* **Izvoz odziva senzorja**: zapiše `Sensor_Response_Images` — uporablja se, ko je korekcija vinjete**izklopljena**
+* **Izvoz s popravkom vinjete**: zapiše `Vignette_Corrected_Images` — uporablja se, ko je popravek vinjete**vklopljen**Polje, ki ni v uporabi, je sivo. Odkljukanje aktivnega polja prepreči, da bi se ta datoteka sploh zapisala.**Izdelki za izvoz LATTICE** (prikazani za vsak projekt; veljajo za zajeme LATTICE):
 
 * **Izvoz brez demosaicinga**: linearna slika brez debayeringa (`Debayered_Images`): odstranjen je temni odmik kalibracijskega paketa, nato sledi demosaicing, brez flat field ali unmix — ista datoteka, kot jo zajem shrani na ravni brez debayeringa — v izvorni orientaciji senzorja. Velja za RGB in multispektralne module.
 * **Izvoz predogleda**: predogled na zaslonu (`Preview_Images`). RGB = bela bilanca (DAQ-svetlobni vir, če je na voljo, sicer siva skala) + gama; multispektralno = raztezek lažnih barv.
 * **Izvoz sevanja**: spektralno sevanje v formatu float32 (`Radiance_Images`, W/m²/sr/nm). Samo za multispektralne module – ne velja za RGB-izvorne datoteke.
 * **Izvoz odbojnosti**: odbojnost uint16 (`Reflectance_Calibrated_Images`, DN 32768 = ρ 1,0), kadar okvir pokriva odčitek navzdol usmerjenega sevanja `.daq` ali cilj znotraj okvira. Samo za multispektralne module.
 
-Vse štiri so **privzeto vklopljene**– en uvožen surovi okvir LATTICE se v enem samem ciklu obdelave razširi na vsak omogočen in ustrezen izdelek. Polje**Izvoz odbojnosti** je sivo, če je kalibracija odbojnosti izklopljena. Nastavitve, ki jih nadrejeno stikalo onemogoča, so vedno sive, ob njih pa se prikaže namig z imenom stikala, ki ga je treba spremeniti.**Napredne nastavitve:*** **Časovni zamik svetlobnega senzorja**: Število ur od UTC za usklajevanje časa svetlobnega senzorja (privzeto: 0, razpon od −12 do +12)
+Vse štiri so **privzeto vklopljene**– en uvožen surovi okvir LATTICE se v enem samem ciklu obdelave razširi na vsak omogočen in ustrezen izdelek. Polje**Izvoz odbojnosti** je sivo, če je kalibracija odbojnosti izklopljena. Nastavitve, ki jih nadrejeno stikalo onemogoča, so vedno sive, ob njih pa se prikaže namig z imenom stikala, ki ga je treba spremeniti.
+
+**Napredne nastavitve:**
+
+* **Časovni zamik svetlobnega senzorja**: Število ur od UTC za usklajevanje časa svetlobnega senzorja (privzeto: 0, razpon od −12 do +12)
 * **Uporabi PPK-popravke**: Uporablja podatke GPS/izpostavljenostnih pinov iz datotek `.daq` (privzeto: izklopljeno)
 * **Izpostavljenostni pin 1/2**: Dodeli kamere izpostavljenostnim pinom za konfiguracije z dvema kamerama
 
@@ -105,7 +114,9 @@ Nastavite, katere vegetacijske indekse želite izračunati in izvoziti. Spustni 
 3. Nastavite vizualizacijske nastavitve (barve LUT, vrednostna območja)
 4. Po potrebi dodajte več indeksov
 
-**Priljubljeni indeksi:*** **NDVI**: Splošno zdravstveno stanje vegetacije (najpogostejši)
+**Priljubljeni indeksi:**
+
+* **NDVI**: Splošno zdravstveno stanje vegetacije (najpogostejši)
 * **NDRE**: Zgodnje odkrivanje stresa z RedEdge
 * **GNDVI**: Občutljiv na koncentracijo klorofila
 * **OSAVI**: Dobro deluje pri vidni tleh
@@ -217,7 +228,11 @@ Nastavitev **»Delovni imenik«** določa, kje se novi projekti privzeto ustvarj
 3. Po potrebi nastavite**»Časovni zamik svetlobnega senzorja«** (privzeto: 0 za UTC)
 4. Kamere dodelite priključnim točkam za osvetlitev:
    * **Ena kamera**: samodejno dodeljena priključni točki 1
-   * **Dve kameri**: vsako kamero ročno dodelite ustrezni priključni točki**Dodelitev priključkov za osvetlitev:*** **Priključek za osvetlitev 1**: Iz spustnega menija izberite model kamere
+   * **Dve kameri**: vsako kamero ročno dodelite ustrezni priključni točki
+
+**Dodelitev priključkov za osvetlitev:**
+
+* **Priključek za osvetlitev 1**: Iz spustnega menija izberite model kamere
 * **Priključek za osvetlitev 2**: Izberite drugo kamero ali »Ne uporabljaj«
 * Iste kamere ni mogoče dodeliti obema priključkoma
 

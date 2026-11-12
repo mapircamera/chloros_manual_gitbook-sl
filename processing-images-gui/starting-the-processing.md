@@ -79,7 +79,11 @@ Chloros deluje v dveh različnih načinih obdelave, odvisno od vaše licence:
 1. **Zaznavanje** (nit 1) – Iskanje kalibracijskih ciljev
 2. **Analiza** (nit 2) – Preučevanje metapodatkov slike in izračun kalibracije
 3. **Kalibracija** (nit 3) – Odstranjevanje bayerjevega vzorca, popravljanje vinjetiranja, kalibracija, izračun indeksa
-4. **Izvoz** (nit 4) – Shranjevanje obdelanih slik in indeksov**Uporaba kazalca napredka:*** **Premaknite miško** nad kazalec, da se prikaže podrobni spustni meni s 4 stopnjami
+4. **Izvoz** (nit 4) – Shranjevanje obdelanih slik in indeksov
+
+**Uporaba kazalca napredka:**
+
+* **Premaknite miško** nad kazalec, da se prikaže podrobni spustni meni s 4 stopnjami
 * **Kliknite** na kazalec napredka, da se spustni meni fiksira na mestu
 * **Kliknite še enkrat**, da se fiksiranje prekliče in meni skrije**Čas obdelave:**
 
@@ -117,7 +121,9 @@ Chloros deluje v dveh različnih načinih obdelave, odvisno od vaše licence:
 
 ### Faza 3: Kalibracija
 
-**Kaj počne Chloros:*** **Popravek vinjetiranja**: Odstrani potemnitev robov zaradi objektiva
+**Kaj počne Chloros:**
+
+* **Popravek vinjetiranja**: Odstrani potemnitev robov zaradi objektiva
 * **Kalibracija odbojnosti**: Normalizira z uporabo ciljnih vrednosti odbojnosti in/ali podatkov o navzdolnem sevanju iz sistema DAQ
 * Uporabi popravke za vse pasove/kanale
 * Za vsako sliko uporabi ustrezno kalibracijsko referenco na podlagi časovnega žiga

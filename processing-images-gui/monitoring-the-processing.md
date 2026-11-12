@@ -28,7 +28,11 @@ Za uporabnike z licenco Chloros+:
 1.**Zaznavanje** – iskanje kalibracijskih ciljev
 2. **Analiza** – pregledovanje slik in priprava procesnega toka
 3. **Kalibracija** – Uporaba popravkov vinjete in odbojnosti
-4. **Izvoz** – Shranjevanje obdelanih datotek**Interaktivne funkcije:*** **Preletite z miško** nad kazalnikom napredka, da se prikaže razširjen 4-stopenjski panel
+4. **Izvoz** – Shranjevanje obdelanih datotek
+
+**Interaktivne funkcije:**
+
+* **Preletite z miško** nad kazalnikom napredka, da se prikaže razširjen 4-stopenjski panel
 * **Kliknite** na kazalnik napredka, da zamrznete/pritrdite razširjeni panel
 * **Kliknite še enkrat**, da razmrzite in se panel samodejno skrije ob umiku miške
 * Vsaka faza prikazuje posamezen napredek (0–100 %)
@@ -92,7 +96,9 @@ Za uporabnike z licenco Chloros+:
 
 ### Faza 3: Kalibracija
 
-**Kaj se dogaja:*** **Debayering**: Pretvorba RAW-vzorca Bayer v 3 kanale (preskoči se za mono module LATTICE, z opombo)
+**Kaj se dogaja:**
+
+* **Debayering**: Pretvorba RAW-vzorca Bayer v 3 kanale (preskoči se za mono module LATTICE, z opombo)
 * **Korekcija vinjetiranja**: Odstranjevanje potemnjenja na robovih objektiva
 * **Kalibracija odbojnosti**: Normalizacija s ciljnimi vrednostmi in/ali DAQ-ovim zmanjšanjem
 * **Izračun indeksov**: Izračun multispektralnih indeksov
@@ -104,7 +110,9 @@ Za uporabnike z licenco Chloros+:
 * Trenutna slika v obdelavi
 * Obdelane slike / Skupno število slik
 
-**Način obdelave:*** **Prosti način**: Zaporedno obdeluje po eno sliko naenkrat
+**Način obdelave:**
+
+* **Prosti način**: Zaporedno obdeluje po eno sliko naenkrat
 * **Način Chloros+**: Upravlja s skupino delavcev, ki se prilagaja strojni opremi – 1–4 sočasnih delavcev na sistemih z grafičnimi procesorji (glede na VRAM), en delavec na fizično jedro (minus eno) na sistemih, ki uporabljajo samo procesorje. Glej [Dinamično prilagajanje računalniške moči](../processing-architecture/dynamic-compute-adaptation.md)
 * **Pospešitev z GPU**: znatno pospeši to fazo**Na kaj je treba paziti:**
 
